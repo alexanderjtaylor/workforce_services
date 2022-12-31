@@ -1,0 +1,22 @@
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
+from .models import Employee
+from .models import Paycheck
+from .serializers import PaycheckSerializer
+from django.shortcuts import get_object_or_404
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def paycheck_home(request, fk):
+    paycheck = get_object_or_404(Paycheck, fk=fk)
+    serializer = PaycheckSerializer(paycheck)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def paycheck_display(request, pk):
+    paycheck = get_object_or_404(Paycheck, pk=pk)
+    serializer = PaycheckSerializer(paycheck)
+    return Response(serializer.data)

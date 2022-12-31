@@ -20,4 +20,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('authentication.urls')),
     path('api/cars/', include('cars.urls')),
+    path('employees/', include('employees.urls')),
+    path('employers/', include('employers.urls')),
+    path('clock-in', include('clock.urls')),
+    path('paychecks', include('paychecks.urls')),
+    path('available-time-off', include('available_time_off.urls')),
+    path('shifts', include('shift.urls')),
 ]
