@@ -9,4 +9,4 @@ class Employee(models.Model):
     address = models.CharField(max_length=255)
     phoneNumber = models.CharField(max_length=30)
     jobTitle = models.CharField(max_length=50)
-    yearsWithCompany = models.ImageField()
+    yearsWithCompany = models.IntegerField()
