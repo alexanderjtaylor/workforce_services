@@ -6,6 +6,9 @@ from .models import Employee
 from .serializers import EmployeeSerializer
 from django.shortcuts import get_object_or_404
 
+@api_view(['GET'])
+def test_try(request):
+    return Response('ok')
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
