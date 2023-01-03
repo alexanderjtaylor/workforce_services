@@ -18,10 +18,10 @@ def view_shifts(request):
 @permission_classes([IsAuthenticated])
 def set_schedule(request, pk):
     shift = get_object_or_404(shift, pk=pk)
-    if request.method == 'GET':
-        serializer = ShiftSerializer(shift)
-        return Response(serializer.data)
-    elif request.method == 'POST':
+    #if request.method == 'GET':
+        #serializer = ShiftSerializer(shift)
+        #return Response(serializer.data)
+    if request.method == 'POST':
         serializer = ShiftSerializer(data=request.data)
         serializer.is_valid()
         serializer.save(shift=request.shift)

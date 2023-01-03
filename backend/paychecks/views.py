@@ -7,12 +7,12 @@ from .serializers import PaycheckSerializer
 from django.shortcuts import get_object_or_404
 
 
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def paycheck_home(request, fk):
-    paycheck = get_object_or_404(Paycheck, fk=fk)
-    serializer = PaycheckSerializer(paycheck)
-    return Response(serializer.data)
+#@api_view(['GET'])
+#@permission_classes([IsAuthenticated])
+#def paycheck_home(request, fk):
+    #paycheck = get_object_or_404(Paycheck, fk=fk)
+    #serializer = PaycheckSerializer(paycheck)
+    #return Response(serializer.data)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
