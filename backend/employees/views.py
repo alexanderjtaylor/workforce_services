@@ -21,8 +21,6 @@ def get_all_employees(request):
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def search_employees(request):
-    print(
-        'Employee ', f"{request.employee.id} {request.employee.firstName} {request.employee.lastName} {request.employee.jobTitle} {request.employee.yearsWithCompany} {request.employee.dob} {request.employee.address} {request.employee.phoneNumber}")
     if request.method == 'POST':
         serializer = EmployeeSerializer(data=request.data)
         if serializer.is_valid():
@@ -30,6 +28,7 @@ def search_employees(request):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'GET':
+        print('Employee ', f"{request.employee.id} {request.employee.firstName} {request.employee.lastName} {request.employee.employer} {request.employee.jobTitle} {request.employee.yearsWithCompany} {request.employee.dob} {request.employee.address} {request.employee.phoneNumber}")
         employees = Employee.objects.filter(employee_id=request.employee.id)
         serializer = EmployeeSerializer(employees, many=True)
         return Response(serializer.data)

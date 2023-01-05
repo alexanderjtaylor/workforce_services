@@ -4,5 +4,5 @@ from .models import Employer
 class EmployerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employer
-        fields = ['id', 'companyName', 'numberOfEmployees']
+        fields = ['id', 'companyName']
         depth = 1
