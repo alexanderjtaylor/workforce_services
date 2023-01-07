@@ -17,15 +17,16 @@ def view_shifts(request):
 @api_view(['POST', 'PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def set_schedule(request, pk):
-    shift = get_object_or_404(shift, pk=pk)
-    #if request.method == 'GET':
-        #serializer = ShiftSerializer(shift)
-        #return Response(serializer.data)
-    if request.method == 'POST':
+    shift = get_object_or_404(Shift, pk=pk)
+    if request.method == 'GET':
+        serializer = ShiftSerializer(shift)
+        return Response(serializer.data)
+    elif request.method == 'POST':
         serializer = ShiftSerializer(data=request.data)
-        serializer.is_valid()
-        serializer.save(shift=request.shift)
-        return Response(serializer.data, status=status.HTTP_201_CREATED)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     elif request.method == 'PUT':
         serializer = ShiftSerializer(shift, data=request.data)
         serializer.is_valid(raise_exception=True)
