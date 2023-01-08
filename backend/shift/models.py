@@ -4,10 +4,10 @@ from employees.models import Employee
 class Shift(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
     workDate = models.DateField()
-    scheduledStart = models.TimeField()
-    scheduledEnd = models.TimeField()
-    actualStart = models.TimeField()
-    actualEnd = models.TimeField()
+    scheduledStart = models.DateTimeField()
+    scheduledEnd = models.DateTimeField()
+    actualStart = models.DateTimeField()
+    actualEnd = models.DateTimeField()
     isHoliday = models.BooleanField()
     isClockedIn = models.BooleanField()
     

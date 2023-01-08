@@ -14,24 +14,38 @@ def view_shifts(request):
     serializer = ShiftSerializer(shifts, many=True)
     return Response(serializer.data)
 
-@api_view(['POST', 'PUT', 'DELETE'])
+@api_view(['PUT', 'DELETE'])
 @permission_classes([IsAuthenticated])
-def set_schedule(request, pk):
+def edit_schedule(request, pk):
     shift = get_object_or_404(Shift, pk=pk)
-    if request.method == 'GET':
-        serializer = ShiftSerializer(shift)
-        return Response(serializer.data)
-    elif request.method == 'POST':
-        serializer = ShiftSerializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'PUT':
+    if request.method == 'PUT':
         serializer = ShiftSerializer(shift, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
     elif request.method == 'DELETE':
         shift.delete()
-        return Response(status = status.HTTP_204_NO_CONTENT)
+        return Response(status = status.HTTP_204_NO_CONTENT)   
+    
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def see_schedule(request, fk):
+#     shift = get_object_or_404(Shift, fk=fk)
+#     if request.method == 'GET':
+#         serializer = ShiftSerializer(shift, many=True)
+#         return Response(serializer.data)
+    
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def set_schedule(request, pk):
+    if request.method == 'POST':
+        serializer = ShiftSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+
+
+#Instant instant = Instant.now() ;

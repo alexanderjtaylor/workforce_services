@@ -3,5 +3,7 @@ from shift import views
 
 urlpatterns = [
     path('set/<int:pk>', views.set_schedule),
-    path('view-schedule/', views.view_shifts),
+    path('edit/<int:pk>', views.edit_schedule),
+    #path('view-schdule/<int:fk>', views.see_schedule),
+    path('view-all-shifts/', views.view_shifts),
 ]
