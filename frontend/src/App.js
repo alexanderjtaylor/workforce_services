@@ -6,6 +6,8 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import AddEmployeePage from "./pages/AddEmployeePage/AddEmployeePage";
+import EmployerHomePage from "./pages/EmployerHomePage/EmployerHomePage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -23,16 +25,17 @@ function App() {
           path="/"
           element={
             <PrivateRoute>
-              <HomePage />
+              <EmployerHomePage />
             </PrivateRoute>
           }
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/add-employee" element={<PrivateRoute><AddEmployeePage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>
   );
-}
+};
 
 export default App;
