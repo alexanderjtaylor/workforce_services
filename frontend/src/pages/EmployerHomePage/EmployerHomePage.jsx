@@ -14,7 +14,7 @@ const EmployerHomePage = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        let response = await axios.get("http://127.0.0.1:8000/api/cars/", {
+        let response = await axios.get("http://127.0.0.1:8000/employees/all/", {
           headers: {
             Authorization: "Bearer " + token,
           },
