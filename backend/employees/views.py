@@ -7,10 +7,6 @@ from .serializers import EmployeeSerializer
 from django.shortcuts import get_object_or_404
 
 @api_view(['GET'])
-def test_try(request):
-    return Response('ok')
-
-@api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_all_employees(request):
     employees = Employee.objects.all()
@@ -18,7 +14,7 @@ def get_all_employees(request):
     return Response(serializer.data)
 
 
-@api_view(['GET', 'POST'])
+@api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def search_employees(request):
     if request.method == 'POST':
@@ -27,7 +23,7 @@ def search_employees(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    elif request.method == 'GET':
+    #elif request.method == 'GET':
         print('Employee ', f"{request.employee.id} {request.employee.firstName} {request.employee.lastName} {request.employee.employer} {request.employee.jobTitle} {request.employee.yearsWithCompany} {request.employee.dob} {request.employee.address} {request.employee.phoneNumber}")
         employees = Employee.objects.filter(employee_id=request.employee.id)
         serializer = EmployeeSerializer(employees, many=True)
@@ -48,3 +44,11 @@ def employee_details(request, pk):
     elif request.method == 'DELETE':
         employee.delete()
         return Response(status = status.HTTP_204_NO_CONTENT)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_employers_employees(request, employer_id):
+    employees = Employee.objects.filter(employer_id=employer_id)
+    if request.method == 'GET':
+        serializer = EmployeeSerializer(employees, many=True)
+        return Response(serializer.data)
