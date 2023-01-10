@@ -27,14 +27,6 @@ def edit_schedule(request, pk):
         shift.delete()
         return Response(status = status.HTTP_204_NO_CONTENT)   
     
-# @api_view(['GET'])
-# @permission_classes([IsAuthenticated])
-# def see_schedule(request, fk):
-#     shift = get_object_or_404(Shift, fk=fk)
-#     if request.method == 'GET':
-#         serializer = ShiftSerializer(shift, many=True)
-#         return Response(serializer.data)
-    
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def set_schedule(request, pk):
@@ -45,7 +37,13 @@ def set_schedule(request, pk):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get__all_shifts_for_employee(request, employee_id):
+    shifts = Shift.objects.filter(employee_id=employee_id)
+    if request.method == 'GET':
+        serializer = ShiftSerializer(shifts, many=True)
+        return Response(serializer.data)
 
 
 #Instant instant = Instant.now() ;
