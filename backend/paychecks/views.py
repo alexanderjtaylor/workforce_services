@@ -22,6 +22,14 @@ def paycheck_display(request, pk):
     serializer = PaycheckSerializer(paycheck)
     return Response(serializer.data)
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get__all_paychecks_for_employee(request, employee_id):
+    paychecks = Paycheck.objects.filter(employee_id=employee_id)
+    if request.method == 'GET':
+        serializer = PaycheckSerializer(paychecks, many=True)
+        return Response(serializer.data)
+
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def create_paycheck(request):
