@@ -4,6 +4,6 @@ from .models import Employee
 class EmployeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Employee
-        fields = ['id', 'firstName', 'lastName', 'dob', 'address', 'phoneNumber', 'jobTitle', 'yearsWithCompany', 'employer', 'employer_id']
+        fields = ['id', 'firstName', 'lastName', 'dob', 'address', 'phoneNumber', 'jobTitle', 'yearsWithCompany', 'sickTime', 'vacationTime', 'employer', 'employer_id']
         depth = 1
     employer_id = serializers.IntegerField(write_only=True)

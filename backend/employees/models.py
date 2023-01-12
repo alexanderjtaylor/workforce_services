@@ -10,3 +10,5 @@ class Employee(models.Model):
     phoneNumber = models.CharField(max_length=30)
     jobTitle = models.CharField(max_length=50)
     yearsWithCompany = models.IntegerField()
+    sickTime = models.DecimalField(max_digits=8, decimal_places=2, default=40.00)
+    vacationTime = models.DecimalField(max_digits=8, decimal_places=2, default=40.00)
