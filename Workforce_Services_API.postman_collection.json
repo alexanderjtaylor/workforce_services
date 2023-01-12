@@ -254,8 +254,12 @@
 				},
 				"method": "DELETE",
 				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/employees/edit/4",
+					"raw": "http://127.0.0.1:8000/employees/edit/3",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -267,7 +271,7 @@
 					"path": [
 						"employees",
 						"edit",
-						"4"
+						"3"
 					]
 				}
 			},
