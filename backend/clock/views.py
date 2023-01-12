@@ -6,16 +6,16 @@ from .models import Clock
 from .serializers import ClockSerializer
 from django.shortcuts import get_object_or_404
 
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def get_all_time_punches(request):
-    time_punches = Clock.objects.all()
-    serializer = ClockSerializer(time_punches, many=True)
-    return Response(serializer.data)
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def get_all_time_punches(request):
+#     time_punches = Clock.objects.all()
+#     serializer = ClockSerializer(time_punches, many=True)
+#     return Response(serializer.data)
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get__all_punches_for_employee(request, employee_id):
+def get_all_punches_for_employee(request, employee_id):
     punches = Clock.objects.filter(employee_id=employee_id)
     if request.method == 'GET':
         serializer = ClockSerializer(punches, many=True)

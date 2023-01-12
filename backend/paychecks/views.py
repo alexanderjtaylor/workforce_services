@@ -31,7 +31,7 @@ def get__all_paychecks_for_employee(request, employee_id):
         return Response(serializer.data)
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])#IsAdminUser
 def create_paycheck(request):
     if request.method == 'POST':
         serializer = PaycheckSerializer(data=request.data)

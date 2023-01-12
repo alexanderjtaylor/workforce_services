@@ -1,21 +1,29 @@
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import api_view, permission_classes
 from .models import Employee
 from .serializers import EmployeeSerializer
 from django.shortcuts import get_object_or_404
 
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def get_all_employees(request):
+#     employees = Employee.objects.all()
+#     serializer = EmployeeSerializer(employees, many=True)
+#     return Response(serializer.data)
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_all_employees(request):
-    employees = Employee.objects.all()
-    serializer = EmployeeSerializer(employees, many=True)
-    return Response(serializer.data)
+def employee_details(request, pk):
+    employee = get_object_or_404(Employee, pk=pk)
+    if request.method == 'GET':
+        serializer = EmployeeSerializer(employee)
+        return Response(serializer.data)
 
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAdminUser])#IsAdminUser
 def search_employees(request):
     if request.method == 'POST':
         serializer = EmployeeSerializer(data=request.data)
@@ -29,13 +37,10 @@ def search_employees(request):
         serializer = EmployeeSerializer(employees, many=True)
         return Response(serializer.data)
     
-@api_view(['GET', 'PUT', 'DELETE'])
-@permission_classes([IsAuthenticated])
-def employee_details(request, pk):
+@api_view(['PUT', 'DELETE'])
+@permission_classes([IsAdminUser])#IsAdminUser
+def edit_delete_employee(request, pk):
     employee = get_object_or_404(Employee, pk=pk)
-    if request.method == 'GET':
-        serializer = EmployeeSerializer(employee)
-        return Response(serializer.data)
     if request.method == 'PUT':
         serializer = EmployeeSerializer(employee, data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -46,7 +51,7 @@ def employee_details(request, pk):
         return Response(status = status.HTTP_204_NO_CONTENT)
     
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated])#IsAdminUser
 def get_employers_employees(request, employer_id):
     employees = Employee.objects.filter(employer_id=employer_id)
     if request.method == 'GET':

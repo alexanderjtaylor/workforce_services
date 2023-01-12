@@ -13,6 +13,8 @@ let InitialValues = {
     phoneNumber: "",
     jobTitle: "",
     yearsWithCompany: "",
+    sickTime: "",
+    vacationTime: "",
 };
 
 const AddEmployeePage = () => {
@@ -69,6 +71,14 @@ const AddEmployeePage = () => {
             <label>
                 Years with Company:{" "}
                 <input type="text" name="yearsWithCompany" value={formData.yearsWithCompany} onChange={handleInputChange}/>
+            </label>
+            <label>
+                Sick Time:{" "}
+                <input type="text" name="sickTime" value={formData.sickTime} onChange={handleInputChange}/>
+            </label>
+            <label>
+                Vacation Time:{" "}
+                <input type="text" name="vacationTime" value={formData.vacationTime} onChange={handleInputChange}/>
             </label>
             <button>Add Employee</button>
         </form>
