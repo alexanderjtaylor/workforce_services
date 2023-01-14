@@ -1,6 +1,6 @@
 from rest_framework import status
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated, AllowAny
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import api_view, permission_classes
 from .models import Employee
 from .models import Shift
@@ -14,8 +14,23 @@ from django.shortcuts import get_object_or_404
 #     serializer = ShiftSerializer(shifts, many=True)
 #     return Response(serializer.data)
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_all_shifts_for_employee(request, employee_id):
+    shifts = Shift.objects.filter(employee_id=employee_id)
+    if request.method == 'GET':
+        serializer = ShiftSerializer(shifts, many=True)
+        return Response(serializer.data)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_shift_by_shift_id(request, pk):
+    shift = get_object_or_404(Shift, pk=pk)
+    serializer = ShiftSerializer(shift)
+    return Response(serializer.data)
+
 @api_view(['PUT', 'DELETE'])
-@permission_classes([IsAuthenticated])#IsAdminUser
+@permission_classes([IsAdminUser])
 def edit_schedule(request, pk):
     shift = get_object_or_404(Shift, pk=pk)
     if request.method == 'PUT':
@@ -28,7 +43,7 @@ def edit_schedule(request, pk):
         return Response(status = status.HTTP_204_NO_CONTENT)   
     
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])#IsAdminUser
+@permission_classes([IsAdminUser])
 def set_schedule(request, pk):
     if request.method == 'POST':
         serializer = ShiftSerializer(data=request.data)
@@ -36,14 +51,5 @@ def set_schedule(request, pk):
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-@api_view(['GET'])
-@permission_classes([IsAuthenticated])
-def get_all_shifts_for_employee(request, employee_id):
-    shifts = Shift.objects.filter(employee_id=employee_id)
-    if request.method == 'GET':
-        serializer = ShiftSerializer(shifts, many=True)
-        return Response(serializer.data)
-
 
 #Instant instant = Instant.now() ;

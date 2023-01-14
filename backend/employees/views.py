@@ -24,7 +24,7 @@ def employee_details(request, pk):
 
 @api_view(['POST'])
 @permission_classes([IsAdminUser])
-def search_employees(request):
+def create_employee(request):
     if request.method == 'POST':
         serializer = EmployeeSerializer(data=request.data)
         if serializer.is_valid():
@@ -51,7 +51,7 @@ def edit_delete_employee(request, pk):
         return Response(status = status.HTTP_204_NO_CONTENT)
     
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])#IsAdminUser
+@permission_classes([IsAdminUser])
 def get_employers_employees(request, employer_id):
     employees = Employee.objects.filter(employer_id=employer_id)
     if request.method == 'GET':

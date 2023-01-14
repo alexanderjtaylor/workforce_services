@@ -2,7 +2,7 @@ from django.urls import path, include
 from employees import views
 
 urlpatterns = [
-    path('search/', views.search_employees),
+    path('create/', views.create_employee),
     path('<int:pk>', views.employee_details),
     path('edit/<int:pk>', views.edit_delete_employee),
     #path('all/', views.get_all_employees),

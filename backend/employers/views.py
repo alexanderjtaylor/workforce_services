@@ -9,7 +9,7 @@ from django.shortcuts import get_object_or_404
 
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])#IsAdminUser
+@permission_classes([IsAuthenticated])
 def employer_details(request, pk):
     employee_count = Employee.objects.filter(employer_id=pk).count()
     employer = get_object_or_404(Employer, pk=pk)
@@ -22,7 +22,7 @@ def employer_details(request, pk):
         return Response(custom_response)
     
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])#IsAdminUser
+@permission_classes([IsAdminUser])
 def create_employer(request):
     serializer = EmployerSerializer(data=request.data)
     if serializer.is_valid():
@@ -31,7 +31,7 @@ def create_employer(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 @api_view(['DELETE'])
-@permission_classes([IsAuthenticated])#IsAdminUser
+@permission_classes([IsAdminUser])
 def delete_employer(request, pk):
     employee = get_object_or_404(Employer, pk=pk)
     employee.delete()

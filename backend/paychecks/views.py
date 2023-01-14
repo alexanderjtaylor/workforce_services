@@ -1,6 +1,6 @@
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import api_view, permission_classes
 from .models import Employee
 from .models import Paycheck
@@ -31,7 +31,7 @@ def get__all_paychecks_for_employee(request, employee_id):
         return Response(serializer.data)
 
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])#IsAdminUser
+@permission_classes([IsAdminUser])
 def create_paycheck(request):
     if request.method == 'POST':
         serializer = PaycheckSerializer(data=request.data)
