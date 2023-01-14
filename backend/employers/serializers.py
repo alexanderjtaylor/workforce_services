@@ -6,4 +6,4 @@ class EmployerSerializer(serializers.ModelSerializer):
         model = Employer
         fields = ['id', 'companyName', 'user', 'user_id']
         depth = 1
-        
+    user_id = serializers.IntegerField(write_only=True)

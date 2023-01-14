@@ -1,8 +1,10 @@
 from django.db import models
+from authentication.models import User
 from employers.models import Employer
 
 class Employee(models.Model):
     employer = models.ForeignKey(Employer, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     firstName = models.CharField(max_length=50)
     lastName = models.CharField(max_length=50)
     dob = models.DateField()

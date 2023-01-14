@@ -23,7 +23,7 @@ def employee_details(request, pk):
 
 
 @api_view(['POST'])
-@permission_classes([IsAdminUser])#IsAdminUser
+@permission_classes([IsAdminUser])
 def search_employees(request):
     if request.method == 'POST':
         serializer = EmployeeSerializer(data=request.data)
@@ -38,7 +38,7 @@ def search_employees(request):
         return Response(serializer.data)
     
 @api_view(['PUT', 'DELETE'])
-@permission_classes([IsAdminUser])#IsAdminUser
+@permission_classes([IsAdminUser])
 def edit_delete_employee(request, pk):
     employee = get_object_or_404(Employee, pk=pk)
     if request.method == 'PUT':
