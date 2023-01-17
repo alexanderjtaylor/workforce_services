@@ -25,7 +25,7 @@ const AddEmployeePage = () => {
 
     async function postNewEmployee(){
         try {
-            let response = await axios.post("http://127.0.0.1:8000/employees/search/", formData, {
+            let response = await axios.post("http://127.0.0.1:8000/employees/create/", formData, {
                 headers: {
                     Authorization: 'Bearer ' + token,
                 },

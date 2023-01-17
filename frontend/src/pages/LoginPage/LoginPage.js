@@ -4,6 +4,28 @@ import useCustomForm from "../../hooks/useCustomForm";
 import { Link } from "react-router-dom";
 import "./LoginPage.css";
 
+
+import { Routes, Route } from "react-router-dom";
+import "./App.css";
+
+// Pages Imports
+import HomePage from "./pages/HomePage/HomePage";
+import LoginPage from "./pages/LoginPage/LoginPage";
+import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import AddEmployeePage from "./pages/AddEmployeePage/AddEmployeePage";
+import EmployerHomePage from "./pages/EmployerHomePage/EmployerHomePage";
+import EmployeeHomePage from "../EmployeeHomePage/EmployeeHomePage";
+
+// Component Imports
+import Navbar from "./components/NavBar/NavBar";
+import Footer from "./components/Footer/Footer";
+
+// Util Imports
+import PrivateRoute from "./utils/PrivateRoute";
+
+
+
+
 const LoginPage = () => {
   const { loginUser, isServerError } = useContext(AuthContext);
   const defaultValues = { username: "", password: "" };
@@ -43,10 +65,55 @@ const LoginPage = () => {
           <p className="error">Login failed, incorrect credentials!</p>
         ) : null}
         <Link to="/register">Click to register!</Link>
-        <button>Login!</button>
+        <button>Login</button>
       </form>
     </div>
   );
 };
 
 export default LoginPage;
+
+
+
+function UserEmployer(props) {
+  return <div>
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <EmployerHomePage />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+  </div>;
+}
+
+function UserEmployee(props) {
+  return <div>
+      <Navbar />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <PrivateRoute>
+              <EmployeeHomePage />
+            </PrivateRoute>
+          }
+        />
+      </Routes>
+  </div>;
+}
+
+function UserIs(props) {
+  const isEmployer = props.isEmployer;
+  if (isEmployer) {
+    return <UserEmployer />;
+  }
+  return <UserEmployee />;
+}
+
+const userroot = ReactDOM.createRoot(document.getElementById('userroot')); 
+userroot.render(<UserIs isEmployer={true} />);
