@@ -5,12 +5,9 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 const EmployerHomePage = () => {
-  // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
-  // The "token" value is the JWT token that you will send in the header of any request requiring authentication
-  //TODO: Add an AddCars Page to add a car for a logged in user's garage
   const [user, token] = useAuth();
   const [employees, setEmployees] = useState([]);
-  const [employer, setEmployer] = useState([]);
+  // const [employer, setEmployer] = useState([]);
 
   useEffect(() => {
     const fetchEmployees = async () => {
