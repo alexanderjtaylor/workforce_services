@@ -10,27 +10,16 @@ const HomePage = () => {
   const [user, token] = useAuth();
   const [cars, setCars] = useState([]);
 
-  useEffect(() => {
-      
-    function AdminGreeting(props) {
-      return <h1>Welcome {user.username}</h1>;
-    }
-    
-    function UserGreeting(props) {
-      return <h1>Welcome {user.first_name}</h1>;
-    }
-
-    function Greeting(props) {
-      const is_staff = props.is_staff;
-      if (is_staff) {
-        return <AdminGreeting />;
-      }
-      return <UserGreeting />;
-    }})
-
-    const root = ReactDOM.createRoot(document.getElementById('root')); 
-    root.render(<Greeting is_staff={true}/>);    
-
+  return(
+    <>
+    {console.log(user)}
+    {user.is_staff ? (
+            <h1>Welcome {user.username}!</h1>
+          ) : (
+            <h1>Welcome {user.first_name}</h1> 
+          )}
+    </>
+  )
 }
 
 export default HomePage;
@@ -64,3 +53,29 @@ export default HomePage;
 //     </div>
 //   );
 // };
+
+
+
+
+//   useEffect(() => {
+      
+//     function AdminGreeting(props) {
+//       return <h1>Welcome {user.username}</h1>;
+//     }
+    
+//     function UserGreeting(props) {
+//       return <h1>Welcome {user.first_name}</h1>;
+//     }
+
+//     function Greeting(props) {
+//       const is_staff = props.is_staff;
+//       if (is_staff) {
+//         return <AdminGreeting />;
+//       }
+//       return <UserGreeting />;
+//     }})
+
+//     const root = ReactDOM.createRoot(document.getElementById('root')); 
+//     root.render(<Greeting is_staff={true}/>);    
+
+// }

@@ -15,6 +15,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         token["username"] = user.username
         token["first_name"] = user.first_name
+        token["is_staff"] = user.is_staff
 
         return token
 
@@ -40,6 +41,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
+            is_staff=validated_data['is_staff'],
 
             # If added new columns through the User model, add them in this
             # create method. Example below:
