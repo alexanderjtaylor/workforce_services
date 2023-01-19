@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import {StrictMode} from 'react';
 import {createRoot} from "react-dom";
+import EmployerHomePage from "../EmployerHomePage/EmployerHomePage";
 
 
 const HomePage = () => {
@@ -14,7 +15,7 @@ const HomePage = () => {
     <>
     {console.log(user)}
     {user.is_staff ? (
-            <h1>Welcome {user.username}!</h1>
+            <EmployerHomePage/>
           ) : (
             <h1>Welcome {user.first_name}</h1> 
           )}

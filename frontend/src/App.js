@@ -30,7 +30,6 @@ function App() {
           }
         />
         <Route path="/register" element={<RegisterPage />} />
-        <Route path="/homepage" element={<PrivateRoute><HomePage /></PrivateRoute>} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/add-employee" element={<PrivateRoute><AddEmployeePage /></PrivateRoute>} />
       </Routes>

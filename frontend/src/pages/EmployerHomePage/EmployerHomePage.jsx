@@ -12,7 +12,7 @@ const EmployerHomePage = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        let response = await axios.get("http://127.0.0.1:8000/employees/5/employees", {
+        let response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}/employees`, {
           headers: {
             Authorization: "Bearer " + token,
           },
@@ -27,13 +27,12 @@ const EmployerHomePage = () => {
   return (
     <div className="container">
       <h1>Welcome {user.username}</h1>
-      <Link to="/add-employee">Add Employee</Link>
       {employees &&
         employees.map((employee) => (
           <p key={employees.id}>
-            {employee.firstName} {employee.lastName} {employee.jobTitle}
-          </p>
-        ))}
+            {employee.firstName} {employee.lastName} {employee.dob} {employee.address} {employee.phoneNumber} {employee.employer.companyName} {employee.jobTitle} {employee.yearsWithCompany} {employee.sickTime} {employee.vacationTime}
+          </p>))}
+      <Link to="/add-employee">Add Employee</Link>
     </div>
   );
 };
