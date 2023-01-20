@@ -29,6 +29,9 @@ const EmployeeHomePage = () => {
           <p key={employee.id}>
             {employee.firstName} {employee.lastName} {employee.dob} {employee.address} {employee.phoneNumber} {employee.jobTitle} {employee.yearsWithCompany} {employee.sickTime} {employee.vacationTime}
           </p>
+      <Link to="/schedule">Schedule</Link>
+      <Link to="/paycheck">Paycheck</Link>
+      <Link to="/time-off">Time Off</Link>
     </div>
   );
 };

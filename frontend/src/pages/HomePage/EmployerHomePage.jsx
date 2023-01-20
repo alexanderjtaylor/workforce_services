@@ -32,7 +32,11 @@ const EmployerHomePage = () => {
           <p key={employees.id}>
             {employee.firstName} {employee.lastName} {employee.dob} {employee.address} {employee.phoneNumber} {employee.employer.companyName} {employee.jobTitle} {employee.yearsWithCompany} {employee.sickTime} {employee.vacationTime}
           </p>))}
+      <Link to="/search-employee">Search Employee</Link>
       <Link to="/add-employee">Add Employee</Link>
+      <Link to="/schedule">Schedule</Link>
+      <Link to="/paycheck">Paycheck</Link>
+      <Link to="/time-off">Time Off</Link>
     </div>
   );
 };

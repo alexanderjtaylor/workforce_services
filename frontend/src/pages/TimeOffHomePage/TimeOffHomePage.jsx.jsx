@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import {useNavigate} from "react-router-dom"
 
 
-const PaycheckHomePage = () => {
+const TimeOffHomePage = () => {
   const [user, token] = useAuth();
 
   return(
@@ -20,4 +20,4 @@ const PaycheckHomePage = () => {
   )
 }
 
-export default PaycheckHomePage;
+export default TimeOffHomePage;
