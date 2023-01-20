@@ -31,8 +31,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
         model = User
         # If added new columns through the User model, add them in the fields
         # list as seen below
-        fields = ('username', 'password', 'email',
-                  'first_name', 'last_name',)
+        fields = ('id','username', 'password', 'email',
+                  'first_name', 'last_name', 'is_staff')
 
     def create(self, validated_data):
 

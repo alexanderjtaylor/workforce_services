@@ -5,7 +5,8 @@ import useAuth from "../../hooks/useAuth";
 import {StrictMode} from 'react';
 import {createRoot} from "react-dom";
 import EmployerHomePage from "../EmployerHomePage/EmployerHomePage";
-
+import EmployeeHomePage from "../EmployeeHomePage/EmployeeHomePage";
+import SearchEmployeePage from "../SearchEmployeePage/SearchEmployeePage";
 
 const HomePage = () => {
   const [user, token] = useAuth();
@@ -15,9 +16,10 @@ const HomePage = () => {
     <>
     {console.log(user)}
     {user.is_staff ? (
-            <EmployerHomePage/>
+            // <EmployerHomePage/>
+            <SearchEmployeePage/>
           ) : (
-            <h1>Welcome {user.first_name}</h1> 
+            <EmployeeHomePage/>
           )}
     </>
   )

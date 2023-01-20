@@ -15,8 +15,8 @@ from django.shortcuts import get_object_or_404
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def employee_details(request, pk):
-    employee = get_object_or_404(Employee, pk=pk)
+def employee_details(request, user_id):
+    employee = get_object_or_404(Employee, user_id=user_id)
     if request.method == 'GET':
         serializer = EmployeeSerializer(employee)
         return Response(serializer.data)

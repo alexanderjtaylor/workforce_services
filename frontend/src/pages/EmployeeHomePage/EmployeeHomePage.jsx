@@ -11,7 +11,7 @@ const EmployeeHomePage = () => {
   useEffect(() => {
     const fetchEmployee = async () => {
       try {
-        let response = await axios.get("http://127.0.0.1:8000/employees/12", {
+        let response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}`, {
           headers: {
             Authorization: "Bearer " + token,
           },
@@ -25,13 +25,10 @@ const EmployeeHomePage = () => {
   }, [token]);
   return (
     <div className="container">
-      <h1>Welcome {user.username}</h1>
-      {employee &&
-        employee.filter((employee) => (
+      <h1>Welcome {user.first_name}</h1>
           <p key={employee.id}>
-            {employee.firstName} {employee.lastName} {employee.jobTitle}
+            {employee.firstName} {employee.lastName} {employee.dob} {employee.address} {employee.phoneNumber} {employee.jobTitle} {employee.yearsWithCompany} {employee.sickTime} {employee.vacationTime}
           </p>
-        ))}
     </div>
   );
 };
