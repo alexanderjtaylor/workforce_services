@@ -4,16 +4,14 @@ import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function EmployerHomePage(){
+function SetSchedulePage(){
 
   const [user, token] = useAuth();
   const [employees, setEmployees] = useState([]);
   const [employer, setEmployer] = useState([]);
-  // const [employer, setEmployer] = useState([]);
 
   useEffect(() => {
     fetchEmployees();
-    // fetchEmployer();
   }, [token]);
 
   async function fetchEmployees(){
@@ -23,14 +21,6 @@ function EmployerHomePage(){
       },
     });
     setEmployees(response.data);}
-
-    // async function fetchEmployer(){
-    //   const response = await axios.get(`http://127.0.0.1:8000/employers/${user.id}`, {
-    //     headers: {
-    //       Authorization: "Bearer " + token,
-    //     },
-    //   });
-    //   setEmployer(response.data);}
 
 
   return (
@@ -46,4 +36,4 @@ function EmployerHomePage(){
   );
 };
 
-export default EmployerHomePage;
+export default SetSchedulePage;
