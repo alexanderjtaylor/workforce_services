@@ -4,21 +4,20 @@ import axios from 'axios';
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
 
-let InitialValues = {
-    employer_id: "",
-    user_id: "",
-    firstName: "",
-    lastName: "",
-    dob: "",
-    address: "",
-    phoneNumber: "",
-    jobTitle: "",
-    yearsWithCompany: "",
-    sickTime: "",
-    vacationTime: "",
-};
-
-const AddEmployeePage = () => {
+const EditEmployeePage = (props) => {
+    let InitialValues = {
+        employer_id: `${props.employerID}`,
+        // user_id: `${props.employeeID}`,
+        firstName: `${props.employeeFirstName}`,
+        lastName: `${props.employeeLastName}`,
+        dob: `${props.employeeDOB}`,
+        address: `${props.employeeAddress}`,
+        phoneNumber: `${props.employeePhoneNumber}`,
+        jobTitle: `${props.employeeJobTitle}`,
+        yearsWithCompany: `${props.employeeYearsWithCompany}`,
+        sickTime: `${props.employeeSickTime}`,
+        vacationTime: `${props.employeeVacationTime}`,
+    };
     const [user, token] = useAuth();
     const navigate = useNavigate();
     const [formData, handleInputChange, handleSubmit] = useCustomForm(InitialValues, postNewEmployee);
@@ -26,7 +25,7 @@ const AddEmployeePage = () => {
 
     async function postNewEmployee(){
         try {
-            let response = await axios.post("http://127.0.0.1:8000/employees/create/", formData, {
+            let response = await axios.put(`http://127.0.0.1:8000/employees/edit/${props.employeeID}`, formData, {
                 headers: {
                     Authorization: 'Bearer ' + token,
                 },
@@ -45,10 +44,10 @@ const AddEmployeePage = () => {
                 Employer ID:{" "}
                 <input type="text" name="employer_id" value={formData.employer_id} onChange={handleInputChange}/>
             </label>
-            <label>
+            {/* <label>
                 Employee User ID:{" "}
                 <input type="text" name="user_id" value={formData.user_id} onChange={handleInputChange}/>
-            </label>
+            </label> */}
             <label>
                 First Name:{" "}
                 <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange}/>
@@ -85,10 +84,10 @@ const AddEmployeePage = () => {
                 Vacation Time:{" "}
                 <input type="text" name="vacationTime" value={formData.vacationTime} onChange={handleInputChange}/>
             </label>
-            <button className='add-employee-btn'>Add Employee</button>
+            <button className='edit-employee-btn'>Edit Employee</button>
         </form>
     </div>
     );
 }
 
-export default AddEmployeePage
+export default EditEmployeePage

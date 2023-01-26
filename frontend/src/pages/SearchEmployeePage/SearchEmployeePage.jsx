@@ -4,7 +4,8 @@ import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import Delete from "../../components/Delete/Delete";
+import Delete from "../../components/DeleteEmployee/DeleteEmployee";
+import EditEmployee from "../EditEmployeePage/EditEmployeePage";
 
 function SearchEmployeePage(){
   const [user, token] = useAuth();
@@ -24,7 +25,7 @@ function SearchEmployeePage(){
 
     return (
       <div className="container">
-        <SearchBar employees = {employees} setEmployees = {setEmployees}/>
+        <SearchBar employees = {employees} setEmployees = {setEmployees} fetchEmployees = {fetchEmployees}/>
         <table className='prop-tabel'>
           <thead>
             <tr>
@@ -38,6 +39,7 @@ function SearchEmployeePage(){
               <th>Years with Company</th>
               <th>Sick Time</th>
               <th>Vacation Time</th>
+              <th>Edit Employee</th>
               <th>Delete Employee</th>
             </tr>
           </thead>
@@ -55,6 +57,7 @@ function SearchEmployeePage(){
                   <td>{employee.yearsWithCompany}</td>
                   <td>{employee.sickTime}</td>
                   <td>{employee.vacationTime}</td>
+                  <Link to="/edit-employee"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeDOB = {employee.dob} employeeAddress = {employee.address} employeePhoneNumber = {employee.phoneNumber} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime} fetchEmployees = {fetchEmployees}>Edit Employee</button></Link>
                   <Delete employeeID = {employee.id} fetchEmployees = {fetchEmployees}/>
                 </tr>
               );

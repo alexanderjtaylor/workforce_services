@@ -13,6 +13,7 @@ const SearchBar = (props) => {
                 return false;
             }});
         props.setEmployees(response)
+        // props.fetchemployees()
     }
 
     return ( 
