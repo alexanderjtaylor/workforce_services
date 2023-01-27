@@ -24,6 +24,5 @@ urlpatterns = [
     path('employers/', include('employers.urls')),
     path('clock-in/', include('clock.urls')),
     path('paychecks/', include('paychecks.urls')),
-    path('available-time-off/', include('available_time_off.urls')),
     path('shifts/', include('shift.urls')),
 ]

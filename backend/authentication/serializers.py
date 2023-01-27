@@ -15,6 +15,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
         token["username"] = user.username
         token["first_name"] = user.first_name
+        token["last_name"] = user.last_name
         token["is_staff"] = user.is_staff
 
         return token
@@ -52,3 +53,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
         user.save()
 
         return user
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id','username','email','first_name','last_name','is_staff']
+        

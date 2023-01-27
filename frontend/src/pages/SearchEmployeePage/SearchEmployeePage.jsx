@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Delete from "../../components/DeleteEmployee/DeleteEmployee";
-import EditEmployee from "../EditEmployeePage/EditEmployeePage";
+import EditEmployeePage from "../EditEmployeePage/EditEmployeePage";
 
 function SearchEmployeePage(){
   const [user, token] = useAuth();
@@ -57,7 +57,7 @@ function SearchEmployeePage(){
                   <td>{employee.yearsWithCompany}</td>
                   <td>{employee.sickTime}</td>
                   <td>{employee.vacationTime}</td>
-                  <Link to="/edit-employee"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeDOB = {employee.dob} employeeAddress = {employee.address} employeePhoneNumber = {employee.phoneNumber} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime} fetchEmployees = {fetchEmployees}>Edit Employee</button></Link>
+                  <Link to={{pathname:"/edit-employee", state:{employee:true}}}><button>Edit Employee</button></Link>
                   <Delete employeeID = {employee.id} fetchEmployees = {fetchEmployees}/>
                 </tr>
               );

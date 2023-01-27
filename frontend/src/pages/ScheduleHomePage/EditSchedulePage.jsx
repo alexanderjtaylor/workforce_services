@@ -4,7 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const ViewSchedulePage = (props) => {
+const EditSchedulePage = (props) => {
 
   const [user, token] = useAuth();
   const [employeeShifts, setEmployeeShifts] = useState([]);
@@ -15,13 +15,13 @@ const ViewSchedulePage = (props) => {
     
   }, [token]);
 
-  // async function fetchEmployeeShifts(){
-  //   const response = await axios.get(`http://127.0.0.1:8000/shifts/${employee.id}/shifts`, {
-  //     headers: {
-  //       Authorization: "Bearer " + token,
-  //     },
-  //   });
-  //   setEmployeeShifts(response.data);}
+//   async function fetchEmployeeShifts(){
+//     const response = await axios.get(`http://127.0.0.1:8000/shifts/${employee.id}/shifts`, {
+//       headers: {
+//         Authorization: "Bearer " + token,
+//       },
+//     });
+//     setEmployeeShifts(response.data);}
 
 
   return (
@@ -35,4 +35,4 @@ const ViewSchedulePage = (props) => {
   );
 };
 
-export default ViewSchedulePage;
+export default EditSchedulePage;

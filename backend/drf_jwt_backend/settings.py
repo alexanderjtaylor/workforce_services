@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     'cars.apps.CarsConfig',
     'employees',
     'employers',
-    'available_time_off',
     'clock',
     'paychecks',
     'shift',

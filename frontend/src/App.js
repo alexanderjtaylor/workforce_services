@@ -10,6 +10,8 @@ import AddEmployeePage from "./pages/AddEmployeePage/AddEmployeePage";
 import EditEmployeePage from "./pages/EditEmployeePage/EditEmployeePage";
 import SearchEmployeePage from "./pages/SearchEmployeePage/SearchEmployeePage";
 import SchedulePage from "./pages/ScheduleHomePage/ScheduleHomePage";
+import SetSchedulePage from "./pages/ScheduleHomePage/SetSchedulePage";
+import ViewSchedulePage from "./pages/ScheduleHomePage/ViewSchedulePage";
 import PaycheckHomePage from "./pages/PaycheckHomePage/PaycheckHomePage";
 import TimeOffHomePage from "./pages/TimeOffHomePage/TimeOffHomePage.jsx.jsx";
 
@@ -39,6 +41,8 @@ function App() {
         <Route path="/add-employee" element={<PrivateRoute><AddEmployeePage /></PrivateRoute>} />
         <Route path="/edit-employee" element={<PrivateRoute><EditEmployeePage /></PrivateRoute>} />
         <Route path="/search-employee" element={<PrivateRoute><SearchEmployeePage /></PrivateRoute>} />
+        <Route path="/view-schedule" element={<PrivateRoute><ViewSchedulePage /></PrivateRoute>} />
+        <Route path="/set-schedule" element={<PrivateRoute><SetSchedulePage /></PrivateRoute>} />
         <Route path="/paycheck" element={<PrivateRoute><PaycheckHomePage /></PrivateRoute>} />
         <Route path="/time-off" element={<PrivateRoute><TimeOffHomePage /></PrivateRoute>} />
       </Routes>

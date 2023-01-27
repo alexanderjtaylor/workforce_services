@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import ViewSchedulePage from "./ViewSchedulePage";
 
 function SetSchedulePage(){
 
@@ -74,6 +75,9 @@ function SetSchedulePage(){
               <th>Last Name</th>
               <th>Company Name</th>
               <th>Job Title</th>
+              <th>View Schedule</th>
+              <th>Add Schedule</th>
+              <th>Edit Schedule</th>
             </tr>
           </thead>
           <tbody>
@@ -84,6 +88,7 @@ function SetSchedulePage(){
                   <td>{employee.lastName}</td>
                   <td>{employee.employer.companyName}</td>
                   <td>{employee.jobTitle}</td>
+                  <Link to="/view-schedule"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeDOB = {employee.dob} employeeAddress = {employee.address} employeePhoneNumber = {employee.phoneNumber} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime} fetchEmployees = {fetchEmployees}>View Schedule</button></Link>
                 </tr>
               );
             })}
