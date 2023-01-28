@@ -52,8 +52,8 @@ def edit_delete_employee(request, pk):
     
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
-def get_employers_employees(request, user_id):
-    employees = Employee.objects.filter(user_id=user_id)
+def get_employers_employees(request, pk):
+    employees = Employee.objects.filter(employer_id=pk)
     if request.method == 'GET':
         serializer = EmployeeSerializer(employees, many=True)
         return Response(serializer.data)

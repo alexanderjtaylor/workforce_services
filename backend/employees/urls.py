@@ -6,5 +6,5 @@ urlpatterns = [
     path('<int:user_id>', views.employee_details),
     path('edit/<int:pk>', views.edit_delete_employee),
     #path('all/', views.get_all_employees),
-    path('<int:user_id>/employees', views.get_employers_employees),
+    path('<int:pk>/employees', views.get_employers_employees),
 ]
