@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import Delete from "../../components/DeleteEmployee/DeleteEmployee";
-import EditEmployeePage from "../EditEmployeePage/EditEmployeePage";
 
 function SearchEmployeePage(){
   const [user, token] = useAuth();
@@ -31,9 +30,6 @@ function SearchEmployeePage(){
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
-              <th>DOB</th>
-              <th>Address</th>
-              <th>Phone Number</th>
               <th>Company Name</th>
               <th>Job Title</th>
               <th>Years with Company</th>
@@ -49,9 +45,6 @@ function SearchEmployeePage(){
                 <tr>
                   <td>{employee.firstName}</td>
                   <td>{employee.lastName}</td>
-                  <td>{employee.dob}</td>
-                  <td>{employee.address}</td>
-                  <td>{employee.phoneNumber}</td>
                   <td>{employee.employer.companyName}</td>
                   <td>{employee.jobTitle}</td>
                   <td>{employee.yearsWithCompany}</td>

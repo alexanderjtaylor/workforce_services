@@ -10,9 +10,6 @@ const EditEmployeePage = (props) => {
         // user_id: `${props.employeeID}`,
         firstName: `${props.employeeFirstName}`,
         lastName: `${props.employeeLastName}`,
-        dob: `${props.employeeDOB}`,
-        address: `${props.employeeAddress}`,
-        phoneNumber: `${props.employeePhoneNumber}`,
         jobTitle: `${props.employeeJobTitle}`,
         yearsWithCompany: `${props.employeeYearsWithCompany}`,
         sickTime: `${props.employeeSickTime}`,
@@ -55,18 +52,6 @@ const EditEmployeePage = (props) => {
             <label>
                 Last Name:{" "}
                 <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Date of Birth{" "}
-                <input type="text" name="dob" value={formData.dob} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Address:{" "}
-                <input type="text" name="address" value={formData.address} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Phone Number:{" "}
-                <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange}/>
             </label>
             <label>
                 Job Title:{" "}
