@@ -61,7 +61,6 @@ function SearchEmployeePage(props){
             })}
           </tbody>
         </table>
-        <Link to="/add-employee"><button>Add Employee</button></Link>
       </div>
     );
 };

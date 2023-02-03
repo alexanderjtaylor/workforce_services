@@ -15,6 +15,7 @@ import ViewSchedulePage from "./pages/ScheduleHomePage/ViewSchedulePage";
 import PaycheckHomePage from "./pages/PaycheckHomePage/PaycheckHomePage";
 import TimeOffHomePage from "./pages/TimeOffHomePage/TimeOffHomePage.jsx.jsx";
 import UnassignedUsers from "./pages/UnassignedUsersPage/UnassignedUsersPage";
+import CreatePayCheckPage from "./pages/PaycheckHomePage/CreatePaycheckPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -49,6 +50,7 @@ function App() {
         <Route path="/add-shift" element={<PrivateRoute><AddSchedulePage /></PrivateRoute>} />
         <Route path="/edit-shift" element={<PrivateRoute><EditSchedulePage /></PrivateRoute>} />
         <Route path="/paycheck" element={<PrivateRoute><PaycheckHomePage /></PrivateRoute>} />
+        <Route path="/create-paycheck" element={<PrivateRoute><CreatePayCheckPage /></PrivateRoute>} />
         <Route path="/time-off" element={<PrivateRoute><TimeOffHomePage /></PrivateRoute>} />
         <Route path="/unassigned-users" element={<PrivateRoute><UnassignedUsers /></PrivateRoute>} />
       </Routes>

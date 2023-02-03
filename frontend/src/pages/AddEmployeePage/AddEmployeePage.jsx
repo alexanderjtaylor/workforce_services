@@ -4,20 +4,21 @@ import axios from 'axios';
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
 
-let InitialValues = {
-    employer_id: "",
-    user_id: "",
-    firstName: "",
-    lastName: "",
-    payRate: "",
-    OTPayRate: "",
-    jobTitle: "",
-    yearsWithCompany: "",
-    sickTime: "",
-    vacationTime: "",
-};
+const AddEmployeePage = (props) => {
 
-const AddEmployeePage = () => {
+    let InitialValues = {
+        employer_id: "",
+        user_id: "",
+        firstName: `${props.unassignedUserFirstName}`,
+        lastName: `${props.unassignedUserLastName}`,
+        payRate: "",
+        OTPayRate: "",
+        jobTitle: "",
+        yearsWithCompany: "",
+        sickTime: "",
+        vacationTime: "",
+    };
+
     const [user, token] = useAuth();
     const navigate = useNavigate();
     const [formData, handleInputChange, handleSubmit] = useCustomForm(InitialValues, postNewEmployee);

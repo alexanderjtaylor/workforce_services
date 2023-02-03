@@ -44,14 +44,12 @@ function UnassignedUsers(){
                   <td>{unassignedUser.username}</td>
                   <td>{unassignedUser.email}</td>
                   <td>{unassignedUser.is_staff}</td>
-                  {/* <Link to={{pathname:"/edit-employee", state:{employee:true}}}><button>Edit Employee</button></Link>
-                  <Delete employeeID = {employee.id} fetchEmployees = {fetchEmployees}/> */}
+                  <Link to={{pathname:"/add-employee", state:{unassignedUser:true}}}><button>Add Employee</button></Link>
                 </tr>
               );
             })}
           </tbody>
         </table>
-        <Link to="/add-employee"><button>Add Employee</button></Link>
       </div>
     );
 };

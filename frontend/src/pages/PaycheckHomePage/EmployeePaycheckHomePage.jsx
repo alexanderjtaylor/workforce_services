@@ -4,7 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const EmployeeHomePage = () => {
+const EmployeePaycheckHomePage = () => {
   const [user, token] = useAuth();
   const [employee, setEmployee] = useState([]);
 
@@ -36,4 +36,4 @@ const EmployeeHomePage = () => {
   );
 };
 
-export default EmployeeHomePage;
+export default EmployeePaycheckHomePage;

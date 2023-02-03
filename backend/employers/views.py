@@ -14,9 +14,9 @@ from authentication.serializers import UserSerializer
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def employer_details(request, userId):
-    employee_count = Employee.objects.filter(user_id=userId).count()
-    employer = get_object_or_404(Employer, user_id=userId)
+def employer_details(request, pk):
+    employer = get_object_or_404(Employer, user_id=pk)
+    employee_count = Employee.objects.filter(employer_id=pk).count()
     if request.method == 'GET':
         serializer = EmployerSerializer(employer)
         custom_response = {

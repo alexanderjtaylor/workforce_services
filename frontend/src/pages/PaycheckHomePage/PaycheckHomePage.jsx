@@ -3,6 +3,8 @@ import ReactDOM from "react-dom";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import {useNavigate} from "react-router-dom"
+import EmployerPaycheckHomePage from "./EmployerPaycheckHomePage";
+import EmployeePaycheckHomePage from "./EmployeePaycheckHomePage";
 
 
 const PaycheckHomePage = () => {
@@ -12,9 +14,9 @@ const PaycheckHomePage = () => {
     <>
     {console.log(user)}
     {user.is_staff ? (
-            <h1>Welcome {user.username}</h1>
+            <EmployerPaycheckHomePage/>
           ) : (
-            <h1>Hello {user.username}</h1>
+            <EmployeePaycheckHomePage/>
           )}
     </>
   )
