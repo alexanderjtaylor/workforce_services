@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import ReactDOM from "react-dom";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
@@ -7,14 +8,32 @@ import SetSchedulePage from "./SetSchedulePage";
 import ViewSchedulePage from "./ViewSchedulePage";
 
 
-const SchedulePage = () => {
+const ScheduleHomePage = () => {
   const [user, token] = useAuth();
+  const [employees, setEmployees] = useState([]);
+
+  useEffect(() => {
+    fetchEmployees();
+  }, [token]);
+
+  const fetchEmployees = async () => {
+    try {
+      let response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}/employees`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      setEmployees(response.data);
+    } catch (error) {
+      // console.log(error.response.data);
+    }
+  };
 
   return(
     <>
     {console.log(user)}
     {user.is_staff ? (
-            <SetSchedulePage/>
+            <SetSchedulePage employees = {employees} setEmployees = {setEmployees} fetchEmployees = {fetchEmployees}/>
           ) : (
             <ViewSchedulePage/>
           )}
@@ -22,4 +41,4 @@ const SchedulePage = () => {
   )
 }
 
-export default SchedulePage;
+export default ScheduleHomePage;

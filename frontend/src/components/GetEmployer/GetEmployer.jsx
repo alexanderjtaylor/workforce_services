@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 
 const GetEmployer = (props) => {
     const [user, token] = useAuth();
+    const [employer, setEmployer] = useState([]);
 
     useEffect(() => {
         fetchEmployer();
@@ -16,12 +17,12 @@ const GetEmployer = (props) => {
           },
         });
         console.log(response.data)
-        props.setEmployer(response.data)}
+        setEmployer(response.data)}
 
     return ( 
         <td>
-            <h3>{props.employer.employer.companyName}</h3>
-            <h3>Employees: {props.employer.employee_count}</h3>
+            {/* <h3>{props.employer.employer.companyName}</h3> */}
+            {/* <h3>Employees: {props.employer.employee_count}</h3> */}
         </td>
      );
 }

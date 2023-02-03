@@ -1,7 +1,7 @@
 import axios from 'axios';
 import useAuth from "../../hooks/useAuth";
 
-const Delete = (props) => {
+const DeleteEmployee = (props) => {
     const [user, token] = useAuth();
 
     async function deleteEmployee(){
@@ -19,4 +19,4 @@ const Delete = (props) => {
      );
 }
  
-export default Delete;
+export default DeleteEmployee;

@@ -6,32 +6,53 @@ import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import ViewSchedulePage from "./ViewSchedulePage";
 
-function SetSchedulePage(){
-
+function SetSchedulePage(props){
   const [user, token] = useAuth();
   const [employeeShifts, setEmployeeShifts] = useState([]);
-  const [employees, setEmployees] = useState([]);
+  // const [employees, setEmployees] = useState([]);
   const [employer, setEmployer] = useState([]);
 
+  // useEffect(() => {
+  //   // fetchEmployer();
+  //   fetchEmployees();
+  // }, [token]);
+
   useEffect(() => {
-    fetchEmployees();
+    fetchEmployeeShifts();
   }, [token]);
 
-  async function fetchEmployees(){
-    const response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}/employees`, {
+  async function fetchEmployeeShifts(){
+    const response = await axios.get(`http://127.0.0.1:8000/shifts/${props.employeeID}/shifts`, {
       headers: {
         Authorization: "Bearer " + token,
       },
     });
-    setEmployees(response.data);}
+    setEmployeeShifts(response.data);}
 
-//   async function fetchEmployeeShifts(){
-//     const response = await axios.get(`http://127.0.0.1:8000/shifts/${employee.id}/shifts`, {
-//       headers: {
-//         Authorization: "Bearer " + token,
-//       },
-//     });
-//     setEmployeeShifts(response.data);}
+  // async function fetchEmployer(){
+  //   const response = await axios.get(`http://127.0.0.1:8000/employers/${user.id}`, {
+  //     headers: {
+  //       Authorization: "Bearer " + token,
+  //     },
+  //   });
+  //   console.log(response.data)
+  //   setEmployer(response.data)}
+
+  // async function fetchEmployees(){
+  //   const response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}/employees`, {
+  //     headers: {
+  //       Authorization: "Bearer " + token,
+  //     },
+  //   });
+  //   setEmployees(response.data);}
+
+  // async function fetchEmployeeShifts(){
+  //   const response = await axios.get(`http://127.0.0.1:8000/shifts/${employee.id}/shifts`, {
+  //     headers: {
+  //       Authorization: "Bearer " + token,
+  //     },
+  //   });
+  //   setEmployeeShifts(response.data);}
 
 //     async function fetchShift(){
 //         const response = await axios.get(`http://127.0.0.1:8000/shifts/selected-shift/${shift.id}`, {
@@ -67,7 +88,7 @@ function SetSchedulePage(){
 
   return (
     <div className="container">
-        <SearchBar employees = {employees} setEmployees = {setEmployees} fetchEmployees = {fetchEmployees}/>
+        <SearchBar employees = {props.employees} setEmployees = {props.setEmployees} fetchEmployees = {props.fetchEmployees}/>
         <table className='prop-tabel'>
           <thead>
             <tr>
@@ -76,27 +97,28 @@ function SetSchedulePage(){
               <th>Company Name</th>
               <th>Job Title</th>
               <th>View Schedule</th>
-              <th>Add Schedule</th>
-              <th>Edit Schedule</th>
+              <th>Add Shift</th>
+              <th>Edit Shift</th>
             </tr>
           </thead>
           <tbody>
-            {employees.map((employee) => {
+            {props.employees.map((employee) => {
               return (
                 <tr>
                   <td>{employee.firstName}</td>
                   <td>{employee.lastName}</td>
                   <td>{employee.employer.companyName}</td>
                   <td>{employee.jobTitle}</td>
-                  <Link to="/view-schedule"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeDOB = {employee.dob} employeeAddress = {employee.address} employeePhoneNumber = {employee.phoneNumber} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime} fetchEmployees = {fetchEmployees}>View Schedule</button></Link>
+                  <Link to="/view-schedule"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime} fetchEmployees = {props.fetchEmployees}>View Schedule</button></Link>
+                  <Link to="/add-shift"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime} fetchEmployees = {props.fetchEmployees}>Add Shift</button></Link>
+                  <Link to="/edit-shift"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime} fetchEmployees = {props.fetchEmployees} employeeShifts = {employeeShifts} setEmployeeShifts = {setEmployeeShifts}>Edit Shift</button></Link>
+                  {/* <Link to={{pathname:"/edit-employee", state:{employee:true}, state:{fetchEmployees:true}}}><button>Edit Shift</button></Link>            */}
                 </tr>
               );
             })}
           </tbody>
         </table>
-
-
-      <Link to="/schedule"><button>Schedule</button></Link>
+      <Link to="/"><button>Home</button></Link>
     </div>
   );
 };

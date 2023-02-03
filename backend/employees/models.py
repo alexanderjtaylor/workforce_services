@@ -9,5 +9,7 @@ class Employee(models.Model):
     lastName = models.CharField(max_length=50)
     jobTitle = models.CharField(max_length=50)
     yearsWithCompany = models.IntegerField(default=0)
+    payRate = models.DecimalField(max_digits=8, decimal_places=2, default=15.00)
+    OTPayRate = models.DecimalField(max_digits=8, decimal_places=2, default=15.00)
     sickTime = models.DecimalField(max_digits=8, decimal_places=2, default=40.00)
     vacationTime = models.DecimalField(max_digits=8, decimal_places=2, default=40.00)

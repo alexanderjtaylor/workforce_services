@@ -9,7 +9,7 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import AddEmployeePage from "./pages/AddEmployeePage/AddEmployeePage";
 import EditEmployeePage from "./pages/EditEmployeePage/EditEmployeePage";
 import SearchEmployeePage from "./pages/SearchEmployeePage/SearchEmployeePage";
-import SchedulePage from "./pages/ScheduleHomePage/ScheduleHomePage";
+import ScheduleHomePage from "./pages/ScheduleHomePage/ScheduleHomePage";
 import SetSchedulePage from "./pages/ScheduleHomePage/SetSchedulePage";
 import ViewSchedulePage from "./pages/ScheduleHomePage/ViewSchedulePage";
 import PaycheckHomePage from "./pages/PaycheckHomePage/PaycheckHomePage";
@@ -22,6 +22,8 @@ import Footer from "./components/Footer/Footer";
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
+import AddSchedulePage from "./pages/ScheduleHomePage/AddSchedulePage";
+import EditSchedulePage from "./pages/ScheduleHomePage/EditSchedulePage";
 
 function App() {
   return (
@@ -38,12 +40,14 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/schedule" element={<PrivateRoute><SchedulePage /></PrivateRoute>} />
         <Route path="/add-employee" element={<PrivateRoute><AddEmployeePage /></PrivateRoute>} />
         <Route path="/edit-employee" element={<PrivateRoute><EditEmployeePage /></PrivateRoute>} />
         <Route path="/search-employee" element={<PrivateRoute><SearchEmployeePage /></PrivateRoute>} />
+        <Route path="/schedule" element={<PrivateRoute><ScheduleHomePage /></PrivateRoute>} />
         <Route path="/view-schedule" element={<PrivateRoute><ViewSchedulePage /></PrivateRoute>} />
         <Route path="/set-schedule" element={<PrivateRoute><SetSchedulePage /></PrivateRoute>} />
+        <Route path="/add-shift" element={<PrivateRoute><AddSchedulePage /></PrivateRoute>} />
+        <Route path="/edit-shift" element={<PrivateRoute><EditSchedulePage /></PrivateRoute>} />
         <Route path="/paycheck" element={<PrivateRoute><PaycheckHomePage /></PrivateRoute>} />
         <Route path="/time-off" element={<PrivateRoute><TimeOffHomePage /></PrivateRoute>} />
         <Route path="/unassigned-users" element={<PrivateRoute><UnassignedUsers /></PrivateRoute>} />

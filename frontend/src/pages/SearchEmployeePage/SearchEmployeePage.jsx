@@ -4,9 +4,9 @@ import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import Delete from "../../components/DeleteEmployee/DeleteEmployee";
+import DeleteEmployee from "../../components/DeleteEmployee/DeleteEmployee";
 
-function SearchEmployeePage(){
+function SearchEmployeePage(props){
   const [user, token] = useAuth();
   const [employees, setEmployees] = useState([]);
 
@@ -51,7 +51,7 @@ function SearchEmployeePage(){
                   <td>{employee.sickTime}</td>
                   <td>{employee.vacationTime}</td>
                   <Link to={{pathname:"/edit-employee", state:{employee:true}}}><button>Edit Employee</button></Link>
-                  <Delete employeeID = {employee.id} fetchEmployees = {fetchEmployees}/>
+                  <DeleteEmployee employeeID = {employee.id} fetchEmployees = {fetchEmployees}/>
                 </tr>
               );
             })}
