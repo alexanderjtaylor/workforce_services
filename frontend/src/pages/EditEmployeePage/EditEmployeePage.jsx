@@ -12,15 +12,17 @@ const EditEmployeePage = (props) => {
         lastName: `${props.employeeLastName}`,
         jobTitle: `${props.employeeJobTitle}`,
         yearsWithCompany: `${props.employeeYearsWithCompany}`,
+        payRate: `${props.employeePayRate}`,
+        OTPayRate: `${props.employeeOTPayRate}`,
         sickTime: `${props.employeeSickTime}`,
         vacationTime: `${props.employeeVacationTime}`,
     };
     const [user, token] = useAuth();
     const navigate = useNavigate();
-    const [formData, handleInputChange, handleSubmit] = useCustomForm(InitialValues, postNewEmployee);
+    const [formData, handleInputChange, handleSubmit] = useCustomForm(InitialValues, EditEmployee);
 
 
-    async function postNewEmployee(){
+    async function EditEmployee(){
         try {
             let response = await axios.put(`http://127.0.0.1:8000/employees/edit/${props.employeeID}`, formData, {
                 headers: {
@@ -32,7 +34,6 @@ const EditEmployeePage = (props) => {
             console.log(error.message);
         }
     }
-
 
     return (
     <div className="container">
@@ -60,6 +61,14 @@ const EditEmployeePage = (props) => {
             <label>
                 Years with Company:{" "}
                 <input type="text" name="yearsWithCompany" value={formData.yearsWithCompany} onChange={handleInputChange}/>
+            </label>
+            <label>
+                Pay Rate:{" "}
+                <input type="text" name="payRate" value={formData.payRate} onChange={handleInputChange}/>
+            </label>
+            <label>
+                OT Pay Rate:{" "}
+                <input type="text" name="OTPayRate" value={formData.OTPayRate} onChange={handleInputChange}/>
             </label>
             <label>
                 Sick Time:{" "}

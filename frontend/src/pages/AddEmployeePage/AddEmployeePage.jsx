@@ -9,9 +9,8 @@ let InitialValues = {
     user_id: "",
     firstName: "",
     lastName: "",
-    dob: "",
-    address: "",
-    phoneNumber: "",
+    payRate: "",
+    OTPayRate: "",
     jobTitle: "",
     yearsWithCompany: "",
     sickTime: "",
@@ -58,24 +57,20 @@ const AddEmployeePage = () => {
                 <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange}/>
             </label>
             <label>
-                Date of Birth{" "}
-                <input type="text" name="dob" value={formData.dob} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Address:{" "}
-                <input type="text" name="address" value={formData.address} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Phone Number:{" "}
-                <input type="text" name="phoneNumber" value={formData.phoneNumber} onChange={handleInputChange}/>
-            </label>
-            <label>
                 Job Title:{" "}
                 <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleInputChange}/>
             </label>
             <label>
                 Years with Company:{" "}
                 <input type="text" name="yearsWithCompany" value={formData.yearsWithCompany} onChange={handleInputChange}/>
+            </label>
+            <label>
+                Pay Rate:{" "}
+                <input type="text" name="payRate" value={formData.payRate} onChange={handleInputChange}/>
+            </label>
+            <label>
+                OT Pay Rate:{" "}
+                <input type="text" name="OTPayRate" value={formData.OTPayRate} onChange={handleInputChange}/>
             </label>
             <label>
                 Sick Time:{" "}

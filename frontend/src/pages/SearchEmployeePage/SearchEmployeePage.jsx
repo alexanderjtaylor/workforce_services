@@ -33,6 +33,8 @@ function SearchEmployeePage(props){
               <th>Company Name</th>
               <th>Job Title</th>
               <th>Years with Company</th>
+              <th>Pay Rate</th>
+              <th>OT Pay Rate</th>
               <th>Sick Time</th>
               <th>Vacation Time</th>
               <th>Edit Employee</th>
@@ -48,6 +50,8 @@ function SearchEmployeePage(props){
                   <td>{employee.employer.companyName}</td>
                   <td>{employee.jobTitle}</td>
                   <td>{employee.yearsWithCompany}</td>
+                  <td>{employee.payRate}</td>
+                  <td>{employee.OTPayRate}</td>
                   <td>{employee.sickTime}</td>
                   <td>{employee.vacationTime}</td>
                   <Link to={{pathname:"/edit-employee", state:{employee:true}}}><button>Edit Employee</button></Link>
