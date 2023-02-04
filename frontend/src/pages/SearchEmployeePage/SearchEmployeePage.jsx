@@ -5,10 +5,12 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import DeleteEmployee from "../../components/DeleteEmployee/DeleteEmployee";
+import EditEmployee from "../../components/EditEmployee/EditEmployee";
 
 function SearchEmployeePage(props){
   const [user, token] = useAuth();
   const [employees, setEmployees] = useState([]);
+  const [employee, setEmployee] = useState([]);
 
   useEffect(() => {
     fetchEmployees();
@@ -30,7 +32,6 @@ function SearchEmployeePage(props){
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
-              <th>Company Name</th>
               <th>Job Title</th>
               <th>Years with Company</th>
               <th>Pay Rate</th>
@@ -43,18 +44,19 @@ function SearchEmployeePage(props){
           </thead>
           <tbody>
             {employees.map((employee) => {
+              // setEmployee(employee)
               return (
                 <tr>
                   <td>{employee.firstName}</td>
                   <td>{employee.lastName}</td>
-                  <td>{employee.employer.companyName}</td>
                   <td>{employee.jobTitle}</td>
                   <td>{employee.yearsWithCompany}</td>
                   <td>{employee.payRate}</td>
                   <td>{employee.OTPayRate}</td>
                   <td>{employee.sickTime}</td>
                   <td>{employee.vacationTime}</td>
-                  <Link to={{pathname:"/edit-employee", state:{employee:true}}}><button>Edit Employee</button></Link>
+                  <Link to={{pathname:"/edit-employee", state:{employees:true}}}><button>Edit Employee</button></Link>
+                  {/* <EditEmployee employeeID = {employee.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeePayRate = {employee.payRate} employeeOTPayRate = {employee.OTPayRate} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime}/> */}
                   <DeleteEmployee employeeID = {employee.id} fetchEmployees = {fetchEmployees}/>
                 </tr>
               );

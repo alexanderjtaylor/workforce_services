@@ -94,7 +94,6 @@ function SetSchedulePage(props){
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
-              <th>Company Name</th>
               <th>Job Title</th>
               <th>View Schedule</th>
               <th>Add Shift</th>
@@ -107,10 +106,9 @@ function SetSchedulePage(props){
                 <tr>
                   <td>{employee.firstName}</td>
                   <td>{employee.lastName}</td>
-                  <td>{employee.employer.companyName}</td>
                   <td>{employee.jobTitle}</td>
-                  <Link to="/view-schedule"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime} fetchEmployees = {props.fetchEmployees}>View Schedule</button></Link>
-                  <Link to="/add-shift"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime} fetchEmployees = {props.fetchEmployees}>Add Shift</button></Link>
+                  <Link to="/view-schedule"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime}>View Schedule</button></Link>
+                  <Link to="/add-shift"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime}>Add Shift</button></Link>
                   <Link to="/edit-shift"><button employeeID = {employee.id} employerID = {employee.employer.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime} fetchEmployees = {props.fetchEmployees} employeeShifts = {employeeShifts} setEmployeeShifts = {setEmployeeShifts}>Edit Shift</button></Link>
                   {/* <Link to={{pathname:"/edit-employee", state:{employee:true}, state:{fetchEmployees:true}}}><button>Edit Shift</button></Link>            */}
                 </tr>

@@ -6,14 +6,13 @@ const SearchBar = (props) => {
     function goGetEmployees(event){
         event.preventDefault();
         let response = props.employees.filter((employee) => {
-            if (employee.firstName.includes(searchEmployee) || employee.lastName.includes(searchEmployee) || employee.dob.includes(searchEmployee) || employee.address.includes(searchEmployee) || employee.phoneNumber.includes(searchEmployee) || employee.jobTitle.includes(searchEmployee) || employee.employer.includes(searchEmployee)){
+            if (employee.firstName.includes(searchEmployee) || employee.lastName.includes(searchEmployee) || employee.jobTitle.includes(searchEmployee)){
                 return true;
             }
             else{
                 return false;
             }});
         props.setEmployees(response)
-        // props.fetchemployees()
     }
 
     return ( 

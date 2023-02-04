@@ -21,8 +21,8 @@ const GetEmployer = (props) => {
 
     return ( 
         <td>
-            {/* <h3>{props.employer.employer.companyName}</h3> */}
-            {/* <h3>Employees: {props.employer.employee_count}</h3> */}
+            {/* <h3>{props.employer.employer.companyName}</h3>
+            <h3>Employees: {props.employer.employee_count}</h3> */}
         </td>
      );
 }

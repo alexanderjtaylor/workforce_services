@@ -16,11 +16,12 @@ from authentication.serializers import UserSerializer
 @permission_classes([IsAuthenticated])
 def employer_details(request, pk):
     employer = get_object_or_404(Employer, user_id=pk)
-    employee_count = Employee.objects.filter(employer_id=pk).count()
+    employee_count = Employee.objects.filter(employer_id=employer.id).count()
     if request.method == 'GET':
         serializer = EmployerSerializer(employer)
         custom_response = {
             "employer": serializer.data,
+            "company_name": employer.companyName,
             "employee_count": employee_count
         }
         return Response(custom_response)

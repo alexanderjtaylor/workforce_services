@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.decorators import api_view, permission_classes
 from .models import Employee
+from .models import Employer
 from .serializers import EmployeeSerializer
 from django.shortcuts import get_object_or_404
 
@@ -15,8 +16,8 @@ from django.shortcuts import get_object_or_404
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def employee_details(request, user_id):
-    employee = get_object_or_404(Employee, user_id=user_id)
+def employee_details(request, pk):
+    employee = get_object_or_404(Employee, user_id=pk)
     if request.method == 'GET':
         serializer = EmployeeSerializer(employee)
         return Response(serializer.data)
@@ -53,7 +54,8 @@ def edit_delete_employee(request, pk):
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def get_employers_employees(request, pk):
-    employees = Employee.objects.filter(employer_id=pk)
+    employer = get_object_or_404(Employer, user_id=pk)
+    employees = Employee.objects.filter(employer_id=employer.id)
     if request.method == 'GET':
         serializer = EmployeeSerializer(employees, many=True)
         return Response(serializer.data)

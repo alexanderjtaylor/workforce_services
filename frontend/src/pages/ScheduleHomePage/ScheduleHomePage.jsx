@@ -11,6 +11,8 @@ import ViewSchedulePage from "./ViewSchedulePage";
 const ScheduleHomePage = () => {
   const [user, token] = useAuth();
   const [employees, setEmployees] = useState([]);
+  const [employee, setEmployee] = useState([]);
+  const [companyName, setCompanyName] = useState([]);
 
   useEffect(() => {
     fetchEmployees();
@@ -25,7 +27,14 @@ const ScheduleHomePage = () => {
       });
       setEmployees(response.data);
     } catch (error) {
-      // console.log(error.response.data);
+      let response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      console.log(response.data)
+      setCompanyName(response.data.employer.companyName)
+      setEmployee(response.data);
     }
   };
 
@@ -33,9 +42,9 @@ const ScheduleHomePage = () => {
     <>
     {console.log(user)}
     {user.is_staff ? (
-            <SetSchedulePage employees = {employees} setEmployees = {setEmployees} fetchEmployees = {fetchEmployees}/>
+            <SetSchedulePage employees = {employees} setEmployees = {setEmployees}/>
           ) : (
-            <ViewSchedulePage/>
+            <ViewSchedulePage employee = {employee} setEmployee = {setEmployee} companyName = {companyName} setCompanyName = {setCompanyName}/>
           )}
     </>
   )
