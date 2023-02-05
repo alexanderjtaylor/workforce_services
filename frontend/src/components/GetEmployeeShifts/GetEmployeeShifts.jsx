@@ -20,11 +20,10 @@ const GetEmployeeShifts = (props) => {
 
     return ( 
       <div className="container">
-      <h1>{props.employeeFirstName}'s Scehdule</h1>
-      {/* <Link to="/"><button>Home</button></Link> */}
       <table className='prop-tabel'>
           <thead>
             <tr>
+              <th>Shift ID</th>
               <th>Work Date</th>
               <th>Scheduled Start</th>
               <th>Scheduled End</th>
@@ -38,6 +37,7 @@ const GetEmployeeShifts = (props) => {
             {employeeShifts.map((shift) => {
               return (
                 <tr>
+                  <td>{shift.id}</td>
                   <td>{shift.workDate}</td>
                   <td>{shift.scheduledStart}</td>
                   <td>{shift.scheduledEnd}</td>
