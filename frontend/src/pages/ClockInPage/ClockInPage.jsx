@@ -4,6 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import DateTime from "../../components/Clock/Clock";
+import ClockIn from "../../components/ClockPunches/ClockIn";
 import GetEmployeeShifts from "../../components/GetEmployeeShifts/GetEmployeeShifts";
 
 const ClockInPage = () => {
@@ -30,8 +31,9 @@ const ClockInPage = () => {
   return (
     <div className="container">
     <Link to="/"><button>Home</button></Link>
-      <h1>Welcome {user.first_name}</h1>
+      <h1>Welcome {employee.firstName}</h1>
     <DateTime/>
+    <ClockIn employee = {employee} setEmployee = {setEmployee}/>
     </div>
   );
 };

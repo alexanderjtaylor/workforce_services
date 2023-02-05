@@ -8,8 +8,7 @@ export const DateTime = () => {
         let timer = setInterval(()=>setDate(new Date()), 1000 )
         return function cleanup() {
             clearInterval(timer)
-        }
-    
+        }   
     });
 
     return(
