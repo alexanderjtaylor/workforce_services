@@ -16,6 +16,7 @@ import PaycheckHomePage from "./pages/PaycheckHomePage/PaycheckHomePage";
 import TimeOffHomePage from "./pages/TimeOffHomePage/TimeOffHomePage.jsx.jsx";
 import UnassignedUsers from "./pages/UnassignedUsersPage/UnassignedUsersPage";
 import CreatePayCheckPage from "./pages/PaycheckHomePage/CreatePaycheckPage";
+import ClockInPage from "./pages/ClockInPage/ClockInPage";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -53,6 +54,7 @@ function App() {
         <Route path="/create-paycheck" element={<PrivateRoute><CreatePayCheckPage /></PrivateRoute>} />
         <Route path="/time-off" element={<PrivateRoute><TimeOffHomePage /></PrivateRoute>} />
         <Route path="/unassigned-users" element={<PrivateRoute><UnassignedUsers /></PrivateRoute>} />
+        <Route path="/clock-in" element={<PrivateRoute><ClockInPage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>

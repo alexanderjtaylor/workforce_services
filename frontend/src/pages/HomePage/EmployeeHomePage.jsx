@@ -13,6 +13,7 @@ const EmployeeHomePage = (props) => {
           <p key={props.employee.id}>
             {props.employee.firstName} {props.employee.lastName} {props.employee.jobTitle} {props.companyName}
           </p>
+      <Link to="/clock-in"><button>Clock In</button></Link>
       <Link to="/schedule"><button>Schedule</button></Link>
       <Link to="/paycheck"><button>Pay</button></Link>
       <Link to="/time-off"><button>Time Off</button></Link>
