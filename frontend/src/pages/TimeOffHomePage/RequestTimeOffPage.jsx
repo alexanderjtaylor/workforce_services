@@ -4,7 +4,7 @@ import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const EmployeeProfilePage = () => {
+const RequestTimeOffPage = () => {
   const [user, token] = useAuth();
   const [employee, setEmployee] = useState([]);
   const [companyName, setCompanyName] = useState([]);
@@ -27,29 +27,20 @@ const EmployeeProfilePage = () => {
 return (
     <div className="container">
         <Link to="/"><button>Home</button></Link>
+        <p>Please Note: Available time off balances do not account for any currently pending requests. Available hours will update after employer approval.</p>
         <table className='profile-tabel'>
           <thead>
             <tr>
               <th>First Name</th>
               <th>Last Name</th>
-              <th>Job Title</th>
-              <th>Company</th>
-              <th>Years with Company</th>
-              <th>Pay Rate</th>
-              <th>Overtime Rate</th>
-              <th>Sick Time</th>
-              <th>Vacation Time</th>
+              <th>Sick Time Available</th>
+              <th>Vacation Time Available</th>
             </tr>
           </thead>
           <tbody>
                 <tr>
                   <td>{employee.firstName}</td>
                   <td>{employee.lastName}</td>
-                  <td>{employee.jobTitle}</td>
-                  <td>{companyName}</td>
-                  <td>{employee.yearsWithCompany}</td>
-                  <td>{employee.payRate}</td>
-                  <td>{employee.OTPayRate}</td>
                   <td>{employee.sickTime}</td>
                   <td>{employee.vacationTime}</td>
                 </tr>
@@ -59,4 +50,4 @@ return (
     );
 };
 
-export default EmployeeProfilePage;
+export default RequestTimeOffPage;

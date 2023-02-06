@@ -24,8 +24,8 @@ const ViewSchedulePage = (props) => {
 
   return (
       <div className="container">
+      <Link to="/"><button>Home</button></Link>
       <h1>{props.employeeFirstName}'s Scehdule</h1>
-      {/* <Link to="/"><button>Home</button></Link> */}
       <>
     {console.log(user)}
     {user.is_staff ? (

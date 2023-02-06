@@ -6,6 +6,7 @@ import "./App.css";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
+import EmployeeProfilePage from "./pages/EmployeeProfilePage/EmployeeProfilePage";
 import AddEmployeePage from "./pages/AddEmployeePage/AddEmployeePage";
 import EditEmployeePage from "./pages/EditEmployeePage/EditEmployeePage";
 import SearchEmployeePage from "./pages/SearchEmployeePage/SearchEmployeePage";
@@ -42,6 +43,7 @@ function App() {
         />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/profile" element={<PrivateRoute><EmployeeProfilePage /></PrivateRoute>} />
         <Route path="/add-employee" element={<PrivateRoute><AddEmployeePage /></PrivateRoute>} />
         <Route path="/edit-employee" element={<PrivateRoute><EditEmployeePage /></PrivateRoute>} />
         <Route path="/search-employee" element={<PrivateRoute><SearchEmployeePage /></PrivateRoute>} />

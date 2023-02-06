@@ -35,7 +35,7 @@ function SearchEmployeePage(props){
               <th>Job Title</th>
               <th>Years with Company</th>
               <th>Pay Rate</th>
-              <th>OT Pay Rate</th>
+              <th>Overtime Rate</th>
               <th>Sick Time</th>
               <th>Vacation Time</th>
               <th>Edit Employee</th>
