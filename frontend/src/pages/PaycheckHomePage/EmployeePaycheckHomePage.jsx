@@ -28,7 +28,7 @@ const EmployeePaycheckHomePage = () => {
 
   return (
     <div className="container">
-      <h1>Welcome {employee.firstName}</h1>
+      <Link to="/"><button>Home</button></Link>
       <ViewPaycheck employee = {employee}/>
     </div>
   );
