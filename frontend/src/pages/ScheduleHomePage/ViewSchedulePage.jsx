@@ -15,7 +15,7 @@ const ViewSchedulePage = (props) => {
   }, [token]);
 
   async function fetchEmployeeShifts(){
-    const response = await axios.get(`http://127.0.0.1:8000/shifts/${props.employeeID}/shifts`, {
+    const response = await axios.get(`http://127.0.0.1:8000/shifts/${props.employee.id}/shifts`, {
       headers: {
         Authorization: "Bearer " + token,
       },
@@ -25,7 +25,7 @@ const ViewSchedulePage = (props) => {
   return (
       <div className="container">
       <Link to="/"><button>Home</button></Link>
-      <h1>{props.employeeFirstName}'s Scehdule</h1>
+      <h1>{props.employee.firstName}'s Scehdule</h1>
       <>
     {console.log(user)}
     {user.is_staff ? (

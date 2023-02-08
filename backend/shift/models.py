@@ -6,8 +6,8 @@ class Shift(models.Model):
     workDate = models.DateField()
     scheduledStart = models.DateTimeField()
     scheduledEnd = models.DateTimeField()
-    actualStart = models.DateTimeField()
-    actualEnd = models.DateTimeField()
-    isHoliday = models.BooleanField()
-    isClockedIn = models.BooleanField()
+    actualStart = models.DateTimeField(default="2000-01-01 00:00:00")
+    actualEnd = models.DateTimeField(default="2000-01-01 00:00:00")
+    isHoliday = models.BooleanField(default=False)
+    isClockedIn = models.BooleanField(default=False)
     
