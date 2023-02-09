@@ -56,7 +56,6 @@ function UnassignedUsers(){
                   <td>{unassignedUser.email}</td>
                   <td>{unassignedUser.is_staff}</td>
                   <button onClick={() => handleClick(unassignedUser)}>Add Employee</button>
-                  {/* <Link to={{pathname:"/add-employee", state:{unassignedUser:true}}}><button>Add Employee</button></Link> */}
                 </tr>
               );
             })}

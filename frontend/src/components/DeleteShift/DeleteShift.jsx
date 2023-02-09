@@ -5,7 +5,7 @@ const DeleteShift = (props) => {
     const [user, token] = useAuth();
 
     async function deleteShift(){
-        const response = await axios.delete(`http://127.0.0.1:8000/shifts/edit/${props.employeeShifts.shift_id}`, {
+        const response = await axios.delete(`http://127.0.0.1:8000/shifts/edit/${props.shift_id}`, {
         headers: {
             Authorization: "Bearer " + token,
           },});

@@ -1,38 +1,29 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {useNavigate} from "react-router-dom"
+import { Link, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
+import DeleteShift from "../../components/DeleteShift/DeleteShift";
 
 const AddSchedulePage = (props) => {
-
-    let InitialValues = {
-        shift_id: "",
-        employee_id: `${props.employeeID}`,
-        workDate: "",
-        scheduledStart: "",
-        scheduledEnd: "",
-        actualStart: "",
-        actualEnd: "",
-        isHoliday: "",
-        isClockedIn: "",
-      };
-
-  const [user, token] = useAuth();
-  const navigate = useNavigate();
-  const [formData, handleInputChange, handleSubmit] = useCustomForm(InitialValues, postNewShift);
-  // const [employeeShifts, setEmployeeShifts] = useState([]);
-  // const [employees, setEmployees] = useState([]);
-  // const [employer, setEmployer] = useState([]);
+    const [user, token] = useAuth();
+    const [employeeShifts, setEmployeeShifts] = useState([]);
+    const { state } = useLocation();
+    const navigate = useNavigate();
+    const [formData, handleInputChange, handleSubmit] = useCustomForm(state, postNewShift);
+    const {employeeID} = useParams();
+    const [thisEmployee, setThisEmployee] = useState({});
+    console.log(state)
 
   async function postNewShift(){
     try {
-        let response = await axios.post(`http://127.0.0.1:8000/shifts/set/${props.employeeID}`, formData, {
+        let response = await axios.post(`http://127.0.0.1:8000/shifts/set/${state.employee_id}`, formData, {
             headers: {
                 Authorization: 'Bearer ' + token,
             },
         });
-        navigate("/view-schedule");
+        navigate("/schedule");
     } catch (error) {
         console.log(error.message);
     }

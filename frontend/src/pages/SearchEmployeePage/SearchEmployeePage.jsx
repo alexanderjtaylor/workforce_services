@@ -7,7 +7,7 @@ import SearchBar from "../../components/SearchBar/SearchBar";
 import DeleteEmployee from "../../components/DeleteEmployee/DeleteEmployee";
 import EditEmployee from "../../components/EditEmployee/EditEmployee";
 
-function SearchEmployeePage(props){
+function SearchEmployeePage(){
   const [user, token] = useAuth();
   const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
