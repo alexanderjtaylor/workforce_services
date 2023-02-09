@@ -6,7 +6,7 @@ import axios from "axios";
 import GetEmployeeShifts from "../../components/GetEmployeeShifts/GetEmployeeShifts";
 import DeleteShift from "../../components/DeleteShift/DeleteShift";
 
-const ViewSchedulePage = (props) => {
+const EmployerViewSchedulePage = (props) => {
   const [user, token] = useAuth();
   const [employeeShifts, setEmployeeShifts] = useState([]);
 
@@ -49,6 +49,7 @@ const ViewSchedulePage = (props) => {
                     <td>{shift.actualEnd}</td>
                     <td>{shift.isHoliday}</td>
                     <td>{shift.isClockedIn}</td>
+                    <td><DeleteShift employeeShifts = {employeeShifts} setEmployeeShifts = {setEmployeeShifts} fetchEmployeeShifts = {fetchEmployeeShifts}/></td>
                   </tr>
                 );
               })}
@@ -58,4 +59,4 @@ const ViewSchedulePage = (props) => {
   );
 };
 
-export default ViewSchedulePage;
+export default EmployerViewSchedulePage;

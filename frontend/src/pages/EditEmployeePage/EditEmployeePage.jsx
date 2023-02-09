@@ -1,35 +1,27 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {useNavigate} from "react-router-dom"
+import { Link, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
 
-const EditEmployeePage = (props) => {
-    let InitialValues = {
-        employer_id: `${props.employerID}`,
-        // user_id: `${props.employeeID}`,
-        firstName: `${props.employeeFirstName}`,
-        lastName: `${props.employeeLastName}`,
-        jobTitle: `${props.employeeJobTitle}`,
-        yearsWithCompany: `${props.employeeYearsWithCompany}`,
-        payRate: `${props.employeePayRate}`,
-        OTPayRate: `${props.employeeOTPayRate}`,
-        sickTime: `${props.employeeSickTime}`,
-        vacationTime: `${props.employeeVacationTime}`,
-    };
+const EditEmployeePage = () => {
     const [user, token] = useAuth();
+    const { state } = useLocation();
     const navigate = useNavigate();
-    const [formData, handleInputChange, handleSubmit] = useCustomForm(InitialValues, EditEmployee);
-
+    const [formData, handleInputChange, handleSubmit] = useCustomForm(state, EditEmployee);
+    const {employeeID} = useParams();
+    const [thisEmployee, setThisEmployee] = useState({});
+    console.log(state)
 
     async function EditEmployee(){
         try {
-            let response = await axios.put(`http://127.0.0.1:8000/employees/edit/${props.employeeID}`, formData, {
+            let response = await axios.put(`http://127.0.0.1:8000/employees/edit/${state.employee_id}`, formData, {
                 headers: {
                     Authorization: 'Bearer ' + token,
                 },
             });
-            navigate("/");
+            navigate("/search-employee");
         } catch (error) {
             console.log(error.message);
         }
@@ -42,10 +34,10 @@ const EditEmployeePage = (props) => {
                 Employer ID:{" "}
                 <input type="text" name="employer_id" value={formData.employer_id} onChange={handleInputChange}/>
             </label>
-            {/* <label>
+            <label>
                 Employee User ID:{" "}
                 <input type="text" name="user_id" value={formData.user_id} onChange={handleInputChange}/>
-            </label> */}
+            </label>
             <label>
                 First Name:{" "}
                 <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange}/>

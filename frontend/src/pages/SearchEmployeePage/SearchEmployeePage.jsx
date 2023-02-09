@@ -1,7 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import DeleteEmployee from "../../components/DeleteEmployee/DeleteEmployee";
@@ -9,6 +9,7 @@ import EditEmployee from "../../components/EditEmployee/EditEmployee";
 
 function SearchEmployeePage(props){
   const [user, token] = useAuth();
+  const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
   const [employee, setEmployee] = useState([]);
 
@@ -22,10 +23,30 @@ function SearchEmployeePage(props){
         Authorization: "Bearer " + token,
       },
     });
+    console.log(response.data)
     setEmployees(response.data);}
+
+    const handleClick = (employee) => {
+      navigate(`/edit-employee/${employee.id}`, {
+        state: {
+          employee_id: employee.id,
+          employer_id: employee.employer.id,
+          user_id: employee.user.id,
+          firstName: employee.firstName,
+          lastName: employee.lastName,
+          jobTitle: employee.jobTitle,
+          yearsWithCompany: employee.yearsWithCompany,
+          payRate: employee.payRate,
+          OTPayRate: employee.OTPayRate,
+          sickTime: employee.sickTime,
+          vacationTime: employee.vacationTime
+        }
+      });
+    };
 
     return (
       <div className="container">
+        <Link to="/"><button>Home</button></Link>
         <SearchBar employees = {employees} setEmployees = {setEmployees} fetchEmployees = {fetchEmployees}/>
         <table className='prop-tabel'>
           <thead>
@@ -44,7 +65,6 @@ function SearchEmployeePage(props){
           </thead>
           <tbody>
             {employees.map((employee) => {
-              // setEmployee(employee)
               return (
                 <tr>
                   <td>{employee.firstName}</td>
@@ -55,8 +75,7 @@ function SearchEmployeePage(props){
                   <td>{employee.OTPayRate}</td>
                   <td>{employee.sickTime}</td>
                   <td>{employee.vacationTime}</td>
-                  <Link to={{pathname:"/edit-employee", state:{employees:true}}}><button>Edit Employee</button></Link>
-                  {/* <EditEmployee employeeID = {employee.id} employeeFirstName = {employee.firstName} employeeLastName = {employee.lastName} employeeJobTitle = {employee.jobTitle} employeeYearsWithCompany = {employee.yearsWithCompany} employeePayRate = {employee.payRate} employeeOTPayRate = {employee.OTPayRate} employeeSickTime = {employee.sickTime} employeeVacationTime = {employee.vacationTime}/> */}
+                  <button onClick={() => handleClick(employee)}>Edit Employee</button>
                   <DeleteEmployee employeeID = {employee.id} fetchEmployees = {fetchEmployees}/>
                 </tr>
               );

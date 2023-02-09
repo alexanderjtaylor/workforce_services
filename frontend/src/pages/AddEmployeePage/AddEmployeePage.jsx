@@ -1,28 +1,18 @@
-import React from 'react';
 import {useNavigate} from "react-router-dom"
 import axios from 'axios';
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
+import React, { useState, useEffect } from 'react';
+import { Link, useParams, useLocation } from 'react-router-dom';
 
 const AddEmployeePage = (props) => {
-
-    let InitialValues = {
-        employer_id: "",
-        user_id: "",
-        firstName: `${props.unassignedUserFirstName}`,
-        lastName: `${props.unassignedUserLastName}`,
-        payRate: "",
-        OTPayRate: "",
-        jobTitle: "",
-        yearsWithCompany: "",
-        sickTime: "",
-        vacationTime: "",
-    };
-
     const [user, token] = useAuth();
+    const { state } = useLocation();
     const navigate = useNavigate();
-    const [formData, handleInputChange, handleSubmit] = useCustomForm(InitialValues, postNewEmployee);
-
+    const [formData, handleInputChange, handleSubmit] = useCustomForm(state, postNewEmployee);
+    const {employeeID} = useParams();
+    const [thisEmployee, setThisEmployee] = useState({});
+    console.log(state)
 
     async function postNewEmployee(){
         try {
@@ -31,12 +21,11 @@ const AddEmployeePage = (props) => {
                     Authorization: 'Bearer ' + token,
                 },
             });
-            navigate("/");
+            navigate("/search-employee");
         } catch (error) {
             console.log(error.message);
         }
     }
-
 
     return (
     <div className="container">

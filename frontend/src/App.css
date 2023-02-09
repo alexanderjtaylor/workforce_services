@@ -49,6 +49,17 @@ button {
   margin-bottom: 10%;
 }
 
+.add-shift-btn {
+  background-color: transparent;
+  border: 2px solid steelblue;
+  color: steelblue;
+  font-size: 1rem;
+  font-family: inherit;
+  max-width: 500px;
+  padding: 0.25rem 0.25rem;
+  margin-bottom: 10%;
+}
+
 button:hover {
   cursor: pointer;
   color: white;

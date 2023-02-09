@@ -45,6 +45,7 @@ def edit_schedule(request, pk):
 @api_view(['POST'])
 @permission_classes([IsAdminUser])
 def set_schedule(request, pk):
+    employee = get_object_or_404(Employee, id=pk)
     if request.method == 'POST':
         serializer = ShiftSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)

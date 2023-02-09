@@ -12,6 +12,7 @@ import EditEmployeePage from "./pages/EditEmployeePage/EditEmployeePage";
 import SearchEmployeePage from "./pages/SearchEmployeePage/SearchEmployeePage";
 import ScheduleHomePage from "./pages/ScheduleHomePage/ScheduleHomePage";
 import SetSchedulePage from "./pages/ScheduleHomePage/SetSchedulePage";
+import EmployerViewSchedulePage from "./pages/ScheduleHomePage/EmployerViewSchedulePage";
 import ViewSchedulePage from "./pages/ScheduleHomePage/ViewSchedulePage";
 import PaycheckHomePage from "./pages/PaycheckHomePage/PaycheckHomePage";
 import TimeOffHomePage from "./pages/TimeOffHomePage/TimeOffHomePage.jsx.jsx";
@@ -44,10 +45,11 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/profile" element={<PrivateRoute><EmployeeProfilePage /></PrivateRoute>} />
-        <Route path="/add-employee" element={<PrivateRoute><AddEmployeePage /></PrivateRoute>} />
-        <Route path="/edit-employee" element={<PrivateRoute><EditEmployeePage /></PrivateRoute>} />
+        <Route path="/add-employee/:unassignedUserID" element={<PrivateRoute><AddEmployeePage /></PrivateRoute>} />
+        <Route path="/edit-employee/:employeeID" element={<PrivateRoute><EditEmployeePage /></PrivateRoute>} />
         <Route path="/search-employee" element={<PrivateRoute><SearchEmployeePage /></PrivateRoute>} />
         <Route path="/schedule" element={<PrivateRoute><ScheduleHomePage /></PrivateRoute>} />
+        <Route path="/employer-view-schedule" element={<PrivateRoute><EmployerViewSchedulePage /></PrivateRoute>} />
         <Route path="/view-schedule" element={<PrivateRoute><ViewSchedulePage /></PrivateRoute>} />
         <Route path="/set-schedule" element={<PrivateRoute><SetSchedulePage /></PrivateRoute>} />
         <Route path="/add-shift" element={<PrivateRoute><AddSchedulePage /></PrivateRoute>} />

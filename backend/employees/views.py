@@ -22,6 +22,13 @@ def employee_details(request, pk):
         serializer = EmployeeSerializer(employee)
         return Response(serializer.data)
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def employee_details_employee_id(request, pk):
+    employee = get_object_or_404(Employee, id=pk)
+    if request.method == 'GET':
+        serializer = EmployeeSerializer(employee)
+        return Response(serializer.data)
 
 @api_view(['POST'])
 @permission_classes([IsAdminUser])

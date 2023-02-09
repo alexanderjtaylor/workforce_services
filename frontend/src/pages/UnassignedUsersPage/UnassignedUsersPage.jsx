@@ -1,11 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function UnassignedUsers(){
   const [user, token] = useAuth();
+  const navigate = useNavigate();
   const [employees, setEmployees] = useState([]);
   const [unassignedUsers, setUnassignedUsers] = useState([]);
 
@@ -20,6 +21,16 @@ function UnassignedUsers(){
       },
     });
     setUnassignedUsers(response.data);}
+
+    const handleClick = (unassignedUser) => {
+      navigate(`/add-employee/${unassignedUser.id}`, {
+        state: {
+          user_id: unassignedUser.id,
+          firstName: unassignedUser.first_name,
+          lastName: unassignedUser.last_name,
+        }
+      });
+    };
 
     return (
       <div className="container">
@@ -44,7 +55,8 @@ function UnassignedUsers(){
                   <td>{unassignedUser.username}</td>
                   <td>{unassignedUser.email}</td>
                   <td>{unassignedUser.is_staff}</td>
-                  <Link to={{pathname:"/add-employee", state:{unassignedUser:true}}}><button>Add Employee</button></Link>
+                  <button onClick={() => handleClick(unassignedUser)}>Add Employee</button>
+                  {/* <Link to={{pathname:"/add-employee", state:{unassignedUser:true}}}><button>Add Employee</button></Link> */}
                 </tr>
               );
             })}
