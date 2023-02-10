@@ -1,34 +1,18 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {useNavigate} from "react-router-dom"
+import { Link, useParams, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import useAuth from "../../hooks/useAuth"
 import useCustomForm from "../../hooks/useCustomForm"
 
 const CreatePayCheckPage = (props) => {
-
-    let InitialValues = {
-        employer_id: `${props.employeeEmployerID}`,
-        user_id: `${props.employeeUserID}`,
-        firstName: `${props.employeeFirstName}`,
-        lastName: `${props.employeeLastName}`,
-        payRate: `${props.employeePayRate}`,
-        OTPayRate: `${props.employeeOTPayRate}`,
-        jobTitle: `${props.employeeJobTitle}`,
-        yearsWithCompany: `${props.employeeYearsWithCompany}`,
-        sickTime: `${props.employeeSickTime}`,
-        vacationTime: `${props.employeeVacationTime}`,
-        hoursWorked: "",
-        OTHoursWorked: "",
-        sickTimeUsed: "",
-        vacationTimeUsed: "",
-        taxes: "",
-        employee_id: `${props.employeeID}`,
-    }
-
     const [user, token] = useAuth();
+    const { state } = useLocation();
     const navigate = useNavigate();
-    const [formData, handleInputChange, handleSubmit] = useCustomForm(InitialValues, postNewPaycheck);
-
+    const [formData, handleInputChange, handleSubmit] = useCustomForm(state, postNewPaycheck);
+    const {employeeID} = useParams();
+    const [thisEmployee, setThisEmployee] = useState({});
+    console.log(state)
 
     async function postNewPaycheck(){
         try {
@@ -37,7 +21,7 @@ const CreatePayCheckPage = (props) => {
                     Authorization: 'Bearer ' + token,
                 },
             });
-            navigate("/");
+            navigate("/paycheck-employer-home");
         } catch (error) {
             console.log(error.message);
         }

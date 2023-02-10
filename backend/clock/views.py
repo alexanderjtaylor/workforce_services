@@ -13,6 +13,19 @@ from django.shortcuts import get_object_or_404
 #     serializer = ClockSerializer(time_punches, many=True)
 #     return Response(serializer.data)
 
+# from datetime import datetime, timedelta
+# startDate = datetime.today()
+# endDate = startDate - timedelta(days=6)
+
+# @api_view(['GET'])
+# @permission_classes([IsAuthenticated])
+# def get_all_punches_for_employee_paycheck(request, employee_id):
+#     punches = Clock.objects.filter(employee_id=employee_id)
+#     punches = punches.filter('startDate', 'endDate')
+#     if request.method == 'GET':
+#         serializer = ClockSerializer(punches, many=True)
+#         return Response(serializer.data)
+
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_all_punches_for_employee(request, employee_id):

@@ -15,10 +15,12 @@ import SetSchedulePage from "./pages/ScheduleHomePage/SetSchedulePage";
 import EmployerViewSchedulePage from "./pages/ScheduleHomePage/EmployerViewSchedulePage";
 import ViewSchedulePage from "./pages/ScheduleHomePage/ViewSchedulePage";
 import PaycheckHomePage from "./pages/PaycheckHomePage/PaycheckHomePage";
+import EmployerPaycheckHomePage from "./pages/PaycheckHomePage/EmployerPaycheckHomePage";
 import TimeOffHomePage from "./pages/TimeOffHomePage/TimeOffHomePage.jsx.jsx";
 import UnassignedUsers from "./pages/UnassignedUsersPage/UnassignedUsersPage";
 import CreatePayCheckPage from "./pages/PaycheckHomePage/CreatePaycheckPage";
-import ClockInPage from "./pages/ClockInPage/ClockInPage";
+import TimePunchPage from "./pages/TimePunches/TimePunchPage";
+import ClockIn from "./pages/TimePunches/ClockIn";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -55,10 +57,12 @@ function App() {
         <Route path="/add-shift/:employeeID" element={<PrivateRoute><AddSchedulePage /></PrivateRoute>} />
         <Route path="/edit-shift/:shiftID" element={<PrivateRoute><EditSchedulePage /></PrivateRoute>} />
         <Route path="/paycheck" element={<PrivateRoute><PaycheckHomePage /></PrivateRoute>} />
-        <Route path="/create-paycheck" element={<PrivateRoute><CreatePayCheckPage /></PrivateRoute>} />
+        <Route path="/paycheck-employer-home" element={<PrivateRoute><EmployerPaycheckHomePage /></PrivateRoute>} />
+        <Route path="/create-paycheck/:employeeID" element={<PrivateRoute><CreatePayCheckPage /></PrivateRoute>} />
         <Route path="/time-off" element={<PrivateRoute><TimeOffHomePage /></PrivateRoute>} />
         <Route path="/unassigned-users" element={<PrivateRoute><UnassignedUsers /></PrivateRoute>} />
-        <Route path="/clock-in" element={<PrivateRoute><ClockInPage /></PrivateRoute>} />
+        <Route path="/time-punch-page/:employeeID" element={<PrivateRoute><TimePunchPage /></PrivateRoute>} />
+        <Route path="/clock-in/:shiftID" element={<PrivateRoute><TimePunchPage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>

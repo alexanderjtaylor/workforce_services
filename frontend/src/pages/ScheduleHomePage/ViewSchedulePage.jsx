@@ -20,12 +20,13 @@ const ViewSchedulePage = (props) => {
         Authorization: "Bearer " + token,
       },
     });
+    console.log(response.data)
     setEmployeeShifts(response.data);}
 
   return (
       <div className="container">
       <Link to="/"><button>Home</button></Link>
-      <h1>{props.employee.firstName}'s Scehdule</h1>
+      <h1>{props.employee.firstName}'s Schedule</h1>
             <table className='prop-tabel'>
             <thead>
               <tr>
