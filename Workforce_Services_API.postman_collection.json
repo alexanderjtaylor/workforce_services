@@ -13,7 +13,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"JackTripper\",\r\n    \"password\": \"passwordroot\",\r\n    \"email\": \"jack@aol.com\",\r\n    \"first_name\": \"Jack\",\r\n    \"last_name\": \"Tripper\",\r\n    \"is_staff\": 0\r\n}",
+					"raw": "{\r\n    \"username\": \"ChrissySnow\",\r\n    \"password\": \"passwordroot\",\r\n    \"email\": \"chrissysnow@gmail.com\",\r\n    \"first_name\": \"Chrissy\",\r\n    \"last_name\": \"Snow\",\r\n    \"is_staff\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -82,7 +82,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NjQ2MTgwLCJpYXQiOjE2NzQ3ODIxODAsImp0aSI6IjY5MmUyOGFlYzVmNzQ3OGI5MTRiYmI0NTk2NzIxY2EwIiwidXNlcl9pZCI6OCwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.sV9NdhOkqjUtAsaTqT7BjcRj8T3_Jg3SfDV5MrZ25No",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NzMwOTc1LCJpYXQiOjE2NzQ4NjY5NzUsImp0aSI6ImJkZmI3NDhiZTZiYzQ1MzA4YWU4NDJiOTU4NGZlNDAyIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.N-LCRCBvDDajb-_ZwYGdk3q4v6d1qF1nn5r8i9g2jIk",
 							"type": "string"
 						}
 					]
@@ -90,7 +90,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/employers/user/delete/8",
+					"raw": "http://127.0.0.1:8000/employers/user/delete/2",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -103,7 +103,7 @@
 						"employers",
 						"user",
 						"delete",
-						"8"
+						"2"
 					]
 				}
 			},
@@ -117,7 +117,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NjQ5Nzc2LCJpYXQiOjE2NzQ3ODU3NzYsImp0aSI6IjkwZWE5OGNkNGMwOTQxYTQ5ZTQ1ZWQyOWM0NDllMTQ0IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.zoTa79tcxknt1-n9Q8EixJLREEZn3DZMYU64hunxv-I",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -151,7 +151,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NjE4ODExLCJpYXQiOjE2NzQ3NTQ4MTEsImp0aSI6ImUzY2E1YjQzMzBhNjQwYTE4MTcwM2I4OGY3YWVjZjllIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIiLCJpc19zdGFmZiI6dHJ1ZX0.PYxe5ah8_aF_8xK9hT8wDYv51p7iqDMsy6OIiGA6Fuo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -159,7 +159,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/employees/2/employees",
+					"raw": "http://127.0.0.1:8000/employees/1/employees",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -170,7 +170,7 @@
 					"port": "8000",
 					"path": [
 						"employees",
-						"2",
+						"1",
 						"employees"
 					]
 				}
@@ -178,7 +178,41 @@
 			"response": []
 		},
 		{
-			"name": "Get_Employee_By_ID",
+			"name": "Get_Employee_By_Employee_ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/employees/employee/6",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"employees",
+						"employee",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Employee_By_User_ID",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -188,7 +222,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NjE4ODExLCJpYXQiOjE2NzQ3NTQ4MTEsImp0aSI6ImUzY2E1YjQzMzBhNjQwYTE4MTcwM2I4OGY3YWVjZjllIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIiLCJpc19zdGFmZiI6dHJ1ZX0.PYxe5ah8_aF_8xK9hT8wDYv51p7iqDMsy6OIiGA6Fuo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -205,7 +239,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/employees/5",
+					"raw": "http://127.0.0.1:8000/employees/3",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -216,7 +250,7 @@
 					"port": "8000",
 					"path": [
 						"employees",
-						"5"
+						"3"
 					]
 				}
 			},
@@ -230,7 +264,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NDEwNDU1LCJpYXQiOjE2NzQ1NDY0NTUsImp0aSI6Ijg2ZDRiNDJmZDYzYzQwMjQ4MTEwZDE5YzIyY2M4MmMxIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIiLCJpc19zdGFmZiI6dHJ1ZX0.Z3VsDWZ1PsynJdo5bIKVK31xPHrGJmOXwOxR0TV3g9g",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -239,7 +273,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"Janet\",\r\n    \"lastName\": \"Wood\",\r\n    \"jobTitle\": \"Backend Instructor\",\r\n    \"employer_id\": 78,\r\n    \"user_id\": 65\r\n}",
+					"raw": "{\r\n    \"firstName\": \"Janet\",\r\n    \"lastName\": \"Wood\",\r\n    \"jobTitle\": \"Backend Instructor\",\r\n    \"payRate\": 30.00,\r\n    \"OTPayRate\": 45.00,\r\n    \"employer_id\": 1,\r\n    \"user_id\": 4\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -273,7 +307,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc0NTIxNDQyLCJpYXQiOjE2NzM2NTc0NDIsImp0aSI6ImYxMTJiZTcyNmU5MzQ3MDU5NGNlZTE5OWE2NjM3ODZkIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.VjKR1-h2CHGTYkiYg7yLGn2YP-SwzvNwGbqHB2hyqGo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -282,7 +316,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"firstName\": \"Chrissy\",\r\n    \"lastName\": \"Snow\",\r\n    \"dob\": \"1946-10-16\",\r\n    \"address\": \"5154 Fountain Avenue, Santa Monica, California 90401\",\r\n    \"phoneNumber\": \"3104441977\",\r\n    \"jobTitle\": \"Full Stack Instructor\",\r\n    \"yearsWithCompany\": 37,\r\n    \"sickTime\": \"40.00\",\r\n    \"vacationTime\": \"40.00\",\r\n    \"employer_id\": 5,\r\n    \"user_id\": 2\r\n}",
+					"raw": "{\r\n    \"firstName\": \"Jack\",\r\n    \"lastName\": \"Tripper\",\r\n    \"jobTitle\": \"Full Stack Instructor\",\r\n    \"yearsWithCompany\": 1,\r\n    \"payRate\": \"35.00\",\r\n    \"OTPayRate\": \"52.50\",\r\n    \"sickTime\": \"40.00\",\r\n    \"vacationTime\": \"80.00\",\r\n    \"employer_id\": 1,\r\n    \"user_id\": 3\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -290,7 +324,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/employees/edit/14",
+					"raw": "http://127.0.0.1:8000/employees/edit/3",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -302,7 +336,7 @@
 					"path": [
 						"employees",
 						"edit",
-						"14"
+						"3"
 					]
 				}
 			},
@@ -316,7 +350,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NjQ5Nzc2LCJpYXQiOjE2NzQ3ODU3NzYsImp0aSI6IjkwZWE5OGNkNGMwOTQxYTQ5ZTQ1ZWQyOWM0NDllMTQ0IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.zoTa79tcxknt1-n9Q8EixJLREEZn3DZMYU64hunxv-I",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -328,7 +362,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/employees/edit/18",
+					"raw": "http://127.0.0.1:8000/employees/edit/3",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -340,7 +374,7 @@
 					"path": [
 						"employees",
 						"edit",
-						"18"
+						"3"
 					]
 				}
 			},
@@ -354,7 +388,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NDEwNDU1LCJpYXQiOjE2NzQ1NDY0NTUsImp0aSI6Ijg2ZDRiNDJmZDYzYzQwMjQ4MTEwZDE5YzIyY2M4MmMxIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIiLCJpc19zdGFmZiI6dHJ1ZX0.Z3VsDWZ1PsynJdo5bIKVK31xPHrGJmOXwOxR0TV3g9g",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -362,7 +396,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/employers/2",
+					"raw": "http://127.0.0.1:8000/employers/1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -373,7 +407,7 @@
 					"port": "8000",
 					"path": [
 						"employers",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -387,7 +421,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NjQ5Nzc2LCJpYXQiOjE2NzQ3ODU3NzYsImp0aSI6IjkwZWE5OGNkNGMwOTQxYTQ5ZTQ1ZWQyOWM0NDllMTQ0IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.zoTa79tcxknt1-n9Q8EixJLREEZn3DZMYU64hunxv-I",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -396,7 +430,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"user_id\": 10,\r\n    \"companyName\": \"devCodeCamp\"\r\n}",
+					"raw": "{\r\n    \"user_id\": 1,\r\n    \"companyName\": \"devCodeCamp\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -429,7 +463,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NDEwNDU1LCJpYXQiOjE2NzQ1NDY0NTUsImp0aSI6Ijg2ZDRiNDJmZDYzYzQwMjQ4MTEwZDE5YzIyY2M4MmMxIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIiLCJpc19zdGFmZiI6dHJ1ZX0.Z3VsDWZ1PsynJdo5bIKVK31xPHrGJmOXwOxR0TV3g9g",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -437,7 +471,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/employers/delete/6",
+					"raw": "http://127.0.0.1:8000/employers/delete/1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -449,7 +483,7 @@
 					"path": [
 						"employers",
 						"delete",
-						"6"
+						"1"
 					]
 				}
 			},
@@ -466,7 +500,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczODM3NjcxLCJpYXQiOjE2NzI5NzM2NzEsImp0aSI6ImVmZWJmZDk0YTIyMzQ2MzZiNDk4YzFlMzUwYzZkM2Y4IiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJhbGV4dGF5bG9yIiwiZmlyc3RfbmFtZSI6IkFsZXgifQ.yTryUm_6O0WmkV-h4JL2lfrQqOS_6z_XwolveVRsYXE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -483,7 +517,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/paychecks/home/4",
+					"raw": "http://127.0.0.1:8000/paychecks/home/1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -495,7 +529,7 @@
 					"path": [
 						"paychecks",
 						"home",
-						"4"
+						"1"
 					]
 				}
 			},
@@ -509,7 +543,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczODM3NjcxLCJpYXQiOjE2NzI5NzM2NzEsImp0aSI6ImVmZWJmZDk0YTIyMzQ2MzZiNDk4YzFlMzUwYzZkM2Y4IiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJhbGV4dGF5bG9yIiwiZmlyc3RfbmFtZSI6IkFsZXgifQ.yTryUm_6O0WmkV-h4JL2lfrQqOS_6z_XwolveVRsYXE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -517,7 +551,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/paychecks/12/paychecks",
+					"raw": "http://127.0.0.1:8000/paychecks/2/paychecks",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -528,7 +562,7 @@
 					"port": "8000",
 					"path": [
 						"paychecks",
-						"12",
+						"2",
 						"paychecks"
 					]
 				}
@@ -543,7 +577,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc0NTIxNDQyLCJpYXQiOjE2NzM2NTc0NDIsImp0aSI6ImYxMTJiZTcyNmU5MzQ3MDU5NGNlZTE5OWE2NjM3ODZkIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.VjKR1-h2CHGTYkiYg7yLGn2YP-SwzvNwGbqHB2hyqGo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -552,7 +586,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"payRate\": 30.50,\r\n    \"OTPayRate\": 45.25,\r\n    \"hoursWorked\": 40.00,\r\n    \"OTHoursWorked\": 10.00,\r\n    \"sickTimeUsed\": 0,\r\n    \"vacationTimeUsed\": 0,\r\n    \"taxes\": 0.20,\r\n    \"employee_id\": 12\r\n}",
+					"raw": "{\r\n    \"payRate\": 30.50,\r\n    \"OTPayRate\": 45.25,\r\n    \"hoursWorked\": 40.00,\r\n    \"OTHoursWorked\": 10.00,\r\n    \"sickTimeUsed\": 0,\r\n    \"vacationTimeUsed\": 0,\r\n    \"taxes\": 0.20,\r\n    \"employee_id\": 3\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -586,7 +620,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NDEwNDU1LCJpYXQiOjE2NzQ1NDY0NTUsImp0aSI6Ijg2ZDRiNDJmZDYzYzQwMjQ4MTEwZDE5YzIyY2M4MmMxIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIiLCJpc19zdGFmZiI6dHJ1ZX0.Z3VsDWZ1PsynJdo5bIKVK31xPHrGJmOXwOxR0TV3g9g",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -594,7 +628,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/shifts/17/shifts",
+					"raw": "http://127.0.0.1:8000/shifts/3/shifts",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -605,7 +639,7 @@
 					"port": "8000",
 					"path": [
 						"shifts",
-						"17",
+						"3",
 						"shifts"
 					]
 				}
@@ -620,7 +654,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczODM3NjcxLCJpYXQiOjE2NzI5NzM2NzEsImp0aSI6ImVmZWJmZDk0YTIyMzQ2MzZiNDk4YzFlMzUwYzZkM2Y4IiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJhbGV4dGF5bG9yIiwiZmlyc3RfbmFtZSI6IkFsZXgifQ.yTryUm_6O0WmkV-h4JL2lfrQqOS_6z_XwolveVRsYXE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -628,7 +662,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/shifts/selected-shift/7",
+					"raw": "http://127.0.0.1:8000/shifts/selected-shift/5",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -640,7 +674,7 @@
 					"path": [
 						"shifts",
 						"selected-shift",
-						"7"
+						"5"
 					]
 				}
 			},
@@ -654,7 +688,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc0NTIxNDQyLCJpYXQiOjE2NzM2NTc0NDIsImp0aSI6ImYxMTJiZTcyNmU5MzQ3MDU5NGNlZTE5OWE2NjM3ODZkIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.VjKR1-h2CHGTYkiYg7yLGn2YP-SwzvNwGbqHB2hyqGo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -663,7 +697,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"workDate\": \"2023-01-16\",\r\n    \"scheduledStart\": \"2023-01-16 14:00:00\",\r\n    \"scheduledEnd\": \"2023-01-16 22:00:00\",\r\n    \"actualStart\": \"2023-01-16 13:49:36\",\r\n    \"actualEnd\": \"2023-01-16 22:00:04\",\r\n    \"isHoliday\": 0,\r\n    \"isClockedIn\": 0,\r\n    \"employee_id\": 12\r\n}",
+					"raw": "{\r\n    \"employee_id\": 3,\r\n    \"workDate\": \"2023-02-07\",\r\n    \"scheduledStart\": \"2023-02-07 14:00:00\",\r\n    \"scheduledEnd\": \"2023-02-07 22:00:00\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -671,7 +705,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/shifts/set/12",
+					"raw": "http://127.0.0.1:8000/shifts/set/3",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -683,7 +717,7 @@
 					"path": [
 						"shifts",
 						"set",
-						"12"
+						"3"
 					]
 				}
 			},
@@ -697,7 +731,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc0NTIxNDQyLCJpYXQiOjE2NzM2NTc0NDIsImp0aSI6ImYxMTJiZTcyNmU5MzQ3MDU5NGNlZTE5OWE2NjM3ODZkIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.VjKR1-h2CHGTYkiYg7yLGn2YP-SwzvNwGbqHB2hyqGo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -706,7 +740,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"workDate\": \"2023-01-14\",\r\n    \"scheduledStart\": \"2023-01-14 14:00:00\",\r\n    \"scheduledEnd\": \"2023-01-14 22:00:00\",\r\n    \"actualStart\": \"2023-01-14 13:52:13\",\r\n    \"actualEnd\": \"2023-01-14 22:09:22\",\r\n    \"isHoliday\": 0,\r\n    \"isClockedIn\": 0,\r\n    \"employee_id\": 12\r\n}",
+					"raw": "{\r\n    \"workDate\": \"2023-02-06\",\r\n    \"scheduledStart\": \"2023-02-06 14:00:00\",\r\n    \"scheduledEnd\": \"2023-02-06 22:00:00\",\r\n    \"actualStart\": \"\",\r\n    \"actualEnd\": \"\",\r\n    \"isHoliday\": 0,\r\n    \"isClockedIn\": 0,\r\n    \"employee_id\": 3\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -714,7 +748,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/shifts/edit/7",
+					"raw": "http://127.0.0.1:8000/shifts/edit/1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -726,7 +760,7 @@
 					"path": [
 						"shifts",
 						"edit",
-						"7"
+						"1"
 					]
 				}
 			},
@@ -740,7 +774,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc0NTIxNDQyLCJpYXQiOjE2NzM2NTc0NDIsImp0aSI6ImYxMTJiZTcyNmU5MzQ3MDU5NGNlZTE5OWE2NjM3ODZkIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJhZG1pbiIsImZpcnN0X25hbWUiOiIifQ.VjKR1-h2CHGTYkiYg7yLGn2YP-SwzvNwGbqHB2hyqGo",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -748,7 +782,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/shifts/edit/9",
+					"raw": "http://127.0.0.1:8000/shifts/edit/4",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -760,7 +794,7 @@
 					"path": [
 						"shifts",
 						"edit",
-						"9"
+						"4"
 					]
 				}
 			},
@@ -774,7 +808,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczODM3NjcxLCJpYXQiOjE2NzI5NzM2NzEsImp0aSI6ImVmZWJmZDk0YTIyMzQ2MzZiNDk4YzFlMzUwYzZkM2Y4IiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJhbGV4dGF5bG9yIiwiZmlyc3RfbmFtZSI6IkFsZXgifQ.yTryUm_6O0WmkV-h4JL2lfrQqOS_6z_XwolveVRsYXE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -782,7 +816,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/clock-in/12/punches",
+					"raw": "http://127.0.0.1:8000/clock-in/3/punches",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -793,8 +827,42 @@
 					"port": "8000",
 					"path": [
 						"clock-in",
-						"12",
+						"3",
 						"punches"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get_Paycheck_Punches_By_Emloyee_ID",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/clock-in/3/paycheck-punches",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"clock-in",
+						"3",
+						"paycheck-punches"
 					]
 				}
 			},
@@ -808,7 +876,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczODM3NjcxLCJpYXQiOjE2NzI5NzM2NzEsImp0aSI6ImVmZWJmZDk0YTIyMzQ2MzZiNDk4YzFlMzUwYzZkM2Y4IiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJhbGV4dGF5bG9yIiwiZmlyc3RfbmFtZSI6IkFsZXgifQ.yTryUm_6O0WmkV-h4JL2lfrQqOS_6z_XwolveVRsYXE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NzMwOTc1LCJpYXQiOjE2NzQ4NjY5NzUsImp0aSI6ImJkZmI3NDhiZTZiYzQ1MzA4YWU4NDJiOTU4NGZlNDAyIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.N-LCRCBvDDajb-_ZwYGdk3q4v6d1qF1nn5r8i9g2jIk",
 							"type": "string"
 						}
 					]
@@ -842,7 +910,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczODM3NjcxLCJpYXQiOjE2NzI5NzM2NzEsImp0aSI6ImVmZWJmZDk0YTIyMzQ2MzZiNDk4YzFlMzUwYzZkM2Y4IiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJhbGV4dGF5bG9yIiwiZmlyc3RfbmFtZSI6IkFsZXgifQ.yTryUm_6O0WmkV-h4JL2lfrQqOS_6z_XwolveVRsYXE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -851,7 +919,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"clockIn\": \"2023-01-13 13:58:05\",\r\n    \"clockOut\": \"2023-01-13 22:02:05\",\r\n    \"startLunch\": \"2023-01-13 17:59:00\",\r\n    \"returnLunch\": \"2023-01-13 18:29:05\",\r\n    \"employee_id\": 12,\r\n    \"shift_id\": 6\r\n}",
+					"raw": "{\r\n    \"clockIn\": \"2023-02-08 13:56:49\",\r\n    \"employee_id\": 3,\r\n    \"shift_id\": 6\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -859,7 +927,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/clock-in/create-time-punch/12",
+					"raw": "http://127.0.0.1:8000/clock-in/create-time-punch/3",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -871,7 +939,7 @@
 					"path": [
 						"clock-in",
 						"create-time-punch",
-						"12"
+						"3"
 					]
 				}
 			},
@@ -885,7 +953,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczODM3NjcxLCJpYXQiOjE2NzI5NzM2NzEsImp0aSI6ImVmZWJmZDk0YTIyMzQ2MzZiNDk4YzFlMzUwYzZkM2Y4IiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJhbGV4dGF5bG9yIiwiZmlyc3RfbmFtZSI6IkFsZXgifQ.yTryUm_6O0WmkV-h4JL2lfrQqOS_6z_XwolveVRsYXE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc1NzMwOTc1LCJpYXQiOjE2NzQ4NjY5NzUsImp0aSI6ImJkZmI3NDhiZTZiYzQ1MzA4YWU4NDJiOTU4NGZlNDAyIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.N-LCRCBvDDajb-_ZwYGdk3q4v6d1qF1nn5r8i9g2jIk",
 							"type": "string"
 						}
 					]
@@ -928,7 +996,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjczODM3NjcxLCJpYXQiOjE2NzI5NzM2NzEsImp0aSI6ImVmZWJmZDk0YTIyMzQ2MzZiNDk4YzFlMzUwYzZkM2Y4IiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJhbGV4dGF5bG9yIiwiZmlyc3RfbmFtZSI6IkFsZXgifQ.yTryUm_6O0WmkV-h4JL2lfrQqOS_6z_XwolveVRsYXE",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjc2NjA4NTA4LCJpYXQiOjE2NzU3NDQ1MDgsImp0aSI6ImVmYWQ2MGI0YmI1NTQxZWE4MDlhMGIwODhkNmU0Yzk4IiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJhbGV4IiwiZmlyc3RfbmFtZSI6IiIsImxhc3RfbmFtZSI6IiIsImlzX3N0YWZmIjp0cnVlfQ.Sk1ikUpVWTBUfvBHnALMHynvHLTuNejbCIQ-GfCE8YY",
 							"type": "string"
 						}
 					]
@@ -936,7 +1004,7 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/clock-in/time-punch/7",
+					"raw": "http://127.0.0.1:8000/clock-in/time-punch/2",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -948,7 +1016,7 @@
 					"path": [
 						"clock-in",
 						"time-punch",
-						"7"
+						"2"
 					]
 				}
 			},
