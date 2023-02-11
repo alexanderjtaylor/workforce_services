@@ -62,7 +62,7 @@ function App() {
         <Route path="/time-off" element={<PrivateRoute><TimeOffHomePage /></PrivateRoute>} />
         <Route path="/unassigned-users" element={<PrivateRoute><UnassignedUsers /></PrivateRoute>} />
         <Route path="/time-punch-page/:employeeID" element={<PrivateRoute><TimePunchPage /></PrivateRoute>} />
-        <Route path="/clock-in/:shiftID" element={<PrivateRoute><TimePunchPage /></PrivateRoute>} />
+        <Route path="/clock-in/:shiftID" element={<PrivateRoute><ClockIn /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>

@@ -15,37 +15,24 @@ const TimePunchPage = () => {
   const { state } = useLocation();
   const navigate = useNavigate();
   const [employee, setEmployee] = useState([]);
-  const [shifts, setShifts] = useState([]);
   const [shift, setShift] = useState([]);
-  const [today, setToday] = useState([]);
-  // setToday( new Date)
+  const findDate = new Date();
+  const date = `${findDate.getFullYear()}-${findDate.getMonth()+1}-${findDate.getDate()}`;
 
   useEffect(() => {
-    fetchShifts();
+    fetchShift();
   }, [token]);
 
-  // const fetchEmployee = async () => {
-  //   try {
-  //     let response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}`, {
-  //       headers: {
-  //         Authorization: "Bearer " + token,
-  //       },
-  //     });
-  //     setEmployee(response.data);
-  //   } catch (error) {
-  //     console.log(error.response.data);
-  //   }
-  // };
-
-  const fetchShifts = async () => {
+  const fetchShift = async () => {
     try {
       let response = await axios.get(`http://127.0.0.1:8000/shifts/${state.employee_id}/shifts`, {
         headers: {
           Authorization: "Bearer " + token,
         },
       });
-      setShifts(response.data);
-      setShift(shifts.filter(shift.workDate=today));
+      setShift(response.data.filter(shift.workDate = date))
+      // setShifts(response.data);
+      // setShift(shifts.filter(shift.workDate=today));
     } catch (error) {
       console.log(error.response.data);
     }
@@ -86,6 +73,7 @@ const TimePunchPage = () => {
     <div className="container">
     <Link to="/"><button>Home</button></Link>
     <h1>Welcome {state.firstName}</h1>
+    <h1>Welcome {shift.workDate}</h1>
     <DateTime/>
     <button onClick={() => handleClick(shift)}>Clock In</button>
     {/* <button onClick={() => handleClick(shift)}>Clock Out</button>

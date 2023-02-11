@@ -26,6 +26,7 @@ const ClockIn = (props) => {
             Authorization: "Bearer " + token,
           },
         });
+        console.log(response.data)
         setEmployee(response.data);
       } catch (error) {
         console.log(error.response.data);
@@ -33,7 +34,7 @@ const ClockIn = (props) => {
     };
 
     async function punchIn(){
-        const response = await axios.post(`http://127.0.0.1:8000/clock-in/create-time-punch/${employee.id}`, formData, {
+        const response = await axios.post(`http://127.0.0.1:8000/clock-in/create-time-punch/${state.employee_id}`, formData, {
           headers: {
             Authorization: "Bearer " + token,
           },
@@ -41,15 +42,6 @@ const ClockIn = (props) => {
         navigate("/");
         console.log(response.data)
         setTimePunch(response.data)};
-
-        // async function getShift(){
-        //     const response = await axios.get(`http://127.0.0.1:8000/shifts/selected-shift/${state.shift.id}`, {
-        //       headers: {
-        //         Authorization: "Bearer " + token,
-        //       },
-        //     });
-        //     console.log(response.data)
-        //     setShift(response.data)};
 
     return ( 
       <div className="container">
