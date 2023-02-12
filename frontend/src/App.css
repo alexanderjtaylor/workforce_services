@@ -8,6 +8,13 @@
   box-sizing: inherit;
 }
 
+ul {
+  display: flex;
+  list-style-type: none;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
 html {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
@@ -71,6 +78,59 @@ button:hover {
   max-width: 1200px;
   overflow: auto;
   text-align: center;
+}
+
+.employee-home-container {
+  margin: 0 auto;
+  padding: 5%;
+  max-width: 1200px;
+  overflow: auto;
+  text-align: center;
+}
+
+.employee-home-welcome {
+  color: midnightblue;
+  text-align: center;
+}
+
+.employee-home-info {
+  color: midnightblue;
+  text-align: center;
+  margin-top: 3%;
+  padding: .5%;
+}
+
+.employee-home-info-data {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  list-style-type: none;
+  width: 40%;
+}
+
+.employee-home-info-name {
+  text-align: start;
+}
+
+.home-page-btn-div {
+  padding: 2%;
+  text-align: center;
+}
+
+.home-page-btns {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid midnightblue;
+  color: midnightblue;
+  text-align: center;
+  font-size: 1rem;
+  font-family: inherit;
+  max-width: 100px;
+  padding: 0.55rem 0.55rem;
+  margin-bottom: 10%;
+  margin: 2.5%;
+  width: 10%;
+  /* table-layout: fixed; */
 }
 
 .form {

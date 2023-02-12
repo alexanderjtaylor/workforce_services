@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import GetEmployeeShifts from "../../components/GetEmployeeShifts/GetEmployeeShifts";
-import DeleteShift from "../../components/DeleteShift/DeleteShift";
+import { format } from 'date-fns'
 
 const ViewSchedulePage = (props) => {
   const [user, token] = useAuth();
@@ -12,6 +11,7 @@ const ViewSchedulePage = (props) => {
 
   useEffect(() => {
     fetchEmployeeShifts();
+    // ValueSetter();
   }, [token]);
 
   async function fetchEmployeeShifts(){
@@ -23,6 +23,11 @@ const ViewSchedulePage = (props) => {
     console.log(response.data)
     setEmployeeShifts(response.data);}
 
+    // function ValueSetter(){
+    //   const findDate = new Date();
+    //   const date = `${findDate.getFullYear()}-${findDate.getMonth()+1}-${findDate.getDate()}`;
+    // }
+
   return (
       <div className="container">
       <Link to="/"><button>Home</button></Link>
@@ -33,23 +38,26 @@ const ViewSchedulePage = (props) => {
                 <th>Work Date</th>
                 <th>Scheduled Start</th>
                 <th>Scheduled End</th>
-                <th>Actual Start</th>
+                {/* <th>Actual Start</th>
                 <th>Actual End</th>
                 <th>Holiday</th>
-                <th>Clocked In</th>
+                <th>Clocked In</th> */}
               </tr>
             </thead>
             <tbody>
               {employeeShifts.map((shift) => {
                 return (
                   <tr>
-                    <td>{shift.workDate}</td>
+                    {format(shift.workDate, 'mm/dd/yyyy')}
+                    {format(shift.scheduledStart, 'kk:mm:ss')}
+                    {format(shift.scheduledEnd, 'kk:mm:ss')}
+                    {/* <td>{shift.workDate}</td>
                     <td>{shift.scheduledStart}</td>
-                    <td>{shift.scheduledEnd}</td>
-                    <td>{shift.actualStart}</td>
+                    <td>{shift.scheduledEnd}</td> */}
+                    {/* <td>{shift.actualStart}</td>
                     <td>{shift.actualEnd}</td>
                     <td>{shift.isHoliday}</td>
-                    <td>{shift.isClockedIn}</td>
+                    <td>{shift.isClockedIn}</td> */}
                   </tr>
                 );
               })}
