@@ -71,11 +71,19 @@ const TimePunchPage = () => {
 
   return (
     <div className="container">
-    <Link to="/"><button>Home</button></Link>
-    <h1>Welcome {state.firstName}</h1>
-    <h1>Welcome {shift.workDate}</h1>
+    <Link to="/"><button className="home-btn">Home</button></Link>
+    <h3>{shift.data && shift.data.map((shift) => {
+      return (
+        <tr className='table-row'>
+          <td className='table-row'>{shift.id}</td>
+          <td className='table-row'>{shift.workDate}</td>
+        </tr>
+      );
+    })}
+    </h3>
+    {/* <h3>Date: {shift.workDate}</h3> */}
     <DateTime/>
-    <button onClick={() => handleClick(shift)}>Clock In</button>
+    <button className='home-page-btns' onClick={() => handleClick(shift)}>Clock In</button>
     {/* <button onClick={() => handleClick(shift)}>Clock Out</button>
     <button onClick={() => handleClick(shift)}>Go to Lunch</button>
     <button onClick={() => handleClick(shift)}>Return from Lunch</button> */}

@@ -12,10 +12,9 @@ export const DateTime = () => {
     });
 
     return(
-        <div>
-            <p> Time : {date.toLocaleTimeString()}</p>
-            <p> Date : {date.toLocaleDateString()}</p>
-
+        <div className='live-clock'>
+            <p className='active-date'> Date : {date.toLocaleDateString()}</p>
+            <p className='active-clock'> Time : {date.toLocaleTimeString()}</p>
         </div>
     )
 }

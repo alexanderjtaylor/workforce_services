@@ -14,7 +14,7 @@ const DeleteEmployee = (props) => {
 
     return ( 
         <td>
-            <button onClick={deleteEmployee} className='delete-btn'>Delete</button>
+            <button onClick={deleteEmployee} className='home-page-btns'>Delete</button>
         </td>
      );
 }

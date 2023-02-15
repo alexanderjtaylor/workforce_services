@@ -26,32 +26,32 @@ const EmployeeProfilePage = () => {
 
 return (
     <div className="container">
-        <Link to="/"><button>Home</button></Link>
+        <Link to="/"><button className="home-btn">Home</button></Link>
         <table className='profile-tabel'>
           <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Job Title</th>
-              <th>Company</th>
-              <th>Years with Company</th>
-              <th>Pay Rate</th>
-              <th>Overtime Rate</th>
-              <th>Sick Time</th>
-              <th>Vacation Time</th>
+            <tr className='table-col'>
+              <th className='table-col'>First Name</th>
+              <th className='table-col'>Last Name</th>
+              <th className='table-col'>Job Title</th>
+              <th className='table-col'>Company</th>
+              <th className='table-col'>Years at Company</th>
+              <th className='table-col'>Pay Rate</th>
+              <th className='table-col'>Overtime Rate</th>
+              <th className='table-col'>Sick Time</th>
+              <th className='table-col'>Vacation Time</th>
             </tr>
           </thead>
           <tbody>
-                <tr>
-                  <td>{employee.firstName}</td>
-                  <td>{employee.lastName}</td>
-                  <td>{employee.jobTitle}</td>
-                  <td>{companyName}</td>
-                  <td>{employee.yearsWithCompany}</td>
-                  <td>{employee.payRate}</td>
-                  <td>{employee.OTPayRate}</td>
-                  <td>{employee.sickTime}</td>
-                  <td>{employee.vacationTime}</td>
+                <tr className='table-row'>
+                  <td className='table-row'>{employee.firstName}</td>
+                  <td className='table-row'>{employee.lastName}</td>
+                  <td className='table-row'>{employee.jobTitle}</td>
+                  <td className='table-row'>{companyName}</td>
+                  <td className='table-row'>{employee.yearsWithCompany}</td>
+                  <td className='table-row'>{employee.payRate}</td>
+                  <td className='table-row'>{employee.OTPayRate}</td>
+                  <td className='table-row'>{employee.sickTime}</td>
+                  <td className='table-row'>{employee.vacationTime}</td>
                 </tr>
           </tbody>
         </table>

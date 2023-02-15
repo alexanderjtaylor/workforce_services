@@ -9,15 +9,16 @@ function EmployerHomePage(props){
   const [user, token] = useAuth();
   
   return (
-    <div className="container">
-      <h1>Welcome {user.username}</h1>
-      <h3>{props.employer.company_name}</h3>
-      <h3>Employees: {props.employer.employee_count}</h3>
-      <Link to="/search-employee"><button>Search Employee</button></Link>
-      <Link to="/schedule"><button>Schedule</button></Link>
-      <Link to="/paycheck"><button>Paycheck</button></Link>
-      <Link to="/time-off"><button>Time Off</button></Link>
-      <Link to="/unassigned-users"><button>Unassigned Users</button></Link>
+    <div className="home-container">
+      <h2 className="home-welcome">Welcome {user.username}</h2>
+      <h3 className="home-sub-header">{props.employer.company_name} Employees:{props.employer.employee_count}</h3>
+      <div className="employer-home-page-btn-div">
+      <Link to="/search-employee"><button className='employer-home-page-btns'>Search Employee</button></Link>
+      <Link to="/schedule"><button className='employer-home-page-btns'>Schedule</button></Link>
+      <Link to="/paycheck"><button className='employer-home-page-btns'>Paycheck</button></Link>
+      <Link to="/time-off"><button className='employer-home-page-btns'>Time Off</button></Link>
+      <Link to="/unassigned-users"><button className='employer-home-page-btns'>Unassigned Users</button></Link>
+      </div>
     </div>
   );
 };

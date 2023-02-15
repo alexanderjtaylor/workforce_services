@@ -50,11 +50,11 @@ const EmployerViewSchedulePage = () => {
       <h1>{state.firstName}'s Schedule</h1>
             <table className='prop-tabel'>
             <thead>
-              <tr>
-                <th>Shift ID</th>
-                <th>Work Date</th>
-                <th>Scheduled Start</th>
-                <th>Scheduled End</th>
+              <tr className='table-col'>
+                <th className='table-col'>Shift ID</th>
+                <th className='table-col'>Work Date</th>
+                <th className='table-col'>Scheduled Start</th>
+                <th className='table-col'>Scheduled End</th>
                 {/* <th>Actual Start</th>
                 <th>Actual End</th> */}
                 {/* <th>Holiday</th> */}
@@ -64,16 +64,16 @@ const EmployerViewSchedulePage = () => {
             <tbody>
               {employeeShifts.map((shift) => {
                 return (
-                  <tr>
-                    <td>{shift.id}</td>
-                    <td>{shift.workDate}</td>
-                    <td>{shift.scheduledStart}</td>
-                    <td>{shift.scheduledEnd}</td>
+                  <tr className='table-row'>
+                    <td className='table-row'>{shift.id}</td>
+                    <td className='table-row'>{shift.workDate}</td>
+                    <td className='table-row'>{shift.scheduledStart}</td>
+                    <td className='table-row'>{shift.scheduledEnd}</td>
                     {/* <td>{shift.actualStart}</td>
                     <td>{shift.actualEnd}</td> */}
                     {/* <td>{shift.isHoliday}</td> */}
                     {/* <td>{shift.isClockedIn}</td> */}
-                    <button onClick={() => handleClick(shift)}>Edit Shift</button>
+                    <button className='employer-home-page-btns' onClick={() => handleClick(shift)}>Edit Shift</button>
                     <td><DeleteShift shift_id = {shift.id} fetchEmployeeShifts = {fetchEmployeeShifts}/></td>
                   </tr>
                 );
