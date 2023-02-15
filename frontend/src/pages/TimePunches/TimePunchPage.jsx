@@ -83,16 +83,18 @@ const TimePunchPage = () => {
     </h3>
     {/* <h3>Date: {shift.workDate}</h3> */}
     <DateTime/>
+    <div className="time-punch-btns-div">
     <button className='home-page-btns' onClick={() => handleClick(shift)}>Clock In</button>
+    <ClockOut employee = {employee} setEmployee = {setEmployee}/>
+    <ToLunch employee = {employee} setEmployee = {setEmployee}/>
+    <ReturnLunch employee = {employee} setEmployee = {setEmployee}/>
+    </div>
     {/* <button onClick={() => handleClick(shift)}>Clock Out</button>
     <button onClick={() => handleClick(shift)}>Go to Lunch</button>
     <button onClick={() => handleClick(shift)}>Return from Lunch</button> */}
     {/* <h3>Status</h3>
     <p>{shift.isClockedIn}</p> */}
     {/* <ClockIn employee = {employee} setEmployee = {setEmployee}/> */}
-    <ClockOut employee = {employee} setEmployee = {setEmployee}/>
-    <ToLunch employee = {employee} setEmployee = {setEmployee}/>
-    <ReturnLunch employee = {employee} setEmployee = {setEmployee}/>
     </div>
   );
 };

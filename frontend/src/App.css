@@ -294,3 +294,8 @@ button:hover {
 .profile-table {
   --bs-gutter-x: .5rem;
 }
+
+.time-punch-btns-div {
+  width: 100%;
+  text-align: center;
+}
