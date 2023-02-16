@@ -47,11 +47,13 @@ button {
 }
 
 .active-clock {
+  font-size: x-large;
   text-align: center;
   color: midnightblue;
 }
 
 .active-date {
+  font-size: x-large;
   text-align: center;
   color: midnightblue;
 }
@@ -117,8 +119,8 @@ button {
 
 .add-employee-btn {
   background-color: transparent;
-  border: 2px solid steelblue;
-  color: steelblue;
+  border: 2px solid midnightblue;
+  color: midnightblue;
   font-size: 1rem;
   font-family: inherit;
   max-width: 500px;
@@ -128,8 +130,8 @@ button {
 
 .edit-employee-btn {
   background-color: transparent;
-  border: 2px solid steelblue;
-  color: steelblue;
+  border: 2px solid midnightblue;
+  color: midnightblue;
   font-size: 1rem;
   font-family: inherit;
   max-width: 500px;
@@ -311,6 +313,29 @@ button:hover {
   font-family: inherit;
   max-width: 140px;
   padding: 0.55rem 0.55rem;
+  margin-bottom: 10%;
+  margin: 2.5%;
+  width: auto;
+}
+
+.punch-form-input {
+  font-size: x-small;
+}
+
+.punch-form-input-boxes {
+  font-size: x-small;
+}
+
+.punch-btn {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid midnightblue;
+  color: midnightblue;
+  text-align: center;
+  font-size: clamp(25px, 2vw, 150px);
+  font-family: inherit;
+  max-width: 500px;
+  padding: 2rem 2rem;
   margin-bottom: 10%;
   margin: 2.5%;
   width: auto;

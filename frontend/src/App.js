@@ -22,6 +22,8 @@ import CreatePayCheckPage from "./pages/PaycheckHomePage/CreatePaycheckPage";
 import TimePunchPage from "./pages/TimePunches/TimePunchPage";
 import ClockIn from "./pages/TimePunches/ClockIn";
 import ClockOut from "./pages/TimePunches/ClockOut";
+import GoToLunch from "./pages/TimePunches/ToLunch";
+import ReturnLunch from "./pages/TimePunches/ReturnLunch";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -65,8 +67,8 @@ function App() {
         <Route path="/time-punch-page/:employeeID" element={<PrivateRoute><TimePunchPage /></PrivateRoute>} />
         <Route path="/clock-in/:shiftID" element={<PrivateRoute><ClockIn /></PrivateRoute>} />
         <Route path="/clock-out/:shiftID" element={<PrivateRoute><ClockOut /></PrivateRoute>} />
-        <Route path="/clock-go-to-lunch/:shiftID" element={<PrivateRoute><ClockIn /></PrivateRoute>} />
-        <Route path="/clock-return-lunch/:shiftID" element={<PrivateRoute><ClockIn /></PrivateRoute>} />
+        <Route path="/clock-go-to-lunch/:shiftID" element={<PrivateRoute><GoToLunch /></PrivateRoute>} />
+        <Route path="/clock-return-lunch/:shiftID" element={<PrivateRoute><ReturnLunch /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>
