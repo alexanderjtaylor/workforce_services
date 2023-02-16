@@ -6,14 +6,14 @@ import useCustomForm from "../../hooks/useCustomForm"
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
 
-const ClockIn = (props) => {
+const ClockOut = (props) => {
     const [user, token] = useAuth();
     const navigate = useNavigate();
     const { state } = useLocation();
     const [employee, setEmployee] = useState();
     const [timePunch, setTimePunch] = useState();
     const [shift, setShift] = useState();
-    const [formData, handleInputChange, handleSubmit] = useCustomForm(state, punchIn);
+    const [formData, handleInputChange, handleSubmit] = useCustomForm(state, punchOut);
 
     useEffect(() => {
       fetchEmployee();
@@ -33,8 +33,8 @@ const ClockIn = (props) => {
       }
     };
 
-    async function punchIn(){
-        const response = await axios.post(`http://127.0.0.1:8000/clock-in/create-time-punch/${employee.id}`, formData, {
+    async function punchOut(){
+        const response = await axios.put(`http://127.0.0.1:8000/clock-in/time-punch/${state.shift.id}`, formData, {
           headers: {
             Authorization: "Bearer " + token,
           },
@@ -48,7 +48,7 @@ const ClockIn = (props) => {
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 Employee ID:{" "}
-                <input type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange}/>
+                <input type="text" name="employee_id" value={formData.employee.id} onChange={handleInputChange}/>
             </label>
             <label>
                 Shift ID:{" "}
@@ -58,10 +58,10 @@ const ClockIn = (props) => {
                 Time:{" "}
                 <input type="text" name="ClockIn" value={formData.DateTime} onChange={handleInputChange}/>
             </label>
-            <button className='add-employee-btn'>Clock In</button>
+            <button className='edit-employee-btn'>Clock Out</button>
         </form>
     </div>
      )
 }
  
-export default ClockIn;
+export default ClockOut;
