@@ -298,4 +298,20 @@ button:hover {
 .time-punch-btns-div {
   width: 100%;
   text-align: center;
+  padding: 2%;
+}
+
+.time-punch-btns {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid midnightblue;
+  color: midnightblue;
+  text-align: center;
+  font-size: clamp(13px, 1.3vw, 60px);
+  font-family: inherit;
+  max-width: 140px;
+  padding: 0.55rem 0.55rem;
+  margin-bottom: 10%;
+  margin: 2.5%;
+  width: auto;
 }

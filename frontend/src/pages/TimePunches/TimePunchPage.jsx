@@ -17,7 +17,10 @@ const TimePunchPage = () => {
   const [employee, setEmployee] = useState([]);
   const [shift, setShift] = useState([]);
   const findDate = new Date();
-  const date = `${findDate.getFullYear()}-${findDate.getMonth()+1}-${findDate.getDate()}`;
+  const year  = findDate.getFullYear();
+  const month = (findDate.getMonth() + 1).toString().padStart(2, "0");
+  const day   = findDate.getDate().toString().padStart(2, "0");
+  const date = `${year}-${month}-${day}`;
 
   useEffect(() => {
     fetchShift();
@@ -30,7 +33,10 @@ const TimePunchPage = () => {
           Authorization: "Bearer " + token,
         },
       });
-      setShift(response.data.filter(shift.workDate = date))
+      setShift(todaysShift(response.data))
+      console.log(date)
+      console.log(todaysShift(response.data))
+      // setShift(response.data.filter(shift.workDate = date))
       // setShifts(response.data);
       // setShift(shifts.filter(shift.workDate=today));
     } catch (error) {
@@ -38,10 +44,21 @@ const TimePunchPage = () => {
     }
   };
 
+  function todaysShift(array){
+    let foundShift = array.filter(function(shift){
+      if(shift.workDate.includes(date)){
+        return true;
+      }
+    });
+    return foundShift[0];
+  }
+  // console.log(todaysShift(response.data))
+
   const handleClickone = (shift) => {
     navigate(`/clock-in/${shift.id}`, {
       state: {
         shift_id: shift.id,
+        employee_id: shift.employee.id
       }
     });
   };
@@ -50,6 +67,7 @@ const TimePunchPage = () => {
     navigate(`/clock-out/${shift.id}`, {
       state: {
         shift_id: shift.id,
+        employee_id: shift.employee.id
       }
     });
   };
@@ -58,6 +76,7 @@ const TimePunchPage = () => {
     navigate(`/clock-go-to-lunch/${shift.id}`, {
       state: {
         shift_id: shift.id,
+        employee_id: shift.employee.id
       }
     });
   };
@@ -66,6 +85,7 @@ const TimePunchPage = () => {
     navigate(`/clock-return-lunch/${shift.id}`, {
       state: {
         shift_id: shift.id,
+        employee_id: shift.employee.id
       }
     });
   };
@@ -74,7 +94,7 @@ const TimePunchPage = () => {
     <div className="container">
     <Link to="/"><button className="home-btn">Home</button></Link>
 
-    <>
+    {/* <>
     {console.log(shift)}
     {shift.data ? (
       shift.data.map((shift) => {
@@ -86,7 +106,7 @@ const TimePunchPage = () => {
           ) : (
             <h3>not working</h3>
           )}
-    </>
+    </> */}
 
     {/* <h3>{shift.data && shift.data.map((shift) => {
       return (
@@ -101,10 +121,10 @@ const TimePunchPage = () => {
 
     <DateTime/>
     <div className="time-punch-btns-div">
-    <button className='home-page-btns' onClick={() => handleClickone(shift)}>Clock In</button>
-    <button className='home-page-btns' onClick={() => handleClicktwo(shift)}>Clock Out</button>
-    <button className='home-page-btns' onClick={() => handleClickthree(shift)}>Go to Lunch</button>
-    <button className='home-page-btns' onClick={() => handleClickfour(shift)}>Return Lunch</button>
+    <button className='time-punch-btns' onClick={() => handleClickone(shift)}>Clock In</button>
+    <button className='time-punch-btns' onClick={() => handleClicktwo(shift)}>Clock Out</button>
+    <button className='time-punch-btns' onClick={() => handleClickthree(shift)}>Go to Lunch</button>
+    <button className='time-punch-btns' onClick={() => handleClickfour(shift)}>Return Lunch</button>
     {/* <ClockOut employee = {employee} setEmployee = {setEmployee}/>
     <ToLunch employee = {employee} setEmployee = {setEmployee}/>
     <ReturnLunch employee = {employee} setEmployee = {setEmployee}/> */}
