@@ -32,8 +32,7 @@ const ScheduleHomePage = () => {
           Authorization: "Bearer " + token,
         },
       });
-      console.log(response.data)
-      setCompanyName(response.data.employer.companyName)
+      console.log(response.data, "hello")
       setEmployee(response.data);
     }
   };
@@ -44,7 +43,7 @@ const ScheduleHomePage = () => {
     {user.is_staff ? (
             <SetSchedulePage employees = {employees} setEmployees = {setEmployees}/>
           ) : (
-            <ViewSchedulePage employee = {employee} setEmployee = {setEmployee} companyName = {companyName} setCompanyName = {setCompanyName}/>
+            <ViewSchedulePage employee = {employee} setEmployee = {setEmployee}/>
           )}
     </>
   )

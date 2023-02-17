@@ -26,8 +26,18 @@ const EmployeeHomePage = (props) => {
     }
   };
 
-  const handleClick = (employee) => {
+  const handleClickone = (employee) => {
     navigate(`/time-punch-page/${employee.id}`, {
+      state: {
+        employee_id: employee.id,
+        firstName: employee.firstName,
+        lastName: employee.lastName,
+      }
+    });
+  };
+
+  const handleClicktwo = (employee) => {
+    navigate(`/view-schedule/${employee.id}`, {
       state: {
         employee_id: employee.id,
         firstName: employee.firstName,
@@ -46,8 +56,9 @@ const EmployeeHomePage = (props) => {
           </ul>
       <div className="home-page-btn-div">
       <Link to="/profile"><button className='home-page-btns'>Profile</button></Link>
-      <button className='home-page-btns' onClick={() => handleClick(employee)}>Clock</button>
-      <Link to="/schedule"><button className='home-page-btns'>Schedule</button></Link>
+      <button className='home-page-btns' onClick={() => handleClickone(employee)}>Clock</button>
+      <button className='home-page-btns' onClick={() => handleClicktwo(employee)}>Schedule</button>
+      {/* <Link to="/view-schedule"><button className='home-page-btns'>Schedule</button></Link> */}
       <Link to="/time-off"><button className='home-page-btns'>Time Off</button></Link>
       <Link to="/paycheck"><button className='home-page-btns'>Pay</button></Link>
       </div>

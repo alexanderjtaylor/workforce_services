@@ -55,7 +55,7 @@ function App() {
         <Route path="/search-employee" element={<PrivateRoute><SearchEmployeePage /></PrivateRoute>} />
         <Route path="/schedule" element={<PrivateRoute><ScheduleHomePage /></PrivateRoute>} />
         <Route path="/employer-view-schedule/:employeeID" element={<PrivateRoute><EmployerViewSchedulePage /></PrivateRoute>} />
-        <Route path="/view-schedule" element={<PrivateRoute><ViewSchedulePage /></PrivateRoute>} />
+        <Route path="/view-schedule/:employeeID" element={<PrivateRoute><ViewSchedulePage /></PrivateRoute>} />
         <Route path="/set-schedule" element={<PrivateRoute><SetSchedulePage /></PrivateRoute>} />
         <Route path="/add-shift/:employeeID" element={<PrivateRoute><AddSchedulePage /></PrivateRoute>} />
         <Route path="/edit-shift/:shiftID" element={<PrivateRoute><EditSchedulePage /></PrivateRoute>} />
