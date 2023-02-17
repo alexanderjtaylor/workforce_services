@@ -26,23 +26,23 @@ const RequestTimeOffPage = () => {
 
 return (
     <div className="container">
-        <Link to="/"><button>Home</button></Link>
-        <p>Please Note: Available time off balances do not account for any currently pending requests. Available hours will update after employer approval.</p>
+        <Link to="/"><button className="home-btn">Home</button></Link>
+        <p className="time-off-note">Please Note: Available time off balances do not account for any currently pending requests. Available hours will update after employer approval.</p>
         <table className='profile-tabel'>
           <thead>
-            <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Sick Time Available</th>
-              <th>Vacation Time Available</th>
+            <tr className='table-col'>
+              <th className='table-col'>First Name</th>
+              <th className='table-col'>Last Name</th>
+              <th className='table-col'>Sick Time Available</th>
+              <th className='table-col'>Vacation Time Available</th>
             </tr>
           </thead>
           <tbody>
-                <tr>
-                  <td>{employee.firstName}</td>
-                  <td>{employee.lastName}</td>
-                  <td>{employee.sickTime}</td>
-                  <td>{employee.vacationTime}</td>
+                <tr className='table-row'>
+                  <td className='table-row'>{employee.firstName}</td>
+                  <td className='table-row'>{employee.lastName}</td>
+                  <td className='table-row'>{employee.sickTime}</td>
+                  <td className='table-row'>{employee.vacationTime}</td>
                 </tr>
           </tbody>
         </table>
