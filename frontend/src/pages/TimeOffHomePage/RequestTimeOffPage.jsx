@@ -27,7 +27,7 @@ const RequestTimeOffPage = () => {
 return (
     <div className="container">
         <Link to="/"><button className="home-btn">Home</button></Link>
-        <p className="time-off-note">Please Note: Available time off balances do not account for any currently pending requests. Available hours will update after employer approval.</p>
+        <p className="note">Please Note: Available time off balances do not account for any currently pending requests. Available hours will update after employer approval.</p>
         <table className='profile-tabel'>
           <thead>
             <tr className='table-col'>

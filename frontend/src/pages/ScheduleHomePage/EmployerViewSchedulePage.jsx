@@ -26,6 +26,7 @@ const EmployerViewSchedulePage = () => {
         Authorization: "Bearer " + token,
       },
     });
+    console.log(response)
     setEmployeeShifts(response.data);}
 
     const handleClick = (shift) => {
@@ -63,12 +64,13 @@ const EmployerViewSchedulePage = () => {
             </thead>
             <tbody>
               {employeeShifts.map((shift) => {
+                console.log(shift.workDate)
                 let d = new Date(shift.workDate);
                 let s = new Date(shift.scheduledStart);
                 let e = new Date(shift.scheduledEnd);
                 let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
                 let mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(d);
-                let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+                let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(s);
                 console.log(`${mo}/${da}/${ye}`);
                 let shiftStart = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(s);
                 let shiftEnd = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(e);

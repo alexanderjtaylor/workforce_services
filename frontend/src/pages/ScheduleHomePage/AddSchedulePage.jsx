@@ -31,6 +31,7 @@ const AddSchedulePage = (props) => {
 
   return (
     <div className="container">
+        <p className="note">Please Note: If holiday enter "1". If NOT holiday enter "0".</p>
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 Employee ID:{" "}
@@ -38,7 +39,7 @@ const AddSchedulePage = (props) => {
             </label>
             <label>
                 Work Date:{" "}
-                <input type="text" name="workDate" value={formData.workDate} onChange={handleInputChange}/>
+                <input type="date" name="workDate" value={formData.workDate} onChange={handleInputChange}/>
             </label>
             <label>
                 Scheduled Start:{" "}
@@ -49,20 +50,8 @@ const AddSchedulePage = (props) => {
                 <input type="text" name="scheduledEnd" value={formData.scheduledEnd} onChange={handleInputChange}/>
             </label>
             <label>
-                Actual Start:{" "}
-                <input type="text" name="actualStart" value={formData.actualStart} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Actual End{" "}
-                <input type="text" name="actualEnd" value={formData.actualEnd} onChange={handleInputChange}/>
-            </label>
-            <label>
                 Holiday:{" "}
                 <input type="text" name="isHoliday" value={formData.isHoliday} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Clocked In:{" "}
-                <input type="text" name="isClockedIn" value={formData.isClockedIn} onChange={handleInputChange}/>
             </label>
             <button className='employer-home-page-btns'>Add Shift</button>
         </form>

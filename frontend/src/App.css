@@ -341,7 +341,7 @@ button:hover {
   width: auto;
 }
 
-.time-off-note {
+.note {
   color: midnightblue;
   text-align: center;
   font-size: clamp(9px, .9vw, 50px);

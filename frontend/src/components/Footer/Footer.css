@@ -1,5 +1,6 @@
 footer {
-  position: fixed;
+  margin: auto;
+  position: relative;
   bottom: 0;
   font-size: clamp(5px, .1vw, 30px);
   left: 0;
