@@ -6,7 +6,7 @@ const SearchBar = (props) => {
     function goGetEmployees(event){
         event.preventDefault();
         let response = props.employees.filter((employee) => {
-            if (employee.firstName.includes(searchEmployee) || employee.lastName.includes(searchEmployee) || employee.jobTitle.includes(searchEmployee)){
+            if (employee.firstName.includes(searchEmployee) || employee.lastName.includes(searchEmployee) || employee.jobTitle.includes(searchEmployee) || employee.first_name.includes(searchEmployee) || employee.last_name.includes(searchEmployee)){
                 return true;
             }
             else{

@@ -46,15 +46,15 @@ const EmployerViewSchedulePage = () => {
 
   return (
       <div className="container">
-      <Link to="/"><button>Home</button></Link>
-      <h1>{state.firstName}'s Schedule</h1>
+      <Link to="/"><button className="home-btn">Home</button></Link>
+      <h1 className="home-welcome">{state.firstName}'s Schedule</h1>
             <table className='prop-tabel'>
             <thead>
               <tr className='table-col'>
                 <th className='table-col'>Shift ID</th>
-                <th className='table-col'>Work Date</th>
-                <th className='table-col'>Scheduled Start</th>
-                <th className='table-col'>Scheduled End</th>
+                <th className='table-col'>Date</th>
+                <th className='table-col'>Start</th>
+                <th className='table-col'>End</th>
                 {/* <th>Actual Start</th>
                 <th>Actual End</th> */}
                 {/* <th>Holiday</th> */}
@@ -63,16 +63,24 @@ const EmployerViewSchedulePage = () => {
             </thead>
             <tbody>
               {employeeShifts.map((shift) => {
+                let d = new Date(shift.workDate);
+                let s = new Date(shift.scheduledStart);
+                let e = new Date(shift.scheduledEnd);
+                let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
+                let mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(d);
+                let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+                console.log(`${mo}/${da}/${ye}`);
+                let shiftStart = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(s);
+                let shiftEnd = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(e);
                 return (
                   <tr className='table-row'>
                     <td className='table-row'>{shift.id}</td>
-                    <td className='table-row'>{shift.workDate}</td>
+                    {/* <td className='table-row'>{shift.workDate}</td>
                     <td className='table-row'>{shift.scheduledStart}</td>
-                    <td className='table-row'>{shift.scheduledEnd}</td>
-                    {/* <td>{shift.actualStart}</td>
-                    <td>{shift.actualEnd}</td> */}
-                    {/* <td>{shift.isHoliday}</td> */}
-                    {/* <td>{shift.isClockedIn}</td> */}
+                    <td className='table-row'>{shift.scheduledEnd}</td> */}
+                    <td className='table-row'>{((`${mo}/${da}/${ye}`))}</td>
+                    <td className='table-row'>{(shiftStart)}</td>
+                    <td className='table-row'>{(shiftEnd)}</td>
                     <button className='employer-home-page-btns' onClick={() => handleClick(shift)}>Edit Shift</button>
                     <td><DeleteShift shift_id = {shift.id} fetchEmployeeShifts = {fetchEmployeeShifts}/></td>
                   </tr>

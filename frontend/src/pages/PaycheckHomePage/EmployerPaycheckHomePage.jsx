@@ -42,34 +42,34 @@ function EmployerPaycheckHomePage(props){
 
         return (
           <div className="container">
-            <Link to="/"><button>Home</button></Link>
+            <Link to="/"><button className="home-btn">Home</button></Link>
             <SearchBar employees = {employees} setEmployees = {setEmployees} fetchEmployees = {fetchEmployees}/>
             <table className='prop-tabel'>
               <thead>
-                <tr>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Job Title</th>
-                  <th>Years with Company</th>
-                  <th>Pay Rate</th>
-                  <th>Overtime Rate</th>
-                  <th>Sick Time</th>
-                  <th>Vacation Time</th>
+                <tr className='table-col'>
+                  <th className='table-col'>First Name</th>
+                  <th className='table-col'>Last Name</th>
+                  <th className='table-col'>Job Title</th>
+                  <th className='table-col'>Years with Company</th>
+                  <th className='table-col'>Pay Rate</th>
+                  <th className='table-col'>Overtime Rate</th>
+                  <th className='table-col'>Sick Time</th>
+                  <th className='table-col'>Vacation Time</th>
                 </tr>
               </thead>
               <tbody>
                 {employees.map((employee) => {
                   return (
-                    <tr>
-                      <td>{employee.firstName}</td>
-                      <td>{employee.lastName}</td>
-                      <td>{employee.jobTitle}</td>
-                      <td>{employee.yearsWithCompany}</td>
-                      <td>{employee.payRate}</td>
-                      <td>{employee.OTPayRate}</td>
-                      <td>{employee.sickTime}</td>
-                      <td>{employee.vacationTime}</td>
-                      <button onClick={() => handleClick(employee)}>Create Paycheck</button>
+                    <tr className='table-row'>
+                      <td className='table-row'>{employee.firstName}</td>
+                      <td className='table-row'>{employee.lastName}</td>
+                      <td className='table-row'>{employee.jobTitle}</td>
+                      <td className='table-row'>{employee.yearsWithCompany}</td>
+                      <td className='table-row'>{employee.payRate}</td>
+                      <td className='table-row'>{employee.OTPayRate}</td>
+                      <td className='table-row'>{employee.sickTime}</td>
+                      <td className='table-row'>{employee.vacationTime}</td>
+                      <button className='employer-home-page-btns' onClick={() => handleClick(employee)}>Create Paycheck</button>
                     </tr>
             );
           })}

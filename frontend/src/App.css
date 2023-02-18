@@ -77,7 +77,7 @@ button {
 .table-col {
   margin-left: 8%;
   color: midnightblue;
-  text-align: left;
+  text-align: start;
   margin-top: 2%;
   padding: .5%;
   justify-content: space-between;

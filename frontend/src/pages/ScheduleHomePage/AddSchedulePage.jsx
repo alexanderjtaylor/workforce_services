@@ -64,7 +64,7 @@ const AddSchedulePage = (props) => {
                 Clocked In:{" "}
                 <input type="text" name="isClockedIn" value={formData.isClockedIn} onChange={handleInputChange}/>
             </label>
-            <button className='add-shift-btn'>Add Shift</button>
+            <button className='employer-home-page-btns'>Add Shift</button>
         </form>
     </div>
     );
