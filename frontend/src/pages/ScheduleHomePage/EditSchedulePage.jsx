@@ -54,6 +54,14 @@ async function editShift(){
                 <input type="text" name="actualEnd" value={formData.actualEnd} onChange={handleInputChange}/>
             </label>
             <label>
+                Sick Hours:{" "}
+                <input type="text" name="sickTimeUsed" value={formData.sickTimeUsed} onChange={handleInputChange}/>
+            </label>
+            <label>
+                Vacation Hours:{" "}
+                <input type="text" name="vacationTimeUsed" value={formData.vacationTimeUsed} onChange={handleInputChange}/>
+            </label>
+            <label>
                 Holiday:{" "}
                 <input type="text" name="isHoliday" value={formData.isHoliday} onChange={handleInputChange}/>
             </label>

@@ -1,11 +1,12 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const RequestTimeOffPage = () => {
   const [user, token] = useAuth();
+  const navigate = useNavigate();
   const [employee, setEmployee] = useState([]);
   const [companyName, setCompanyName] = useState([]);
 
@@ -22,7 +23,41 @@ const RequestTimeOffPage = () => {
     console.log(response.data)
     setCompanyName(response.data.employer.companyName)
     setEmployee(response.data);
-  }
+  };
+
+  const handleClickone = (employee) => {
+    navigate(`/request-sick-time/${employee.id}`, {
+      state: {
+      employee_id: employee.id,
+      employer_id: employee.employer.id,
+      user_id: employee.user.id,
+      firstName: employee.firstName,
+      lastName: employee.lastName,
+      jobTitle: employee.jobTitle,
+      sickTime: employee.sickTime,
+      vacationTime: employee.vacationTime,
+      payRate: employee.payRate,
+      OTPayRate: employee.OTPayRate,
+      }
+    });
+  };
+
+  const handleClicktwo = (employee) => {
+    navigate(`/request-vacation-time/${employee.id}`, {
+      state: {
+      employee_id: employee.id,
+      employer_id: employee.employer.id,
+      user_id: employee.user.id,
+      firstName: employee.firstName,
+      lastName: employee.lastName,
+      jobTitle: employee.jobTitle,
+      sickTime: employee.sickTime,
+      vacationTime: employee.vacationTime,
+      payRate: employee.payRate,
+      OTPayRate: employee.OTPayRate,
+      }
+    });
+  };
 
 return (
     <div className="container">
@@ -43,6 +78,8 @@ return (
                   <td className='table-row'>{employee.lastName}</td>
                   <td className='table-row'>{employee.sickTime}</td>
                   <td className='table-row'>{employee.vacationTime}</td>
+                  <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Request Sick Time</button>
+                  <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Request Vacation Time</button>
                 </tr>
           </tbody>
         </table>

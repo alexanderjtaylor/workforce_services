@@ -32,7 +32,7 @@ const ScheduleHomePage = () => {
           Authorization: "Bearer " + token,
         },
       });
-      console.log(response.data, "hello")
+      console.log(response.data)
       setEmployee(response.data);
     }
   };

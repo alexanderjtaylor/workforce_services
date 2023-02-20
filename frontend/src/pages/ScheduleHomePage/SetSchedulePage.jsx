@@ -50,19 +50,6 @@ const handleClicktwo = (employee) => {
   });
 };
 
-const handleClickthree = (employee) => {
-  navigate(`/edit-shift/${employee.id}`, {
-    state: {
-      employee_id: employee.id,
-      employer_id: employee.employer.id,
-      user_id: employee.user.id,
-      firstName: employee.firstName,
-      lastName: employee.lastName,
-      jobTitle: employee.jobTitle,
-    }
-  });
-};
-
   return (
     <div className="container">
       <Link to="/"><button className="home-btn">Home</button></Link>
