@@ -54,7 +54,7 @@ const RequestSickTime = (props) => {
                 Sick Time:{" "}
                 <input type="text" name="sickTime" value={formData.sickTime} onChange={handleInputChange}/>
             </label>
-            <button className='add-employee-btn'>Add Employee</button>
+            <button className='add-employee-btn'>Request Time Off</button>
         </form>
     </div>
     );

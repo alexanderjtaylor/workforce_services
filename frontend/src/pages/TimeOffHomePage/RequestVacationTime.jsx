@@ -12,6 +12,9 @@ const RequestVacationTime = (props) => {
     const [formData, handleInputChange, handleSubmit] = useCustomForm(state, postNewEmployee);
     const {employeeID} = useParams();
     const [thisEmployee, setThisEmployee] = useState({});
+    const defaultValues = {
+        timetouse: "",
+      };
     console.log(state)
 
     async function postNewEmployee(){
@@ -31,34 +34,14 @@ const RequestVacationTime = (props) => {
     <div className="container">
         <form className="form" onSubmit={handleSubmit}>
             <label>
-                Employer ID:{" "}
-                <input type="text" name="employer_id" value={formData.employer_id} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Employee User ID:{" "}
-                <input type="text" name="user_id" value={formData.user_id} onChange={handleInputChange}/>
-            </label>
-            <label>
-                First Name:{" "}
-                <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Last Name:{" "}
-                <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Job Title:{" "}
-                <input type="text" name="jobTitle" value={formData.jobTitle} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Pay Rate:{" "}
-                <input type="text" name="payRate" value={formData.payRate} onChange={handleInputChange}/>
+                Date:{" "}
+                <input type="date" name="workDate" value={formData.workDate} onChange={handleInputChange}/>
             </label>
             <label>
                 Vacation Time:{" "}
-                <input type="text" name="vacationTime" value={formData.vacationTime} onChange={handleInputChange}/>
+                <input type="text" name="vacationTime" value={formData.timetouse} onChange={handleInputChange}/>
             </label>
-            <button className='add-employee-btn'>Add Employee</button>
+            <button className='add-employee-btn'>Request Time Off</button>
         </form>
     </div>
     );

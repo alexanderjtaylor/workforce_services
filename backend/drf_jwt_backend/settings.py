@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'clock',
     'paychecks',
     'shift',
+    'timeoff',
 ]
 
 MIDDLEWARE = [
