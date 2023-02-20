@@ -11,7 +11,7 @@ from django.shortcuts import get_object_or_404
 @api_view(['GET'])
 @permission_classes([IsAdminUser])
 def get_all_pto_requests_for_employer(request, pk):
-    employer = get_object_or_404(Employer, pk=pk)
+    employer = get_object_or_404(Employer, id=pk)
     ptoRequests = PaidTimeOff.objects.filter(employer_id=pk)
     if request.method == 'GET':
         serializer = PaidTimeOffSerializer(ptoRequests, many=True)

@@ -7,3 +7,4 @@ class PaidTimeOffSerializer(serializers.ModelSerializer):
         fields = ['id', 'startWorkDate', 'endWorkDate', 'requestedSickTime', 'requestedVacationTime', 'employee', 'employee_id', 'employer', 'employer_id']
         depth = 1
     employee_id = serializers.IntegerField(write_only=True)
+    employer_id = serializers.IntegerField(write_only=True)

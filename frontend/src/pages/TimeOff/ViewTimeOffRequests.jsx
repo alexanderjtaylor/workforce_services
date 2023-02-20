@@ -16,7 +16,7 @@ const ViewTimeOffRequests = (props) => {
       }, [token]);
 
     async function fetchPTORequests(){
-        const response = await axios.get(`http://127.0.0.1:8000/timeoff/${state.employee_id}/pto-requests`, {
+        const response = await axios.get(`http://127.0.0.1:8000/paidtimeoff/employer/${props.employer}/pto-requests`, {
           headers: {
             Authorization: "Bearer " + token,
           },
@@ -30,7 +30,10 @@ const ViewTimeOffRequests = (props) => {
               <table className='profile-tabel'>
                 <thead>
                   <tr className='table-col'>
-                    <th className='table-col'>Requested PTO Date</th>
+                    <th className='table-col'>First Name</th>
+                    <th className='table-col'>Last Name</th>
+                    <th className='table-col'>Requested PTO Start Date</th>
+                    <th className='table-col'>Requested PTO End Date</th>
                     <th className='table-col'>Sick Hours</th>
                     <th className='table-col'>Vacation Hours</th>
                   </tr>
@@ -39,9 +42,14 @@ const ViewTimeOffRequests = (props) => {
                   {ptoRequests.map((thisRequest) => {
                     return (
                       <tr className='table-row'>
-                        <td className='table-row'>{thisRequest.workDate}</td>
+                        <td className='table-row'>{thisRequest.employee.firstName}</td>
+                        <td className='table-row'>{thisRequest.employee.lastName}</td>
+                        <td className='table-row'>{thisRequest.startWorkDate}</td>
+                        <td className='table-row'>{thisRequest.endWorkDate}</td>
                         <td className='table-row'>{thisRequest.requestedSickTime}</td>
                         <td className='table-row'>{thisRequest.requestedVacationTime}</td>
+                        <button className='home-page-btns' onClick={() => handleClick(employee)}>Approve</button>
+                        <button className='home-page-btns' onClick={() => handleClick(employee)}>Deny</button>
                       </tr>
                     );
                   })}

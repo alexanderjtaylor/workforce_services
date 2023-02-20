@@ -9,39 +9,41 @@ import ViewTimeOffRequests from "./ViewTimeOffRequests";
 
 const TimeOffHomePage = () => {
   const [user, token] = useAuth();
-  const [employees, setEmployees] = useState([]);
+  const [employer, setEmployer] = useState([]);
   const [employee, setEmployee] = useState([]);
   const [companyName, setCompanyName] = useState([]);
 
   useEffect(() => {
-    fetchEmployees();
+    fetchUserType();
   }, [token]);
 
-  const fetchEmployees = async () => {
+  const fetchUserType = async () => {
     try {
-      let response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}/employees`, {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
-      setEmployees(response.data);
-    } catch (error) {
-      let response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}`, {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
-      console.log(response.data)
-      setCompanyName(response.data.employer.companyName)
-      setEmployee(response.data);
-    }
-  };
+    let response = await axios.get(`http://127.0.0.1:8000/employers/${user.id}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    console.log(response.data)
+    setEmployer(response.data.employer.id);
+  } catch (error) {
+    let response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    console.log(response.data)
+    setCompanyName(response.data.employer.companyName)
+    setEmployee(response.data);
+  }
+};
+
 
 return(
   <>
   {console.log(user)}
   {user.is_staff ? (
-          <ViewTimeOffRequests employees = {employees} setEmployees = {setEmployees}/>
+          <ViewTimeOffRequests employer = {employer} setEmployer = {setEmployer}/>
         ) : (
           <RequestTimeOffPage employee = {employee} setEmployee = {setEmployee} companyName = {companyName} setCompanyName = {setCompanyName}/>
         )}

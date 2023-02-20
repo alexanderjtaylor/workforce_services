@@ -19,7 +19,7 @@ const RequestPTO = (props) => {
 
     async function postPTORequest(){
         try {
-            let response = await axios.post(`http://127.0.0.1:8000/timeoff/request/${state.employee_id}`, formData, {
+            let response = await axios.post(`http://127.0.0.1:8000/paidtimeoff/request/${state.employee_id}`, formData, {
                 headers: {
                     Authorization: 'Bearer ' + token,
                 },
@@ -38,8 +38,16 @@ const RequestPTO = (props) => {
                 <input type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange}/>
             </label>
             <label>
-                Date:{" "}
-                <input type="date" name="workDate" value={formData.workDate} onChange={handleInputChange}/>
+                Employer ID:{" "}
+                <input type="text" name="employer_id" value={formData.employer_id} onChange={handleInputChange}/>
+            </label>
+            <label>
+                Start Date:{" "}
+                <input type="date" name="startWorkDate" value={formData.workDate} onChange={handleInputChange}/>
+            </label>
+            <label>
+                End Date:{" "}
+                <input type="date" name="endWorkDate" value={formData.workDate} onChange={handleInputChange}/>
             </label>
             <label>
                 Sick Hours:{" "}
