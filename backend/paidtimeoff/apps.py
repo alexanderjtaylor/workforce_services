@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class TimeoffConfig(AppConfig):
+class PaidtimeoffConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'timeoff'
+    name = 'paidtimeoff'

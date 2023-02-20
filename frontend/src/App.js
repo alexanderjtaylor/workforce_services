@@ -16,7 +16,7 @@ import EmployerViewSchedulePage from "./pages/ScheduleHomePage/EmployerViewSched
 import ViewSchedulePage from "./pages/ScheduleHomePage/ViewSchedulePage";
 import PaycheckHomePage from "./pages/PaycheckHomePage/PaycheckHomePage";
 import EmployerPaycheckHomePage from "./pages/PaycheckHomePage/EmployerPaycheckHomePage";
-import TimeOffHomePage from "./pages/TimeOffHomePage/TimeOffHomePage.jsx.jsx";
+import TimeOffHomePage from "./pages/TimeOff/PTOHomePage.jsx";
 import UnassignedUsers from "./pages/UnassignedUsersPage/UnassignedUsersPage";
 import CreatePayCheckPage from "./pages/PaycheckHomePage/CreatePaycheckPage";
 import TimePunchPage from "./pages/TimePunches/TimePunchPage";
@@ -24,8 +24,8 @@ import ClockIn from "./pages/TimePunches/ClockIn";
 import ClockOut from "./pages/TimePunches/ClockOut";
 import GoToLunch from "./pages/TimePunches/ToLunch";
 import ReturnLunch from "./pages/TimePunches/ReturnLunch";
-import RequestSickTime from "./pages/TimeOffHomePage/RequestSickTime";
-import RequestVacationTime from "./pages/TimeOffHomePage/RequestVacationTime";
+import RequestPTO from "./pages/TimeOff/RequestPTOPage";
+import PendingPTORequests from "./pages/TimeOff/PendingRequests";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -71,8 +71,8 @@ function App() {
         <Route path="/clock-out/:shiftID" element={<PrivateRoute><ClockOut /></PrivateRoute>} />
         <Route path="/clock-go-to-lunch/:shiftID" element={<PrivateRoute><GoToLunch /></PrivateRoute>} />
         <Route path="/clock-return-lunch/:shiftID" element={<PrivateRoute><ReturnLunch /></PrivateRoute>} />
-        <Route path="/request-sick-time/:employeeID" element={<PrivateRoute><RequestSickTime /></PrivateRoute>} />
-        <Route path="/request-vacation-time/:employeeID" element={<PrivateRoute><RequestVacationTime /></PrivateRoute>} />
+        <Route path="/request-time-off/:employeeID" element={<PrivateRoute><RequestPTO /></PrivateRoute>} />
+        <Route path="/pending-time-off-requests/:employeeID" element={<PrivateRoute><PendingPTORequests /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>

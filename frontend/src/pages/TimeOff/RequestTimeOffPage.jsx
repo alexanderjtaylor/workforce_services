@@ -26,7 +26,7 @@ const RequestTimeOffPage = () => {
   };
 
   const handleClickone = (employee) => {
-    navigate(`/request-sick-time/${employee.id}`, {
+    navigate(`/request-time-off/${employee.id}`, {
       state: {
       employee_id: employee.id,
       employer_id: employee.employer.id,
@@ -43,7 +43,7 @@ const RequestTimeOffPage = () => {
   };
 
   const handleClicktwo = (employee) => {
-    navigate(`/request-vacation-time/${employee.id}`, {
+    navigate(`/pending-time-off-requests/${employee.id}`, {
       state: {
       employee_id: employee.id,
       employer_id: employee.employer.id,
@@ -78,8 +78,8 @@ return (
                   <td className='table-row'>{employee.lastName}</td>
                   <td className='table-row'>{employee.sickTime}</td>
                   <td className='table-row'>{employee.vacationTime}</td>
-                  <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Request Sick Time</button>
-                  <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Request Vacation Time</button>
+                  <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Request PTO</button>
+                  <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Pending PTO Requests</button>
                 </tr>
           </tbody>
         </table>

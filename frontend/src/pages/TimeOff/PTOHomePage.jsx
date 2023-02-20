@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import {useNavigate} from "react-router-dom"
 import axios from "axios";
 import RequestTimeOffPage from "./RequestTimeOffPage";
+import ViewTimeOffRequests from "./ViewTimeOffRequests";
 
 const TimeOffHomePage = () => {
   const [user, token] = useAuth();
@@ -40,7 +41,7 @@ return(
   <>
   {console.log(user)}
   {user.is_staff ? (
-          <button>Hi</button>
+          <ViewTimeOffRequests employees = {employees} setEmployees = {setEmployees}/>
         ) : (
           <RequestTimeOffPage employee = {employee} setEmployee = {setEmployee} companyName = {companyName} setCompanyName = {setCompanyName}/>
         )}
