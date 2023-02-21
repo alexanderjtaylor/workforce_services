@@ -16,7 +16,7 @@ const PendingPTORequests = (props) => {
       }, [token]);
 
     async function fetchPTORequests(){
-        const response = await axios.get(`http://127.0.0.1:8000/timeoff/${state.employee_id}/pto-requests`, {
+        const response = await axios.get(`http://127.0.0.1:8000/paidtimeoff/${state.employee_id}/pto-requests`, {
           headers: {
             Authorization: "Bearer " + token,
           },
@@ -30,16 +30,25 @@ const PendingPTORequests = (props) => {
               <table className='profile-tabel'>
                 <thead>
                   <tr className='table-col'>
-                    <th className='table-col'>Requested PTO Date</th>
+                    <th className='table-col'>Requested PTO Date(s)</th>
                     <th className='table-col'>Sick Hours</th>
                     <th className='table-col'>Vacation Hours</th>
                   </tr>
                 </thead>
                 <tbody>
                   {ptoRequests.map((thisRequest) => {
+                    let s = new Date(thisRequest.startWorkDate);
+                    let e = new Date(thisRequest.endWorkDate);
+                    let startYear = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(s);
+                    let startMonth = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(s);
+                    let startDay = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(s);
+                    let endYear = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(e);
+                    let endMonth = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(e);
+                    let endDay = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(e);
                     return (
                       <tr className='table-row'>
-                        <td className='table-row'>{thisRequest.workDate}</td>
+                        <td className='table-row'>{((`${startMonth}/${startDay}/${startYear}`))} - {((`${endMonth}/${endDay}/${endYear}`))}</td>
+                        {/* <td className='table-row'>{thisRequest.startWorkDate} - {thisRequest.endWorkDate}</td> */}
                         <td className='table-row'>{thisRequest.requestedSickTime}</td>
                         <td className='table-row'>{thisRequest.requestedVacationTime}</td>
                       </tr>

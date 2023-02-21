@@ -12,6 +12,7 @@ const TimeOffHomePage = () => {
   const [employer, setEmployer] = useState([]);
   const [employee, setEmployee] = useState([]);
   const [companyName, setCompanyName] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchUserType();
@@ -24,8 +25,8 @@ const TimeOffHomePage = () => {
         Authorization: "Bearer " + token,
       },
     });
-    console.log(response.data)
-    setEmployer(response.data.employer.id);
+    console.log(response.data.id)
+    setEmployer(response.data.id);
   } catch (error) {
     let response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}`, {
       headers: {
@@ -38,12 +39,20 @@ const TimeOffHomePage = () => {
   }
 };
 
+const handleClickone = (employer) => {
+  navigate(`/view-pto-requests/${employer.id}`, {
+    state: {
+      employer_id: employer.id,
+    }
+  });
+};
+
 
 return(
   <>
   {console.log(user)}
   {user.is_staff ? (
-          <ViewTimeOffRequests employer = {employer} setEmployer = {setEmployer}/>
+          <ViewTimeOffRequests/>
         ) : (
           <RequestTimeOffPage employee = {employee} setEmployee = {setEmployee} companyName = {companyName} setCompanyName = {setCompanyName}/>
         )}

@@ -26,7 +26,9 @@ import GoToLunch from "./pages/TimePunches/ToLunch";
 import ReturnLunch from "./pages/TimePunches/ReturnLunch";
 import RequestPTO from "./pages/TimeOff/RequestPTOPage";
 import PendingPTORequests from "./pages/TimeOff/PendingRequests";
-
+import ViewTimeOffRequests from "./pages/TimeOff/ViewTimeOffRequests";
+import ApprovePTOPage from "./pages/TimeOff/ApprovePTO";
+import DenyPTOPage from "./pages/TimeOff/DenyPTO";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -73,6 +75,9 @@ function App() {
         <Route path="/clock-return-lunch/:shiftID" element={<PrivateRoute><ReturnLunch /></PrivateRoute>} />
         <Route path="/request-time-off/:employeeID" element={<PrivateRoute><RequestPTO /></PrivateRoute>} />
         <Route path="/pending-time-off-requests/:employeeID" element={<PrivateRoute><PendingPTORequests /></PrivateRoute>} />
+        <Route path="/view-pto-requests/:employerID" element={<PrivateRoute><ViewTimeOffRequests /></PrivateRoute>} />
+        <Route path="/approve-pto/:paidtimeoffID" element={<PrivateRoute><ApprovePTOPage /></PrivateRoute>} />
+        <Route path="/deny-pto/:paidtimeoffID" element={<PrivateRoute><DenyPTOPage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>
