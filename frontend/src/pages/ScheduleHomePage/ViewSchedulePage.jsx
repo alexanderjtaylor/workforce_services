@@ -29,7 +29,7 @@ const ViewSchedulePage = () => {
       },
     });
     console.log(response.data)
-    setEmployeeShifts(filterDatesByCurrentWeek(response.data))
+    setEmployeeShifts(response.data)
     console.log(employeeShifts)
     // weekShifts = filterDatesByCurrentWeek(response.data)
     // setEmployeeShifts(weekShifts);}
@@ -48,37 +48,37 @@ const ViewSchedulePage = () => {
 // console.log(`${da}-${mo}-${ye}`);
 
 
-function getWeekDates() {
-  let now = new Date();
-  let dayOfWeek = now.getDay();
-  let numDay = now.getDate();               
-  let start = new Date(now);
-  start.setDate(numDay - dayOfWeek);
-  start.setHours(0, 0, 0, 0);                
-  let end = new Date(now);
-  end.setDate(numDay + (7 - dayOfWeek));
-  end.setHours(0, 0, 0, 0);
-  // console.log(start, end)
-  return [start, end];
-}
+// function getWeekDates() {
+//   let now = new Date();
+//   let dayOfWeek = now.getDay();
+//   let numDay = now.getDate();               
+//   let start = new Date(now);
+//   start.setDate(numDay - dayOfWeek);
+//   start.setHours(0, 0, 0, 0);                
+//   let end = new Date(now);
+//   end.setDate(numDay + (7 - dayOfWeek));
+//   end.setHours(0, 0, 0, 0);
+//   // console.log(start, end)
+//   return [start, end];
+// }
 
-function filterDatesByCurrentWeek(array){
-  let [start, end] = getWeekDates();
-  console.log(start, end)
-  let s = new Date(start)
-  let e = new Date(end)
+// function filterDatesByCurrentWeek(array){
+//   let [start, end] = getWeekDates();
+//   console.log(start, end)
+//   let s = new Date(start)
+//   let e = new Date(end)
 
-  let yea = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(e);
-  let mon = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(e);
-  let daa = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(e);
-  console.log(`${yea}-${mon}-${daa}`);
-  let st = (`${yea}-${mon}-${daa}`)
+//   let yea = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(e);
+//   let mon = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(e);
+//   let daa = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(e);
+//   console.log(`${yea}-${mon}-${daa}`);
+//   let st = (`${yea}-${mon}-${daa}`)
 
-  let yeaa = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(s);
-  let monn = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(s);
-  let daaa = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(s);
-  console.log(`${yeaa}-${monn}-${daaa}`);
-  let endd = (`${yeaa}-${monn}-${daaa}`)
+//   let yeaa = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(s);
+//   let monn = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(s);
+//   let daaa = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(s);
+//   console.log(`${yeaa}-${monn}-${daaa}`);
+//   let endd = (`${yeaa}-${monn}-${daaa}`)
   
   // let shiftStart = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(s);
   // let shiftEnd = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(e);
@@ -86,13 +86,13 @@ function filterDatesByCurrentWeek(array){
 
 
 
-  let foundShift = array.filter(function(shift){
-    if (shift.workDate < endd && shift.workDate >= st) {
-      return true;
-    }
-  });
-  return foundShift;
-}
+//   let foundShift = array.filter(function(shift){
+//     if (shift.workDate < endd && shift.workDate >= st) {
+//       return true;
+//     }
+//   });
+//   return foundShift;
+// }
 
 // let [start, end] = getWeekDates();
 // console.log(start.toLocaleString(), end.toLocaleString());
@@ -166,9 +166,9 @@ function filterDatesByCurrentWeek(array){
                 let d = new Date(shift.workDate);
                 let s = new Date(shift.scheduledStart);
                 let e = new Date(shift.scheduledEnd);
-                let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
-                let mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(d);
-                let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d);
+                let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(s);
+                let mo = new Intl.DateTimeFormat('en', { month: 'long' }).format(s);
+                let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(s);
                 console.log(`${mo} ${da}, ${ye}`);
                 let shiftStart = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(s);
                 let shiftEnd = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(e);
