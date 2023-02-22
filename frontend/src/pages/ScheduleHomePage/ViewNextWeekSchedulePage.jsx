@@ -1,15 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import axios from "axios";
 import { format } from 'date-fns'
 
-const ViewSchedulePage = () => {
+const ViewNextWeekSchedulePage = () => {
   const [user, token] = useAuth();
-  const navigate = useNavigate();
   const { state } = useLocation();
-  const [employee, setEmployee] = useState([]);
+  const {employeeID} = useParams();
   const [employeeShifts, setEmployeeShifts] = useState([]);
   var weekShifts = []
   const moment = require('moment');
@@ -17,70 +16,41 @@ const ViewSchedulePage = () => {
   let numDay = moment().date(); 
   let start = new Date();
   let startWeekTitle = new Date();
-  start.setDate((numDay - dayOfWeek) - 1);
-  startWeekTitle.setDate((numDay - dayOfWeek));
+  start.setDate((numDay - dayOfWeek) + 6);
+  startWeekTitle.setDate((numDay - dayOfWeek) + 7);
   start.setHours(0, 0, 0, 0);
   let startOfWeek = moment(start).format("MM/DD/YYYY");
   let startOfWeekTitle = moment(startWeekTitle).format("MM/DD/YYYY");
   let end = new Date();
   let endWeekTitle = new Date();
-  end.setDate(numDay + (7 - dayOfWeek));
-  endWeekTitle.setDate(numDay + (6 - dayOfWeek));
+  end.setDate(numDay + (14 - dayOfWeek));
+  endWeekTitle.setDate(numDay + (13 - dayOfWeek));
   end.setHours(0, 0, 0, 0);
   let endOfWeek = moment(end).format("MM/DD/YYYY");
   let endOfWeekTitle = moment(endWeekTitle).format("MM/DD/YYYY");
   const startDate = moment(startOfWeek, "MM/DD/YYYY");  
-  const endDate = moment(endOfWeek, "MM/DD/YYYY");  
+  const endDate = moment(endOfWeek, "MM/DD/YYYY");
+  
 
   useEffect(() => {
     fetchEmployeeShifts();
-    fetchEmployee();
   }, [token]);
 
   async function fetchEmployeeShifts(){
-    const response = await axios.get(`http://127.0.0.1:8000/shifts/${state.employee_id}/shifts`, {
+    const response = await axios.get(`http://127.0.0.1:8000/shifts/${employeeID}/shifts`, {
       headers: {
         Authorization: "Bearer " + token,
       },
     });
     setEmployeeShifts(thisWeeksShifts(response.data))
     ;}
-
-    async function fetchEmployee(){
-      const response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}`, {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
-      // console.log(response.data)
-      setEmployee(response.data.id)}
         
     function thisWeeksShifts(employeeShifts) {
       return employeeShifts.filter(shift => moment(shift.workDate).isBetween(startDate, endDate));}
 
-      const handleClickone = (employee) => {
-        navigate(`/next-week-schedule/${employee.id}`, {
-          state: {
-            employee_id: employee.id
-          }
-        });
-      };
-
-      const handleClicktwo = (employee) => {
-        navigate(`/last-week-schedule/${employee.id}`, {
-          state: {
-            employee_id: employee.id
-          }
-        });
-      };
-
   return (
       <div className="container">
       <Link to="/"><button className="home-btn">Home</button></Link>
-      <Link to={`/last-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="employer-home-page-btns">Last Week</button></Link>
-      <Link to={`/next-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="employer-home-page-btns">Next Week</button></Link>
-      {/* <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Last Week</button>
-      <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Next Week</button> */}
       <h1 className="home-welcome">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
             <table className='profile-tabel'>
             <thead>
@@ -117,4 +87,4 @@ const ViewSchedulePage = () => {
   );
 };
 
-export default ViewSchedulePage;
+export default ViewNextWeekSchedulePage;

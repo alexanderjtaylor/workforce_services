@@ -29,6 +29,8 @@ import PendingPTORequests from "./pages/TimeOff/PendingRequests";
 import ViewTimeOffRequests from "./pages/TimeOff/ViewTimeOffRequests";
 import ApprovePTOPage from "./pages/TimeOff/ApprovePTO";
 import DenyPTOPage from "./pages/TimeOff/DenyPTO";
+import ViewNextWeekSchedulePage from "./pages/ScheduleHomePage/ViewNextWeekSchedulePage";
+import ViewLastWeekSchedulePage from "./pages/ScheduleHomePage/ViewLastWeekSchedulePage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -78,6 +80,8 @@ function App() {
         <Route path="/view-pto-requests/:employerID" element={<PrivateRoute><ViewTimeOffRequests /></PrivateRoute>} />
         <Route path="/approve-pto/:paidtimeoffID" element={<PrivateRoute><ApprovePTOPage /></PrivateRoute>} />
         <Route path="/deny-pto/:paidtimeoffID" element={<PrivateRoute><DenyPTOPage /></PrivateRoute>} />
+        <Route path="/next-week-schedule/:employeeID" element={<PrivateRoute><ViewNextWeekSchedulePage /></PrivateRoute>} />
+        <Route path="/last-week-schedule/:employeeID" element={<PrivateRoute><ViewLastWeekSchedulePage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>
