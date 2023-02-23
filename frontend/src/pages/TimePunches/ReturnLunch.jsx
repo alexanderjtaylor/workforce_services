@@ -29,7 +29,8 @@ const ReturnLunch = () => {
     console.log(theDate)
 
     async function punchReturnLunch(){
-        const response = await axios.put(`http://127.0.0.1:8000/clock-in/time-punch/${state.shift.id}`, formData, {
+        formData["returnLunch"] = theDate
+        const response = await axios.patch(`http://127.0.0.1:8000/clock-in/clock-punch/${state.punch_id}`, formData, {
           headers: {
             Authorization: "Bearer " + token,
           },
@@ -42,17 +43,21 @@ const ReturnLunch = () => {
       <div className="container">
         <Link to="/"><button className="home-btn">Home</button></Link>
         <form className="form" onSubmit={handleSubmit}>
-            <label className='punch-form-input'>
+        <label className='punch-form-input'>
                 Employee ID:{" "}
-                <input className='punch-form-input-boxes' type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange}/>
+                <input className='punch-form-input-boxes' type="text" name="employee_id" value={formData.employee_id} readOnly={formData.employee_id}/>
             </label>
             <label className='punch-form-input'>
                 Shift ID:{" "}
-                <input className='punch-form-input-boxes' type="text" name="shift_id" value={formData.shift_id} onChange={handleInputChange}/>
+                <input className='punch-form-input-boxes' type="text" name="shift_id" value={formData.shift_id} readOnly={formData.shift_id}/>
+            </label>
+            <label className='punch-form-input'>
+                Clock In Time:{" "}
+                <input className='punch-form-input-boxes' type="text" name="clockIn" value={formData.clockIn} readOnly={formData.clockIn}/>
             </label>
             <label className='punch-form-input'>
                 Time:{" "}
-                <input className='punch-form-input-boxes' type="text" name="returnLunch" value={formData.theDate} onChange={handleInputChange}/>
+                <input className='punch-form-input-boxes' type="text" name="returnLunch" value={theDate} onChange={handleInputChange}/>
             </label>
             <button className='punch-btn'>Return Lunch</button>
         </form>

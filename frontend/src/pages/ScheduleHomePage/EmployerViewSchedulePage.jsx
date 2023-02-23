@@ -8,16 +8,34 @@ import DeleteShift from "../../components/DeleteShift/DeleteShift";
 
 const EmployerViewSchedulePage = () => {
   const [user, token] = useAuth();
-  const [employeeShifts, setEmployeeShifts] = useState([]);
-  const { state } = useLocation();
   const navigate = useNavigate();
-  // const [formData, handleInputChange, handleSubmit] = useCustomForm(state, EditEmployee);
-  const {employeeID} = useParams();
-  const [thisEmployee, setThisEmployee] = useState({});
-  console.log(state)
+  const { state } = useLocation();
+  const [employee, setEmployee] = useState([]);
+  const [employeeShifts, setEmployeeShifts] = useState([]);
+  var weekShifts = []
+  const moment = require('moment');
+  let dayOfWeek = moment().day();
+  let numDay = moment().date(); 
+  let start = new Date();
+  let startWeekTitle = new Date();
+  start.setDate((numDay - dayOfWeek) - 1);
+  startWeekTitle.setDate((numDay - dayOfWeek));
+  start.setHours(0, 0, 0, 0);
+  let startOfWeek = moment(start).format("MM/DD/YYYY");
+  let startOfWeekTitle = moment(startWeekTitle).format("MM/DD/YYYY");
+  let end = new Date();
+  let endWeekTitle = new Date();
+  end.setDate(numDay + (7 - dayOfWeek));
+  endWeekTitle.setDate(numDay + (6 - dayOfWeek));
+  end.setHours(0, 0, 0, 0);
+  let endOfWeek = moment(end).format("MM/DD/YYYY");
+  let endOfWeekTitle = moment(endWeekTitle).format("MM/DD/YYYY");
+  const startDate = moment(startOfWeek, "MM/DD/YYYY");  
+  const endDate = moment(endOfWeek, "MM/DD/YYYY");  
 
   useEffect(() => {
     fetchEmployeeShifts();
+    fetchEmployee();
   }, [token]);
 
   async function fetchEmployeeShifts(){
@@ -27,7 +45,21 @@ const EmployerViewSchedulePage = () => {
       },
     });
     console.log(response)
-    setEmployeeShifts(response.data);}
+    setEmployeeShifts(thisWeeksShifts(response.data));
+  }
+
+  async function fetchEmployee(){
+    const response = await axios.get(`http://127.0.0.1:8000/employees/employee/${state.employee_id}`, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
+    // console.log(response.data)
+    setEmployee(response.data.id)}
+
+    function thisWeeksShifts(employeeShifts) {
+      return employeeShifts.filter(shift => moment(shift.workDate).isBetween(startDate, endDate));}
+
 
     const handleClick = (shift) => {
       navigate(`/edit-shift/${shift.id}`, {
@@ -45,10 +77,21 @@ const EmployerViewSchedulePage = () => {
       });
     };
 
+    const handleClicktwo = (employee) => {
+      navigate(`/employer-view-last-week-schedule/${employee.id}`, {
+        state: {
+          employee_id: employee.id,
+        }
+      });
+    };
+
   return (
       <div className="container">
       <Link to="/"><button className="home-btn">Home</button></Link>
-      <h1 className="home-welcome">{state.firstName}'s Schedule</h1>
+      {/* <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Last Week</button> */}
+      <Link to={`/employer-view-last-week-schedule/${employee.id}`} key={employee.id}><button className="employer-home-page-btns">Last Week</button></Link>
+      <Link to={`/employer-view-next-week-schedule/${employee.id}`} key={employee.id}><button className="employer-home-page-btns">Next Week</button></Link>
+      <h1 className="home-welcome">{state.firstName}'s Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
             <table className='prop-tabel'>
             <thead>
               <tr className='table-col'>
@@ -64,23 +107,20 @@ const EmployerViewSchedulePage = () => {
             </thead>
             <tbody>
               {employeeShifts.map((shift) => {
-                console.log(shift.workDate)
                 let d = new Date(shift.workDate);
                 let s = new Date(shift.scheduledStart);
                 let e = new Date(shift.scheduledEnd);
-                let ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d);
-                let mo = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(d);
-                let da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(s);
-                console.log(`${mo}/${da}/${ye}`);
+                let shiftDayOfWeek = new Intl.DateTimeFormat('en', { weekday: 'long' }).format(s);
+                let shiftYear = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(s);
+                let shiftMonth = new Intl.DateTimeFormat('en', { month: 'long' }).format(s);
+                let shiftDay = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(s);
                 let shiftStart = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(s);
                 let shiftEnd = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(e);
+
                 return (
                   <tr className='table-row'>
                     <td className='table-row'>{shift.id}</td>
-                    {/* <td className='table-row'>{shift.workDate}</td>
-                    <td className='table-row'>{shift.scheduledStart}</td>
-                    <td className='table-row'>{shift.scheduledEnd}</td> */}
-                    <td className='table-row'>{((`${mo}/${da}/${ye}`))}</td>
+                    <td className='table-row'>{((`${shiftDayOfWeek}, ${shiftMonth} ${shiftDay}, ${shiftYear}`))}</td>
                     <td className='table-row'>{(shiftStart)}</td>
                     <td className='table-row'>{(shiftEnd)}</td>
                     <button className='employer-home-page-btns' onClick={() => handleClick(shift)}>Edit Shift</button>

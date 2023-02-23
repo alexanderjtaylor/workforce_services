@@ -4,11 +4,6 @@ import useAuth from "../../hooks/useAuth";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import DateTime from "../../components/Clock/Clock";
-import ClockIn from "./ClockIn";
-import ClockOut from "./ClockOut";
-import ToLunch from "./ToLunch";
-import ReturnLunch from "./ReturnLunch";
-import GetEmployeeShifts from "../../components/GetEmployeeShifts/GetEmployeeShifts";
 
 const TimePunchPage = () => {
   const [user, token] = useAuth();
@@ -17,6 +12,7 @@ const TimePunchPage = () => {
   const moment = require('moment');
   let now = ""
   const [employee, setEmployee] = useState([]);
+  const [punch, setPunch] = useState([]);
   const [shift, setShift] = useState([]);
   const findDate = new Date();
   const year  = findDate.getFullYear();
@@ -25,26 +21,40 @@ const TimePunchPage = () => {
   const date = `${year}-${month}-${day}`;
 
   useEffect(() => {
-    fetchShift();
+    fetchShiftorPunch();
   }, [token]);
 
-  const fetchShift = async () => {
+  const fetchShiftorPunch = async () => {
     try {
+      let response = await axios.get(`http://127.0.0.1:8000/clock-in/${state.employee_id}/punches`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      setPunch(todaysPunch(response.data));
+      console.log(todaysPunch(response.data))
+      // console.log(response.data)
+      // setPunches(response.data);
+    } catch (error) {
       let response = await axios.get(`http://127.0.0.1:8000/shifts/${state.employee_id}/shifts`, {
         headers: {
           Authorization: "Bearer " + token,
         },
       });
       setShift(todaysShift(response.data))
-      console.log(date)
-      console.log(todaysShift(response.data))
-      // setShift(response.data.filter(shift.workDate = date))
-      // setShifts(response.data);
-      // setShift(shifts.filter(shift.workDate=today));
-    } catch (error) {
-      console.log(error.response.data);
+      // console.log(date)
+      // console.log(todaysShift(response.data))
     }
   };
+
+  function todaysPunch(array){
+    let foundPunch = array.filter(function(punch){
+      if(punch.shift.workDate.includes(date)){
+        return true;
+      }
+    });
+    return foundPunch[0];
+  }
 
   function todaysShift(array){
     let foundShift = array.filter(function(shift){
@@ -55,6 +65,7 @@ const TimePunchPage = () => {
     return foundShift[0];
   }
   // console.log(todaysShift(response.data))
+
 
   now = moment().format("MM/DD/YYYY HH:mm:ss")
 
@@ -67,74 +78,49 @@ const TimePunchPage = () => {
     });
   };
 
-  const handleClicktwo = (shift) => {
-    navigate(`/clock-out/${shift.id}`, {
+  const handleClicktwo = (punch) => {
+    navigate(`/clock-out/${punch.id}`, {
       state: {
-        shift_id: shift.id,
-        employee_id: shift.employee.id
+        punch_id: punch.id,
+        shift_id: punch.shift.id,
+        employee_id: punch.employee.id,
+        clockIn: punch.clockIn
       }
     });
   };
 
-  const handleClickthree = (shift) => {
-    navigate(`/clock-go-to-lunch/${shift.id}`, {
+  const handleClickthree = (punch) => {
+    navigate(`/clock-go-to-lunch/${punch.id}`, {
       state: {
-        shift_id: shift.id,
-        employee_id: shift.employee.id
+        punch_id: punch.id,
+        shift_id: punch.shift.id,
+        employee_id: punch.employee.id,
+        clockIn: punch.clockIn
       }
     });
   };
 
-  const handleClickfour = (shift) => {
-    navigate(`/clock-return-lunch/${shift.id}`, {
+  const handleClickfour = (punch) => {
+    navigate(`/clock-return-lunch/${punch.id}`, {
       state: {
-        shift_id: shift.id,
-        employee_id: shift.employee.id
+        punch_id: punch.id,
+        shift_id: punch.shift.id,
+        employee_id: punch.employee.id,
+        clockIn: punch.clockIn
       }
     });
   };
-
-    // now = moment().format("MM/DD/YYYY HH:mm:ss")
-    // console.log(now)
 
   return (
     <div className="container">
     <Link to="/"><button className="home-btn">Home</button></Link>
-
-    {/* <>
-    {console.log(shift)}
-    {shift.data ? (
-      shift.data.map((shift) => {
-        return (
-          <tr className='table-row'>
-            <td className='table-row'>{shift.id}</td>
-            <td className='table-row'>{shift.workDate}</td>
-          </tr>)})
-          ) : (
-            <h3>not working</h3>
-          )}
-    </> */}
-
-    {/* <h3>{shift.data && shift.data.map((shift) => {
-      return (
-        <tr className='table-row'>
-          <td className='table-row'>{shift.id}</td>
-          <td className='table-row'>{shift.workDate}</td>
-        </tr>
-      );
-    })}
-    </h3> */}
-    {/* <h3>Date: {shift.workDate}</h3> */}
-
+    <></>
     <DateTime/>
     <div className="time-punch-btns-div">
     <button className='time-punch-btns' onClick={() => handleClickone(shift)}>Clock In</button>
-    <button className='time-punch-btns' onClick={() => handleClicktwo(shift)}>Clock Out</button>
-    <button className='time-punch-btns' onClick={() => handleClickthree(shift)}>Go to Lunch</button>
-    <button className='time-punch-btns' onClick={() => handleClickfour(shift)}>Return Lunch</button>
-    {/* <ClockOut employee = {employee} setEmployee = {setEmployee}/>
-    <ToLunch employee = {employee} setEmployee = {setEmployee}/>
-    <ReturnLunch employee = {employee} setEmployee = {setEmployee}/> */}
+    <button className='time-punch-btns' onClick={() => handleClicktwo(punch)}>Clock Out</button>
+    <button className='time-punch-btns' onClick={() => handleClickthree(punch)}>Go to Lunch</button>
+    <button className='time-punch-btns' onClick={() => handleClickfour(punch)}>Return Lunch</button>
     </div>
     </div>
   );

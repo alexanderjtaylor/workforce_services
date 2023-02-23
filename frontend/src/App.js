@@ -31,6 +31,8 @@ import ApprovePTOPage from "./pages/TimeOff/ApprovePTO";
 import DenyPTOPage from "./pages/TimeOff/DenyPTO";
 import ViewNextWeekSchedulePage from "./pages/ScheduleHomePage/ViewNextWeekSchedulePage";
 import ViewLastWeekSchedulePage from "./pages/ScheduleHomePage/ViewLastWeekSchedulePage";
+import EmployerViewLastWeekSchedulePage from "./pages/ScheduleHomePage/EmployerViewLastWeekSchedulePage";
+import EmployerViewNextWeekSchedulePage from "./pages/ScheduleHomePage/EmployerViewNextWeekSchedulePage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -72,9 +74,9 @@ function App() {
         <Route path="/unassigned-users" element={<PrivateRoute><UnassignedUsers /></PrivateRoute>} />
         <Route path="/time-punch-page/:employeeID" element={<PrivateRoute><TimePunchPage /></PrivateRoute>} />
         <Route path="/clock-in/:shiftID" element={<PrivateRoute><ClockIn /></PrivateRoute>} />
-        <Route path="/clock-out/:shiftID" element={<PrivateRoute><ClockOut /></PrivateRoute>} />
-        <Route path="/clock-go-to-lunch/:shiftID" element={<PrivateRoute><GoToLunch /></PrivateRoute>} />
-        <Route path="/clock-return-lunch/:shiftID" element={<PrivateRoute><ReturnLunch /></PrivateRoute>} />
+        <Route path="/clock-out/:punchID" element={<PrivateRoute><ClockOut /></PrivateRoute>} />
+        <Route path="/clock-go-to-lunch/:punchID" element={<PrivateRoute><GoToLunch /></PrivateRoute>} />
+        <Route path="/clock-return-lunch/:punchID" element={<PrivateRoute><ReturnLunch /></PrivateRoute>} />
         <Route path="/request-time-off/:employeeID" element={<PrivateRoute><RequestPTO /></PrivateRoute>} />
         <Route path="/pending-time-off-requests/:employeeID" element={<PrivateRoute><PendingPTORequests /></PrivateRoute>} />
         <Route path="/view-pto-requests/:employerID" element={<PrivateRoute><ViewTimeOffRequests /></PrivateRoute>} />
@@ -82,6 +84,8 @@ function App() {
         <Route path="/deny-pto/:paidtimeoffID" element={<PrivateRoute><DenyPTOPage /></PrivateRoute>} />
         <Route path="/next-week-schedule/:employeeID" element={<PrivateRoute><ViewNextWeekSchedulePage /></PrivateRoute>} />
         <Route path="/last-week-schedule/:employeeID" element={<PrivateRoute><ViewLastWeekSchedulePage /></PrivateRoute>} />
+        <Route path="/employer-view-last-week-schedule/:employeeID" element={<PrivateRoute><EmployerViewLastWeekSchedulePage /></PrivateRoute>} />
+        <Route path="/employer-view-next-week-schedule/:employeeID" element={<PrivateRoute><EmployerViewNextWeekSchedulePage /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>

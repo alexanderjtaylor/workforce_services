@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.decorators import api_view, permission_classes
 from .models import Clock
+from .models import Shift
 from .serializers import ClockSerializer
 from django.shortcuts import get_object_or_404
 
@@ -44,7 +45,7 @@ def create_time_punch(request, pk):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-@api_view(['GET', 'PUT', 'DELETE'])
+@api_view(['GET', 'PUT', 'PATCH', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def time_punch(request, pk):
     clock = get_object_or_404(Clock, pk=pk)
@@ -56,6 +57,26 @@ def time_punch(request, pk):
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data)
+    if request.method == 'PATCH':
+        serializer = ClockSerializer(clock, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
     elif request.method == 'DELETE':
         clock.delete()
         return Response(status = status.HTTP_204_NO_CONTENT)
+    
+@api_view(['PUT', 'PATCH'])
+@permission_classes([IsAuthenticated])
+def clock_punch(request, pk):
+    clock = get_object_or_404(Clock, pk=pk)
+    if request.method == 'PUT':
+        serializer = ClockSerializer(clock, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+    elif request.method == 'PATCH':
+        serializer = ClockSerializer(clock, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
