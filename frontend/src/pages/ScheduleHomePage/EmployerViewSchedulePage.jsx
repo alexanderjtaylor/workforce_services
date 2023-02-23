@@ -89,8 +89,8 @@ const EmployerViewSchedulePage = () => {
       <div className="container">
       <Link to="/"><button className="home-btn">Home</button></Link>
       {/* <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Last Week</button> */}
-      <Link to={`/employer-view-last-week-schedule/${employee.id}`} key={employee.id}><button className="employer-home-page-btns">Last Week</button></Link>
-      <Link to={`/employer-view-next-week-schedule/${employee.id}`} key={employee.id}><button className="employer-home-page-btns">Next Week</button></Link>
+      <Link to={`/employer-view-last-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="employer-home-page-btns">Last Week</button></Link>
+      <Link to={`/employer-view-next-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="employer-home-page-btns">Next Week</button></Link>
       <h1 className="home-welcome">{state.firstName}'s Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
             <table className='prop-tabel'>
             <thead>

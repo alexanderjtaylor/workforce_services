@@ -37,7 +37,7 @@ const EmployerViewLastWeekSchedulePage = (props) => {
   }, [token]);
 
   async function fetchEmployeeShifts(){
-    const response = await axios.get(`http://127.0.0.1:8000/shifts/${state.employee_id}/shifts`, {
+    const response = await axios.get(`http://127.0.0.1:8000/shifts/${employeeID}/shifts`, {
       headers: {
         Authorization: "Bearer " + token,
       },

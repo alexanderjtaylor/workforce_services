@@ -1,12 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { format } from 'date-fns'
+import DeleteShift from "../../components/DeleteShift/DeleteShift";
 
 const EmployerViewNextWeekSchedulePage = () => {
   const [user, token] = useAuth();
+  const navigate = useNavigate();
   const { state } = useLocation();
   const {employeeID} = useParams();
   const [employeeShifts, setEmployeeShifts] = useState([]);
@@ -48,6 +50,22 @@ const EmployerViewNextWeekSchedulePage = () => {
     function thisWeeksShifts(employeeShifts) {
       return employeeShifts.filter(shift => moment(shift.workDate).isBetween(startDate, endDate));}
 
+      const handleClick = (shift) => {
+        navigate(`/edit-shift/${shift.id}`, {
+          state: {
+            employee_id: shift.employee.id,
+            shift_id: shift.id,
+            workDate: shift.workDate,
+            scheduledStart: shift.scheduledStart,
+            scheduledEnd: shift.scheduledEnd,
+            actualStart: shift.actualStart,
+            actualEnd: shift.actualEnd,
+            isHoliday: shift.isHoliday,
+            isClockedIn: shift.isClockedIn
+          }
+        });
+      };
+
   return (
       <div className="container">
       <Link to="/"><button className="home-btn">Home</button></Link>
@@ -78,6 +96,8 @@ const EmployerViewNextWeekSchedulePage = () => {
                     <td className='table-row'>{((`${shiftDayOfWeek}, ${shiftMonth} ${shiftDay}, ${shiftYear}`))}</td>
                     <td className='table-row'>{(shiftStart)}</td>
                     <td className='table-row'>{(shiftEnd)}</td>
+                    <button className='employer-home-page-btns' onClick={() => handleClick(shift)}>Edit Shift</button>
+                    <td><DeleteShift shift_id = {shift.id} fetchEmployeeShifts = {fetchEmployeeShifts}/></td>
                   </tr>
                 );
               })}

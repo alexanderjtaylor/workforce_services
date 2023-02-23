@@ -34,7 +34,7 @@ const ViewSchedulePage = () => {
 
   useEffect(() => {
     fetchEmployeeShifts();
-    fetchEmployee();
+    // fetchEmployee();
   }, [token]);
 
   async function fetchEmployeeShifts(){
@@ -46,33 +46,33 @@ const ViewSchedulePage = () => {
     setEmployeeShifts(thisWeeksShifts(response.data))
     ;}
 
-    async function fetchEmployee(){
-      const response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}`, {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      });
-      // console.log(response.data)
-      setEmployee(response.data.id)}
+    // async function fetchEmployee(){
+    //   const response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}`, {
+    //     headers: {
+    //       Authorization: "Bearer " + token,
+    //     },
+    //   });
+    //   // console.log(response.data)
+    //   setEmployee(response.data.id)}
         
     function thisWeeksShifts(employeeShifts) {
       return employeeShifts.filter(shift => moment(shift.workDate).isBetween(startDate, endDate));}
 
-      const handleClickone = (employee) => {
-        navigate(`/next-week-schedule/${employee.id}`, {
-          state: {
-            employee_id: employee.id
-          }
-        });
-      };
+      // const handleClickone = (employee) => {
+      //   navigate(`/next-week-schedule/${employee.id}`, {
+      //     state: {
+      //       employee_id: employee.id
+      //     }
+      //   });
+      // };
 
-      const handleClicktwo = (employee) => {
-        navigate(`/last-week-schedule/${employee.id}`, {
-          state: {
-            employee_id: employee.id
-          }
-        });
-      };
+      // const handleClicktwo = (employee) => {
+      //   navigate(`/last-week-schedule/${employee.id}`, {
+      //     state: {
+      //       employee_id: employee.id
+      //     }
+      //   });
+      // };
 
   return (
       <div className="container">
