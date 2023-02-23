@@ -29,7 +29,7 @@ const GoToLunch = () => {
     console.log(theDate)
 
     async function punchLunch(){
-        const response = await axios.put(`http://127.0.0.1:8000/clock-in/time-punch/${state.shift.id}`, formData, {
+        const response = await axios.put(`http://127.0.0.1:8000/clock-in/time-punch/${state.shift_id}`, formData, {
           headers: {
             Authorization: "Bearer " + token,
           },
@@ -51,8 +51,20 @@ const GoToLunch = () => {
                 <input className='punch-form-input-boxes' type="text" name="shift_id" value={formData.shift_id} onChange={handleInputChange}/>
             </label>
             <label className='punch-form-input'>
+                Clock In:{" "}
+                <input className='punch-form-input-boxes' type="text" name="ClockIn" value={theDate} onChange={handleInputChange}/>
+            </label>
+            <label className='punch-form-input'>
+                Clock Out:{" "}
+                <input className='punch-form-input-boxes' type="text" name="ClockOut" value={theDate} onChange={handleInputChange}/>
+            </label>
+            <label className='punch-form-input'>
                 Time:{" "}
-                <input className='punch-form-input-boxes' type="text" name="startLunch" value={formData.theDate} onChange={handleInputChange}/>
+                <input className='punch-form-input-boxes' type="text" name="startLunch" value={theDate} onChange={handleInputChange}/>
+            </label>
+            <label className='punch-form-input'>
+                Return Lunch:{" "}
+                <input className='punch-form-input-boxes' type="text" name="returnLunch" value={theDate} onChange={handleInputChange}/>
             </label>
             <button className='punch-btn'>Go to Lunch</button>
         </form>

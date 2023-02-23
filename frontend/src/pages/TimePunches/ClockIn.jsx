@@ -5,6 +5,7 @@ import {useNavigate} from "react-router-dom"
 import useCustomForm from "../../hooks/useCustomForm"
 import React, { useState, useEffect } from 'react';
 import { Link, useParams, useLocation } from 'react-router-dom';
+import moment from 'moment';
 
 const ClockIn = () => {
     const [user, token] = useAuth();
@@ -14,19 +15,32 @@ const ClockIn = () => {
     const [timePunch, setTimePunch] = useState();
     const [shift, setShift] = useState();
     const [theTime, setTheTime] = useState();
-    let time = ""
-    const [formData, handleInputChange, handleSubmit] = useCustomForm(state, punchIn);
+    let now = ""
     var [date, setDate] = useState(new Date());
-    // let tempDate = new Date();
     let theDate = date.getFullYear() + '-' + (date.getMonth()+1).toString().padStart(2, "0") + '-' + date.getDate().toString().padStart(2, "0") +' '+ date.getHours().toString().padStart(2, "0")+':'+ date.getMinutes().toString().padStart(2, "0")+':'+ date.getSeconds().toString().padStart(2, "0"); 
     
-    useEffect(() => {
-        let timer = setInterval(()=>setDate(new Date()), 1000 )
-        return function cleanup() {
-            clearInterval(timer)
-        }   
-    });
-    console.log(theDate)
+
+    const defaultValues = {
+        employee_id: state.employee_id,
+        shift_id: state.shift_id,
+        theDate: theDate,
+      };
+
+
+    const [formData, handleInputChange, handleSubmit] = useCustomForm(state, punchIn);
+    // var [date, setDate] = useState(new Date());
+    // let tempDate = new Date();
+    
+    // useEffect(() => {
+    //     let timer = setInterval(()=>setDate(new Date()), 1000 )
+    //     return function cleanup() {
+    //         clearInterval(timer)
+    //     }   
+    // });
+    // console.log(theDate)
+
+    now = moment().format("MM/DD/YYYY HH:mm:ss")
+    console.log(now)
 
     async function punchIn(){
         const response = await axios.post(`http://127.0.0.1:8000/clock-in/create-time-punch/${state.employee_id}`, formData, {
@@ -52,7 +66,7 @@ const ClockIn = () => {
             </label>
             <label className='punch-form-input'>
                 Time:{" "}
-                <input className='punch-form-input-boxes' type="text" name="clockIn" value={formData.theDate} onChange={handleInputChange}/>
+                <input className='punch-form-input-boxes' type="text" name="clockIn" value={now} onChange={handleInputChange}/>
             </label>
             <button className='punch-btn'>Clock In</button>
         </form>
@@ -61,3 +75,13 @@ const ClockIn = () => {
 }
  
 export default ClockIn;
+
+{/* <input type="text" id="currentDateTime">
+<br><br>
+<script>
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    var dateTime = date+' '+time;
+    document.getElementById("currentDateTime").value = dateTime;
+</script> */}

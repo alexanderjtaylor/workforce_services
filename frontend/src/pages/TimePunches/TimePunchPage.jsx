@@ -14,6 +14,8 @@ const TimePunchPage = () => {
   const [user, token] = useAuth();
   const { state } = useLocation();
   const navigate = useNavigate();
+  const moment = require('moment');
+  let now = ""
   const [employee, setEmployee] = useState([]);
   const [shift, setShift] = useState([]);
   const findDate = new Date();
@@ -54,6 +56,8 @@ const TimePunchPage = () => {
   }
   // console.log(todaysShift(response.data))
 
+  now = moment().format("MM/DD/YYYY HH:mm:ss")
+
   const handleClickone = (shift) => {
     navigate(`/clock-in/${shift.id}`, {
       state: {
@@ -89,6 +93,9 @@ const TimePunchPage = () => {
       }
     });
   };
+
+    // now = moment().format("MM/DD/YYYY HH:mm:ss")
+    // console.log(now)
 
   return (
     <div className="container">
