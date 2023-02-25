@@ -33,17 +33,18 @@ const CreatePayCheckPage = (props) => {
     let endOfWeek = moment(end).format("MM/DD/YYYY");
     let endOfWeekTitle = moment(endWeekTitle).format("MM/DD/YYYY");
     const startDate = moment(startOfWeek, "MM/DD/YYYY");  
-    const endDate = moment(endOfWeek, "MM/DD/YYYY");  
+    const endDate = moment(endOfWeek, "MM/DD/YYYY");
+    let totalBillableHours = 0
     let values = ""
     let clockIn = ""
     let clockOut = ""
-    let startLunch = ""
-    let returnLunch = ""
-    let sickTimeUsed = ""
-    let vacationTimeUsed = ""
-    let OTHoursWorked = ""
-    let hoursWorked = ""
-    let taxes = ""
+    let startLunch = 0
+    let returnLunch = 0
+    let sickTimeHoursUsed = 0
+    let vacationTimeHoursUsed = 0
+    let OTHoursWorked = 0
+    let hoursWorked = 0
+    let taxes = 0
 
     useEffect(() => {
         fetchPunches();
@@ -93,34 +94,82 @@ const CreatePayCheckPage = (props) => {
         //   });
         //   console.log(newValues);
 
-          function paycheckNumbers(values) {
-            if(values.clockOut - values.clockIn + (values.returnLunch - values.startLunch) >= 40){
-                return{
-                OTHoursWorked: (40 - (values.clockOut - values.clockIn + (values.startLunch - values.returnLunch))),
-                hoursWorked: (OTHoursWorked - (values.clockOut - values.clockIn + (values.startLunch - values.returnLunch))),
-                sickTimeUsed: values.sickTimeUsed,
-                vacationTimeUsed: values.vacationTimeUsed,
-                taxes: .20}}
-            else{
-                return{
-                OTHoursWorked: 0,
-                hoursWorked: (values.clockOut - values.clockIn + (values.startLunch - values.returnLunch)),
-                sickTimeUsed: (values.sickTimeUsed ? sickTimeUsed: 0),
-                vacationTimeUsed: (values.vacationTimeUsed ? vacationTimeUsed: 0),
-                taxes: .20}}};
+        //   function paycheckNumbers(values) {
+        //     if(values.clockOut - values.clockIn + (values.returnLunch - values.startLunch) >= 40){
+        //         return{
+        //         OTHoursWorked: (40 - (values.clockOut - values.clockIn + (values.startLunch - values.returnLunch))),
+        //         hoursWorked: (OTHoursWorked - (values.clockOut - values.clockIn + (values.startLunch - values.returnLunch))),
+        //         sickTimeUsed: values.sickTimeUsed,
+        //         vacationTimeUsed: values.vacationTimeUsed,
+        //         taxes: .20}}
+        //     else{
+        //         return{
+        //         OTHoursWorked: 0,
+        //         hoursWorked: (values.clockOut - values.clockIn + (values.startLunch - values.returnLunch)),
+        //         sickTimeUsed: (values.sickTimeUsed ? sickTimeUsed: 0),
+        //         vacationTimeUsed: (values.vacationTimeUsed ? vacationTimeUsed: 0),
+        //         taxes: .20}}};
 
-            paycheckNumbers(punches)
-            console.log(paycheckNumbers(punches))
+        //     paycheckNumbers(punches)
+        //     console.log(paycheckNumbers(punches))
 
             // const totalHours = punches.map(clock => clockOut.clockOut - clock.clockIn + (values.startLunch - values.returnLunch));
             // console.log(totalHours);
 
 
+
+            function thePunchValues(punches){
+                sickTimeHoursUsed = 0
+                vacationTimeHoursUsed = 0
+                totalBillableHours = 0
+                OTHoursWorked = 0
+                hoursWorked = 0
+                taxes = 0
+                for (let i = 0; i < punches.length; i++) {
+                    if(totalBillableHours >= 40){   
+                        sickTimeHoursUsed += punches[i].shift.sickTimeUsed;
+                        vacationTimeHoursUsed += punches[i].shift.vacationTimeUsed;
+                        const startTime = moment(punches[i].clockIn);
+                        const startLunch = moment(punches[i].startLunch);
+                        const returnLunch = moment(punches[i].returnLunch);
+                        const endTime = moment(punches[i].clockOut);
+                        const lunchDurationInMillis = returnLunch.diff(startLunch);
+                        const shiftDurationInMillis = endTime.diff(startTime);
+                        const finalDurationInMillis = shiftDurationInMillis - lunchDurationInMillis;
+                        const durationInHours = moment.duration(finalDurationInMillis).asHours();
+                        totalBillableHours += durationInHours
+                        OTHoursWorked = ((totalBillableHours) - 40);
+                        hoursWorked = (totalBillableHours - OTHoursWorked);
+                        sickTimeHoursUsed = sickTimeHoursUsed;
+                        vacationTimeHoursUsed = vacationTimeHoursUsed;
+                        taxes = .20}
+                    else{
+                        sickTimeHoursUsed += punches[i].shift.sickTimeUsed;
+                        vacationTimeHoursUsed += punches[i].shift.vacationTimeUsed;
+                        const startTime = moment(punches[i].clockIn);
+                        const startLunch = moment(punches[i].startLunch);
+                        const returnLunch = moment(punches[i].returnLunch);
+                        const endTime = moment(punches[i].clockOut);
+                        const lunchDurationInMillis = returnLunch.diff(startLunch);
+                        const shiftDurationInMillis = endTime.diff(startTime);
+                        const finalDurationInMillis = shiftDurationInMillis - lunchDurationInMillis;
+                        const durationInHours = moment.duration(finalDurationInMillis).asHours();
+                        totalBillableHours += durationInHours
+                        OTHoursWorked = 0;
+                        hoursWorked = totalBillableHours;
+                        sickTimeHoursUsed = sickTimeHoursUsed;
+                        vacationTimeHoursUsed = vacationTimeHoursUsed;
+                        taxes = .20}}
+                    }
+                    
+                    thePunchValues(punches)
+                    console.log(thePunchValues(punches))
+
     async function postNewPaycheck(){
         formData["hoursWorked"] = hoursWorked
         formData["OTHoursWorked"] = OTHoursWorked
-        formData["sickTimeUsed"] = sickTimeUsed
-        formData["vacationTimeUsed"] = vacationTimeUsed
+        formData["sickTimeUsed"] = sickTimeHoursUsed
+        formData["vacationTimeUsed"] = vacationTimeHoursUsed
         formData["taxes"] = taxes
         try {
             let response = await axios.post("http://127.0.0.1:8000/paychecks/create-paycheck/", formData, {
@@ -159,11 +208,11 @@ const CreatePayCheckPage = (props) => {
             </label>
             <label>
                 Sick Time:{" "}
-                <input type="text" name="sickTimeUsed" value={sickTimeUsed} onChange={handleInputChange}/>
+                <input type="text" name="sickTimeUsed" value={sickTimeHoursUsed} onChange={handleInputChange}/>
             </label>
             <label>
                 Vacation Time:{" "}
-                <input type="text" name="vacationTimeUsed" value={vacationTimeUsed} onChange={handleInputChange}/>
+                <input type="text" name="vacationTimeUsed" value={vacationTimeHoursUsed} onChange={handleInputChange}/>
             </label>
             <label>
                 Taxes:{" "}
