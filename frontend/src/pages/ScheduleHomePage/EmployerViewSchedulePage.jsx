@@ -71,6 +71,8 @@ const EmployerViewSchedulePage = () => {
           scheduledEnd: shift.scheduledEnd,
           actualStart: shift.actualStart,
           actualEnd: shift.actualEnd,
+          sickTimeUsed: shift.sickTimeUsed,
+          vacationTimeUsed: shift.vacationTimeUsed,
           isHoliday: shift.isHoliday,
           isClockedIn: shift.isClockedIn
         }
