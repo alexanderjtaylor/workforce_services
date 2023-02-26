@@ -57,7 +57,7 @@ const ClockOut = () => {
             </label>
             <label className='punch-form-input'>
                 Time:{" "}
-                <input className='punch-form-input-boxes' type="text" name="clockOut" value={theDate} onChange={handleInputChange}/>
+                <input className='punch-form-input-boxes' type="text" name="clockOut" value={theDate} readOnly={theDate}/>
             </label>
             <button className='punch-btn'>Clock Out</button>
         </form>

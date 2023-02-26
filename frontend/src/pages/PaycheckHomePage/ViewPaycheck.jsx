@@ -6,7 +6,7 @@ import useCustomForm from "../../hooks/useCustomForm"
 
 const ViewPaycheck = (props) => {
     const [user, token] = useAuth();
-    const [paychecks, setPaychecks] = useState();
+    const [paychecks, setPaychecks] = useState([]);
     const navigate = useNavigate();
     const { state } = useLocation();
     const [employee, setEmployee] = useState([]);
@@ -68,7 +68,7 @@ const ViewPaycheck = (props) => {
                 <th className='table-col'>Rate</th>
               </tr>
             </thead>
-            {/* <tbody>
+            <tbody>
             {paychecks.map((check) => {
               return (
                 <tr className='table-row'>
@@ -78,7 +78,7 @@ const ViewPaycheck = (props) => {
                 </tr>
               );
             })}
-            </tbody> */}
+            </tbody>
           </table>
     </div>
     );

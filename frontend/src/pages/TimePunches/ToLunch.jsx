@@ -57,7 +57,7 @@ const GoToLunch = () => {
             </label>
             <label className='punch-form-input'>
                 Time:{" "}
-                <input className='punch-form-input-boxes' type="text" name="startLunch" value={theDate} onChange={handleInputChange}/>
+                <input className='punch-form-input-boxes' type="text" name="startLunch" value={theDate}  readOnly={theDate}/>
             </label>
             <button className='punch-btn'>Go to Lunch</button>
         </form>

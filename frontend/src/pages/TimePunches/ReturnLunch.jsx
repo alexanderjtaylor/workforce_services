@@ -57,7 +57,7 @@ const ReturnLunch = () => {
             </label>
             <label className='punch-form-input'>
                 Time:{" "}
-                <input className='punch-form-input-boxes' type="text" name="returnLunch" value={theDate} onChange={handleInputChange}/>
+                <input className='punch-form-input-boxes' type="text" name="returnLunch" value={theDate}  readOnly={theDate}/>
             </label>
             <button className='punch-btn'>Return Lunch</button>
         </form>

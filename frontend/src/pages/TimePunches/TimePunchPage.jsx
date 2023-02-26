@@ -21,10 +21,11 @@ const TimePunchPage = () => {
   const date = `${year}-${month}-${day}`;
 
   useEffect(() => {
-    fetchShiftorPunch();
+    fetchPunch();
+    fetchShift();
   }, [token]);
 
-  const fetchShiftorPunch = async () => {
+  const fetchPunch = async () => {
     try {
       let response = await axios.get(`http://127.0.0.1:8000/clock-in/${state.employee_id}/punches`, {
         headers: {
@@ -33,19 +34,25 @@ const TimePunchPage = () => {
       });
       setPunch(todaysPunch(response.data));
       console.log(todaysPunch(response.data))
-      // console.log(response.data)
-      // setPunches(response.data);
     } catch (error) {
+      console.log(error)
+    }
+  };
+
+  const fetchShift = async () => {
+    try {
       let response = await axios.get(`http://127.0.0.1:8000/shifts/${state.employee_id}/shifts`, {
         headers: {
           Authorization: "Bearer " + token,
         },
       });
       setShift(todaysShift(response.data))
-      // console.log(date)
-      // console.log(todaysShift(response.data))
+      console.log(todaysShift(response.data))
+    } catch (error) {
+      console.log(error)
     }
   };
+
 
   function todaysPunch(array){
     let foundPunch = array.filter(function(punch){
