@@ -30,6 +30,7 @@ return (
         <table className='profile-tabel'>
           <thead>
             <tr className='table-col'>
+              <th className='table-col'>Employee ID</th>
               <th className='table-col'>First Name</th>
               <th className='table-col'>Last Name</th>
               <th className='table-col'>Job Title</th>
@@ -43,6 +44,7 @@ return (
           </thead>
           <tbody>
                 <tr className='table-row'>
+                  <td className='table-row'>{employee.id}</td>
                   <td className='table-row'>{employee.firstName}</td>
                   <td className='table-row'>{employee.lastName}</td>
                   <td className='table-row'>{employee.jobTitle}</td>

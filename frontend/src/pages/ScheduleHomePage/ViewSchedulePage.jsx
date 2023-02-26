@@ -30,7 +30,9 @@ const ViewSchedulePage = () => {
   let endOfWeek = moment(end).format("MM/DD/YYYY");
   let endOfWeekTitle = moment(endWeekTitle).format("MM/DD/YYYY");
   const startDate = moment(startOfWeek, "MM/DD/YYYY");  
-  const endDate = moment(endOfWeek, "MM/DD/YYYY");  
+  const endDate = moment(endOfWeek, "MM/DD/YYYY");
+  let cutOffDate = endOfWeekTitle;
+  console.log(cutOffDate)  
 
   useEffect(() => {
     fetchEmployeeShifts();

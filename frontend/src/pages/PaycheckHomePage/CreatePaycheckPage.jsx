@@ -45,6 +45,7 @@ const CreatePayCheckPage = (props) => {
     let OTHoursWorked = 0
     let hoursWorked = 0
     let taxes = 0
+    let cutOffDate = moment(endOfWeekTitle).format("YYYY-MM-DD");
 
     useEffect(() => {
         fetchPunches();
@@ -116,6 +117,15 @@ const CreatePayCheckPage = (props) => {
             // const totalHours = punches.map(clock => clockOut.clockOut - clock.clockIn + (values.startLunch - values.returnLunch));
             // console.log(totalHours);
 
+            function roundTo(n, digits) {
+                if (digits === undefined) {
+                    digits = 0;
+                }
+        
+                var multiplicator = Math.pow(10, digits);
+                n = parseFloat((n * multiplicator).toFixed(11));
+                return Math.round(n) / multiplicator;
+            }
 
 
             function thePunchValues(punches){
@@ -144,8 +154,10 @@ const CreatePayCheckPage = (props) => {
                         vacationTimeHoursUsed = vacationTimeHoursUsed;
                         taxes = .20}
                     else{
-                        sickTimeHoursUsed += punches[i].shift.sickTimeUsed;
-                        vacationTimeHoursUsed += punches[i].shift.vacationTimeUsed;
+                        // sickTimeHoursUsed += punches[i].shift.sickTimeUsed;
+                        // vacationTimeHoursUsed += punches[i].shift.vacationTimeUsed;
+                        sickTimeHoursUsed += moment.duration(punches[i].shift.sickTimeUsed).asHours();
+                        vacationTimeHoursUsed += moment.duration(punches[i].shift.vacationTimeUsed).asHours();
                         const startTime = moment(punches[i].clockIn);
                         const startLunch = moment(punches[i].startLunch);
                         const returnLunch = moment(punches[i].returnLunch);
@@ -154,11 +166,11 @@ const CreatePayCheckPage = (props) => {
                         const shiftDurationInMillis = endTime.diff(startTime);
                         const finalDurationInMillis = shiftDurationInMillis - lunchDurationInMillis;
                         const durationInHours = moment.duration(finalDurationInMillis).asHours();
-                        totalBillableHours += durationInHours
+                        totalBillableHours += durationInHours;
                         OTHoursWorked = 0;
-                        hoursWorked = totalBillableHours;
-                        sickTimeHoursUsed = sickTimeHoursUsed;
-                        vacationTimeHoursUsed = vacationTimeHoursUsed;
+                        hoursWorked = Math.round((totalBillableHours + Number.EPSILON) * 100) / 100;
+                        // sickTimeHoursUsed = sickTimeHoursUsed;
+                        // vacationTimeHoursUsed = vacationTimeHoursUsed;
                         taxes = .20}}
                     }
                     
@@ -166,6 +178,7 @@ const CreatePayCheckPage = (props) => {
                     console.log(thePunchValues(punches))
 
     async function postNewPaycheck(){
+        formData["cutOffDate"] = cutOffDate
         formData["hoursWorked"] = hoursWorked
         formData["OTHoursWorked"] = OTHoursWorked
         formData["sickTimeUsed"] = sickTimeHoursUsed
@@ -186,6 +199,10 @@ const CreatePayCheckPage = (props) => {
     return (
     <div className="container">
         <form className="form" onSubmit={handleSubmit}>
+        <label>
+                Cut Off Date:{" "}
+                <input type="text" name="cutOffDate" value={cutOffDate} onChange={handleInputChange}/>
+            </label>
             <label>
                 Employee ID:{" "}
                 <input type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange}/>

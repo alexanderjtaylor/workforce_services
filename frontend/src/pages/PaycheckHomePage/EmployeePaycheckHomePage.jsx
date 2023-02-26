@@ -1,12 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import ViewPaycheck from "./ViewPaycheck";
 
 const EmployeePaycheckHomePage = () => {
   const [user, token] = useAuth();
+  const navigate = useNavigate();
   const [employee, setEmployee] = useState([]);
 
   useEffect(() => {
@@ -26,10 +27,24 @@ const EmployeePaycheckHomePage = () => {
     }
   };
 
+  const handleClick = (employee) => {
+    navigate(`/view-paycheck/`, {
+      state: {
+        employee_id: employee.id,
+        employer_id: employee.employer.id,
+        user_id: employee.user.id,
+        firstName: employee.firstName,
+        lastName: employee.lastName,
+      }
+    });
+  };
+
   return (
     <div className="container">
       <Link to="/"><button>Home</button></Link>
-      <ViewPaycheck employee = {employee}/>
+      <button className='employer-home-page-btns' onClick={() => handleClick(employee)}>View Paycheck</button>
+      {/* <Link to="/view-paycheck" key={employee.id}><button>View Paycheck</button></Link> */}
+      {/* <ViewPaycheck employee = {employee}/> */}
     </div>
   );
 };

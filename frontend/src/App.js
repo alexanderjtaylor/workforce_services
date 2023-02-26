@@ -33,6 +33,7 @@ import ViewNextWeekSchedulePage from "./pages/ScheduleHomePage/ViewNextWeekSched
 import ViewLastWeekSchedulePage from "./pages/ScheduleHomePage/ViewLastWeekSchedulePage";
 import EmployerViewLastWeekSchedulePage from "./pages/ScheduleHomePage/EmployerViewLastWeekSchedulePage";
 import EmployerViewNextWeekSchedulePage from "./pages/ScheduleHomePage/EmployerViewNextWeekSchedulePage";
+import ViewPaycheck from "./pages/PaycheckHomePage/ViewPaycheck";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
@@ -86,6 +87,7 @@ function App() {
         <Route path="/last-week-schedule/:employeeID" element={<PrivateRoute><ViewLastWeekSchedulePage /></PrivateRoute>} />
         <Route path="/employer-view-last-week-schedule/:employeeID" element={<PrivateRoute><EmployerViewLastWeekSchedulePage /></PrivateRoute>} />
         <Route path="/employer-view-next-week-schedule/:employeeID" element={<PrivateRoute><EmployerViewNextWeekSchedulePage /></PrivateRoute>} />
+        <Route path="/view-paycheck" element={<PrivateRoute><ViewPaycheck /></PrivateRoute>} />
       </Routes>
       <Footer />
     </div>

@@ -10,3 +10,4 @@ class Paycheck(models.Model):
     sickTimeUsed = models.DecimalField(max_digits=8, decimal_places=2)
     vacationTimeUsed = models.DecimalField(max_digits=8, decimal_places=2)
     taxes = models.DecimalField(max_digits=8, decimal_places=2)
+    cutOffDate = models.DateField(default="2000-01-01")

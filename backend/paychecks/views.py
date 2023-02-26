@@ -39,3 +39,16 @@ def create_paycheck(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+@api_view(['PUT', 'DELETE'])
+@permission_classes([IsAdminUser])
+def edit_delete_paycheck(request, pk):
+    paycheck = get_object_or_404(Paycheck, pk=pk)
+    if request.method == 'PUT':
+        serializer = PaycheckSerializer(paycheck, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+    elif request.method == 'DELETE':
+        paycheck.delete()
+        return Response(status = status.HTTP_204_NO_CONTENT)

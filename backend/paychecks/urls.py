@@ -6,4 +6,5 @@ urlpatterns = [
     #path('<int:pk>/paycheck-display', views.paycheck_display),
     path('create-paycheck/', views.create_paycheck),
     path('<int:employee_id>/paychecks', views.get__all_paychecks_for_employee),
+    path('<int:pk>/paycheck-delete', views.edit_delete_paycheck),
 ]
