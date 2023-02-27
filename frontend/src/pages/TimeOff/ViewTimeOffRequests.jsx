@@ -53,8 +53,6 @@ const ViewTimeOffRequests = (props) => {
               requestedSickTime: thisRequest.requestedSickTime,
               requestedVacationTime: thisRequest.requestedVacationTime,
               employee_id: thisRequest.employee_id,
-              employer_id: thisRequest.employee.employer.id,
-              user_id: thisRequest.employee.user.id,
               firstName: thisRequest.employee.firstName,
               lastName: thisRequest.employee.lastName,
               jobTitle: thisRequest.employee.jobTitle,

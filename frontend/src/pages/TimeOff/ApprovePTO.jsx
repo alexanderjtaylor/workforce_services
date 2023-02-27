@@ -13,7 +13,8 @@ const ApprovePTOPage = () => {
     const [formData, handleInputChange, handleSubmit] = useCustomForm(state, ApprovePTO);
     const {employeeID} = useParams();
     const [thisEmployee, setThisEmployee] = useState({});
-    console.log(state)
+    let employee_user_id = 0
+    let employee_employer_id = 0
     console.log(state.employee_id)
 
     useEffect(() => {
@@ -29,7 +30,14 @@ const ApprovePTOPage = () => {
         console.log(response.data)
         setEmployee(response.data)}
 
+        employee_employer_id = employee.employer.id
+        employee_user_id = employee.user.id
+
+
+
     async function ApprovePTO(){
+        formData["user_id"] = employee_user_id
+        formData["employer_id"] = employee_employer_id
         try {
             let response = await axios.put(`http://127.0.0.1:8000/employees/edit/${state.employee_id}`, formData, {
                 headers: {
@@ -47,11 +55,11 @@ const ApprovePTOPage = () => {
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 Employer ID:{" "}
-                <input type="text" name="employer_id" value={state.employer_id} onChange={handleInputChange}/>
+                <input type="text" name="employer_id" value={employee_employer_id} onChange={handleInputChange}/>
             </label>
             <label>
                 Employee User ID:{" "}
-                <input type="text" name="user_id" value={state.user_id} onChange={handleInputChange}/>
+                <input type="text" name="user_id" value={employee_user_id} onChange={handleInputChange}/>
             </label>
             <label>
                 First Name:{" "}

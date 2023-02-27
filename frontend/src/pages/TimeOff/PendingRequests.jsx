@@ -33,6 +33,7 @@ const PendingPTORequests = (props) => {
                     <th className='table-col'>Requested PTO Date(s)</th>
                     <th className='table-col'>Sick Hours</th>
                     <th className='table-col'>Vacation Hours</th>
+                    <th className='table-col'>Request Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -51,6 +52,7 @@ const PendingPTORequests = (props) => {
                         {/* <td className='table-row'>{thisRequest.startWorkDate} - {thisRequest.endWorkDate}</td> */}
                         <td className='table-row'>{thisRequest.requestedSickTime}</td>
                         <td className='table-row'>{thisRequest.requestedVacationTime}</td>
+                        <td className='table-row'>{thisRequest.ptoRequestStatus}</td>
                       </tr>
                     );
                   })}
