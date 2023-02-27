@@ -102,21 +102,6 @@ const CreatePayCheckPage = (props) => {
                 // hoursWorked = 0
                 // taxes = 0
                 for (let i = 0; i < punches.length; i++) {
-                    if(totalBillableHours >= 40){ 
-                        const startTime = moment(punches[i].clockIn);
-                        const startLunch = moment(punches[i].startLunch);
-                        const returnLunch = moment(punches[i].returnLunch);
-                        const endTime = moment(punches[i].clockOut);
-                        const lunchDurationInMillis = returnLunch.diff(startLunch);
-                        const shiftDurationInMillis = endTime.diff(startTime);
-                        const finalDurationInMillis = shiftDurationInMillis - lunchDurationInMillis;
-                        const durationInHours = moment.duration(finalDurationInMillis).asHours();
-                        totalBillableHours += durationInHours
-                        OTHoursWorked = ((totalBillableHours) - 40);
-                        hoursWorked = (totalBillableHours - OTHoursWorked);
-                        OTHoursWorked = ((hoursWorked) + OTHoursWorked);
-                        taxes = .20}
-                    else{
                         const startTime = moment(punches[i].clockIn);
                         const startLunch = moment(punches[i].startLunch);
                         const returnLunch = moment(punches[i].returnLunch);
@@ -126,10 +111,19 @@ const CreatePayCheckPage = (props) => {
                         const finalDurationInMillis = shiftDurationInMillis - lunchDurationInMillis;
                         const durationInHours = moment.duration(finalDurationInMillis).asHours();
                         totalBillableHours += durationInHours;
-                        OTHoursWorked = 0;
-                        hoursWorked = Math.round((totalBillableHours + Number.EPSILON) * 100) / 100;
+                        console.log(durationInHours)
+                        console.log(totalBillableHours)
+                        {totalBillableHours >= 40 ? (
+                            OTHoursWorked = Math.round((((totalBillableHours) - 40) + Number.EPSILON) * 100) / 100
+                          ) : (
+                            OTHoursWorked = 0
+                          )}
+                        // OTHoursWorked = ((totalBillableHours) - 40);
+                        // OTHoursWorked = 0;
+                        // hoursWorked = (totalBillableHours - OTHoursWorked);
+                        hoursWorked = Math.round(((totalBillableHours - OTHoursWorked) + Number.EPSILON) * 100) / 100;
                         taxes = .20}}
-                    }
+                    
                     
                     thePunchValues(punches)
 
