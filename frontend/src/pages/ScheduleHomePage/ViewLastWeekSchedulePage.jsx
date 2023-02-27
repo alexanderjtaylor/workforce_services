@@ -1,12 +1,13 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { format } from 'date-fns'
 
 const ViewLastWeekSchedulePage = (props) => {
   const [user, token] = useAuth();
+  const navigate = useNavigate();
   const { state } = useLocation();
   const {employeeID} = useParams();
   const [employeeShifts, setEmployeeShifts] = useState([]);
@@ -50,9 +51,18 @@ const ViewLastWeekSchedulePage = (props) => {
       return employeeShifts.filter(shift => moment(shift.workDate).isBetween(startDate, endDate));}
       console.log(employeeShifts)
 
+      const handleClick = (employeeShifts) => {
+        navigate(`/view-schedule/${employeeID}`, {
+          state: {
+            employee_id: employeeID,
+          }
+        });
+      };
+
   return (
       <div className="container">
       <Link to="/"><button className="home-btn">Home</button></Link>
+      <button className='employer-home-page-btns' onClick={() => handleClick(employeeShifts)}>Next Week</button>
       <h1 className="home-welcome">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
             <table className='profile-tabel'>
             <thead>
@@ -60,6 +70,8 @@ const ViewLastWeekSchedulePage = (props) => {
                 <th className='table-col'>Work Date</th>
                 <th className='table-col'>Scheduled Start</th>
                 <th className='table-col'>Scheduled End</th>
+                <th className='table-col'>Sick Hours</th>
+                <th className='table-col'>Vacation Hours</th>
               </tr>
             </thead>
             <tbody>
@@ -80,6 +92,8 @@ const ViewLastWeekSchedulePage = (props) => {
                     <td className='table-row'>{((`${shiftDayOfWeek}, ${shiftMonth} ${shiftDay}, ${shiftYear}`))}</td>
                     <td className='table-row'>{(shiftStart)}</td>
                     <td className='table-row'>{(shiftEnd)}</td>
+                    <td className='table-row'>{(shift.sickTimeUsed)}</td>
+                    <td className='table-row'>{(shift.vacationTimeUsed)}</td>
                   </tr>
                 );
               })}

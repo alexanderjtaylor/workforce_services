@@ -32,6 +32,7 @@ const EmployeePaycheckHomePage = () => {
       state: {
         employee_id: employee.id,
         employer_id: employee.employer.id,
+        employer_name: employee.employer.companyName,
         user_id: employee.user.id,
         firstName: employee.firstName,
         lastName: employee.lastName,

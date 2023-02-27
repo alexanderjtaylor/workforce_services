@@ -46,6 +46,7 @@ const ViewSchedulePage = () => {
       },
     });
     setEmployeeShifts(thisWeeksShifts(response.data))
+    console.log(thisWeeksShifts(response.data))
     ;}
 
     // async function fetchEmployee(){
@@ -90,6 +91,8 @@ const ViewSchedulePage = () => {
                 <th className='table-col'>Work Date</th>
                 <th className='table-col'>Scheduled Start</th>
                 <th className='table-col'>Scheduled End</th>
+                <th className='table-col'>Sick Hours</th>
+                <th className='table-col'>Vacation Hours</th>
               </tr>
             </thead>
             <tbody>
@@ -110,6 +113,8 @@ const ViewSchedulePage = () => {
                     <td className='table-row'>{((`${shiftDayOfWeek}, ${shiftMonth} ${shiftDay}, ${shiftYear}`))}</td>
                     <td className='table-row'>{(shiftStart)}</td>
                     <td className='table-row'>{(shiftEnd)}</td>
+                    <td className='table-row'>{(shift.sickTimeUsed)}</td>
+                    <td className='table-row'>{(shift.vacationTimeUsed)}</td>
                   </tr>
                 );
               })}

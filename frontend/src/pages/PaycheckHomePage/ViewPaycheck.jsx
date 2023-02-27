@@ -9,9 +9,6 @@ const ViewPaycheck = (props) => {
     const [paychecks, setPaychecks] = useState([]);
     const navigate = useNavigate();
     const { state } = useLocation();
-    const [employee, setEmployee] = useState([]);
-    const [employeeShifts, setEmployeeShifts] = useState([]);
-    var weekShifts = []
     const moment = require('moment');
     let dayOfWeek = moment().day();
     let numDay = moment().date(); 
@@ -59,26 +56,180 @@ const ViewPaycheck = (props) => {
     return (
     <div className="container">
       <Link to="/"><button className="home-btn">Home</button></Link>
-      <h1 className="home-welcome">Pay Period: {startOfWeekTitle} - {endOfWeekTitle}</h1>
+      <h3 className="home-welcome">Employer: {state.employer_name}</h3>
+      <h3 className="home-welcome">Employee: {state.firstName} {state.lastName}</h3>
+      <h3 className="home-welcome">Pay Period: {startOfWeekTitle} - {endOfWeekTitle}</h3>
             <table className='profile-tabel'>
             <thead>
               <tr>
                 <th className='table-col'>Pay</th>
                 <th className='table-col'>Hours</th>
                 <th className='table-col'>Rate</th>
+                <th className='table-col'>Total</th>
               </tr>
             </thead>
             <tbody>
+            {/* {paychecks.map((check) => { */}
+              {/* return ( */}
+                <tr className='table-row'>
+                  <td className='table-row'>Regular Pay</td>
+                  <td className='table-row'>40</td>
+                  <td className='table-row'>20.00</td>
+                  <td className='table-row'>800.00</td>
+                  {/* <td className='table-row'>{check.hoursWorked}</td>
+                  <td className='table-row'>{check.payRate}</td> */}
+                </tr>
+                
+              {/* ); */}
+            {/* // })} */}
+            </tbody>
+            <tbody>
+            {/* {paychecks.map((check) => { */}
+              {/* return ( */}
+                <tr className='table-row'>
+                  <td className='table-row'>Overtime Pay</td>
+                  <td className='table-row'>4</td>
+                  <td className='table-row'>30.00</td>
+                  <td className='table-row'>120.00</td>
+                  {/* <td className='table-row'>{check.hoursWorked}</td>
+                  <td className='table-row'>{check.payRate}</td> */}
+                </tr>
+                
+              {/* ); */}
+            {/* // })} */}
+            </tbody>
+            <tbody>
+            {/* {paychecks.map((check) => { */}
+              {/* return ( */}
+                <tr className='table-row'>
+                  <td className='table-row'>Sick Pay</td>
+                  <td className='table-row'>0</td>
+                  <td className='table-row'>20.00</td>
+                  <td className='table-row'>0.00</td>
+                  {/* <td className='table-row'>{check.hoursWorked}</td>
+                  <td className='table-row'>{check.payRate}</td> */}
+                </tr>
+                
+              {/* ); */}
+            {/* // })} */}
+            </tbody>
+            <tbody>
+            {/* {paychecks.map((check) => { */}
+              {/* return ( */}
+                <tr className='table-row'>
+                  <td className='table-row'>Vacation Pay</td>
+                  <td className='table-row'>0</td>
+                  <td className='table-row'>20.00</td>
+                  <td className='table-row'>0.00</td>
+                  {/* <td className='table-row'>{check.hoursWorked}</td>
+                  <td className='table-row'>{check.payRate}</td> */}
+                </tr>
+                
+              {/* ); */}
+            {/* // })} */}
+            </tbody>
+          </table>
+          <table className='profile-tabel'>
+            <thead>
+              <tr>
+                <th className='table-col'>Taxes</th>
+                <th className='table-col'></th>
+                <th className='table-col'></th>
+                <th className='table-col'>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+            {/* {paychecks.map((check) => { */}
+              {/* return ( */}
+                <tr className='table-row'>
+                  <td className='table-row'>All Taxes</td>
+                  <td className='table-row'></td>
+                  <td className='table-row'></td>
+                  <td className='table-row'>184.00</td>
+                  {/* <td className='table-row'>{check.hoursWorked}</td>
+                  <td className='table-row'>{check.payRate}</td> */}
+                </tr>
+                
+              {/* ); */}
+            {/* // })} */}
+            </tbody>
+            {/* <tbody>
             {paychecks.map((check) => {
               return (
                 <tr className='table-row'>
-                  <td className='table-row'>Regular Pay</td>
+                  <td className='table-row'>OT Pay</td>
                   <td className='table-row'>{check.hoursWorked}</td>
                   <td className='table-row'>{check.payRate}</td>
                 </tr>
               );
             })}
+            </tbody> */}
+          </table>
+          <table className='profile-tabel'>
+            <thead>
+              <tr>
+                <th className='table-col'>Summary</th>
+                <th className='table-col'></th>
+                <th className='table-col'></th>
+                <th className='table-col'>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+            {/* {paychecks.map((check) => { */}
+              {/* return ( */}
+                <tr className='table-row'>
+                  <td className='table-row'>Gross Pay</td>
+                  <td className='table-row'></td>
+                  <td className='table-row'></td>
+                  <td className='table-row'>920.00</td>
+                  {/* <td className='table-row'>{check.hoursWorked}</td>
+                  <td className='table-row'>{check.payRate}</td> */}
+                </tr>
+                
+              {/* ); */}
+            {/* // })} */}
             </tbody>
+            <tbody>
+            {/* {paychecks.map((check) => { */}
+              {/* return ( */}
+                <tr className='table-row'>
+                  <td className='table-row'>Taxes</td>
+                  <td className='table-row'></td>
+                  <td className='table-row'></td>
+                  <td className='table-row'>184.00</td>
+                  {/* <td className='table-row'>{check.hoursWorked}</td>
+                  <td className='table-row'>{check.payRate}</td> */}
+                </tr>
+                
+              {/* ); */}
+            {/* // })} */}
+            </tbody>
+            <tbody>
+            {/* {paychecks.map((check) => { */}
+              {/* return ( */}
+                <tr className='table-row'>
+                  <td className='table-row'>Net Pay</td>
+                  <td className='table-row'></td>
+                  <td className='table-row'></td>
+                  <td className='table-row'>736.00</td>
+                  {/* <td className='table-row'>{check.hoursWorked}</td>
+                  <td className='table-row'>{check.payRate}</td> */}
+                </tr>
+                
+              {/* ); */}
+            {/* // })} */}
+            </tbody>
+            {/* <tbody>
+            {paychecks.map((check) => {
+              return (
+                <tr className='table-row'>
+                  <td className='table-row'>OT Pay</td>
+                  <td className='table-row'>{check.hoursWorked}</td>
+                  <td className='table-row'>{check.payRate}</td>
+                </tr>
+              );
+            })}
+            </tbody> */}
           </table>
     </div>
     );

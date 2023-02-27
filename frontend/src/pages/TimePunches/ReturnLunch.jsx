@@ -39,9 +39,18 @@ const ReturnLunch = () => {
         console.log(response.data)
         setTimePunch(response.data)};
 
+        const handleClick = (timePunch) => {
+            navigate(`/time-punch-page/${state.employee_id}`, {
+              state: {
+                employee_id: state.employee_id,
+              }
+            });
+          };
+
     return ( 
       <div className="container">
         <Link to="/"><button className="home-btn">Home</button></Link>
+        <button className='employer-home-page-btns' onClick={() => handleClick(timePunch)}>Back</button>
         <form className="form" onSubmit={handleSubmit}>
         <label className='punch-form-input'>
                 Employee ID:{" "}

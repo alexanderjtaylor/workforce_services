@@ -12,6 +12,7 @@ const CreatePayCheckPage = (props) => {
     const [formData, handleInputChange, handleSubmit] = useCustomForm(state, postNewPaycheck);
     const {employeeID} = useParams();
     const [punches, setPunches] = useState([]);
+    const [shifts, setShifts] = useState([]);
     const [punchValues, setPunchValues] = useState([]);
     console.log(state)
 
@@ -49,6 +50,7 @@ const CreatePayCheckPage = (props) => {
 
     useEffect(() => {
         fetchPunches();
+        fetchShifts();
       }, [token]);
 
     const fetchPunches = async () => {
@@ -58,64 +60,30 @@ const CreatePayCheckPage = (props) => {
               Authorization: "Bearer " + token,
             },
           });
-        //   setPunches(todaysPunch(response.data));
-        //   console.log(todaysPunch(response.data))
         console.log(thisWeeksPunches(response.data))
         setPunches(thisWeeksPunches(response.data))
-        // let values = thisWeeksPunches(response.data).reduce(function(previousValue, currentValue){
-        //     return {
-        //         clockIn: previousValue.clockIn + currentValue.clockIn,
-        //         clockOut: previousValue.clockOut + currentValue.clockOut,
-        //         startLunch: previousValue.startLunch + currentValue.startLunch,
-        //         returnLunch: previousValue.returnLunch + currentValue.returnLunch,
-        //         sickTimeUsed: previousValue.shift.sickTimeUsed + currentValue.shift.sickTimeUsed,
-        //         vacationTimeUsed: previousValue.shift.vacationTimeUsed + currentValue.shift.vacationTimeUsed,
-        //     }
-        //   });
-        //   console.log(values);
-        //   console.log(clockIn);
-          // setPunches(response.data);
         } catch (error) {
-          // console.log(response.data)
+        }
+      };
+
+      const fetchShifts = async () => {
+        try {
+          let response = await axios.get(`http://127.0.0.1:8000/shifts/${state.employee_id}/shifts`, {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          });
+        console.log(thisWeeksShifts(response.data))
+        setShifts(thisWeeksShifts(response.data))
+        } catch (error) {
         }
       };
 
       function thisWeeksPunches(punches) {
         return punches.filter(punch => moment(punch.shift.workDate).isBetween(startDate, endDate));}
- 
-        //   var newValues = punches.reduce(function(previousValue, currentValue) {
-        //     return {
-        //         clockIn: previousValue.clockIn + currentValue.clockIn,
-        //         clockOut: previousValue.clockOut + currentValue.clockOut,
-        //         startLunch: previousValue.startLunch + currentValue.startLunch,
-        //         returnLunch: previousValue.returnLunch + currentValue.returnLunch,
-        //         sickTimeUsed: previousValue.shift.sickTimeUsed + currentValue.shift.sickTimeUsed,
-        //         vacationTimeUsed: previousValue.shift.vacationTimeUsed + currentValue.shift.vacationTimeUsed,
-        //     }
-        //   });
-        //   console.log(newValues);
 
-        //   function paycheckNumbers(values) {
-        //     if(values.clockOut - values.clockIn + (values.returnLunch - values.startLunch) >= 40){
-        //         return{
-        //         OTHoursWorked: (40 - (values.clockOut - values.clockIn + (values.startLunch - values.returnLunch))),
-        //         hoursWorked: (OTHoursWorked - (values.clockOut - values.clockIn + (values.startLunch - values.returnLunch))),
-        //         sickTimeUsed: values.sickTimeUsed,
-        //         vacationTimeUsed: values.vacationTimeUsed,
-        //         taxes: .20}}
-        //     else{
-        //         return{
-        //         OTHoursWorked: 0,
-        //         hoursWorked: (values.clockOut - values.clockIn + (values.startLunch - values.returnLunch)),
-        //         sickTimeUsed: (values.sickTimeUsed ? sickTimeUsed: 0),
-        //         vacationTimeUsed: (values.vacationTimeUsed ? vacationTimeUsed: 0),
-        //         taxes: .20}}};
-
-        //     paycheckNumbers(punches)
-        //     console.log(paycheckNumbers(punches))
-
-            // const totalHours = punches.map(clock => clockOut.clockOut - clock.clockIn + (values.startLunch - values.returnLunch));
-            // console.log(totalHours);
+    function thisWeeksShifts(shifts) {
+        return shifts.filter(shift => moment(shift.workDate).isBetween(startDate, endDate));}
 
             function roundTo(n, digits) {
                 if (digits === undefined) {
@@ -129,16 +97,12 @@ const CreatePayCheckPage = (props) => {
 
 
             function thePunchValues(punches){
-                sickTimeHoursUsed = 0
-                vacationTimeHoursUsed = 0
-                totalBillableHours = 0
-                OTHoursWorked = 0
-                hoursWorked = 0
-                taxes = 0
+                // totalBillableHours = 0
+                // OTHoursWorked = 0
+                // hoursWorked = 0
+                // taxes = 0
                 for (let i = 0; i < punches.length; i++) {
-                    if(totalBillableHours >= 40){   
-                        sickTimeHoursUsed += punches[i].shift.sickTimeUsed;
-                        vacationTimeHoursUsed += punches[i].shift.vacationTimeUsed;
+                    if(totalBillableHours >= 40){ 
                         const startTime = moment(punches[i].clockIn);
                         const startLunch = moment(punches[i].startLunch);
                         const returnLunch = moment(punches[i].returnLunch);
@@ -150,14 +114,9 @@ const CreatePayCheckPage = (props) => {
                         totalBillableHours += durationInHours
                         OTHoursWorked = ((totalBillableHours) - 40);
                         hoursWorked = (totalBillableHours - OTHoursWorked);
-                        sickTimeHoursUsed = sickTimeHoursUsed;
-                        vacationTimeHoursUsed = vacationTimeHoursUsed;
+                        OTHoursWorked = ((hoursWorked) + OTHoursWorked);
                         taxes = .20}
                     else{
-                        // sickTimeHoursUsed += punches[i].shift.sickTimeUsed;
-                        // vacationTimeHoursUsed += punches[i].shift.vacationTimeUsed;
-                        sickTimeHoursUsed += moment.duration(punches[i].shift.sickTimeUsed).asHours();
-                        vacationTimeHoursUsed += moment.duration(punches[i].shift.vacationTimeUsed).asHours();
                         const startTime = moment(punches[i].clockIn);
                         const startLunch = moment(punches[i].startLunch);
                         const returnLunch = moment(punches[i].returnLunch);
@@ -169,13 +128,24 @@ const CreatePayCheckPage = (props) => {
                         totalBillableHours += durationInHours;
                         OTHoursWorked = 0;
                         hoursWorked = Math.round((totalBillableHours + Number.EPSILON) * 100) / 100;
-                        // sickTimeHoursUsed = sickTimeHoursUsed;
-                        // vacationTimeHoursUsed = vacationTimeHoursUsed;
                         taxes = .20}}
                     }
                     
                     thePunchValues(punches)
-                    console.log(thePunchValues(punches))
+
+
+                    function theShiftValues(shifts){
+                        sickTimeHoursUsed = 0
+                        vacationTimeHoursUsed = 0
+                        for (let i = 0; i < shifts.length; i++) {
+                            if(shifts[i].sickTimeUsed > 0){
+                                const sickHoursUsed = moment.duration(shifts[i].sickTimeUsed);
+                                const vacationHoursUsed = moment.duration(shifts[i].vacationTimeUsed);
+                                sickTimeHoursUsed += sickHoursUsed;
+                                vacationTimeHoursUsed += vacationHoursUsed;}}}
+
+                    theShiftValues(shifts)
+
 
     async function postNewPaycheck(){
         formData["cutOffDate"] = cutOffDate
