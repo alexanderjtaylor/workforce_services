@@ -13,8 +13,10 @@ const ApprovePTOPage = () => {
     const [formData, handleInputChange, handleSubmit] = useCustomForm(state, ApprovePTO);
     const {employeeID} = useParams();
     const [thisEmployee, setThisEmployee] = useState({});
-    let employee_user_id = 0
-    let employee_employer_id = 0
+    const [employee_user_id, setEmployee_user_id] = useState({});
+    const [employee_employer_id, setEmployee_employer_id] = useState({});
+    // let employee_user_id = 0
+    // let employee_employer_id = 0
     console.log(state.employee_id)
 
     useEffect(() => {
@@ -28,10 +30,14 @@ const ApprovePTOPage = () => {
           },
         });
         console.log(response.data)
+        console.log(response.data.user.id)
+        console.log(response.data.employer.id)
+        setEmployee_user_id(response.data.user.id)
+        setEmployee_employer_id(response.data.employer.id)
         setEmployee(response.data)}
 
-        employee_employer_id = employee.employer.id
-        employee_user_id = employee.user.id
+        // employee_employer_id = employee.employer.id
+        // employee_user_id = employee.user.id
 
 
 
