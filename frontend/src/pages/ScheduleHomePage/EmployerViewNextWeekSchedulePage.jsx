@@ -66,9 +66,18 @@ const EmployerViewNextWeekSchedulePage = () => {
         });
       };
 
+      const handleClicktwo = (employeeShifts) => {
+        navigate(`/employer-view-schedule/${employeeID}`, {
+          state: {
+            employee_id: employeeID,
+          }
+        });
+      };
+
   return (
       <div className="container">
       <Link to="/"><button className="home-btn">Home</button></Link>
+      <button className='employer-home-page-btns' onClick={() => handleClicktwo(employeeShifts)}>Last Week</button>
       <h1 className="home-welcome">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
             <table className='profile-tabel'>
             <thead>
