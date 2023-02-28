@@ -78,8 +78,8 @@ return (
                   <td className='table-row'>{employee.lastName}</td>
                   <td className='table-row'>{employee.sickTime}</td>
                   <td className='table-row'>{employee.vacationTime}</td>
-                  <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Request PTO</button>
-                  <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Pending PTO Requests</button>
+                  <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Request Time Off</button>
+                  <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>View PTO Requests</button>
                 </tr>
           </tbody>
         </table>

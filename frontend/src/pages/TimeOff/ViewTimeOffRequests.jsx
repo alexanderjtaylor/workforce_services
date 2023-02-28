@@ -41,7 +41,10 @@ const ViewTimeOffRequests = (props) => {
               payRate: thisRequest.employee.payRate,
               OTPayRate: thisRequest.employee.OTPayRate,
               sickTime: thisRequest.employee.sickTime,
-              vacationTime: thisRequest.employee.vacationTime
+              vacationTime: thisRequest.employee.vacationTime,
+              ptoRequestStatus: thisRequest.ptoRequestStatus,
+              startWorkDate: thisRequest.startWorkDate,
+              endWorkDate: thisRequest.endWorkDate,
             }
           });
         };
@@ -52,7 +55,9 @@ const ViewTimeOffRequests = (props) => {
               thisRequest_id: thisRequest.id,
               requestedSickTime: thisRequest.requestedSickTime,
               requestedVacationTime: thisRequest.requestedVacationTime,
-              employee_id: thisRequest.employee_id,
+              employee_id: thisRequest.employee.id,
+              employer_id: thisRequest.employee.employer.id,
+              user_id: thisRequest.employee.user.id,
               firstName: thisRequest.employee.firstName,
               lastName: thisRequest.employee.lastName,
               jobTitle: thisRequest.employee.jobTitle,
@@ -60,7 +65,34 @@ const ViewTimeOffRequests = (props) => {
               payRate: thisRequest.employee.payRate,
               OTPayRate: thisRequest.employee.OTPayRate,
               sickTime: thisRequest.employee.sickTime,
-              vacationTime: thisRequest.employee.vacationTime
+              vacationTime: thisRequest.employee.vacationTime,
+              ptoRequestStatus: thisRequest.ptoRequestStatus,
+              startWorkDate: thisRequest.startWorkDate,
+              endWorkDate: thisRequest.endWorkDate,
+            }
+          });
+        };
+
+        const handleClickthree = (thisRequest) => {
+          navigate(`/pto-update-employee/${thisRequest.id}`, {
+            state: {
+              thisRequest_id: thisRequest.id,
+              requestedSickTime: thisRequest.requestedSickTime,
+              requestedVacationTime: thisRequest.requestedVacationTime,
+              employee_id: thisRequest.employee.id,
+              employer_id: thisRequest.employee.employer.id,
+              user_id: thisRequest.employee.user.id,
+              firstName: thisRequest.employee.firstName,
+              lastName: thisRequest.employee.lastName,
+              jobTitle: thisRequest.employee.jobTitle,
+              yearsWithCompany: thisRequest.employee.yearsWithCompany,
+              payRate: thisRequest.employee.payRate,
+              OTPayRate: thisRequest.employee.OTPayRate,
+              sickTime: thisRequest.employee.sickTime,
+              vacationTime: thisRequest.employee.vacationTime,
+              ptoRequestStatus: thisRequest.ptoRequestStatus,
+              startWorkDate: thisRequest.startWorkDate,
+              endWorkDate: thisRequest.endWorkDate,
             }
           });
         };
@@ -76,6 +108,7 @@ const ViewTimeOffRequests = (props) => {
                     <th className='table-col'>Requested PTO Date(s)</th>
                     <th className='table-col'>Sick Hours</th>
                     <th className='table-col'>Vacation Hours</th>
+                    <th className='table-col'>Request Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -98,8 +131,10 @@ const ViewTimeOffRequests = (props) => {
                         <td className='table-row'>{thisRequest.startWorkDate} - {thisRequest.endWorkDate}</td>
                         <td className='table-row'>{thisRequest.requestedSickTime}</td>
                         <td className='table-row'>{thisRequest.requestedVacationTime}</td>
+                        <td className='table-row'>{thisRequest.ptoRequestStatus}</td>
                         <button className='home-page-btns' onClick={() => handleClickone(thisRequest)}>Approve</button>
                         <button className='home-page-btns' onClick={() => handleClicktwo(thisRequest)}>Deny</button>
+                        <button className='home-page-btns' onClick={() => handleClickthree(thisRequest)}>Edit Employee PTO Availability</button>
                       </tr>
                     );
                   })}

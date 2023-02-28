@@ -24,6 +24,14 @@ def get_all_requests_for_employee(request, employee_id):
     if request.method == 'GET':
         serializer = PaidTimeOffSerializer(requests, many=True)
         return Response(serializer.data)
+    
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_pto_request_by_request_id(request, pk):
+    pto = PaidTimeOff.objects.filter(id=pk)
+    if request.method == 'GET':
+        serializer = PaidTimeOffSerializer(pto, many=True)
+        return Response(serializer.data)
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -42,4 +50,19 @@ def respond_to_pto_request(request, pk):
     pto = get_object_or_404(PaidTimeOff, pk=pk)
     if request.method == 'DELETE':
         pto.delete()
-        return Response(status = status.HTTP_204_NO_CONTENT)   
+        return Response(status = status.HTTP_204_NO_CONTENT) 
+    
+@api_view(['PUT', 'PATCH'])
+@permission_classes([IsAuthenticated])
+def pto_update(request, pk):
+    pto = get_object_or_404(PaidTimeOff, pk=pk)
+    if request.method == 'PUT':
+        serializer = PaidTimeOffSerializer(pto, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+    elif request.method == 'PATCH':
+        serializer = PaidTimeOffSerializer(pto, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data) 

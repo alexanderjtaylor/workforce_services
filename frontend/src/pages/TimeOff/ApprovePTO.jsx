@@ -8,49 +8,48 @@ import useCustomForm from "../../hooks/useCustomForm"
 const ApprovePTOPage = () => {
     const [user, token] = useAuth();
     const { state } = useLocation();
-    const [employee, setEmployee] = useState([]);
+    const [employer, setEmployer] = useState({});
     const navigate = useNavigate();
     const [formData, handleInputChange, handleSubmit] = useCustomForm(state, ApprovePTO);
-    const {employeeID} = useParams();
-    const [thisEmployee, setThisEmployee] = useState({});
-    const [employee_user_id, setEmployee_user_id] = useState({});
-    const [employee_employer_id, setEmployee_employer_id] = useState({});
+    const [ptoRequest, setPTORequest] = useState({});
+    let Approved = "Approved"
     // let employee_user_id = 0
     // let employee_employer_id = 0
     console.log(state.employee_id)
 
     useEffect(() => {
-        fetchEmployee();
+        fetchPTORequest();
+        fetchEmployer();
       }, [token]);
 
-    async function fetchEmployee(){
-        const response = await axios.get(`http://127.0.0.1:8000/employees/employee/${state.employee_id}`, {
+    async function fetchPTORequest(){
+        const response = await axios.get(`http://127.0.0.1:8000/paidtimeoff/${state.thisRequest_id}/pto-request`, {
           headers: {
             Authorization: "Bearer " + token,
           },
         });
         console.log(response.data)
-        console.log(response.data.user.id)
-        console.log(response.data.employer.id)
-        setEmployee_user_id(response.data.user.id)
-        setEmployee_employer_id(response.data.employer.id)
-        setEmployee(response.data)}
+        setPTORequest(response.data)}
 
-        // employee_employer_id = employee.employer.id
-        // employee_user_id = employee.user.id
-
-
+        async function fetchEmployer(){
+            const response = await axios.get(`http://127.0.0.1:8000/employers/${user.id}`, {
+              headers: {
+                Authorization: "Bearer " + token,
+              },
+            });
+            console.log(response.data.employer.id)
+            setEmployer(response.data.employer.id)}
 
     async function ApprovePTO(){
-        formData["user_id"] = employee_user_id
-        formData["employer_id"] = employee_employer_id
+        formData["status"] = Approved
+        formData["employer"] = employer
         try {
-            let response = await axios.put(`http://127.0.0.1:8000/employees/edit/${state.employee_id}`, formData, {
+            let response = await axios.patch(`http://127.0.0.1:8000/paidtimeoff/${state.thisRequest_id}/pto-update`, formData, {
                 headers: {
                     Authorization: 'Bearer ' + token,
                 },
             });
-            navigate("/");
+            navigate(`/view-pto-requests/${state.employee_id}`);
         } catch (error) {
             console.log(error.message);
         }
@@ -60,46 +59,38 @@ const ApprovePTOPage = () => {
     <div className="container">
         <form className="form" onSubmit={handleSubmit}>
             <label>
+                PTO Request ID:{" "}
+                <input type="text" name="thisRequest_id" value={state.thisRequest_id} onChange={handleInputChange}/>
+            </label>
+            <label>
+                Employee ID:{" "}
+                <input type="text" name="employee_id" value={state.employee_id} onChange={handleInputChange}/>
+            </label>
+            <label>
                 Employer ID:{" "}
-                <input type="text" name="employer_id" value={employee_employer_id} onChange={handleInputChange}/>
+                <input type="text" name="employer" value={employer} onChange={handleInputChange}/>
             </label>
             <label>
-                Employee User ID:{" "}
-                <input type="text" name="user_id" value={employee_user_id} onChange={handleInputChange}/>
+                Start Work Date:{" "}
+                <input type="text" name="startWorkDate" value={state.startWorkDate} onChange={handleInputChange}/>
             </label>
             <label>
-                First Name:{" "}
-                <input type="text" name="firstName" value={state.firstName} onChange={handleInputChange}/>
+                End Work Date:{" "}
+                <input type="text" name="endWorkDate" value={state.endWorkDate} onChange={handleInputChange}/>
             </label>
             <label>
-                Last Name:{" "}
-                <input type="text" name="lastName" value={state.lastName} onChange={handleInputChange}/>
+                Requested Sick Time:{" "}
+                <input type="text" name="requestedSickTime" value={state.requestedSickTime} onChange={handleInputChange}/>
             </label>
             <label>
-                Job Title:{" "}
-                <input type="text" name="jobTitle" value={state.jobTitle} onChange={handleInputChange}/>
+                Requested Vacation Time:{" "}
+                <input type="text" name="requestedVacationTime" value={state.requestedVacationTime} onChange={handleInputChange}/>
             </label>
             <label>
-                Years with Company:{" "}
-                <input type="text" name="yearsWithCompany" value={state.yearsWithCompany} onChange={handleInputChange}/>
+                Request Status:{" "}
+                <input type="text" name="status" value={Approved} onChange={handleInputChange}/>
             </label>
-            <label>
-                Pay Rate:{" "}
-                <input type="text" name="payRate" value={state.payRate} onChange={handleInputChange}/>
-            </label>
-            <label>
-                OT Pay Rate:{" "}
-                <input type="text" name="OTPayRate" value={state.OTPayRate} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Sick Time:{" "}
-                <input type="text" name="sickTime" value={state.sickTime - state.requestedSickTime} onChange={handleInputChange}/>
-            </label>
-            <label>
-                Vacation Time:{" "}
-                <input type="text" name="vacationTime" value={state.vacationTime - state.requestedVacationTime} onChange={handleInputChange}/>
-            </label>
-            <button className='edit-employee-btn'>Approve Request</button>
+            <button className='edit-employee-btn'>Approve</button>
         </form>
     </div>
     );
