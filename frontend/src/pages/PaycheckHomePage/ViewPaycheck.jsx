@@ -43,15 +43,63 @@ const ViewPaycheck = (props) => {
                 },
             });
             console.log(thisWeeksPaycheck(response.data))
-            setPaychecks(thisWeeksPaycheck(response.data))
+            
+            setPaychecks( thisWeeksPaycheck(response.data))
             // setPaychecks(response.data);
         } catch (error) {
             console.log(error.message);
         }
     }
 
-    function thisWeeksPaycheck(paychecks) {
+     function thisWeeksPaycheck(paychecks) {
         return paychecks.filter(paycheck => moment(paycheck.cutOffDate).isBetween(startDate, endDate));}
+
+        function paycheckValues(paychecks){
+                  const regHours = parseInt(paychecks.hoursWorked);
+
+                  const regRate = parseInt(paychecks.payRate);
+                  const OTHours = parseInt(paychecks.OTHoursWorked);
+                  const otRate = parseInt(paychecks.OTPayRate);
+                  const regPay = regHours * regRate;
+                  const OTPay = OTHours * otRate;
+                  const sickHours = parseInt(paychecks.sickTimeUsed);
+                  const sickPay = sickHours * regRate;
+                  const vacationHours = parseInt(paychecks.vacationTimeUsed);
+                  const vacationPay = vacationHours * regRate;
+                  const taxes = parseInt(paychecks.taxes);
+                  const grossPay = regPay + OTPay + sickPay + vacationPay;
+                  const netPay = grossPay * taxes;
+
+
+
+
+
+
+
+                  // const startLunch = moment(punches[i].startLunch);
+                  // const returnLunch = moment(punches[i].returnLunch);
+                  // const endTime = moment(punches[i].clockOut);
+                  // const lunchDurationInMillis = returnLunch.diff(startLunch);
+                  // const shiftDurationInMillis = endTime.diff(startTime);
+                  // const finalDurationInMillis = shiftDurationInMillis - lunchDurationInMillis;
+                  // const durationInHours = moment.duration(finalDurationInMillis).asHours();
+                  // totalBillableHours += durationInHours;
+                  // console.log(durationInHours)
+                  // console.log(totalBillableHours)
+                  // {totalBillableHours >= 40 ? (
+                  //     OTHoursWorked = Math.round((((totalBillableHours) - 40) + Number.EPSILON) * 100) / 100
+                  //   ) : (
+                  //     OTHoursWorked = 0
+                  //   )}
+                  // // OTHoursWorked = ((totalBillableHours) - 40);
+                  // // OTHoursWorked = 0;
+                  // // hoursWorked = (totalBillableHours - OTHoursWorked);
+                  // hoursWorked = Math.round(((totalBillableHours - OTHoursWorked) + Number.EPSILON) * 100) / 100;
+                  // taxes = .20}
+                    }
+              
+              
+              paycheckValues(paychecks)
 
     return (
     <div className="container">
@@ -69,65 +117,53 @@ const ViewPaycheck = (props) => {
               </tr>
             </thead>
             <tbody>
-            {/* {paychecks.map((check) => { */}
-              {/* return ( */}
+            {paychecks?.map((check) => {
+              return (
                 <tr className='table-row'>
                   <td className='table-row'>Regular Pay</td>
-                  <td className='table-row'>40</td>
-                  <td className='table-row'>20.00</td>
-                  <td className='table-row'>800.00</td>
-                  {/* <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>{check.payRate}</td> */}
+                  <td className='table-row'>{check.hoursWorked}</td>
+                  <td className='table-row'>{check.payRate}</td>
+                  <td className='table-row'>{check.hoursWorked * check.payRate}</td>
                 </tr>
-                
-              {/* ); */}
-            {/* // })} */}
-            </tbody>
-            <tbody>
-            {/* {paychecks.map((check) => { */}
-              {/* return ( */}
+              );
+            })}
+          </tbody>
+          <tbody>
+            {paychecks?.map((check) => {
+              return (
                 <tr className='table-row'>
                   <td className='table-row'>Overtime Pay</td>
-                  <td className='table-row'>4</td>
-                  <td className='table-row'>30.00</td>
-                  <td className='table-row'>120.00</td>
-                  {/* <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>{check.payRate}</td> */}
+                  <td className='table-row'>{check.OTHoursWorked}</td>
+                  <td className='table-row'>{check.OTPayRate}</td>
+                  <td className='table-row'>({check.hoursWorked * check.payRate})</td>
                 </tr>
-                
-              {/* ); */}
-            {/* // })} */}
-            </tbody>
-            <tbody>
-            {/* {paychecks.map((check) => { */}
-              {/* return ( */}
+              );
+            })}
+          </tbody>
+          <tbody>
+            {paychecks?.map((check) => {
+              return (
                 <tr className='table-row'>
                   <td className='table-row'>Sick Pay</td>
-                  <td className='table-row'>0</td>
-                  <td className='table-row'>20.00</td>
-                  <td className='table-row'>0.00</td>
-                  {/* <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>{check.payRate}</td> */}
+                  <td className='table-row'>{check.sickTimeUsed}</td>
+                  <td className='table-row'>{check.payRate}</td>
+                  <td className='table-row'>({check.hoursWorked * check.payRate})</td>
                 </tr>
-                
-              {/* ); */}
-            {/* // })} */}
-            </tbody>
-            <tbody>
-            {/* {paychecks.map((check) => { */}
-              {/* return ( */}
+              );
+            })}
+          </tbody>
+          <tbody>
+            {paychecks.map((check) => {
+              return (
                 <tr className='table-row'>
                   <td className='table-row'>Vacation Pay</td>
-                  <td className='table-row'>0</td>
-                  <td className='table-row'>20.00</td>
-                  <td className='table-row'>0.00</td>
-                  {/* <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>{check.payRate}</td> */}
+                  <td className='table-row'>{check.vacationTimeUsed}</td>
+                  <td className='table-row'>{check.payRate}</td>
+                  <td className='table-row'>({check.hoursWorked * check.payRate})</td>
                 </tr>
-                
-              {/* ); */}
-            {/* // })} */}
-            </tbody>
+              );
+            })}
+          </tbody>
           </table>
           <table className='profile-tabel'>
             <thead>
@@ -139,31 +175,17 @@ const ViewPaycheck = (props) => {
               </tr>
             </thead>
             <tbody>
-            {/* {paychecks.map((check) => { */}
-              {/* return ( */}
-                <tr className='table-row'>
-                  <td className='table-row'>All Taxes</td>
-                  <td className='table-row'></td>
-                  <td className='table-row'></td>
-                  <td className='table-row'>184.00</td>
-                  {/* <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>{check.payRate}</td> */}
-                </tr>
-                
-              {/* ); */}
-            {/* // })} */}
-            </tbody>
-            {/* <tbody>
             {paychecks.map((check) => {
               return (
                 <tr className='table-row'>
-                  <td className='table-row'>OT Pay</td>
-                  <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>{check.payRate}</td>
+                  <td className='table-row'>Taxes</td>
+                  <td className='table-row'></td>
+                  <td className='table-row'></td>
+                  <td className='table-row'>({check.taxes})</td>
                 </tr>
               );
             })}
-            </tbody> */}
+          </tbody>
           </table>
           <table className='profile-tabel'>
             <thead>
@@ -175,62 +197,42 @@ const ViewPaycheck = (props) => {
               </tr>
             </thead>
             <tbody>
-            {/* {paychecks.map((check) => { */}
-              {/* return ( */}
+            {paychecks.map((check) => {
+              return (
                 <tr className='table-row'>
                   <td className='table-row'>Gross Pay</td>
                   <td className='table-row'></td>
                   <td className='table-row'></td>
-                  <td className='table-row'>920.00</td>
-                  {/* <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>{check.payRate}</td> */}
+                  <td className='table-row'>({check.taxes})</td>
                 </tr>
-                
-              {/* ); */}
-            {/* // })} */}
-            </tbody>
-            <tbody>
-            {/* {paychecks.map((check) => { */}
-              {/* return ( */}
+              );
+            })}
+          </tbody>
+          <tbody>
+            {paychecks.map((check) => {
+              return (
                 <tr className='table-row'>
                   <td className='table-row'>Taxes</td>
                   <td className='table-row'></td>
                   <td className='table-row'></td>
-                  <td className='table-row'>184.00</td>
-                  {/* <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>{check.payRate}</td> */}
+                  <td className='table-row'>({check.taxes})</td>
                 </tr>
-                
-              {/* ); */}
-            {/* // })} */}
-            </tbody>
-            <tbody>
-            {/* {paychecks.map((check) => { */}
-              {/* return ( */}
+              );
+            })}
+          </tbody>
+          <tbody>
+            {paychecks.map((check) => {
+              return (
                 <tr className='table-row'>
                   <td className='table-row'>Net Pay</td>
                   <td className='table-row'></td>
                   <td className='table-row'></td>
-                  <td className='table-row'>736.00</td>
-                  {/* <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>{check.payRate}</td> */}
-                </tr>
-                
-              {/* ); */}
-            {/* // })} */}
-            </tbody>
-            {/* <tbody>
-            {paychecks.map((check) => {
-              return (
-                <tr className='table-row'>
-                  <td className='table-row'>OT Pay</td>
-                  <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>{check.payRate}</td>
+                  <td className='table-row'>({check.taxes})</td>
                 </tr>
               );
             })}
-            </tbody> */}
-          </table>
+          </tbody>
+        </table>
     </div>
     );
 }

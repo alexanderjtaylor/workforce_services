@@ -42,7 +42,8 @@ const ApprovePTOPage = () => {
 
     async function ApprovePTO(){
         formData["status"] = Approved
-        formData["employer"] = employer
+        formData["ptoRequestStatus"] = Approved
+        formData["employer_id"] = employer
         try {
             let response = await axios.patch(`http://127.0.0.1:8000/paidtimeoff/${state.thisRequest_id}/pto-update`, formData, {
                 headers: {

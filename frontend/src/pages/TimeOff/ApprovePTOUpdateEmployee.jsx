@@ -39,6 +39,8 @@ const ApprovePTOUpdateEmployee = () => {
     async function UpdateEmployee(){
         formData["user_id"] = employee_user_id
         formData["employer_id"] = employee_employer_id
+        formData["sickTime"] = Math.floor(state.sickTime - state.requestedSickTime)
+        debugger
         try {
             let response = await axios.put(`http://127.0.0.1:8000/employees/edit/${state.employee_id}`, formData, {
                 headers: {

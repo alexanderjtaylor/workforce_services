@@ -40,7 +40,9 @@ const DenyPTOPage = () => {
 
     async function DenyPTO(){
         formData["status"] = Denied
-        formData["employer"] = employer
+        formData["ptoRequestStatus"] = Denied
+        formData["employer_id"] = employer
+    
         try {
             let response = await axios.patch(`http://127.0.0.1:8000/paidtimeoff/${state.thisRequest_id}/pto-update`, formData, {
                 headers: {
@@ -49,7 +51,7 @@ const DenyPTOPage = () => {
             });
             navigate(`/view-pto-requests/${state.employee_id}`);
         } catch (error) {
-            console.log(error.message);
+            console.log(error.response);
         }
     }
 
