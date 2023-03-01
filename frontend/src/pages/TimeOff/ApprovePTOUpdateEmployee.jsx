@@ -40,6 +40,7 @@ const ApprovePTOUpdateEmployee = () => {
         formData["user_id"] = employee_user_id
         formData["employer_id"] = employee_employer_id
         formData["sickTime"] = Math.floor(state.sickTime - state.requestedSickTime)
+        formData["vacationTime"] = Math.floor(state.vacationTime - state.requestedVacationTime)
         debugger
         try {
             let response = await axios.put(`http://127.0.0.1:8000/employees/edit/${state.employee_id}`, formData, {

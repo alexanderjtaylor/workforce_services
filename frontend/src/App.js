@@ -34,6 +34,8 @@ import ViewLastWeekSchedulePage from "./pages/ScheduleHomePage/ViewLastWeekSched
 import EmployerViewLastWeekSchedulePage from "./pages/ScheduleHomePage/EmployerViewLastWeekSchedulePage";
 import EmployerViewNextWeekSchedulePage from "./pages/ScheduleHomePage/EmployerViewNextWeekSchedulePage";
 import ViewPaycheck from "./pages/PaycheckHomePage/ViewPaycheck";
+import ViewPastPaychecks from "./pages/PaycheckHomePage/ViewPastPaychecks";
+import PastPaycheckDisplay from "./pages/PaycheckHomePage/PastPaycheckDisplay";
 import ApprovePTOUpdateEmployee from "./pages/TimeOff/ApprovePTOUpdateEmployee";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -89,6 +91,8 @@ function App() {
         <Route path="/employer-view-last-week-schedule/:employeeID" element={<PrivateRoute><EmployerViewLastWeekSchedulePage /></PrivateRoute>} />
         <Route path="/employer-view-next-week-schedule/:employeeID" element={<PrivateRoute><EmployerViewNextWeekSchedulePage /></PrivateRoute>} />
         <Route path="/view-paycheck" element={<PrivateRoute><ViewPaycheck /></PrivateRoute>} />
+        <Route path="/view-past-paychecks/:employeeID" element={<PrivateRoute><ViewPastPaychecks /></PrivateRoute>} />
+        <Route path="/past-paycheck-display/:paycheckID" element={<PrivateRoute><PastPaycheckDisplay /></PrivateRoute>} />
         <Route path="/pto-update-employee/:paidtimeoffID" element={<PrivateRoute><ApprovePTOUpdateEmployee /></PrivateRoute>} />
       </Routes>
       <Footer />

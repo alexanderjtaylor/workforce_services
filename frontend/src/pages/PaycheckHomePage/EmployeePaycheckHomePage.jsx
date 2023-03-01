@@ -27,8 +27,21 @@ const EmployeePaycheckHomePage = () => {
     }
   };
 
-  const handleClick = (employee) => {
+  const handleClickone = (employee) => {
     navigate(`/view-paycheck/`, {
+      state: {
+        employee_id: employee.id,
+        employer_id: employee.employer.id,
+        employer_name: employee.employer.companyName,
+        user_id: employee.user.id,
+        firstName: employee.firstName,
+        lastName: employee.lastName,
+      }
+    });
+  };
+
+  const handleClicktwo = (employee) => {
+    navigate(`/view-past-paychecks/${employee.id}`, {
       state: {
         employee_id: employee.id,
         employer_id: employee.employer.id,
@@ -43,9 +56,8 @@ const EmployeePaycheckHomePage = () => {
   return (
     <div className="container">
       <Link to="/"><button>Home</button></Link>
-      <button className='employer-home-page-btns' onClick={() => handleClick(employee)}>View Paycheck</button>
-      {/* <Link to="/view-paycheck" key={employee.id}><button>View Paycheck</button></Link> */}
-      {/* <ViewPaycheck employee = {employee}/> */}
+      <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>View Previous Paycheck</button>
+      <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Paycheck History</button>
     </div>
   );
 };

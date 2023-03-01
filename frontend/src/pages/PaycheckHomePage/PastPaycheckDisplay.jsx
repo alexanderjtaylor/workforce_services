@@ -1,0 +1,232 @@
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import axios from 'axios';
+import useAuth from "../../hooks/useAuth"
+import useCustomForm from "../../hooks/useCustomForm"
+
+const PastPaycheckDisplay = (props) => {
+    const [user, token] = useAuth();
+    const [paychecks, setPaychecks] = useState([]);
+    const [employee, setEmployee] = useState([]);
+    const [employer, setEmployer] = useState([]);
+    const navigate = useNavigate();
+    const { state } = useLocation();
+    const moment = require('moment');
+    let dayOfWeek = moment().day();
+    let numDay = moment().date(); 
+    let start = new Date();
+    let startWeekTitle = new Date();
+    start.setDate((numDay - dayOfWeek) - 1);
+    startWeekTitle.setDate((numDay - dayOfWeek));
+    start.setHours(0, 0, 0, 0);
+    let startOfWeek = moment(start).format("MM/DD/YYYY");
+    let startOfWeekTitle = moment(startWeekTitle).format("MM/DD/YYYY");
+    let end = new Date();
+    let endWeekTitle = new Date();
+    end.setDate(numDay + (7 - dayOfWeek));
+    endWeekTitle.setDate(numDay + (6 - dayOfWeek));
+    end.setHours(0, 0, 0, 0);
+    let endOfWeek = moment(end).format("MM/DD/YYYY");
+    let endOfWeekTitle = moment(endWeekTitle).format("MM/DD/YYYY");
+    const startDate = moment(startOfWeek, "MM/DD/YYYY");  
+    const endDate = moment(endOfWeek, "MM/DD/YYYY");
+    let cutOffDate = endOfWeekTitle;
+    console.log(cutOffDate)  
+    let cutOff = state.cutOffDate
+    const regHours = parseInt(paychecks.hoursWorked);
+    const regRate = parseInt(paychecks.payRate);
+    const OTHours = parseInt(paychecks.OTHoursWorked);
+    const otRate = parseInt(paychecks.OTPayRate);
+    const regPay = regHours * regRate;
+    const OTPay = OTHours * otRate;
+    const sickHours = parseInt(paychecks.sickTimeUsed);
+    const sickPay = sickHours * regRate;
+    const vacationHours = parseInt(paychecks.vacationTimeUsed);
+    const vacationPay = vacationHours * regRate;
+    const taxes = parseInt(paychecks.taxes).toFixed(2);
+    const grossPay = regPay + OTPay + sickPay + vacationPay;
+    const netPay = grossPay * taxes;
+    let taxDollars = ((regPay + OTPay + sickPay + vacationPay) * paychecks.taxes).toFixed(2);
+
+    useEffect(() => {
+        getPaycheck();
+        fetchEmployee();
+      }, [token]);
+
+    async function getPaycheck(){
+        try {
+            let response = await axios.get(`http://127.0.0.1:8000/paychecks/home/${state.paycheck_id}`, {
+                headers: {
+                    Authorization: 'Bearer ' + token,
+                },
+            });
+            console.log((response.data))
+            setPaychecks((response.data))
+        } catch (error) {
+            console.log(error.message);
+        }
+    }
+
+    const fetchEmployee = async () => {
+        try {
+          let response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}`, {
+            headers: {
+              Authorization: "Bearer " + token,
+            },
+          });
+          setEmployer(response.data.employer.companyName);
+          setEmployee(response.data);
+        } catch (error) {
+          console.log(error.response.data);
+        }
+      };
+
+        // function paycheckValues(paychecks){
+        //           const regHours = parseInt(paychecks.hoursWorked);
+        //           const regRate = parseInt(paychecks.payRate);
+        //           const OTHours = parseInt(paychecks.OTHoursWorked);
+        //           const otRate = parseInt(paychecks.OTPayRate);
+        //           const regPay = regHours * regRate;
+        //           const OTPay = OTHours * otRate;
+        //           const sickHours = parseInt(paychecks.sickTimeUsed);
+        //           const sickPay = sickHours * regRate;
+        //           const vacationHours = parseInt(paychecks.vacationTimeUsed);
+        //           const vacationPay = vacationHours * regRate;
+        //           const taxes = parseInt(paychecks.taxes);
+        //           const grossPay = regPay + OTPay + sickPay + vacationPay;
+        //           const netPay = grossPay * taxes;
+        //           }
+
+            //     let regPay = (check.hoursWorked * check.payRate);
+            //   let OTPay = (check.OTHoursWorked * check.OTPayRate);
+            //   let sickPay = (check.sickTimeUsed * check.payRate);
+            //   let vacationPay = (check.vacationTimeUsed * check.payRate);
+            //   let taxPercentage = ((check.taxes * 100/100) * 100) + '%';
+            //   let grossPay = (regPay + OTPay + sickPay + vacationPay).toFixed(2);
+            //   let taxDollars = ((regPay + OTPay + sickPay + vacationPay) * check.taxes).toFixed(2);
+            //   let netPay = (grossPay - taxDollars).toFixed(2);
+              
+            //   paycheckValues(paychecks)
+            console.log((paychecks.hoursWorked))
+            console.log((paychecks.payRate))
+
+    return (
+        
+    <div className="container">
+      <Link to="/"><button className="home-btn">Home</button></Link>
+      <h3 className="home-welcome">Employer: {employer}</h3>
+      <h3 className="home-welcome">Employee: {employee.firstName} {employee.lastName}</h3>
+      <h3 className="home-welcome">Pay Period Cut Off Date: {moment(cutOff).format("MM/DD/YYYY")}</h3>
+            <table className='profile-tabel'>
+            <thead>
+              <tr>
+                <th className='table-col'>Pay</th>
+                <th className='table-col'>Hours</th>
+                <th className='table-col'>Rate</th>
+                <th className='table-col'>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr className='table-row'>
+                  <td className='table-row'>Regular Pay</td>
+                  <td className='table-row'>{paychecks.hoursWorked}</td>
+                  <td className='table-row'>{paychecks.payRate}</td>
+                  <td className='table-row'>{(paychecks.hoursWorked * paychecks.payRate).toFixed(2)}</td>
+                </tr>
+              
+          </tbody>
+          <tbody>
+              
+                <tr className='table-row'>
+                  <td className='table-row'>Overtime Pay</td>
+                  <td className='table-row'>{paychecks.OTHoursWorked}</td>
+                  <td className='table-row'>{paychecks.OTPayRate}</td>
+                  <td className='table-row'>{(paychecks.OTHoursWorked * paychecks.OTPayRate).toFixed(2)}</td>
+                </tr>
+              
+          </tbody>
+          <tbody>
+             
+                <tr className='table-row'>
+                  <td className='table-row'>Sick Pay</td>
+                  <td className='table-row'>{paychecks.sickTimeUsed}</td>
+                  <td className='table-row'>{paychecks.payRate}</td>
+                  <td className='table-row'>{(paychecks.sickTimeUsed * paychecks.payRate).toFixed(2)}</td>
+                </tr>
+              
+          </tbody>
+          <tbody>
+             
+                <tr className='table-row'>
+                  <td className='table-row'>Vacation Pay</td>
+                  <td className='table-row'>{paychecks.vacationTimeUsed}</td>
+                  <td className='table-row'>{paychecks.payRate}</td>
+                  <td className='table-row'>{(paychecks.vacationTimeUsed * paychecks.payRate).toFixed(2)}</td>
+                </tr>
+              
+          </tbody>
+          </table>
+          <table className='profile-tabel'>
+            <thead>
+              <tr>
+                <th className='table-col'>Taxes</th>
+                <th className='table-col'></th>
+                <th className='table-col'></th>
+                <th className='table-col'>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              
+                <tr className='table-row'>
+                  <td className='table-row'>Taxes</td>
+                  <td className='table-row'></td>
+                  <td className='table-row'></td>
+                  <td className='table-row'>{(((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)) * (paychecks.taxes)).toFixed(2)}</td>
+                </tr>
+              
+          </tbody>
+          </table>
+          <table className='profile-tabel'>
+            <thead>
+              <tr>
+                <th className='table-col'>Summary</th>
+                <th className='table-col'></th>
+                <th className='table-col'></th>
+                <th className='table-col'>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+
+                <tr className='table-row'>
+                  <td className='table-row'>Gross Pay</td>
+                  <td className='table-row'></td>
+                  <td className='table-row'></td>
+                  <td className='table-row'>{((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)).toFixed(2)}</td>
+                </tr>
+             
+          </tbody>
+          <tbody>
+              
+                <tr className='table-row'>
+                  <td className='table-row'>Taxes</td>
+                  <td className='table-row'></td>
+                  <td className='table-row'></td>
+                  <td className='table-row'>{(((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)) * (paychecks.taxes)).toFixed(2)}</td>
+                </tr>
+              
+          </tbody>
+          <tbody>
+                <tr className='table-row'>
+                  <td className='table-row'>Net Pay</td>
+                  <td className='table-row'></td>
+                  <td className='table-row'></td>
+                  <td className='table-row'>{(((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)).toFixed(2) - (((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)) * (paychecks.taxes)).toFixed(2)).toFixed(2)}</td>
+                </tr>
+              
+          </tbody>
+        </table>
+    </div>
+    );
+}
+export default PastPaycheckDisplay
