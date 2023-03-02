@@ -69,7 +69,7 @@ async function editShift(){
                 Clocked In:{" "}
                 <input type="text" name="isClockedIn" value={formData.isClockedIn} onChange={handleInputChange}/>
             </label>
-            <button className='add-shift-btn'>Edit Shift</button>
+            <button className='employer-home-page-btns'>Edit Shift</button>
         </form>
     </div>
     );

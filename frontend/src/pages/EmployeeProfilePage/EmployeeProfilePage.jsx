@@ -37,7 +37,7 @@ return (
               <th className='table-col'>Company</th>
               <th className='table-col'>Years at Company</th>
               <th className='table-col'>Pay Rate</th>
-              <th className='table-col'>Overtime Rate</th>
+              <th className='table-col'>OT Rate</th>
               <th className='table-col'>Sick Time</th>
               <th className='table-col'>Vacation Time</th>
             </tr>
@@ -50,8 +50,8 @@ return (
                   <td className='table-row'>{employee.jobTitle}</td>
                   <td className='table-row'>{companyName}</td>
                   <td className='table-row'>{employee.yearsWithCompany}</td>
-                  <td className='table-row'>{employee.payRate}</td>
-                  <td className='table-row'>{employee.OTPayRate}</td>
+                  <td className='table-row'>${employee.payRate}</td>
+                  <td className='table-row'>${employee.OTPayRate}</td>
                   <td className='table-row'>{employee.sickTime}</td>
                   <td className='table-row'>{employee.vacationTime}</td>
                 </tr>

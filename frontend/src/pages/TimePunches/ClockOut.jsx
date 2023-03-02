@@ -49,8 +49,10 @@ const ClockOut = () => {
 
     return ( 
       <div className="container">
-        <Link to="/"><button className="home-btn">Home</button></Link>
+        <div className='page-btn-header'>
         <button className='employer-home-page-btns' onClick={() => handleClick(timePunch)}>Back</button>
+        <Link to="/"><button className="clock-home-btn">Home</button></Link>
+        </div>
         <form className="form" onSubmit={handleSubmit}>
         <label className='punch-form-input'>
                 Employee ID:{" "}

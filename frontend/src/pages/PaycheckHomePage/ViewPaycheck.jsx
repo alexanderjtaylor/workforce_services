@@ -94,8 +94,8 @@ const ViewPaycheck = (props) => {
                 <tr className='table-row'>
                   <td className='table-row'>Regular Pay</td>
                   <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>{check.payRate}</td>
-                  <td className='table-row'>{regPay}</td>
+                  <td className='table-row'>${check.payRate}</td>
+                  <td className='table-row'>${regPay}</td>
                 </tr>
               );
             })}
@@ -107,8 +107,8 @@ const ViewPaycheck = (props) => {
                 <tr className='table-row'>
                   <td className='table-row'>Overtime Pay</td>
                   <td className='table-row'>{check.OTHoursWorked}</td>
-                  <td className='table-row'>{check.OTPayRate}</td>
-                  <td className='table-row'>{OTPay}</td>
+                  <td className='table-row'>${check.OTPayRate}</td>
+                  <td className='table-row'>${OTPay}</td>
                 </tr>
               );
             })}
@@ -120,8 +120,8 @@ const ViewPaycheck = (props) => {
                 <tr className='table-row'>
                   <td className='table-row'>Sick Pay</td>
                   <td className='table-row'>{check.sickTimeUsed}</td>
-                  <td className='table-row'>{check.payRate}</td>
-                  <td className='table-row'>{sickPay}</td>
+                  <td className='table-row'>${check.payRate}</td>
+                  <td className='table-row'>${sickPay}</td>
                 </tr>
               );
             })}
@@ -133,8 +133,8 @@ const ViewPaycheck = (props) => {
                 <tr className='table-row'>
                   <td className='table-row'>Vacation Pay</td>
                   <td className='table-row'>{check.vacationTimeUsed}</td>
-                  <td className='table-row'>{check.payRate}</td>
-                  <td className='table-row'>{vacationPay}</td>
+                  <td className='table-row'>${check.payRate}</td>
+                  <td className='table-row'>${vacationPay}</td>
                 </tr>
               );
             })}
@@ -163,7 +163,7 @@ const ViewPaycheck = (props) => {
                   <td className='table-row'>Taxes</td>
                   <td className='table-row'></td>
                   <td className='table-row'></td>
-                  <td className='table-row'>{taxDollars}</td>
+                  <td className='table-row'>${taxDollars}</td>
                 </tr>
               );
             })}
@@ -192,7 +192,7 @@ const ViewPaycheck = (props) => {
                   <td className='table-row'>Gross Pay</td>
                   <td className='table-row'></td>
                   <td className='table-row'></td>
-                  <td className='table-row'>{grossPay}</td>
+                  <td className='table-row'>${grossPay}</td>
                 </tr>
               );
             })}
@@ -211,7 +211,7 @@ const ViewPaycheck = (props) => {
                   <td className='table-row'>Taxes</td>
                   <td className='table-row'></td>
                   <td className='table-row'></td>
-                  <td className='table-row'>{taxDollars}</td>
+                  <td className='table-row'>${taxDollars}</td>
                 </tr>
               );
             })}
@@ -231,7 +231,7 @@ const ViewPaycheck = (props) => {
                   <td className='table-row'>Net Pay</td>
                   <td className='table-row'></td>
                   <td className='table-row'></td>
-                  <td className='table-row'>{netPay}</td>
+                  <td className='table-row'>${netPay}</td>
                 </tr>
               );
             })}

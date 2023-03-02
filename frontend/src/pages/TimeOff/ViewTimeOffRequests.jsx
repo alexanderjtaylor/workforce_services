@@ -9,6 +9,7 @@ const ViewTimeOffRequests = (props) => {
     const [user, token] = useAuth();
     const { state } = useLocation();
     const navigate = useNavigate();
+    const moment = require('moment');
     const [ptoRequests, setPTORequests] = useState([]);
     console.log(state)
 
@@ -127,14 +128,13 @@ const ViewTimeOffRequests = (props) => {
                       <tr className='table-row'>
                         <td className='table-row'>{thisRequest.employee.firstName}</td>
                         <td className='table-row'>{thisRequest.employee.lastName}</td>
-                        {/* <td className='table-row'>{((`${startMonth}/${startDay}/${startYear}`))} - {((`${endMonth}/${endDay}/${endYear}`))}</td> */}
-                        <td className='table-row'>{thisRequest.startWorkDate} - {thisRequest.endWorkDate}</td>
+                        <td className='table-row'>{moment(thisRequest.startWorkDate).format("MM/DD/YYYY")} - {moment(thisRequest.endWorkDate).format("MM/DD/YYYY")}</td>
                         <td className='table-row'>{thisRequest.requestedSickTime}</td>
                         <td className='table-row'>{thisRequest.requestedVacationTime}</td>
                         <td className='table-row'>{thisRequest.ptoRequestStatus}</td>
-                        <button className='home-page-btns' onClick={() => handleClickone(thisRequest)}>Approve</button>
-                        <button className='home-page-btns' onClick={() => handleClicktwo(thisRequest)}>Deny</button>
-                        <button className='home-page-btns' onClick={() => handleClickthree(thisRequest)}>Edit Employee PTO Availability</button>
+                        <button className='employer-home-page-btns' onClick={() => handleClickone(thisRequest)}>Approve</button>
+                        <button className='employer-home-page-btns' onClick={() => handleClicktwo(thisRequest)}>Deny</button>
+                        <button className='employer-home-page-btns' onClick={() => handleClickthree(thisRequest)}>Edit PTO Time</button>
                       </tr>
                     );
                   })}

@@ -57,7 +57,7 @@ function SearchEmployeePage(){
               <th className='table-col'>Job Title</th>
               <th className='table-col'>Years with Company</th>
               <th className='table-col'>Pay Rate</th>
-              <th className='table-col'>Overtime Rate</th>
+              <th className='table-col'>OT Rate</th>
               <th className='table-col'>Sick Time</th>
               <th className='table-col'>Vacation Time</th>
             </tr>
@@ -71,12 +71,12 @@ function SearchEmployeePage(){
                   <td className='table-row'>{employee.lastName}</td>
                   <td className='table-row'>{employee.jobTitle}</td>
                   <td className='table-row'>{employee.yearsWithCompany}</td>
-                  <td className='table-row'>{employee.payRate}</td>
-                  <td className='table-row'>{employee.OTPayRate}</td>
+                  <td className='table-row'>${employee.payRate}</td>
+                  <td className='table-row'>${employee.OTPayRate}</td>
                   <td className='table-row'>{employee.sickTime}</td>
                   <td className='table-row'>{employee.vacationTime}</td>
-                  <button className='home-page-btns' onClick={() => handleClick(employee)}>Edit Employee</button>
-                  <DeleteEmployee employeeID = {employee.id} fetchEmployees = {fetchEmployees}/>
+                  <button className='edit-btn-search-employee' onClick={() => handleClick(employee)}>Edit</button>
+                  <td className="delete-btn-search-employee"><DeleteEmployee employeeID = {employee.id} fetchEmployees = {fetchEmployees}/></td>
                 </tr>
               );
             })}

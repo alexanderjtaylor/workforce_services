@@ -63,38 +63,120 @@ button {
   width: 10%;
   /* border-left: 1px solid midnightblue; */
   margin: 10px 10px;
-  line-height: 20px;
+  /* line-height: 20px; */
   color: midnightblue;
   font-size: clamp(15px, 1.1vw, 40px);
   /* color: midnightblue */
 }
 
+.delete-btn-search-employee {
+  padding: 12px;
+  height: 70px;
+}
+
+.page-btn-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-btn-search-employee {
+  height: 70px;
+  width: 70px;
+  margin: 6%;
+}
+
+.view-btn-set-schedule {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid midnightblue;
+  color: midnightblue;
+  text-align: center;
+  font-size: clamp(15px, 1.3vw, 60px);
+  font-family: inherit;
+  max-width: 600px;
+  padding: 0.55rem 0.55rem;
+  margin-bottom: 10%;
+  margin: 2.5%;
+  width: auto;
+  margin: 4%;
+}
+
 .table-row {
   text-align: start;
   border-bottom: 1px solid midnightblue;
+  position: relative;
+}
+
+.paycheck-btns{
+  margin: 2%;
+  padding: 2%;
 }
 
 .table-col {
+  position: relative;
   margin-left: 8%;
   color: midnightblue;
   text-align: start;
   margin-top: 2%;
-  padding: .5%;
   justify-content: space-between;
   border-bottom: 1px solid midnightblue;
+  font-size: clamp(15px, 1vw, 40px);
 }
 
 .home-btn {
   background-color: transparent;
-  /* display: inline-block; */
   border: 2px solid midnightblue;
   color: midnightblue;
   text-align: start;
-  font-size: clamp(15px, .5vw, 30px);
+  font-size: clamp(15px, 1.3vw, 60px);
   font-family: inherit;
   padding: 0.55rem 0.55rem;
   margin-bottom: 2%;
   margin-right: 100%;
+}
+
+.clock-home-btn {
+  background-color: transparent;
+  border: 2px solid midnightblue;
+  color: midnightblue;
+  text-align: start;
+  font-size: clamp(15px, 1.3vw, 60px);
+  font-family: inherit;
+  padding: 0.55rem 0.55rem;
+  margin-bottom: 2%;
+  margin-right: 100%;
+  margin: 23px;
+}
+
+.employer-home-page-btns {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid midnightblue;
+  color: midnightblue;
+  text-align: center;
+  font-size: clamp(15px, 1.3vw, 60px);
+  font-family: inherit;
+  max-width: 600px;
+  padding: 0.55rem 0.55rem;
+  margin-bottom: 10%;
+  margin: 2.5%;
+  width: auto;
+}
+
+.home-page-btns {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid midnightblue;
+  color: midnightblue;
+  text-align: center;
+  font-size: clamp(15px, 1.3vw, 60px);
+  font-family: inherit;
+  max-width: 100px;
+  padding: 0.55rem 0.55rem;
+  margin-bottom: 10%;
+  margin: 2.5%;
+  width: auto;
+  /* table-layout: fixed; */
 }
 
 .entire-search-bar {
@@ -161,6 +243,7 @@ button:hover {
   max-width: 1200px;
   overflow: auto;
   text-align: center;
+  position: relative;
 }
 
 .home-container {
@@ -229,37 +312,6 @@ button:hover {
   width: 100%;
 }
 
-.home-page-btns {
-  background-color: transparent;
-  display: inline-block;
-  border: 2px solid midnightblue;
-  color: midnightblue;
-  text-align: center;
-  font-size: clamp(15px, 1.3vw, 60px);
-  font-family: inherit;
-  max-width: 100px;
-  padding: 0.55rem 0.55rem;
-  margin-bottom: 10%;
-  margin: 2.5%;
-  width: auto;
-  /* table-layout: fixed; */
-}
-
-.employer-home-page-btns {
-  background-color: transparent;
-  display: inline-block;
-  border: 2px solid midnightblue;
-  color: midnightblue;
-  text-align: center;
-  font-size: clamp(15px, 1.3vw, 60px);
-  font-family: inherit;
-  max-width: 600px;
-  padding: 0.55rem 0.55rem;
-  margin-bottom: 10%;
-  margin: 2.5%;
-  width: auto;
-}
-
 .login-page-btns {
   background-color: transparent;
   display: inline-block;
@@ -295,6 +347,11 @@ button:hover {
 
 .profile-table {
   --bs-gutter-x: .5rem;
+}
+
+.prop-tabel {
+  --bs-gutter-x: .5rem;
+    width: 100%;
 }
 
 .time-punch-btns-div {

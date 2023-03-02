@@ -69,8 +69,8 @@ const handleClicktwo = (employee) => {
                   <td className='table-row'>{employee.firstName}</td>
                   <td className='table-row'>{employee.lastName}</td>
                   <td className='table-row'>{employee.jobTitle}</td>
-                  <button onClick={() => handleClickone(employee)}>View Schedule</button>
-                  <button onClick={() => handleClicktwo(employee)}>Add Shift</button>
+                  <button className='view-btn-set-schedule' onClick={() => handleClickone(employee)}>View Schedule</button>
+                  <button className='add-btn-set-schedule' edit-btn-search-employee onClick={() => handleClicktwo(employee)}>Add Shift</button>
                 </tr>
               );
             })}
