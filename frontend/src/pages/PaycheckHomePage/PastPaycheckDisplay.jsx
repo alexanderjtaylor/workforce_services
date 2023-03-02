@@ -80,33 +80,7 @@ const PastPaycheckDisplay = (props) => {
           console.log(error.response.data);
         }
       };
-
-        // function paycheckValues(paychecks){
-        //           const regHours = parseInt(paychecks.hoursWorked);
-        //           const regRate = parseInt(paychecks.payRate);
-        //           const OTHours = parseInt(paychecks.OTHoursWorked);
-        //           const otRate = parseInt(paychecks.OTPayRate);
-        //           const regPay = regHours * regRate;
-        //           const OTPay = OTHours * otRate;
-        //           const sickHours = parseInt(paychecks.sickTimeUsed);
-        //           const sickPay = sickHours * regRate;
-        //           const vacationHours = parseInt(paychecks.vacationTimeUsed);
-        //           const vacationPay = vacationHours * regRate;
-        //           const taxes = parseInt(paychecks.taxes);
-        //           const grossPay = regPay + OTPay + sickPay + vacationPay;
-        //           const netPay = grossPay * taxes;
-        //           }
-
-            //     let regPay = (check.hoursWorked * check.payRate);
-            //   let OTPay = (check.OTHoursWorked * check.OTPayRate);
-            //   let sickPay = (check.sickTimeUsed * check.payRate);
-            //   let vacationPay = (check.vacationTimeUsed * check.payRate);
-            //   let taxPercentage = ((check.taxes * 100/100) * 100) + '%';
-            //   let grossPay = (regPay + OTPay + sickPay + vacationPay).toFixed(2);
-            //   let taxDollars = ((regPay + OTPay + sickPay + vacationPay) * check.taxes).toFixed(2);
-            //   let netPay = (grossPay - taxDollars).toFixed(2);
-              
-            //   paycheckValues(paychecks)
+      
             console.log((paychecks.hoursWorked))
             console.log((paychecks.payRate))
 
@@ -120,49 +94,49 @@ const PastPaycheckDisplay = (props) => {
             <table className='profile-tabel'>
             <thead>
               <tr>
-                <th className='table-col'>Pay</th>
-                <th className='table-col'>Hours</th>
-                <th className='table-col'>Rate</th>
-                <th className='table-col'>Total</th>
+                <th className='table-col-check'>Pay</th>
+                <th className='table-col-check'>Hours</th>
+                <th className='table-col-check'>Rate</th>
+                <th className='table-col-check'>Total</th>
               </tr>
             </thead>
             <tbody>
               
-                <tr className='table-row'>
-                  <td className='table-row'>Regular Pay</td>
-                  <td className='table-row'>{paychecks.hoursWorked}</td>
-                  <td className='table-row'>${paychecks.payRate}</td>
-                  <td className='table-row'>${(paychecks.hoursWorked * paychecks.payRate).toFixed(2)}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Regular Pay</td>
+                  <td className='table-row-check'>{paychecks.hoursWorked}</td>
+                  <td className='table-row-check'>${paychecks.payRate}</td>
+                  <td className='table-row-check'>${(paychecks.hoursWorked * paychecks.payRate).toFixed(2)}</td>
                 </tr>
               
           </tbody>
           <tbody>
               
-                <tr className='table-row'>
-                  <td className='table-row'>Overtime Pay</td>
-                  <td className='table-row'>{paychecks.OTHoursWorked}</td>
-                  <td className='table-row'>${paychecks.OTPayRate}</td>
-                  <td className='table-row'>${(paychecks.OTHoursWorked * paychecks.OTPayRate).toFixed(2)}</td>
-                </tr>
-              
-          </tbody>
-          <tbody>
-             
-                <tr className='table-row'>
-                  <td className='table-row'>Sick Pay</td>
-                  <td className='table-row'>{paychecks.sickTimeUsed}</td>
-                  <td className='table-row'>${paychecks.payRate}</td>
-                  <td className='table-row'>${(paychecks.sickTimeUsed * paychecks.payRate).toFixed(2)}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Overtime Pay</td>
+                  <td className='table-row-check'>{paychecks.OTHoursWorked}</td>
+                  <td className='table-row-check'>${paychecks.OTPayRate}</td>
+                  <td className='table-row-check'>${(paychecks.OTHoursWorked * paychecks.OTPayRate).toFixed(2)}</td>
                 </tr>
               
           </tbody>
           <tbody>
              
-                <tr className='table-row'>
-                  <td className='table-row'>Vacation Pay</td>
-                  <td className='table-row'>{paychecks.vacationTimeUsed}</td>
-                  <td className='table-row'>${paychecks.payRate}</td>
-                  <td className='table-row'>${(paychecks.vacationTimeUsed * paychecks.payRate).toFixed(2)}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Sick Pay</td>
+                  <td className='table-row-check'>{paychecks.sickTimeUsed}</td>
+                  <td className='table-row-check'>${paychecks.payRate}</td>
+                  <td className='table-row-check'>${(paychecks.sickTimeUsed * paychecks.payRate).toFixed(2)}</td>
+                </tr>
+              
+          </tbody>
+          <tbody>
+             
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Vacation Pay</td>
+                  <td className='table-row-check'>{paychecks.vacationTimeUsed}</td>
+                  <td className='table-row-check'>${paychecks.payRate}</td>
+                  <td className='table-row-check'>${(paychecks.vacationTimeUsed * paychecks.payRate).toFixed(2)}</td>
                 </tr>
               
           </tbody>
@@ -170,19 +144,15 @@ const PastPaycheckDisplay = (props) => {
           <table className='profile-tabel'>
             <thead>
               <tr>
-                <th className='table-col'>Taxes</th>
-                <th className='table-col'></th>
-                <th className='table-col'></th>
-                <th className='table-col'>Total</th>
+                <th className='table-col-check'>Taxes</th>
+                <th className='table-col-check'>Total</th>
               </tr>
             </thead>
             <tbody>
               
-                <tr className='table-row'>
-                  <td className='table-row'>Taxes</td>
-                  <td className='table-row'></td>
-                  <td className='table-row'></td>
-                  <td className='table-row'>${(((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)) * (paychecks.taxes)).toFixed(2)}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Taxes</td>
+                  <td className='table-row-check'>${(((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)) * (paychecks.taxes)).toFixed(2)}</td>
                 </tr>
               
           </tbody>
@@ -190,38 +160,30 @@ const PastPaycheckDisplay = (props) => {
           <table className='profile-tabel'>
             <thead>
               <tr>
-                <th className='table-col'>Summary</th>
-                <th className='table-col'></th>
-                <th className='table-col'></th>
-                <th className='table-col'>Total</th>
+                <th className='table-col-check'>Summary</th>
+                <th className='table-col-check'>Total</th>
               </tr>
             </thead>
             <tbody>
 
-                <tr className='table-row'>
-                  <td className='table-row'>Gross Pay</td>
-                  <td className='table-row'></td>
-                  <td className='table-row'></td>
-                  <td className='table-row'>${((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)).toFixed(2)}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Gross Pay</td>
+                  <td className='table-row-check'>${((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)).toFixed(2)}</td>
                 </tr>
              
           </tbody>
           <tbody>
               
-                <tr className='table-row'>
-                  <td className='table-row'>Taxes</td>
-                  <td className='table-row'></td>
-                  <td className='table-row'></td>
-                  <td className='table-row'>${(((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)) * (paychecks.taxes)).toFixed(2)}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Taxes</td>
+                  <td className='table-row-check'>${(((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)) * (paychecks.taxes)).toFixed(2)}</td>
                 </tr>
               
           </tbody>
           <tbody>
-                <tr className='table-row'>
-                  <td className='table-row'>Net Pay</td>
-                  <td className='table-row'></td>
-                  <td className='table-row'></td>
-                  <td className='table-row'>${(((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)).toFixed(2) - (((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)) * (paychecks.taxes)).toFixed(2)).toFixed(2)}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Net Pay</td>
+                  <td className='table-row-check'>${(((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)).toFixed(2) - (((paychecks.hoursWorked * paychecks.payRate) + (paychecks.OTHoursWorked * paychecks.OTPayRate) + (paychecks.sickTimeUsed * paychecks.payRate) + (paychecks.vacationTimeUsed * paychecks.payRate)) * (paychecks.taxes)).toFixed(2)).toFixed(2)}</td>
                 </tr>
               
           </tbody>

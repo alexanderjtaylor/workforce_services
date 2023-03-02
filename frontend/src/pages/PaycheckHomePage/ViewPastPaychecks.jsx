@@ -45,15 +45,15 @@ const ViewPastPaychecks = (props) => {
       <h3 className="home-welcome">Employee: {state.firstName} {state.lastName}</h3>
       <table className='profile-tabel'>
           <thead>
-            <tr className='table-col'>
-              <th className='table-col'>End of Pay Period</th>
+            <tr className='table-col-check'>
+              <th className='table-col-check'>End of Pay Period</th>
             </tr>
           </thead>
           <tbody>
             {paychecks.map((paycheck) => {
               return (
-                <tr className='table-row'>
-                  <td className='table-row'>{moment(paycheck.cutOffDate).format("MM/DD/YYYY")}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>{moment(paycheck.cutOffDate).format("MM/DD/YYYY")}</td>
                   <button className='home-page-btns' onClick={() => handleClick(paycheck)}>View Paycheck</button>
                 </tr>
               );

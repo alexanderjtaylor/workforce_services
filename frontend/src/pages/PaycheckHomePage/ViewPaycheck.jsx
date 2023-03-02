@@ -81,21 +81,21 @@ const ViewPaycheck = (props) => {
             <table className='profile-tabel'>
             <thead>
               <tr>
-                <th className='table-col'>Pay</th>
-                <th className='table-col'>Hours</th>
-                <th className='table-col'>Rate</th>
-                <th className='table-col'>Total</th>
+                <th className='table-col-check'>Pay</th>
+                <th className='table-col-check'>Hours</th>
+                <th className='table-col-check'>Rate</th>
+                <th className='table-col-check'>Total</th>
               </tr>
             </thead>
             <tbody>
             {paychecks?.map((check) => {
               let regPay = (check.hoursWorked * check.payRate).toFixed(2)
               return (
-                <tr className='table-row'>
-                  <td className='table-row'>Regular Pay</td>
-                  <td className='table-row'>{check.hoursWorked}</td>
-                  <td className='table-row'>${check.payRate}</td>
-                  <td className='table-row'>${regPay}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Regular Pay</td>
+                  <td className='table-row-check'>{check.hoursWorked}</td>
+                  <td className='table-row-check'>${check.payRate}</td>
+                  <td className='table-row-check'>${regPay}</td>
                 </tr>
               );
             })}
@@ -104,11 +104,11 @@ const ViewPaycheck = (props) => {
             {paychecks?.map((check) => {
               let OTPay = (check.OTHoursWorked * check.OTPayRate).toFixed(2)
               return (
-                <tr className='table-row'>
-                  <td className='table-row'>Overtime Pay</td>
-                  <td className='table-row'>{check.OTHoursWorked}</td>
-                  <td className='table-row'>${check.OTPayRate}</td>
-                  <td className='table-row'>${OTPay}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Overtime Pay</td>
+                  <td className='table-row-check'>{check.OTHoursWorked}</td>
+                  <td className='table-row-check'>${check.OTPayRate}</td>
+                  <td className='table-row-check'>${OTPay}</td>
                 </tr>
               );
             })}
@@ -117,11 +117,11 @@ const ViewPaycheck = (props) => {
             {paychecks?.map((check) => {
               let sickPay = (check.sickTimeUsed * check.payRate).toFixed(2)
               return (
-                <tr className='table-row'>
-                  <td className='table-row'>Sick Pay</td>
-                  <td className='table-row'>{check.sickTimeUsed}</td>
-                  <td className='table-row'>${check.payRate}</td>
-                  <td className='table-row'>${sickPay}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Sick Pay</td>
+                  <td className='table-row-check'>{check.sickTimeUsed}</td>
+                  <td className='table-row-check'>${check.payRate}</td>
+                  <td className='table-row-check'>${sickPay}</td>
                 </tr>
               );
             })}
@@ -130,11 +130,11 @@ const ViewPaycheck = (props) => {
             {paychecks.map((check) => {
               let vacationPay = (check.vacationTimeUsed * check.payRate).toFixed(2)
               return (
-                <tr className='table-row'>
-                  <td className='table-row'>Vacation Pay</td>
-                  <td className='table-row'>{check.vacationTimeUsed}</td>
-                  <td className='table-row'>${check.payRate}</td>
-                  <td className='table-row'>${vacationPay}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Vacation Pay</td>
+                  <td className='table-row-check'>{check.vacationTimeUsed}</td>
+                  <td className='table-row-check'>${check.payRate}</td>
+                  <td className='table-row-check'>${vacationPay}</td>
                 </tr>
               );
             })}
@@ -143,10 +143,10 @@ const ViewPaycheck = (props) => {
           <table className='profile-tabel'>
             <thead>
               <tr>
-                <th className='table-col'>Taxes</th>
-                <th className='table-col'></th>
-                <th className='table-col'></th>
-                <th className='table-col'>Total</th>
+                <th className='table-col-check'>Taxes</th>
+                <th className='table-col-check'></th>
+                <th className='table-col-check'></th>
+                <th className='table-col-check'>Total</th>
               </tr>
             </thead>
             <tbody>
@@ -159,11 +159,11 @@ const ViewPaycheck = (props) => {
               let grossPay = (regPay + OTPay + sickPay + vacationPay).toFixed(2);
               let taxDollars = ((regPay + OTPay + sickPay + vacationPay) * check.taxes).toFixed(2);
               return (
-                <tr className='table-row'>
-                  <td className='table-row'>Taxes</td>
-                  <td className='table-row'></td>
-                  <td className='table-row'></td>
-                  <td className='table-row'>${taxDollars}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Taxes</td>
+                  <td className='table-row-check'></td>
+                  <td className='table-row-check'></td>
+                  <td className='table-row-check'>${taxDollars}</td>
                 </tr>
               );
             })}
@@ -172,10 +172,10 @@ const ViewPaycheck = (props) => {
           <table className='profile-tabel'>
             <thead>
               <tr>
-                <th className='table-col'>Summary</th>
-                <th className='table-col'></th>
-                <th className='table-col'></th>
-                <th className='table-col'>Total</th>
+                <th className='table-col-check'>Summary</th>
+                <th className='table-col-check'></th>
+                <th className='table-col-check'></th>
+                <th className='table-col-check'>Total</th>
               </tr>
             </thead>
             <tbody>
@@ -188,11 +188,11 @@ const ViewPaycheck = (props) => {
               let grossPay = (regPay + OTPay + sickPay + vacationPay).toFixed(2);
               let taxDollars = ((regPay + OTPay + sickPay + vacationPay) * check.taxes).toFixed(2);
               return (
-                <tr className='table-row'>
-                  <td className='table-row'>Gross Pay</td>
-                  <td className='table-row'></td>
-                  <td className='table-row'></td>
-                  <td className='table-row'>${grossPay}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Gross Pay</td>
+                  <td className='table-row-check'></td>
+                  <td className='table-row-check'></td>
+                  <td className='table-row-check'>${grossPay}</td>
                 </tr>
               );
             })}
@@ -207,11 +207,11 @@ const ViewPaycheck = (props) => {
               let grossPay = (regPay + OTPay + sickPay + vacationPay).toFixed(2);
               let taxDollars = ((regPay + OTPay + sickPay + vacationPay) * check.taxes).toFixed(2);
               return (
-                <tr className='table-row'>
-                  <td className='table-row'>Taxes</td>
-                  <td className='table-row'></td>
-                  <td className='table-row'></td>
-                  <td className='table-row'>${taxDollars}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Taxes</td>
+                  <td className='table-row-check'></td>
+                  <td className='table-row-check'></td>
+                  <td className='table-row-check'>${taxDollars}</td>
                 </tr>
               );
             })}
@@ -227,11 +227,11 @@ const ViewPaycheck = (props) => {
               let taxDollars = ((regPay + OTPay + sickPay + vacationPay) * check.taxes).toFixed(2);
               let netPay = (grossPay - taxDollars).toFixed(2);
               return (
-                <tr className='table-row'>
-                  <td className='table-row'>Net Pay</td>
-                  <td className='table-row'></td>
-                  <td className='table-row'></td>
-                  <td className='table-row'>${netPay}</td>
+                <tr className='table-row-check'>
+                  <td className='table-row-check'>Net Pay</td>
+                  <td className='table-row-check'></td>
+                  <td className='table-row-check'></td>
+                  <td className='table-row-check'>${netPay}</td>
                 </tr>
               );
             })}

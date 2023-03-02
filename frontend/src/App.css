@@ -107,6 +107,34 @@ button {
   position: relative;
 }
 
+.table-row-check{
+  text-align: start;
+  border-bottom: 1px solid midnightblue;
+  position: relative;
+  width: 100%;
+  padding: 12px;
+  /* border-left: 1px solid midnightblue; */
+  margin: 10px 10px;
+  /* line-height: 20px; */
+  color: midnightblue;
+  font-size: clamp(15px, 1.1vw, 40px);
+  /* color: midnightblue */
+}
+
+.table-col-check{
+  text-align: start;
+  border-bottom: 1px solid midnightblue;
+  position: relative;
+  width: 100%;
+  padding: 12px;
+  /* border-left: 1px solid midnightblue; */
+  margin: 10px 10px;
+  /* line-height: 20px; */
+  color: midnightblue;
+  font-size: clamp(15px, 1.1vw, 40px);
+  /* color: midnightblue */
+}
+
 .paycheck-btns{
   margin: 2%;
   padding: 2%;
