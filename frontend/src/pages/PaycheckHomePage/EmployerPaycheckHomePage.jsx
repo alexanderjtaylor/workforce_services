@@ -65,8 +65,8 @@ function EmployerPaycheckHomePage(props){
                       <td className='table-row'>{employee.lastName}</td>
                       <td className='table-row'>{employee.jobTitle}</td>
                       <td className='table-row'>{employee.yearsWithCompany}</td>
-                      <td className='table-row'>{employee.payRate}</td>
-                      <td className='table-row'>{employee.OTPayRate}</td>
+                      <td className='table-row'>${employee.payRate}</td>
+                      <td className='table-row'>${employee.OTPayRate}</td>
                       <td className='table-row'>{employee.sickTime}</td>
                       <td className='table-row'>{employee.vacationTime}</td>
                       <button className='employer-home-page-btns' onClick={() => handleClick(employee)}>Create Paycheck</button>

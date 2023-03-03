@@ -11,12 +11,8 @@ const ApprovePTOUpdateEmployee = () => {
     const [employee, setEmployee] = useState([]);
     const navigate = useNavigate();
     const [formData, handleInputChange, handleSubmit] = useCustomForm(state, UpdateEmployee);
-    const {employeeID} = useParams();
-    const [thisEmployee, setThisEmployee] = useState({});
     const [employee_user_id, setEmployee_user_id] = useState({});
     const [employee_employer_id, setEmployee_employer_id] = useState({});
-    // let employee_user_id = 0
-    // let employee_employer_id = 0
     console.log(state.employee_id)
 
     useEffect(() => {
@@ -41,7 +37,7 @@ const ApprovePTOUpdateEmployee = () => {
         formData["employer_id"] = employee_employer_id
         formData["sickTime"] = Math.floor(state.sickTime - state.requestedSickTime)
         formData["vacationTime"] = Math.floor(state.vacationTime - state.requestedVacationTime)
-        debugger
+        // debugger
         try {
             let response = await axios.put(`http://127.0.0.1:8000/employees/edit/${state.employee_id}`, formData, {
                 headers: {
