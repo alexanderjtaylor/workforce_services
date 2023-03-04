@@ -24,6 +24,16 @@ p {
   font-size: 20px;
 }
 
+body {
+  height:100vh;
+  background-color:ghostwhite;
+}
+
+#page {
+  height:100%;
+  background-color:rgb(255, 255, 255);
+}
+
 button {
   background-color: transparent;
   display: inline-block;
@@ -37,13 +47,7 @@ button {
   margin-bottom: 10%;
   margin: 2.5%;
   width: auto;
-  /* background-color: transparent;
-  border: 2px solid steelblue;
-  color: steelblue;
-  font-size: 1rem;
-  font-family: inherit;
-  max-width: 100px;
-  padding: 0.5rem 0.5rem; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .active-clock {
@@ -72,6 +76,7 @@ button {
 .delete-btn-search-employee {
   padding: 12px;
   height: 70px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .page-btn-header {
@@ -83,6 +88,7 @@ button {
   height: 70px;
   width: 70px;
   margin: 6%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .view-btn-set-schedule {
@@ -99,6 +105,7 @@ button {
   margin: 2.5%;
   width: auto;
   margin: 4%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .table-row {
@@ -161,6 +168,7 @@ button {
   padding: 0.55rem 0.55rem;
   margin-bottom: 2%;
   margin-right: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .clock-home-btn {
@@ -174,6 +182,7 @@ button {
   margin-bottom: 2%;
   margin-right: 100%;
   margin: 23px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .employer-home-page-btns {
@@ -189,6 +198,7 @@ button {
   margin-bottom: 10%;
   margin: 2.5%;
   width: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .home-page-btns {
@@ -204,6 +214,7 @@ button {
   margin-bottom: 10%;
   margin: 2.5%;
   width: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   /* table-layout: fixed; */
 }
 
@@ -220,6 +231,7 @@ button {
   font-size: clamp(15px, .5vw, 30px);
   font-family: inherit;
   margin-bottom: 2%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .search-box {
@@ -236,6 +248,7 @@ button {
   max-width: 500px;
   padding: 0.25rem 0.25rem;
   margin-bottom: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .edit-employee-btn {
@@ -247,17 +260,19 @@ button {
   max-width: 500px;
   padding: 0.25rem 0.25rem;
   margin-bottom: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .add-shift-btn {
   background-color: transparent;
-  border: 2px solid steelblue;
-  color: steelblue;
+  border: 2px solid midnightblue;
+  color: midnightblue;
   font-size: 1rem;
   font-family: inherit;
   max-width: 500px;
   padding: 0.25rem 0.25rem;
   margin-bottom: 10%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
@@ -353,7 +368,7 @@ button:hover {
   margin-bottom: 10%;
   margin: 2.5%;
   width: auto;
-  /* table-layout: fixed; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .form {
@@ -401,6 +416,7 @@ button:hover {
   margin-bottom: 10%;
   margin: 2.5%;
   width: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .punch-form-input {
@@ -424,6 +440,7 @@ button:hover {
   margin-bottom: 10%;
   margin: 2.5%;
   width: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .note {

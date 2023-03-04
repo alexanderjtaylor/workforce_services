@@ -10,7 +10,7 @@ function EmployerHomePage(props){
   
   return (
     <div className="home-container">
-      <h2 className="home-welcome">Welcome {user.username}</h2>
+      <h2 className="home-welcome">Welcome, {user.username}</h2>
       <h3 className="home-sub-header">{props.employer.company_name} Employees:{props.employer.employee_count}</h3>
       <div className="employer-home-page-btn-div">
       <Link to="/search-employee"><button className='employer-home-page-btns'>Search Employee</button></Link>

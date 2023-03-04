@@ -48,7 +48,7 @@ const EmployeeHomePage = (props) => {
   
   return (
     <div className="home-container">
-      <h2 className="home-welcome">Welcome {employee.firstName}</h2>
+      <h2 className="home-welcome">Welcome, {employee.firstName}</h2>
           <ul key={employee.id} className="employee-home-info">
             <li className="employee-home-info-name">{employee.firstName} {employee.lastName}</li>
             <li className="employee-home-info-data">{employee.jobTitle}</li>

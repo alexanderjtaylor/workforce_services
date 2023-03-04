@@ -21,7 +21,12 @@ function UnassignedUsers(){
         Authorization: "Bearer " + token,
       },
     });
-    setUnassignedUsers(response.data);}
+    setUnassignedUsers(employeesOnly(response.data));
+  }
+    // console.log(unassignedUsers)
+
+    function employeesOnly(users) {
+      return users.filter(user => user.is_staff === false);}
 
     const handleClick = (unassignedUser) => {
       navigate(`/add-employee/${unassignedUser.id}`, {
@@ -36,7 +41,6 @@ function UnassignedUsers(){
     return (
       <div className="container">
         <Link to="/"><button className="home-btn">Home</button></Link>
-        <SearchBar employees = {unassignedUsers} setEmployees = {setUnassignedUsers} fetchEmployees = {getUnassignedUsers}/>
         <table className='prop-tabel'>
           <thead>
             <tr className='table-col'>
