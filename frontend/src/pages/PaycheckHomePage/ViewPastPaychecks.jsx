@@ -50,7 +50,7 @@ const ViewPastPaychecks = (props) => {
             </tr>
           </thead>
           <tbody>
-            {paychecks.map((paycheck) => {
+            {paychecks.slice().reverse().map((paycheck) => {
               return (
                 <tr className='table-row-check'>
                   <td className='table-row-check'>{moment(paycheck.cutOffDate).format("MM/DD/YYYY")}</td>
