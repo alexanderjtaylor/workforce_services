@@ -16,25 +16,47 @@ const CreatePayCheckPage = (props) => {
     const [punchValues, setPunchValues] = useState([]);
     console.log(state)
 
+    // const moment = require('moment');
+    // let dayOfWeek = moment().day();
+    // let numDay = moment().date(); 
+    // let start = new Date();
+    // let startWeekTitle = new Date();
+    // start.setDate((numDay - dayOfWeek) - 1);
+    // startWeekTitle.setDate((numDay - dayOfWeek));
+    // start.setHours(0, 0, 0, 0);
+    // let startOfWeek = moment(start).format("MM/DD/YYYY");
+    // let startOfWeekTitle = moment(startWeekTitle).format("MM/DD/YYYY");
+    // let end = new Date();
+    // let endWeekTitle = new Date();
+    // end.setDate(numDay + (7 - dayOfWeek));
+    // endWeekTitle.setDate(numDay + (6 - dayOfWeek));
+    // end.setHours(0, 0, 0, 0);
+    // let endOfWeek = moment(end).format("MM/DD/YYYY");
+    // let endOfWeekTitle = moment(endWeekTitle).format("MM/DD/YYYY");
+    // const startDate = moment(startOfWeek, "MM/DD/YYYY");  
+    // const endDate = moment(endOfWeek, "MM/DD/YYYY");
+
     const moment = require('moment');
     let dayOfWeek = moment().day();
     let numDay = moment().date(); 
     let start = new Date();
     let startWeekTitle = new Date();
-    start.setDate((numDay - dayOfWeek) - 1);
-    startWeekTitle.setDate((numDay - dayOfWeek));
+    start.setDate((numDay - dayOfWeek) - 8);
+    startWeekTitle.setDate((numDay - dayOfWeek) - 7);
     start.setHours(0, 0, 0, 0);
     let startOfWeek = moment(start).format("MM/DD/YYYY");
     let startOfWeekTitle = moment(startWeekTitle).format("MM/DD/YYYY");
     let end = new Date();
     let endWeekTitle = new Date();
-    end.setDate(numDay + (7 - dayOfWeek));
-    endWeekTitle.setDate(numDay + (6 - dayOfWeek));
+    end.setDate(numDay + (0 - dayOfWeek));
+    endWeekTitle.setDate(numDay + (-1 - dayOfWeek));
     end.setHours(0, 0, 0, 0);
     let endOfWeek = moment(end).format("MM/DD/YYYY");
     let endOfWeekTitle = moment(endWeekTitle).format("MM/DD/YYYY");
     const startDate = moment(startOfWeek, "MM/DD/YYYY");  
     const endDate = moment(endOfWeek, "MM/DD/YYYY");
+    
+
     let totalBillableHours = 0
     let values = ""
     let clockIn = ""
@@ -85,22 +107,18 @@ const CreatePayCheckPage = (props) => {
     function thisWeeksShifts(shifts) {
         return shifts.filter(shift => moment(shift.workDate).isBetween(startDate, endDate));}
 
-            function roundTo(n, digits) {
-                if (digits === undefined) {
-                    digits = 0;
-                }
+            // function roundTo(n, digits) {
+            //     if (digits === undefined) {
+            //         digits = 0;
+            //     }
         
-                var multiplicator = Math.pow(10, digits);
-                n = parseFloat((n * multiplicator).toFixed(11));
-                return Math.round(n) / multiplicator;
-            }
+            //     var multiplicator = Math.pow(10, digits);
+            //     n = parseFloat((n * multiplicator).toFixed(11));
+            //     return Math.round(n) / multiplicator;
+            // }
 
 
             function thePunchValues(punches){
-                // totalBillableHours = 0
-                // OTHoursWorked = 0
-                // hoursWorked = 0
-                // taxes = 0
                 for (let i = 0; i < punches.length; i++) {
                         const startTime = moment(punches[i].clockIn);
                         const startLunch = moment(punches[i].startLunch);
@@ -118,9 +136,6 @@ const CreatePayCheckPage = (props) => {
                           ) : (
                             OTHoursWorked = 0
                           )}
-                        // OTHoursWorked = ((totalBillableHours) - 40);
-                        // OTHoursWorked = 0;
-                        // hoursWorked = (totalBillableHours - OTHoursWorked);
                         hoursWorked = Math.round(((totalBillableHours - OTHoursWorked) + Number.EPSILON) * 100) / 100;
                         taxes = .20}}
                     
