@@ -49,7 +49,6 @@ function UnassignedUsers(){
               <th className='table-col'>Last Name</th>
               <th className='table-col'>Username</th>
               <th className='table-col'>Email</th>
-              <th className='table-col'>Admin User</th>
             </tr>
           </thead>
           <tbody>
@@ -61,7 +60,6 @@ function UnassignedUsers(){
                   <td className='table-row'>{unassignedUser.last_name}</td>
                   <td className='table-row'>{unassignedUser.username}</td>
                   <td className='table-row'>{unassignedUser.email}</td>
-                  <td className='table-row'>{unassignedUser.is_staff}</td>
                   <button className='employer-home-page-btns' onClick={() => handleClick(unassignedUser)}>Add Employee</button>
                 </tr>
               );
