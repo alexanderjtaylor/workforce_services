@@ -57,7 +57,7 @@ const EmployeePaycheckHomePage = () => {
     <div className="container">
       <Link to="/"><button className="home-btn">Home</button></Link>
       <div className="paycheck-btns">
-        <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>View Previous Paycheck</button>
+        {/* <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>View Previous Paycheck</button> */}
         <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Paycheck History</button>
       </div>
     </div>

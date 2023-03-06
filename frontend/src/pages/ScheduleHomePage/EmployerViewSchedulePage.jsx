@@ -101,10 +101,6 @@ const EmployerViewSchedulePage = () => {
                 <th className='table-col'>Date</th>
                 <th className='table-col'>Start</th>
                 <th className='table-col'>End</th>
-                {/* <th>Actual Start</th>
-                <th>Actual End</th> */}
-                {/* <th>Holiday</th> */}
-                {/* <th>Clocked In</th> */}
               </tr>
             </thead>
             <tbody>
@@ -125,7 +121,7 @@ const EmployerViewSchedulePage = () => {
                     <td className='table-row'>{((`${shiftDayOfWeek}, ${shiftMonth} ${shiftDay}, ${shiftYear}`))}</td>
                     <td className='table-row'>{(shiftStart)}</td>
                     <td className='table-row'>{(shiftEnd)}</td>
-                    <button className='employer-home-page-btns' onClick={() => handleClick(shift)}>Edit Shift</button>
+                    <button className='employer-schedule-btns' onClick={() => handleClick(shift)}>Edit Shift</button>
                     <td><DeleteShift shift_id = {shift.id} fetchEmployeeShifts = {fetchEmployeeShifts}/></td>
                   </tr>
                 );

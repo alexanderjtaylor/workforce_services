@@ -102,7 +102,6 @@ button {
   max-width: 600px;
   padding: 0.55rem 0.55rem;
   margin-bottom: 10%;
-  margin: 2.5%;
   width: auto;
   margin: 4%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
@@ -200,6 +199,23 @@ button {
   width: auto;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
+
+.employer-schedule-btns {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid midnightblue;
+  color: midnightblue;
+  text-align: center;
+  font-size: clamp(15px, 1.3vw, 60px);
+  font-family: inherit;
+  max-width: 800px;
+  padding: 0.55rem 0.55rem;
+  margin-bottom: 100%;
+  margin: 8%;
+  width: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
 
 .home-page-btns {
   background-color: transparent;

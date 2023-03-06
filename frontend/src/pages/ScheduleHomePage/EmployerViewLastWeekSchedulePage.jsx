@@ -66,10 +66,10 @@ const EmployerViewLastWeekSchedulePage = (props) => {
       <h1 className="home-welcome">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
             <table className='profile-tabel'>
             <thead>
-              <tr>
+              <tr className='table-col'>
                 <th className='table-col'>Work Date</th>
-                <th className='table-col'>Scheduled Start</th>
-                <th className='table-col'>Scheduled End</th>
+                <th className='table-col'>Start</th>
+                <th className='table-col'>End</th>
               </tr>
             </thead>
             <tbody>
@@ -83,7 +83,6 @@ const EmployerViewLastWeekSchedulePage = (props) => {
                 let shiftDay = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(s);
                 let shiftStart = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(s);
                 let shiftEnd = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(e);
-                // console.log(thisWeeksShifts(employeeShifts));
 
                 return (
                   <tr className='table-row'>

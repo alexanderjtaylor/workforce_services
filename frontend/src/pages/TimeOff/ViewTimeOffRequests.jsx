@@ -132,9 +132,9 @@ const ViewTimeOffRequests = (props) => {
                         <td className='table-row'>{thisRequest.requestedSickTime}</td>
                         <td className='table-row'>{thisRequest.requestedVacationTime}</td>
                         <td className='table-row'>{thisRequest.ptoRequestStatus}</td>
-                        <button className='employer-home-page-btns' onClick={() => handleClickone(thisRequest)}>Approve</button>
-                        <button className='employer-home-page-btns' onClick={() => handleClicktwo(thisRequest)}>Deny</button>
-                        <button className='employer-home-page-btns' onClick={() => handleClickthree(thisRequest)}>Edit PTO Time</button>
+                        <button className='employer-schedule-btns' onClick={() => handleClickone(thisRequest)}>Approve</button>
+                        <button className='employer-schedule-btns' onClick={() => handleClicktwo(thisRequest)}>Deny</button>
+                        <button className='employer-schedule-btns' onClick={() => handleClickthree(thisRequest)}>Edit PTO Time</button>
                       </tr>
                     );
                   })}
