@@ -7,9 +7,10 @@ import { Link, useParams, useLocation } from 'react-router-dom';
 
 const PendingPTORequests = (props) => {
     const [user, token] = useAuth();
+    const moment = require('moment');
     const { state } = useLocation();
     const [ptoRequests, setPTORequests] = useState([]);
-    console.log(state)
+    // console.log(state)
 
     useEffect(() => {
         fetchPTORequests();
@@ -48,8 +49,8 @@ const PendingPTORequests = (props) => {
                     let endDay = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(e);
                     return (
                       <tr className='table-row'>
-                        <td className='table-row'>{((`${startMonth}/${startDay}/${startYear}`))} - {((`${endMonth}/${endDay}/${endYear}`))}</td>
-                        {/* <td className='table-row'>{thisRequest.startWorkDate} - {thisRequest.endWorkDate}</td> */}
+                        {/* <td className='table-row'>{((`${startMonth}/${startDay}/${startYear}`))} - {((`${endMonth}/${endDay}/${endYear}`))}</td> */}
+                        <td className='table-row'>{moment(thisRequest.startWorkDate).format("MM/DD/YYYY")} - {moment(thisRequest.endWorkDate).format("MM/DD/YYYY")}</td>
                         <td className='table-row'>{thisRequest.requestedSickTime}</td>
                         <td className='table-row'>{thisRequest.requestedVacationTime}</td>
                         <td className='table-row'>{thisRequest.ptoRequestStatus}</td>
