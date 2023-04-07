@@ -7,13 +7,6 @@ from .models import Employer
 from .serializers import EmployeeSerializer
 from django.shortcuts import get_object_or_404
 
-# @api_view(['GET'])
-# @permission_classes([IsAuthenticated])
-# def get_all_employees(request):
-#     employees = Employee.objects.all()
-#     serializer = EmployeeSerializer(employees, many=True)
-#     return Response(serializer.data)
-
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def employee_details(request, pk):
@@ -39,11 +32,6 @@ def create_employee(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-    #elif request.method == 'GET':
-        print('Employee ', f"{request.employee.id} {request.employee.firstName} {request.employee.lastName} {request.employee.employer} {request.employee.jobTitle} {request.employee.yearsWithCompany} {request.employee.dob} {request.employee.address} {request.employee.phoneNumber}")
-        employees = Employee.objects.filter(employee_id=request.employee.id)
-        serializer = EmployeeSerializer(employees, many=True)
-        return Response(serializer.data)
     
 @api_view(['PUT', 'DELETE'])
 @permission_classes([IsAdminUser])
