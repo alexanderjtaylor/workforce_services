@@ -76,7 +76,7 @@ const EmployerViewNextWeekSchedulePage = () => {
 
   return (
       <div className="container">
-      <Link to="/"><button className="home-btn">Home</button></Link>
+      <Link to="/schedule"><button className="home-btn">Back</button></Link>
       <button className='employer-home-page-btns' onClick={() => handleClicktwo(employeeShifts)}>Last Week</button>
       <h1 className="home-welcome">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
             <table className='profile-table'>
@@ -106,7 +106,7 @@ const EmployerViewNextWeekSchedulePage = () => {
                     <td className='table-row'>{((`${shiftDayOfWeek}, ${shiftMonth} ${shiftDay}, ${shiftYear}`))}</td>
                     <td className='table-row'>{(shiftStart)}</td>
                     <td className='table-row'>{(shiftEnd)}</td>
-                    <button className='employer-schedule-btns' onClick={() => handleClick(shift)}>Edit Shift</button>
+                    <button className='edit-delete-shift-btns' onClick={() => handleClick(shift)}>Edit Shift</button>
                     <td><DeleteShift shift_id = {shift.id} fetchEmployeeShifts = {fetchEmployeeShifts}/></td>
                   </tr>
                 );

@@ -89,7 +89,7 @@ const EmployerViewSchedulePage = () => {
 
   return (
       <div className="container">
-      <Link to="/"><button className="home-btn">Home</button></Link>
+      <Link to="/schedule"><button className="home-btn">Back</button></Link>
       {/* <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Last Week</button> */}
       <Link to={`/employer-view-last-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="employer-home-page-btns">Last Week</button></Link>
       <Link to={`/employer-view-next-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="employer-home-page-btns">Next Week</button></Link>
@@ -121,7 +121,7 @@ const EmployerViewSchedulePage = () => {
                     <td className='table-row'>{((`${shiftDayOfWeek}, ${shiftMonth} ${shiftDay}, ${shiftYear}`))}</td>
                     <td className='table-row'>{(shiftStart)}</td>
                     <td className='table-row'>{(shiftEnd)}</td>
-                    <button className='employer-schedule-btns' onClick={() => handleClick(shift)}>Edit Shift</button>
+                    <button className='edit-delete-shift-btns' onClick={() => handleClick(shift)}>Edit Shift</button>
                     <td><DeleteShift shift_id = {shift.id} fetchEmployeeShifts = {fetchEmployeeShifts}/></td>
                   </tr>
                 );

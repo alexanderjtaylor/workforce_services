@@ -6,7 +6,7 @@ const SearchBar = (props) => {
     function goGetEmployees(event){
         event.preventDefault();
         let response = props.employees.filter((employee) => {
-            if (searchEmployee.includes(employee.firstName) || searchEmployee.includes(employee.lastName) || searchEmployee.includes(employee.firstName + " " + employee.lastName) || searchEmployee.includes(employee.jobTitle) || employee.payRate.includes(searchEmployee)  || employee.OTPayRate.includes(searchEmployee)  || employee.sickTime.includes(searchEmployee) || employee.vacationTime.includes(searchEmployee) || searchEmployee.includes(employee.first_name)){
+            if (searchEmployee.includes(employee.firstName) || searchEmployee.includes(employee.lastName) || searchEmployee.includes(employee.firstName + " " + employee.lastName) || searchEmployee.includes(employee.jobTitle) || searchEmployee.includes(employee.first_name)){
                 return true;
             }
             else{
@@ -17,7 +17,7 @@ const SearchBar = (props) => {
 
     return ( 
         <form className='entire-search-bar' onSubmit={goGetEmployees}>
-            <input className='search-box' type='text' value={searchEmployee} onChange={(event) => setsearchEmployee(event.target.value)}/>
+            <input className='search-box' type='text' placeholder="Search by name or job title. *case sensitive*" value={searchEmployee} onChange={(event) => setsearchEmployee(event.target.value)}/>
             <button className='search-btn' type='submit'>Search</button>
         </form>
     );

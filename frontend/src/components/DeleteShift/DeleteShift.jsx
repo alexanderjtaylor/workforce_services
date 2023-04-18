@@ -14,7 +14,7 @@ const DeleteShift = (props) => {
 
     return ( 
         <td>
-            <button onClick={deleteShift} className='home-page-btns'>Delete</button>
+            <button onClick={deleteShift} className='edit-delete-shift-btns'>Delete</button>
         </td>
      );
 }

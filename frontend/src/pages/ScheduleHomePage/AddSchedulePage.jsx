@@ -31,11 +31,10 @@ const AddSchedulePage = (props) => {
 
   return (
     <div className="container">
-        <p className="note">Please Note: If holiday enter "1". If NOT holiday enter "0".</p>
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 Employee ID:{" "}
-                <input type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange}/>
+                <input type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange} readOnly={formData.employee_id}/>
             </label>
             <label>
                 Work Date:{" "}
@@ -43,11 +42,11 @@ const AddSchedulePage = (props) => {
             </label>
             <label>
                 Scheduled Start:{" "}
-                <input type="text" name="scheduledStart" value={formData.scheduledStart} onChange={handleInputChange}/>
+                <input type="datetime-local" name="scheduledStart" value={formData.scheduledStart} onChange={handleInputChange}/>
             </label>
             <label>
                 Scheduled End:{" "}
-                <input type="text" name="scheduledEnd" value={formData.scheduledEnd} onChange={handleInputChange}/>
+                <input type="datetime-local" name="scheduledEnd" value={formData.scheduledEnd} onChange={handleInputChange}/>
             </label>
             <label>
                 Sick Hours:{" "}
@@ -59,7 +58,7 @@ const AddSchedulePage = (props) => {
             </label>
             <label>
                 Holiday:{" "}
-                <input type="text" name="isHoliday" value={formData.isHoliday} onChange={handleInputChange}/>
+                <input title='If holiday enter "1". If NOT holiday enter "0"' type="text" name="isHoliday" value={formData.isHoliday} onChange={handleInputChange}/>
             </label>
             <button className='employer-home-page-btns'>Add Shift</button>
         </form>

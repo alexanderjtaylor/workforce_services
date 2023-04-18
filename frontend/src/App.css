@@ -184,12 +184,16 @@ button {
   background-color: transparent;
   border: 2px solid midnightblue;
   color: midnightblue;
-  text-align: start;
+  text-align: center;
+  border-radius: 8px;
   font-size: clamp(15px, 1.3vw, 60px);
-  font-family: inherit;
+  line-height:1.1em;
+  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
   padding: 0.55rem 0.55rem;
   margin-bottom: 2%;
   margin-right: 100%;
+  width:255px;
+  height:55px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -217,7 +221,7 @@ button {
   text-align:center;
   line-height:1.1em;
   font-family: 'TitilliumText22LRegular', Arial, sans-serif;
-  font-size: .9em;
+  font-size: clamp(15px, 1.3vw, 60px);
   border-radius: 8px;
   min-width:50px;
   color: midnightblue;
@@ -244,6 +248,22 @@ button {
   border: 2px solid midnightblue;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: transparent;
+}
+
+.edit-delete-shift-btns {
+  width:255px;
+  height:55px;
+  text-align:center;
+  line-height:1.1em;
+  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
+  font-size: .9em;
+  border-radius: 8px;
+  min-width:50px;
+  color: midnightblue;
+  border: 2px solid midnightblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  margin: 1rem;
 }
 
 

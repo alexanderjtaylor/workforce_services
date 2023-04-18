@@ -61,7 +61,7 @@ const EmployerViewLastWeekSchedulePage = (props) => {
 
   return (
       <div className="container">
-      <Link to="/"><button className="home-btn">Home</button></Link>
+      <Link to="/schedule"><button className="home-btn">Back</button></Link>
       <button className='employer-home-page-btns' onClick={() => handleClick(employeeShifts)}>Next Week</button>
       <h1 className="home-welcome">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
             <table className='profile-tabel'>

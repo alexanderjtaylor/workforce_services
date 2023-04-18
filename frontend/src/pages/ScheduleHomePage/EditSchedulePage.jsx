@@ -28,10 +28,11 @@ async function editShift(){
 
   return (
     <div className="container">
+        <Link to="/set-schedule"><button className="back-btn">Back</button></Link>
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 Employee ID:{" "}
-                <input type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange}/>
+                <input type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange} readOnly={formData.employee_id}/>
             </label>
             <label>
                 Work Date:{" "}
@@ -39,11 +40,11 @@ async function editShift(){
             </label>
             <label>
                 Scheduled Start:{" "}
-                <input type="text" name="scheduledStart" value={formData.scheduledStart} onChange={handleInputChange}/>
+                <input type="datetime-local" name="scheduledStart" value={formData.scheduledStart} onChange={handleInputChange}/>
             </label>
             <label>
                 Scheduled End:{" "}
-                <input type="text" name="scheduledEnd" value={formData.scheduledEnd} onChange={handleInputChange}/>
+                <input type="datetime-local" name="scheduledEnd" value={formData.scheduledEnd} onChange={handleInputChange}/>
             </label>
             <label>
                 Actual Start:{" "}
@@ -69,7 +70,7 @@ async function editShift(){
                 Clocked In:{" "}
                 <input type="text" name="isClockedIn" value={formData.isClockedIn} onChange={handleInputChange}/>
             </label>
-            <button className='employer-home-page-btns'>Edit Shift</button>
+            <button className='employer-home-page-btns'>Submit Change</button>
         </form>
     </div>
     );
