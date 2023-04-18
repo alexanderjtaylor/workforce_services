@@ -56,10 +56,10 @@ const handleClicktwo = (employee) => {
         <SearchBar employees = {employees} setEmployees = {setEmployees} fetchEmployees = {fetchEmployees}/>
         <table className='prop-tabel'>
           <thead>
-            <tr className='table-col'>
-              <th className='table-col'>First Name</th>
+            <tr className='table-col-center'>
+              <th className='table-col-center'>First Name</th>
               {/* <th className='table-col'>Last Name</th> */}
-              <th className='table-col'>Job Title</th>
+              <th className='table-col-center'>Job Title</th>
             </tr>
           </thead>
           <tbody>

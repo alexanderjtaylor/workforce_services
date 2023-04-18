@@ -50,16 +50,16 @@ function SearchEmployeePage(){
         <SearchBar employees = {employees} setEmployees = {setEmployees} fetchEmployees = {fetchEmployees}/>
         <table>
           <thead>
-            <tr className='table-col'>
-              <th className='table-col'>Employee ID</th>
-              <th className='table-col'>Name</th>
+            <tr className='table-col-center'>
+              <th className='table-col-center'>Employee ID</th>
+              <th className='table-col-center'>Name</th>
               {/* <th className='table-col'>Last Name</th> */}
-              <th className='table-col'>Job Title</th>
-              <th className='table-col'>Years with Company</th>
-              <th className='table-col'>Pay Rate</th>
-              <th className='table-col'>OT Rate</th>
-              <th className='table-col'>Sick Time</th>
-              <th className='table-col'>Vacation Time</th>
+              <th className='table-col-center'>Job Title</th>
+              <th className='table-col-center'>Years with Company</th>
+              <th className='table-col-center'>Pay Rate</th>
+              <th className='table-col-center'>OT Rate</th>
+              <th className='table-col-center'>Sick Time</th>
+              <th className='table-col-center'>Vacation Time</th>
             </tr>
           </thead>
           <tbody>

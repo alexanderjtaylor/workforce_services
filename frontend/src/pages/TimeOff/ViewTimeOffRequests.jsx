@@ -100,22 +100,21 @@ const ViewTimeOffRequests = (props) => {
         
         return (
             <div className="container">
-              <Link to="/"><button className="home-btn">Home</button></Link>
-              <table className='profile-tabel'>
+              <Link to="/"><button className="back-btn">Back</button></Link>
+              <table>
                 <thead>
-                  <tr className='table-col'>
-                    <th className='table-col'>First Name</th>
-                    <th className='table-col'>Last Name</th>
-                    <th className='table-col'>Requested PTO Date(s)</th>
-                    <th className='table-col'>Sick Hours</th>
-                    <th className='table-col'>Vacation Hours</th>
-                    <th className='table-col'>Request Status</th>
+                  <tr className='table-col-center'>
+                    <th className='table-col-center'>Name</th>
+                    <th className='table-col-center'>Requested PTO Date(s)</th>
+                    <th className='table-col-center'>Hours</th>
+                    <th className='table-col-center'>Request Status</th>
                   </tr>
                 </thead>
                 <tbody>
                   {ptoRequests.map((thisRequest) => {
                     console.log(thisRequest.startWorkDate)
                     console.log(thisRequest)
+                    let hoursRequested = ((parseFloat(thisRequest.requestedSickTime))  + parseFloat(thisRequest.requestedVacationTime))
                     let s = new Date(thisRequest.startWorkDate);
                     let e = new Date(thisRequest.endWorkDate);
                     let startYear = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(s);
@@ -125,16 +124,14 @@ const ViewTimeOffRequests = (props) => {
                     let endMonth = new Intl.DateTimeFormat('en', { month: '2-digit' }).format(e);
                     let endDay = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(e);
                     return (
-                      <tr className='table-row'>
-                        <td className='table-row'>{thisRequest.employee.firstName}</td>
-                        <td className='table-row'>{thisRequest.employee.lastName}</td>
-                        <td className='table-row'>{moment(thisRequest.startWorkDate).format("MM/DD/YYYY")} - {moment(thisRequest.endWorkDate).format("MM/DD/YYYY")}</td>
-                        <td className='table-row'>{thisRequest.requestedSickTime}</td>
-                        <td className='table-row'>{thisRequest.requestedVacationTime}</td>
-                        <td className='table-row'>{thisRequest.ptoRequestStatus}</td>
-                        <button className='employer-schedule-btns' onClick={() => handleClickone(thisRequest)}>Approve</button>
-                        <button className='employer-schedule-btns' onClick={() => handleClicktwo(thisRequest)}>Deny</button>
-                        <button className='employer-schedule-btns' onClick={() => handleClickthree(thisRequest)}>Edit PTO Time</button>
+                      <tr className='table-row-center'>
+                        <td className='table-row-center'>{thisRequest.employee.firstName} {thisRequest.employee.lastName}</td>
+                        <td className='table-row-center'>{moment(thisRequest.startWorkDate).format("MM/DD/YYYY")} - {moment(thisRequest.endWorkDate).format("MM/DD/YYYY")}</td>
+                        <td className='table-row-center'>{hoursRequested.toFixed(2)}</td>
+                        <td className='table-row-center'>{thisRequest.ptoRequestStatus}</td>
+                        <button className='employer-pto-btns' onClick={() => handleClickone(thisRequest)}>Approve</button>
+                        <button className='employer-pto-btns' onClick={() => handleClicktwo(thisRequest)}>Deny</button>
+                        <button className='employer-pto-btns' onClick={() => handleClickthree(thisRequest)}>Edit PTO Time</button>
                       </tr>
                     );
                   })}
