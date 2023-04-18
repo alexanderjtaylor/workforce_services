@@ -44,31 +44,24 @@ function EmployerPaycheckHomePage(props){
           <div className="container">
             <Link to="/"><button className="back-btn">Back</button></Link>
             <SearchBar employees = {employees} setEmployees = {setEmployees} fetchEmployees = {fetchEmployees}/>
-            <table className='prop-tabel'>
+            <table>
               <thead>
                 <tr className='table-col-center'>
                   <th className='table--center'>Name</th>
-                  {/* <th className='table-col'>Last Name</th> */}
                   <th className='table-col-center'>Job Title</th>
-                  <th className='table-col-center'>Years with Company</th>
                   <th className='table-col-center'>Pay Rate</th>
-                  <th className='table-col-center'>Overtime Rate</th>
-                  <th className='table-col-center'>Sick Time</th>
-                  <th className='table-col-center'>Vacation Time</th>
+                  <th className='table-col-center'>PTO Hours Available</th>
                 </tr>
               </thead>
               <tbody>
                 {employees.map((employee) => {
+                  let hoursAvailable = ((parseFloat(employee.sickTime))  + parseFloat(employee.vacationTime))
                   return (
                     <tr className='table-row-center'>
                       <td className='table-row-center'>{employee.firstName} {employee.lastName}</td>
-                      {/* <td className='table-row'>{employee.lastName}</td> */}
                       <td className='table-row-center'>{employee.jobTitle}</td>
-                      <td className='table-row-center'>{employee.yearsWithCompany}</td>
                       <td className='table-row-center'>${employee.payRate}</td>
-                      <td className='table-row-center'>${employee.OTPayRate}</td>
-                      <td className='table-row-center'>{employee.sickTime}</td>
-                      <td className='table-row-center'>{employee.vacationTime}</td>
+                      <td className='table-row-center'>{hoursAvailable.toFixed(2)}</td>
                       <button className='employer-home-page-btns' onClick={() => handleClick(employee)}>Create Paycheck</button>
                     </tr>
             );

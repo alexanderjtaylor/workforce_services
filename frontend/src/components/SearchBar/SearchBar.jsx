@@ -17,7 +17,7 @@ const SearchBar = (props) => {
 
     return ( 
         <form className='entire-search-bar' onSubmit={goGetEmployees}>
-            <input className='search-box' type='text' placeholder="Search by name or job title. *case sensitive*" value={searchEmployee} onChange={(event) => setsearchEmployee(event.target.value)}/>
+            <input className='search-box' type='text' title='Searches are case sensitive' placeholder="Search: name or job title" value={searchEmployee} onChange={(event) => setsearchEmployee(event.target.value)}/>
             <button className='search-btn' type='submit'>Search</button>
         </form>
     );

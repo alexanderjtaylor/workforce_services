@@ -57,18 +57,23 @@ const handleClicktwo = (employee) => {
         <table className='prop-tabel'>
           <thead>
             <tr className='table-col-center'>
-              <th className='table-col-center'>First Name</th>
-              {/* <th className='table-col'>Last Name</th> */}
+              <th className='table-col-center'>Name</th>
               <th className='table-col-center'>Job Title</th>
+              <th className='table-col-center'>Pay Rate</th>
+              <th className='table-col-center'>PTO Hours Available</th>
             </tr>
           </thead>
           <tbody>
             {employees.map((employee) => {
+              let hoursAvailable = ((parseFloat(employee.sickTime))  + parseFloat(employee.vacationTime))
               return (
                 <tr className='table-row-center'>
                   <td className='table-row-center'>{employee.firstName} {employee.lastName}</td>
-                  {/* <td className='table-row-center'>{employee.lastName}</td> */}
                   <td className='table-row-center'>{employee.jobTitle}</td>
+                  <td className='table-row-center'>${employee.payRate}</td>
+                  <td className='table-row-center'>{hoursAvailable.toFixed(2)}</td>
+                  {/* <td className='table-row-center'>{employee.sickTime}</td>
+                  <td className='table-row-center'>{employee.vacationTime}</td> */}
                   <button className='employer-schedule-btns' onClick={() => handleClickone(employee)}>View Schedule</button>
                   <button className='employer-schedule-btns' edit-btn-search-employee onClick={() => handleClicktwo(employee)}>Add Shift</button>
                 </tr>

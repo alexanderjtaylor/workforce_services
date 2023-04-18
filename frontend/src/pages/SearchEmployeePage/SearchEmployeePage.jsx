@@ -73,10 +73,10 @@ function SearchEmployeePage(){
                   <td className='table-row-center'>${employee.OTPayRate}</td>
                   <td className='table-row-center'>{employee.sickTime}</td>
                   <td className='table-row-center'>{employee.vacationTime}</td>
-                    <div className='edit-delete-employee'>
-                  <button title="Edit employee" className='edit-delete-employee-btns' onClick={() => handleClick(employee)}>Edit</button>
+                  <div className='edit-delete-employee'>
+                  <button className='edit-delete-employee-btns' onClick={() => handleClick(employee)}>Edit</button>
                   <td><DeleteEmployee className="edit-delete-employee-btns" employeeID = {employee.id} fetchEmployees = {fetchEmployees}/></td>
-                    </div>
+                  </div>
                 </tr>
               );
             })}
