@@ -29,14 +29,15 @@ const EditEmployeePage = () => {
 
     return (
     <div className="container">
+        <Link to="/search-employee"><button className="back-btn">Back</button></Link>
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 Employer ID:{" "}
-                <input type="text" name="employer_id" value={formData.employer_id} onChange={handleInputChange}/>
+                <input type="text" name="employer_id" value={formData.employer_id} onChange={handleInputChange} readOnly={formData.employer_id}/>
             </label>
             <label>
                 Employee User ID:{" "}
-                <input type="text" name="user_id" value={formData.user_id} onChange={handleInputChange}/>
+                <input type="text" name="user_id" value={formData.user_id} onChange={handleInputChange} readOnly={formData.user_id}/>
             </label>
             <label>
                 First Name:{" "}
@@ -70,7 +71,7 @@ const EditEmployeePage = () => {
                 Vacation Time:{" "}
                 <input type="text" name="vacationTime" value={formData.vacationTime} onChange={handleInputChange}/>
             </label>
-            <button className='edit-employee-btn'>Edit Employee</button>
+            <button className='edit-delete-employee-btns'>Edit</button>
         </form>
     </div>
     );

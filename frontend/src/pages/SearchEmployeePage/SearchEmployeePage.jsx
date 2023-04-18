@@ -53,7 +53,6 @@ function SearchEmployeePage(){
             <tr className='table-col-center'>
               <th className='table-col-center'>Employee ID</th>
               <th className='table-col-center'>Name</th>
-              {/* <th className='table-col'>Last Name</th> */}
               <th className='table-col-center'>Job Title</th>
               <th className='table-col-center'>Years with Company</th>
               <th className='table-col-center'>Pay Rate</th>
@@ -68,7 +67,6 @@ function SearchEmployeePage(){
                 <tr className='table-row'>
                   <td className='table-row-center'>{employee.id}</td>
                   <td className='table-row-center'>{employee.firstName} {employee.lastName}</td>
-                  {/* <td className='table-row'>{employee.lastName}</td> */}
                   <td className='table-row-center'>{employee.jobTitle}</td>
                   <td className='table-row-center'>{employee.yearsWithCompany}</td>
                   <td className='table-row-center'>${employee.payRate}</td>

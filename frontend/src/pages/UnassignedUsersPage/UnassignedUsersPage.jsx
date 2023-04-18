@@ -40,26 +40,24 @@ function UnassignedUsers(){
 
     return (
       <div className="container">
-        <Link to="/"><button className="home-btn">Home</button></Link>
+        <Link to="/"><button className="back-btn">Back</button></Link>
         <table className='prop-tabel'>
           <thead>
-            <tr className='table-col'>
-              <th className='table-col'>User ID</th>
-              <th className='table-col'>First Name</th>
-              <th className='table-col'>Last Name</th>
-              <th className='table-col'>Username</th>
-              <th className='table-col'>Email</th>
+            <tr className='table-col-center'>
+              <th className='table-col-center'>User ID</th>
+              <th className='table-col-center'>Name</th>
+              <th className='table-col-center'>Username</th>
+              <th className='table-col-center'>Email</th>
             </tr>
           </thead>
           <tbody>
             {unassignedUsers.map((unassignedUser) => {
               return (
-                <tr className='table-row'>
-                  <td className='table-row'>{unassignedUser.id}</td>
-                  <td className='table-row'>{unassignedUser.first_name}</td>
-                  <td className='table-row'>{unassignedUser.last_name}</td>
-                  <td className='table-row'>{unassignedUser.username}</td>
-                  <td className='table-row'>{unassignedUser.email}</td>
+                <tr className='table-row-center'>
+                  <td className='table-row-center'>{unassignedUser.id}</td>
+                  <td className='table-row-center'>{unassignedUser.first_name} {unassignedUser.last_name}</td>
+                  <td className='table-row-center'>{unassignedUser.username}</td>
+                  <td className='table-row-center'>{unassignedUser.email}</td>
                   <button className='employer-schedule-btns' onClick={() => handleClick(unassignedUser)}>Add Employee</button>
                 </tr>
               );
