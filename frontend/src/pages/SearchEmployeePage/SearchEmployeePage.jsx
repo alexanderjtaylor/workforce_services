@@ -46,7 +46,7 @@ function SearchEmployeePage(){
 
     return (
       <div className="container">
-        <Link to="/"><button className="home-btn">Home</button></Link>
+        <Link to="/"><button className="back-btn">Back</button></Link>
         <SearchBar employees = {employees} setEmployees = {setEmployees} fetchEmployees = {fetchEmployees}/>
         <table className='profile-tabel'>
           <thead>

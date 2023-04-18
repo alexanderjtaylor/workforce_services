@@ -11,7 +11,7 @@ li {
 }
 
 .navBar {
-  background: beige;
+  background: rgba(245, 245, 220, 0.618);
   box-shadow: midnightblue;
   color: white;
   margin-bottom: .5rem;
@@ -19,22 +19,30 @@ li {
 }
 
 .navBar button {
-  background: transparent;
-  border: 2px solid midnightblue;
-  text-align: center;
+  width:255px;
+  height:55px;
+  text-align:center;
+  line-height:1.1em;
+  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
+  font-size: 1em;
+  border-radius: 8px;
+  min-width:90px;
   color: midnightblue;
-  margin-right: 100%;
-  padding: 0.5rem 0.5rem;
+  border: 2px solid midnightblue;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
 }
 
 .navBar button:hover {
-  background: white;
-  color: midnightblue;
+  background: midnightblue;
+  color: ghostwhite;
   cursor: pointer;
 }
 
 .brand {
   cursor: pointer;
   font-size: 2rem;
+  line-height:2.5em;
+  font-size: 1.7em;
+  color: midnightblue;
 }
