@@ -52,25 +52,25 @@ const handleClicktwo = (employee) => {
 
   return (
     <div className="container">
-      <Link to="/"><button className="home-btn">Home</button></Link>
+      <Link to="/"><button className="back-btn">Back</button></Link>
         <SearchBar employees = {employees} setEmployees = {setEmployees} fetchEmployees = {fetchEmployees}/>
         <table className='prop-tabel'>
           <thead>
             <tr className='table-col'>
               <th className='table-col'>First Name</th>
-              <th className='table-col'>Last Name</th>
+              {/* <th className='table-col'>Last Name</th> */}
               <th className='table-col'>Job Title</th>
             </tr>
           </thead>
           <tbody>
             {employees.map((employee) => {
               return (
-                <tr className='table-row'>
-                  <td className='table-row'>{employee.firstName}</td>
-                  <td className='table-row'>{employee.lastName}</td>
-                  <td className='table-row'>{employee.jobTitle}</td>
-                  <button className='view-btn-set-schedule' onClick={() => handleClickone(employee)}>View Schedule</button>
-                  <button className='add-btn-set-schedule' edit-btn-search-employee onClick={() => handleClicktwo(employee)}>Add Shift</button>
+                <tr className='table-row-center'>
+                  <td className='table-row-center'>{employee.firstName} {employee.lastName}</td>
+                  {/* <td className='table-row-center'>{employee.lastName}</td> */}
+                  <td className='table-row-center'>{employee.jobTitle}</td>
+                  <button className='employer-schedule-btns' onClick={() => handleClickone(employee)}>View Schedule</button>
+                  <button className='employer-schedule-btns' edit-btn-search-employee onClick={() => handleClicktwo(employee)}>Add Shift</button>
                 </tr>
               );
             })}
