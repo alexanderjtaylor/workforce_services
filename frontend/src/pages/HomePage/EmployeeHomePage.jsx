@@ -62,6 +62,20 @@ const EmployeeHomePage = (props) => {
       <Link to="/time-off"><button className='home-page-btns'>Time Off</button></Link>
       <Link to="/paycheck"><button className='home-page-btns'>Pay</button></Link>
       </div>
+      <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+      </div >
     </div>
   );
 };

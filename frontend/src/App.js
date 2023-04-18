@@ -1,8 +1,8 @@
-// General Imports
+
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
-// Pages Imports
+
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
@@ -37,11 +37,11 @@ import ViewPaycheck from "./pages/PaycheckHomePage/ViewPaycheck";
 import ViewPastPaychecks from "./pages/PaycheckHomePage/ViewPastPaychecks";
 import PastPaycheckDisplay from "./pages/PaycheckHomePage/PastPaycheckDisplay";
 import ApprovePTOUpdateEmployee from "./pages/TimeOff/ApprovePTOUpdateEmployee";
-// Component Imports
+
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
 
-// Util Imports
+
 import PrivateRoute from "./utils/PrivateRoute";
 import AddSchedulePage from "./pages/ScheduleHomePage/AddSchedulePage";
 import EditSchedulePage from "./pages/ScheduleHomePage/EditSchedulePage";

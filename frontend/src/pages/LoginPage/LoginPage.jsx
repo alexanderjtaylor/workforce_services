@@ -19,7 +19,7 @@ const LoginPage = () => {
   }, [isServerError]);
 
   return (
-    <div className="container">
+    <div className="login-container">
       <form className="form" onSubmit={handleSubmit}>
         <label>
           Username:{" "}
@@ -51,47 +51,3 @@ const LoginPage = () => {
 
 export default LoginPage;
 
-
-
-// function UserEmployer(props) {
-//   return <div>
-//       <Navbar />
-//       <Routes>
-//         <Route
-//           path="/"
-//           element={
-//             <PrivateRoute>
-//               <EmployerHomePage />
-//             </PrivateRoute>
-//           }
-//         />
-//       </Routes>
-//   </div>;
-// }
-
-// function UserEmployee(props) {
-//   return <div>
-//       <Navbar />
-//       <Routes>
-//         <Route
-//           path="/"
-//           element={
-//             <PrivateRoute>
-//               <EmployeeHomePage />
-//             </PrivateRoute>
-//           }
-//         />
-//       </Routes>
-//   </div>;
-// }
-
-// function UserIs(props) {
-//   const isEmployer = props.isEmployer;
-//   if (isEmployer) {
-//     return <UserEmployer />;
-//   }
-//   return <UserEmployee />;
-// }
-
-// const userroot = ReactDOM.createRoot(document.getElementById('userroot')); 
-// userroot.render(<UserIs isEmployer={true} />);

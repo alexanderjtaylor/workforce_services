@@ -13,13 +13,27 @@ function EmployerHomePage(props){
       <h2 className="home-welcome">Welcome, {user.username}</h2>
       <p className="home-sub-header">{props.employer.company_name} Employees:{props.employer.employee_count}</p>
       <div className="employer-home-page-btn-div">
-      <Link to="/search-employee"><button className='employer-home-page-btns'>Search Employee</button></Link>
-      <Link to="/schedule"><button className='employer-home-page-btns'>Schedule</button></Link>
-      <Link to="/paycheck"><button className='employer-home-page-btns'>Paycheck</button></Link>
-      <Link to="/time-off"><button className='employer-home-page-btns'>Time Off</button></Link>
-      <Link to="/unassigned-users"><button className='employer-home-page-btns'>Unassigned Users</button></Link>
+      <Link title="View current employees" to="/search-employee"><button className='employer-home-page-btns'>Staff</button></Link>
+      <Link title="Scheduling actions" to="/schedule"><button className='employer-home-page-btns'>Scheduling</button></Link>
+      <Link title="Issue employee paychecks" to="/paycheck"><button className='employer-home-page-btns'>Pay</button></Link>
+      <Link title="Respond to PTO requests" to="/time-off"><button className='employer-home-page-btns'>PTO Requests</button></Link>
+      <Link title="Add new employees" to="/unassigned-users"><button className='employer-home-page-btns'>Find Employees</button></Link>
       </div>
-    </div>
+      <div class="area">
+        <ul class="circles">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+      </div >
+      </div >
   );
 };
 
