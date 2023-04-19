@@ -77,15 +77,16 @@ const EmployerViewNextWeekSchedulePage = () => {
   return (
       <div className="container">
       <Link to="/schedule"><button className="home-btn">Back</button></Link>
-      <button className='employer-home-page-btns' onClick={() => handleClicktwo(employeeShifts)}>Last Week</button>
-      <h1 className="home-welcome">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
-            <table className='profile-table'>
+      <button className='toggle-schedule-btns' onClick={() => handleClicktwo(employeeShifts)}>Last Week</button>
+      <h1 className="week-of">{startOfWeekTitle} - {endOfWeekTitle}</h1>
+            <table>
             <thead>
-              <tr className='table-col'>
-                <th className='table-col'>Shift ID</th>
-                <th className='table-col'>Work Date</th>
-                <th className='table-col'>Start</th>
-                <th className='table-col'>End</th>
+              <tr className='table-col-center'>
+                <th className='table-col-center'>Shift ID</th>
+                <th className='table-col-center'>Day</th>
+                <th className='table-col-center'>Date</th>
+                <th className='table-col-center'>Start</th>
+                <th className='table-col-center'>End</th>
               </tr>
             </thead>
             <tbody>
@@ -95,17 +96,18 @@ const EmployerViewNextWeekSchedulePage = () => {
                 let e = new Date(shift.scheduledEnd);
                 let shiftDayOfWeek = new Intl.DateTimeFormat('en', { weekday: 'long' }).format(s);
                 let shiftYear = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(s);
-                let shiftMonth = new Intl.DateTimeFormat('en', { month: 'long' }).format(s);
-                let shiftDay = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(s);
+                let shiftMonth = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(s);
+                let shiftDay = new Intl.DateTimeFormat('en', { day: 'numeric' }).format(s);
                 let shiftStart = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(s);
                 let shiftEnd = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(e);
 
                 return (
-                  <tr className='table-row'>
-                    <td className='table-row'>{shift.id}</td>
-                    <td className='table-row'>{((`${shiftDayOfWeek}, ${shiftMonth} ${shiftDay}, ${shiftYear}`))}</td>
-                    <td className='table-row'>{(shiftStart)}</td>
-                    <td className='table-row'>{(shiftEnd)}</td>
+                  <tr className='table-row-center'>
+                    <td className='table-row-center'>{shift.id}</td>
+                    <td className='table-row-center'>{((`${shiftDayOfWeek}`))}</td>
+                    <td className='table-row-center'>{((`${shiftMonth}/${shiftDay}/${shiftYear}`))}</td>
+                    <td className='table-row-center'>{(shiftStart)}</td>
+                    <td className='table-row-center'>{(shiftEnd)}</td>
                     <button className='edit-delete-shift-btns' onClick={() => handleClick(shift)}>Edit Shift</button>
                     <td><DeleteShift shift_id = {shift.id} fetchEmployeeShifts = {fetchEmployeeShifts}/></td>
                   </tr>

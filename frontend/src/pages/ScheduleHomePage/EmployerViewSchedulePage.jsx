@@ -92,15 +92,15 @@ const EmployerViewSchedulePage = () => {
       <Link to="/schedule"><button className="home-btn">Back</button></Link>
       <Link to={`/employer-view-last-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="toggle-schedule-btns">Last Week</button></Link>
       <Link to={`/employer-view-next-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="toggle-schedule-btns">Next Week</button></Link>
-      <h1 className="week-of">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
+      <h1 className="week-of">{startOfWeekTitle} - {endOfWeekTitle}</h1>
             <table>
             <thead>
-              <tr className='table-col'>
-                <th className='table-col'>Shift ID</th>
-                <th className='table-col'>Day</th>
-                <th className='table-col'>Date</th>
-                <th className='table-col'>Start</th>
-                <th className='table-col'>End</th>
+              <tr className='table-col-center'>
+                <th className='table-col-center'>Shift ID</th>
+                <th className='table-col-center'>Day</th>
+                <th className='table-col-center'>Date</th>
+                <th className='table-col-center'>Start</th>
+                <th className='table-col-center'>End</th>
               </tr>
             </thead>
             <tbody>
@@ -116,12 +116,12 @@ const EmployerViewSchedulePage = () => {
                 let shiftEnd = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(e);
 
                 return (
-                  <tr className='table-row'>
-                    <td className='table-row'>{shift.id}</td>
-                    <td className='table-row'>{((`${shiftDayOfWeek}`))}</td>
-                    <td className='table-row'>{((`${shiftMonth}/${shiftDay}/${shiftYear}`))}</td>
-                    <td className='table-row'>{(shiftStart)}</td>
-                    <td className='table-row'>{(shiftEnd)}</td>
+                  <tr className='table-row-center'>
+                    <td className='table-row-center'>{shift.id}</td>
+                    <td className='table-row-center'>{((`${shiftDayOfWeek}`))}</td>
+                    <td className='table-row-center'>{((`${shiftMonth}/${shiftDay}/${shiftYear}`))}</td>
+                    <td className='table-row-center'>{(shiftStart)}</td>
+                    <td className='table-row-center'>{(shiftEnd)}</td>
                     <button className='edit-delete-shift-btns' onClick={() => handleClick(shift)}>Edit Shift</button>
                     <td><DeleteShift shift_id = {shift.id} fetchEmployeeShifts = {fetchEmployeeShifts}/></td>
                   </tr>

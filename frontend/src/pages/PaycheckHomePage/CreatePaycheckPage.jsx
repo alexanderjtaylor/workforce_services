@@ -166,6 +166,7 @@ const CreatePayCheckPage = (props) => {
 
     return (
     <div className="container">
+      <Link to="/paycheck-employer-home"><button className="back-btn">Back</button></Link>
         <form className="form" onSubmit={handleSubmit}>
         <label>
                 Cut Off Date:{" "}
@@ -203,7 +204,7 @@ const CreatePayCheckPage = (props) => {
                 Taxes:{" "}
                 <input type="text" name="taxes" value={taxes} onChange={handleInputChange}/>
             </label>
-            <button className='add-paycheck-btn'>Issue Paycheck</button>
+            <button className='edit-delete-shift-btns'>Sumbit</button>
         </form>
     </div>
     );
