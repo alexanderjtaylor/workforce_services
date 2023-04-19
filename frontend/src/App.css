@@ -61,6 +61,7 @@ button {
   text-align: center;
   position: relative;
   width: 100%;
+  overflow-x:hidden;
 }
 
 .login-container {
@@ -209,6 +210,28 @@ button {
   margin: 5px;
   padding: 3px 7px;
   font-size: 17px;
+}
+
+.toggle-schedule-btns {
+  width:255px;
+  height:30px;
+  text-align:center;
+  line-height:.5em;
+  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
+  font-size: .9em;
+  border-radius: 8px;
+  min-width:200px;
+  color: midnightblue;
+  border: 2px solid midnightblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+}
+
+.week-of {
+  color: midnightblue;
+  text-align: center;
+  margin-top: .2%;
+  margin-bottom: 8.5%;
 }
 
 .active-clock {
@@ -421,22 +444,6 @@ button {
   margin: 1em;
 }
 
-.toggle-schedule-btns {
-  width:255px;
-  height:30px;
-  text-align:center;
-  line-height:.5em;
-  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
-  font-size: .9em;
-  border-radius: 8px;
-  min-width:200px;
-  color: midnightblue;
-  border: 2px solid midnightblue;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-  background-color: transparent;
-  margin-bottom: 3em;
-}
-
 .employer-schedule-btns {
   width:255px;
   height:30px;
@@ -549,12 +556,6 @@ button:hover {
   cursor: pointer;
   color: white;
   background-color: midnightblue;
-}
-
-.week-of {
-  color: midnightblue;
-  text-align: center;
-  margin-top: 5.5%;
 }
 
 .home-welcome {

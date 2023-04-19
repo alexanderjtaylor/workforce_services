@@ -65,12 +65,12 @@ const ViewNextWeekSchedulePage = () => {
             <table>
             <thead>
               <tr>
-                <th className='table-col'>Day</th>
-                <th className='table-col'>Date</th>
-                <th className='table-col'>Scheduled Start</th>
-                <th className='table-col'>Scheduled End</th>
-                <th className='table-col'>Sick Hours</th>
-                <th className='table-col'>Vacation Hours</th>
+                <th className='table-col-center'>Day</th>
+                <th className='table-col-center'>Date</th>
+                <th className='table-col-center'>Start</th>
+                <th className='table-col-center'>End</th>
+                <th className='table-col-center'>Sick Hours</th>
+                <th className='table-col-center'>Vacation Hours</th>
               </tr>
             </thead>
             <tbody>
@@ -87,13 +87,13 @@ const ViewNextWeekSchedulePage = () => {
                 // console.log(thisWeeksShifts(employeeShifts));
 
                 return (
-                  <tr className='table-row'>
-                    <td className='table-row'>{((`${shiftDayOfWeek}`))}</td>
-                    <td className='table-row'>{((`${shiftMonth}/${shiftDay}/${shiftYear}`))}</td>
-                    <td className='table-row'>{(shiftStart)}</td>
-                    <td className='table-row'>{(shiftEnd)}</td>
-                    <td className='table-row'>{(shift.sickTimeUsed)}</td>
-                    <td className='table-row'>{(shift.vacationTimeUsed)}</td>
+                  <tr className='table-row-center'>
+                    <td className='table-row-center'>{((`${shiftDayOfWeek}`))}</td>
+                    <td className='table-row-center'>{((`${shiftMonth}/${shiftDay}/${shiftYear}`))}</td>
+                    <td className='table-row-center'>{(shiftStart)}</td>
+                    <td className='table-row-center'>{(shiftEnd)}</td>
+                    <td className='table-row-center'>{(shift.sickTimeUsed)}</td>
+                    <td className='table-row-center'>{(shift.vacationTimeUsed)}</td>
                   </tr>
                 );
               })}

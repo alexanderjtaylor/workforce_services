@@ -1,17 +1,14 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation} from "react-router-dom";
 import axios from "axios";
 import { format } from 'date-fns'
 
 const ViewSchedulePage = () => {
   const [user, token] = useAuth();
-  const navigate = useNavigate();
   const { state } = useLocation();
-  const [employee, setEmployee] = useState([]);
   const [employeeShifts, setEmployeeShifts] = useState([]);
-  var weekShifts = []
   const moment = require('moment');
   let dayOfWeek = moment().day();
   let numDay = moment().date(); 
@@ -36,7 +33,6 @@ const ViewSchedulePage = () => {
 
   useEffect(() => {
     fetchEmployeeShifts();
-    // fetchEmployee();
   }, [token]);
 
   async function fetchEmployeeShifts(){
@@ -48,52 +44,25 @@ const ViewSchedulePage = () => {
     setEmployeeShifts(thisWeeksShifts(response.data))
     console.log(thisWeeksShifts(response.data))
     ;}
-
-    // async function fetchEmployee(){
-    //   const response = await axios.get(`http://127.0.0.1:8000/employees/${user.id}`, {
-    //     headers: {
-    //       Authorization: "Bearer " + token,
-    //     },
-    //   });
-    //   // console.log(response.data)
-    //   setEmployee(response.data.id)}
         
     function thisWeeksShifts(employeeShifts) {
       return employeeShifts.filter(shift => moment(shift.workDate).isBetween(startDate, endDate));}
-
-      // const handleClickone = (employee) => {
-      //   navigate(`/next-week-schedule/${employee.id}`, {
-      //     state: {
-      //       employee_id: employee.id
-      //     }
-      //   });
-      // };
-
-      // const handleClicktwo = (employee) => {
-      //   navigate(`/last-week-schedule/${employee.id}`, {
-      //     state: {
-      //       employee_id: employee.id
-      //     }
-      //   });
-      // };
 
   return (
       <div className="container">
       <Link to="/"><button className="home-btn">Back</button></Link>
       <Link to={`/last-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="toggle-schedule-btns">Last Week</button></Link>
       <Link to={`/next-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="toggle-schedule-btns">Next Week</button></Link>
-      {/* <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Last Week</button>
-      <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Next Week</button> */}
       <h1 className="week-of">{startOfWeekTitle} - {endOfWeekTitle}</h1>
             <table>
             <thead>
               <tr>
-                <th className='table-col'>Day</th>
-                <th className='table-col'>Date</th>
-                <th className='table-col'>Scheduled Start</th>
-                <th className='table-col'>Scheduled End</th>
-                <th className='table-col'>Sick Hours</th>
-                <th className='table-col'>Vacation Hours</th>
+                <th className='table-col-center'>Day</th>
+                <th className='table-col-center'>Date</th>
+                <th className='table-col-center'>Start</th>
+                <th className='table-col-center'>End</th>
+                <th className='table-col-center'>Sick Hours</th>
+                <th className='table-col-center'>Vacation Hours</th>
               </tr>
             </thead>
             <tbody>
@@ -110,13 +79,13 @@ const ViewSchedulePage = () => {
                 // console.log(thisWeeksShifts(employeeShifts));
 
                 return (
-                  <tr className='table-row'>
-                    <td className='table-row'>{((`${shiftDayOfWeek}`))}</td>
-                    <td className='table-row'>{((`${shiftMonth}/${shiftDay}/${shiftYear}`))}</td>
-                    <td className='table-row'>{(shiftStart)}</td>
-                    <td className='table-row'>{(shiftEnd)}</td>
-                    <td className='table-row'>{(shift.sickTimeUsed)}</td>
-                    <td className='table-row'>{(shift.vacationTimeUsed)}</td>
+                  <tr className='table-row-center'>
+                    <td className='table-row-center'>{((`${shiftDayOfWeek}`))}</td>
+                    <td className='table-row-center'>{((`${shiftMonth}/${shiftDay}/${shiftYear}`))}</td>
+                    <td className='table-row-center'>{(shiftStart)}</td>
+                    <td className='table-row-center'>{(shiftEnd)}</td>
+                    <td className='table-row-center'>{(shift.sickTimeUsed)}</td>
+                    <td className='table-row-center'>{(shift.vacationTimeUsed)}</td>
                   </tr>
                 );
               })}
