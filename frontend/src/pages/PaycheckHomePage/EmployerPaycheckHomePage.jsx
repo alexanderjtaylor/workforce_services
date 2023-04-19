@@ -62,7 +62,7 @@ function EmployerPaycheckHomePage(props){
                       <td className='table-row-center'>{employee.jobTitle}</td>
                       <td className='table-row-center'>${employee.payRate}</td>
                       <td className='table-row-center'>{hoursAvailable.toFixed(2)}</td>
-                      <button className='employer-home-page-btns' onClick={() => handleClick(employee)}>Create Paycheck</button>
+                      <button className='employer-pay-home-page-btns' onClick={() => handleClick(employee)}>Create Paycheck</button>
                     </tr>
             );
           })}

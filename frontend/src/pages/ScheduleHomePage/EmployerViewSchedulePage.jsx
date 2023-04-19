@@ -88,16 +88,16 @@ const EmployerViewSchedulePage = () => {
     };
 
   return (
-      <div className="container">
+      <div className="container-schedule">
       <Link to="/schedule"><button className="home-btn">Back</button></Link>
-      {/* <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Last Week</button> */}
-      <Link to={`/employer-view-last-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="employer-home-page-btns">Last Week</button></Link>
-      <Link to={`/employer-view-next-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="employer-home-page-btns">Next Week</button></Link>
-      <h1 className="home-welcome">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
-            <table className='prop-tabel'>
+      <Link to={`/employer-view-last-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="toggle-schedule-btns">Last Week</button></Link>
+      <Link to={`/employer-view-next-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="toggle-schedule-btns">Next Week</button></Link>
+      <h1 className="week-of">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
+            <table>
             <thead>
               <tr className='table-col'>
                 <th className='table-col'>Shift ID</th>
+                <th className='table-col'>Day</th>
                 <th className='table-col'>Date</th>
                 <th className='table-col'>Start</th>
                 <th className='table-col'>End</th>
@@ -110,15 +110,16 @@ const EmployerViewSchedulePage = () => {
                 let e = new Date(shift.scheduledEnd);
                 let shiftDayOfWeek = new Intl.DateTimeFormat('en', { weekday: 'long' }).format(s);
                 let shiftYear = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(s);
-                let shiftMonth = new Intl.DateTimeFormat('en', { month: 'long' }).format(s);
-                let shiftDay = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(s);
+                let shiftMonth = new Intl.DateTimeFormat('en', { month: 'numeric' }).format(s);
+                let shiftDay = new Intl.DateTimeFormat('en', { day: 'numeric' }).format(s);
                 let shiftStart = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(s);
                 let shiftEnd = new Intl.DateTimeFormat('en', { hour: 'numeric', minute: 'numeric'}).format(e);
 
                 return (
                   <tr className='table-row'>
                     <td className='table-row'>{shift.id}</td>
-                    <td className='table-row'>{((`${shiftDayOfWeek}, ${shiftMonth} ${shiftDay}, ${shiftYear}`))}</td>
+                    <td className='table-row'>{((`${shiftDayOfWeek}`))}</td>
+                    <td className='table-row'>{((`${shiftMonth}/${shiftDay}/${shiftYear}`))}</td>
                     <td className='table-row'>{(shiftStart)}</td>
                     <td className='table-row'>{(shiftEnd)}</td>
                     <button className='edit-delete-shift-btns' onClick={() => handleClick(shift)}>Edit Shift</button>

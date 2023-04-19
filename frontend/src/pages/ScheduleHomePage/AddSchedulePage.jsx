@@ -31,6 +31,7 @@ const AddSchedulePage = (props) => {
 
   return (
     <div className="container">
+        <Link to="/schedule"><button className="back-btn">Back</button></Link>
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 Employee ID:{" "}
@@ -60,7 +61,7 @@ const AddSchedulePage = (props) => {
                 Holiday:{" "}
                 <input title='If holiday enter "1". If NOT holiday enter "0"' type="text" name="isHoliday" value={formData.isHoliday} onChange={handleInputChange}/>
             </label>
-            <button className='employer-home-page-btns'>Add Shift</button>
+            <button className='edit-delete-employee-btns'>Add Shift</button>
         </form>
     </div>
     );

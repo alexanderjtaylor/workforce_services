@@ -58,40 +58,41 @@ const ApprovePTOPage = () => {
 
     return (
     <div className="container">
+        <Link to="/time-off"><button className="back-btn">Back</button></Link>
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 PTO Request ID:{" "}
-                <input type="text" name="thisRequest_id" value={state.thisRequest_id} onChange={handleInputChange}/>
+                <input type="text" name="thisRequest_id" value={state.thisRequest_id} onChange={handleInputChange} readOnly={state.thisRequest_id}/>
             </label>
             <label>
                 Employee ID:{" "}
-                <input type="text" name="employee_id" value={state.employee_id} onChange={handleInputChange}/>
+                <input type="text" name="employee_id" value={state.employee_id} onChange={handleInputChange} readOnly={state.employee_id}/>
             </label>
             <label>
                 Employer ID:{" "}
-                <input type="text" name="employer" value={employer} onChange={handleInputChange}/>
+                <input type="text" name="employer" value={employer} onChange={handleInputChange} readOnly={state.employer}/>
             </label>
             <label>
                 Start Work Date:{" "}
-                <input type="text" name="startWorkDate" value={state.startWorkDate} onChange={handleInputChange}/>
+                <input type="text" name="startWorkDate" value={state.startWorkDate} onChange={handleInputChange} readOnly={state.startWorkDate}/>
             </label>
             <label>
                 End Work Date:{" "}
-                <input type="text" name="endWorkDate" value={state.endWorkDate} onChange={handleInputChange}/>
+                <input type="text" name="endWorkDate" value={state.endWorkDate} onChange={handleInputChange} readOnly={state.endWorkDate}/>
             </label>
             <label>
                 Requested Sick Time:{" "}
-                <input type="text" name="requestedSickTime" value={state.requestedSickTime} onChange={handleInputChange}/>
+                <input type="text" name="requestedSickTime" value={state.requestedSickTime} onChange={handleInputChange} readOnly={state.requestedSickTime}/>
             </label>
             <label>
                 Requested Vacation Time:{" "}
-                <input type="text" name="requestedVacationTime" value={state.requestedVacationTime} onChange={handleInputChange}/>
+                <input type="text" name="requestedVacationTime" value={state.requestedVacationTime} onChange={handleInputChange} readOnly={state.requestedVacationTime}/>
             </label>
             <label>
                 Request Status:{" "}
-                <input type="text" name="status" value={Approved} onChange={handleInputChange}/>
+                <input type="text" name="status" value={Approved} onChange={handleInputChange} readOnly={state.Approved}/>
             </label>
-            <button className='edit-employee-btn'>Approve</button>
+            <button className='edit-delete-employee-btns'>Approve</button>
         </form>
     </div>
     );

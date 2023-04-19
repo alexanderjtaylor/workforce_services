@@ -131,7 +131,7 @@ const ViewTimeOffRequests = (props) => {
                         <td className='table-row-center'>{thisRequest.ptoRequestStatus}</td>
                         <button className='employer-pto-btns' onClick={() => handleClickone(thisRequest)}>Approve</button>
                         <button className='employer-pto-btns' onClick={() => handleClicktwo(thisRequest)}>Deny</button>
-                        <button className='employer-pto-btns' onClick={() => handleClickthree(thisRequest)}>Edit PTO Time</button>
+                        <button className='employer-pto-btns' onClick={() => handleClickthree(thisRequest)}>Update PTO</button>
                       </tr>
                     );
                   })}

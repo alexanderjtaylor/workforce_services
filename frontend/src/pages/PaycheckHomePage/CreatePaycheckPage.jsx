@@ -107,17 +107,6 @@ const CreatePayCheckPage = (props) => {
     function thisWeeksShifts(shifts) {
         return shifts.filter(shift => moment(shift.workDate).isBetween(startDate, endDate));}
 
-            // function roundTo(n, digits) {
-            //     if (digits === undefined) {
-            //         digits = 0;
-            //     }
-        
-            //     var multiplicator = Math.pow(10, digits);
-            //     n = parseFloat((n * multiplicator).toFixed(11));
-            //     return Math.round(n) / multiplicator;
-            // }
-
-
             function thePunchValues(punches){
                 for (let i = 0; i < punches.length; i++) {
                         const startTime = moment(punches[i].clockIn);
@@ -180,35 +169,35 @@ const CreatePayCheckPage = (props) => {
         <form className="form" onSubmit={handleSubmit}>
         <label>
                 Cut Off Date:{" "}
-                <input type="text" name="cutOffDate" value={cutOffDate} onChange={handleInputChange}/>
+                <input type="date" name="cutOffDate" value={cutOffDate} onChange={handleInputChange} readOnly={cutOffDate}/>
             </label>
             <label>
                 Employee ID:{" "}
-                <input type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange}/>
+                <input type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange} readOnly={formData.employee_id}/>
             </label>
             <label>
                 Pay Rate:{" "}
-                <input type="text" name="payRate" value={formData.payRate} onChange={handleInputChange}/>
+                <input type="text" name="payRate" value={formData.payRate} onChange={handleInputChange} readOnly={formData.payRate}/>
             </label>
             <label>
                 Overtime Rate:{" "}
-                <input type="text" name="OTPayRate" value={formData.OTPayRate} onChange={handleInputChange}/>
+                <input type="text" name="OTPayRate" value={formData.OTPayRate} onChange={handleInputChange} readOnly={formData.OTPayRate}/>
             </label>
             <label>
                 Base Pay Hours:{" "}
-                <input type="text" name="hoursWorked" value={hoursWorked} onChange={handleInputChange}/>
+                <input type="text" name="hoursWorked" value={hoursWorked} onChange={handleInputChange} readOnly={formData.hoursWorked}/>
             </label>
             <label>
                 Overtime Hours:{" "}
-                <input type="text" name="OTHoursWorked" value={OTHoursWorked} onChange={handleInputChange}/>
+                <input type="text" name="OTHoursWorked" value={OTHoursWorked} onChange={handleInputChange} readOnly={formData.OTHoursWorked}/>
             </label>
             <label>
                 Sick Time:{" "}
-                <input type="text" name="sickTimeUsed" value={sickTimeHoursUsed} onChange={handleInputChange}/>
+                <input type="text" name="sickTimeUsed" value={sickTimeHoursUsed} onChange={handleInputChange} readOnly={formData.sickTimeHoursUsed}/>
             </label>
             <label>
                 Vacation Time:{" "}
-                <input type="text" name="vacationTimeUsed" value={vacationTimeHoursUsed} onChange={handleInputChange}/>
+                <input type="text" name="vacationTimeUsed" value={vacationTimeHoursUsed} onChange={handleInputChange} readOnly={formData.vacationTimeHoursUsed}/>
             </label>
             <label>
                 Taxes:{" "}

@@ -260,12 +260,28 @@ button {
   font-family: 'TitilliumText22LRegular', Arial, sans-serif;
   font-size: .9em;
   border-radius: 8px;
-  min-width:150px;
+  min-width:120px;
   color: midnightblue;
   border: 2px solid midnightblue;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: transparent;
-  margin: 1rem;
+  margin: 1em;
+}
+
+.toggle-schedule-btns {
+  width:255px;
+  height:30px;
+  text-align:center;
+  line-height:.5em;
+  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
+  font-size: .9em;
+  border-radius: 8px;
+  min-width:200px;
+  color: midnightblue;
+  border: 2px solid midnightblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  margin-bottom: 3em;
 }
 
 
@@ -306,12 +322,28 @@ button {
   /* margin: 3%; */
 }
 
+.employer-pay-home-page-btns {
+  width:255px;
+  height:35px;
+  text-align:center;
+  line-height:.5em;
+  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
+  font-size: 1em;
+  border-radius: 8px;
+  min-width:200px;
+  color: midnightblue;
+  border: 2px solid midnightblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+  margin: 1em;
+}
+
 .employer-pto-btns {
   width:200px;
-  height:55px;
+  height:30px;
   /* padding: 1rem; */
   text-align:center;
-  line-height:1.1em;
+  line-height:.5em;
   font-family: 'TitilliumText22LRegular', Arial, sans-serif;
   font-size: 1em;
   border-radius: 8px;
@@ -428,6 +460,13 @@ button:hover {
   max-width: 1200px;
   overflow: auto;
   text-align: center;
+}
+
+
+.week-of {
+  color: midnightblue;
+  text-align: center;
+  margin-top: 5.5%;
 }
 
 .home-welcome {
