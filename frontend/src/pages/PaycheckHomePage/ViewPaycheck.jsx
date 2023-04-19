@@ -74,7 +74,7 @@ const ViewPaycheck = (props) => {
 
     return (
     <div className="container">
-      <Link to="/"><button className="home-btn">Home</button></Link>
+      <Link to="/paycheck"><button className="home-btn">Back</button></Link>
       <h3 className="home-welcome">Employer: {state.employer_name}</h3>
       <h3 className="home-welcome">Employee: {state.firstName} {state.lastName}</h3>
       <h3 className="home-welcome">Pay Period: {startOfWeekTitle} - {endOfWeekTitle}</h3>

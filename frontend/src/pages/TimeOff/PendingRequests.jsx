@@ -27,7 +27,7 @@ const PendingPTORequests = (props) => {
         
         return (
             <div className="container">
-              <Link to="/"><button className="home-btn">Home</button></Link>
+              <Link to="/time-off"><button className="back-btn">Back</button></Link>
               <table className='profile-tabel'>
                 <thead>
                   <tr className='table-col'>

@@ -61,25 +61,21 @@ const RequestTimeOffPage = () => {
 
 return (
     <div className="container">
-        <Link to="/"><button className="home-btn">Home</button></Link>
-        <p className="note">Please Note: Available time off balances do not account for any currently pending requests. Available hours will update after employer approval.</p>
-        <table className='profile-tabel'>
+        <Link to="/"><button className="back-btn">Back</button></Link>
+        <p className="note">Please Note: Available time off balances do not account for pending requests. Available hours will update after employer approval.</p>
+        <table>
           <thead>
-            <tr className='table-col'>
-              <th className='table-col'>First Name</th>
-              <th className='table-col'>Last Name</th>
-              <th className='table-col'>Sick Time Available</th>
-              <th className='table-col'>Vacation Time Available</th>
+            <tr className='table-col-center'>
+              <th className='table-col-center'>Available Sick Time</th>
+              <th className='table-col-center'>Available Vacation Time</th>
             </tr>
           </thead>
           <tbody>
-                <tr className='table-row'>
-                  <td className='table-row'>{employee.firstName}</td>
-                  <td className='table-row'>{employee.lastName}</td>
-                  <td className='table-row'>{employee.sickTime}</td>
-                  <td className='table-row'>{employee.vacationTime}</td>
-                  <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Request Time Off</button>
-                  <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>View PTO Requests</button>
+                <tr className='table-row-center'>
+                  <td className='table-row-center'>{employee.sickTime}</td>
+                  <td className='table-row-center'>{employee.vacationTime}</td>
+                  <button className='employer-pto-btns' onClick={() => handleClickone(employee)}>Request PTO</button>
+                  <button className='employer-pto-btns' onClick={() => handleClicktwo(employee)}>View Requests</button>
                 </tr>
           </tbody>
         </table>

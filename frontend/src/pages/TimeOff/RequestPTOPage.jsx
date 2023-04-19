@@ -32,14 +32,15 @@ const RequestPTO = (props) => {
 
     return (
     <div className="container">
+        <Link to="/time-off"><button className="back-btn">Back</button></Link>
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 Employee ID:{" "}
-                <input type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange}/>
+                <input type="text" name="employee_id" value={formData.employee_id} onChange={handleInputChange} readOnly={formData.employee_id}/>
             </label>
             <label>
                 Employer ID:{" "}
-                <input type="text" name="employer_id" value={formData.employer_id} onChange={handleInputChange}/>
+                <input type="text" name="employer_id" value={formData.employer_id} onChange={handleInputChange} readOnly={formData.employer_id}/>
             </label>
             <label>
                 Start Date:{" "}
@@ -57,7 +58,7 @@ const RequestPTO = (props) => {
                 Vacation Hours:{" "}
                 <input type="number" name="requestedVacationTime" value={formData.timetouse} onChange={handleInputChange}/>
             </label>
-            <button className='add-employee-btn'>Submit Request</button>
+            <button className='employer-pto-btns'>Submit Request</button>
         </form>
     </div>
     );

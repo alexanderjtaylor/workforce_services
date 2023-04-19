@@ -84,13 +84,21 @@ const PastPaycheckDisplay = (props) => {
             console.log((paychecks.hoursWorked))
             console.log((paychecks.payRate))
 
+    const handleClick = (employee) => {
+            navigate(`/view-past-paychecks/${state.employee_id}`, {
+              state: {
+                employee_id: state.employee_id
+              }
+            });
+          };
+
     return (
         
     <div className="container">
-      <Link to="/"><button className="home-btn">Home</button></Link>
+      <button className='back-btn' onClick={() => handleClick(employee)}>Back</button>
       <h3 className="home-welcome">Employer: {employer}</h3>
       <h3 className="home-welcome">Employee: {employee.firstName} {employee.lastName}</h3>
-      <h3 className="home-welcome">Pay Period Cut Off Date: {moment(cutOff).format("MM/DD/YYYY")}</h3>
+      <h3 className="home-welcome">Pay Period Cut Off: {moment(cutOff).format("MM/DD/YYYY")}</h3>
             <table className='profile-tabel'>
             <thead>
               <tr>

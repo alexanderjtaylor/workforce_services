@@ -40,9 +40,7 @@ const ViewPastPaychecks = (props) => {
 
     return (
     <div className="container">
-      <Link to="/"><button className="home-btn">Home</button></Link>
-      <h3 className="home-welcome">Employer: {state.employer_name}</h3>
-      <h3 className="home-welcome">Employee: {state.firstName} {state.lastName}</h3>
+      <Link to="/"><button className="back-btn">Back</button></Link>
       <table className='profile-tabel'>
           <thead>
             <tr className='table-col-check'>
@@ -54,7 +52,7 @@ const ViewPastPaychecks = (props) => {
               return (
                 <tr className='table-row-check'>
                   <td className='table-row-check'>{moment(paycheck.cutOffDate).format("MM/DD/YYYY")}</td>
-                  <button className='home-page-btns' onClick={() => handleClick(paycheck)}>View Paycheck</button>
+                  <button className='employer-pay-home-page-btns' onClick={() => handleClick(paycheck)}>View Paycheck</button>
                 </tr>
               );
             })}

@@ -61,8 +61,8 @@ const ViewNextWeekSchedulePage = () => {
       <div className="container">
       <Link to="/"><button className="home-btn">Back</button></Link>
       <button className='toggle-schedule-btns' onClick={() => handleClick(employeeShifts)}>Last Week</button>
-      <h1 className="home-welcome">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
-            <table className='profile-tabel'>
+      <h1 className="week-of">{startOfWeekTitle} - {endOfWeekTitle}</h1>
+            <table>
             <thead>
               <tr>
                 <th className='table-col'>Day</th>

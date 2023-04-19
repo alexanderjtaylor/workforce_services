@@ -84,8 +84,8 @@ const ViewSchedulePage = () => {
       <Link to={`/next-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="toggle-schedule-btns">Next Week</button></Link>
       {/* <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Last Week</button>
       <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Next Week</button> */}
-      <h1 className="home-welcome">Schedule: {startOfWeekTitle} - {endOfWeekTitle}</h1>
-            <table className='profile-tabel'>
+      <h1 className="week-of">{startOfWeekTitle} - {endOfWeekTitle}</h1>
+            <table>
             <thead>
               <tr>
                 <th className='table-col'>Day</th>

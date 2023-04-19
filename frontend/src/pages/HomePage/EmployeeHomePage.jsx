@@ -45,11 +45,23 @@ const EmployeeHomePage = (props) => {
       }
     });
   };
+
+  const handleClickthree = (employee) => {
+    navigate(`/view-past-paychecks/${employee.id}`, {
+      state: {
+        employee_id: employee.id,
+        employer_id: employee.employer.id,
+        employer_name: employee.employer.companyName,
+        user_id: employee.user.id,
+        firstName: employee.firstName,
+        lastName: employee.lastName,
+      }
+    });
+  };
   
   return (
     <div className="home-container">
       <h2 className="home-welcome">Welcome, {employee.firstName}</h2>
-      {/* <p className="employee-home-sub-header">{employee.jobTitle} {props.companyName}</p> */}
           <ul key={employee.id} className="employee-home-sub-header">
             <li className="employee-home-info">{employee.firstName} {employee.lastName}</li>
             <li className="employee-home-info">{employee.jobTitle}</li>
@@ -60,7 +72,7 @@ const EmployeeHomePage = (props) => {
       <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Clock</button>
       <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Schedule</button>
       <Link to="/time-off"><button className='employer-home-page-btns'>Time Off</button></Link>
-      <Link to="/paycheck"><button className='employer-home-page-btns'>Pay</button></Link>
+      <button className='employer-home-page-btns' onClick={() => handleClickthree(employee)}>Pay</button>
       </div>
       <div class="area">
         <ul class="circles">
