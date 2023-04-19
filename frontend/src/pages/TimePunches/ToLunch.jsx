@@ -50,8 +50,7 @@ const GoToLunch = () => {
     return ( 
       <div className="container">
         <div className='page-btn-header'>
-        <button className='employer-home-page-btns' onClick={() => handleClick(timePunch)}>Back</button>
-        <Link to="/"><button className="clock-home-btn">Home</button></Link>
+        <button className='home-btn' onClick={() => handleClick(timePunch)}>Back</button>
         </div>
         <form className="form" onSubmit={handleSubmit}>
             <label className='punch-form-input'>
@@ -70,7 +69,7 @@ const GoToLunch = () => {
                 Time:{" "}
                 <input className='punch-form-input-boxes' type="text" name="startLunch" value={theDate}  readOnly={theDate}/>
             </label>
-            <button className='punch-btn'>Go to Lunch</button>
+            <button className='time-punch-btns'>Go to Lunch</button>
         </form>
     </div>
      )

@@ -120,7 +120,7 @@ const TimePunchPage = () => {
 
   return (
     <div className="container">
-    <Link to="/"><button className="home-btn">Home</button></Link>
+    <Link to="/"><button className="back-btn">Back</button></Link>
     <></>
     <DateTime/>
     <div className="time-punch-btns-div">

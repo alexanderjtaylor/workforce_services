@@ -57,8 +57,7 @@ const ClockIn = () => {
     return ( 
       <div className="container">
         <div className='page-btn-header'>
-          <button className='employer-home-page-btns' onClick={() => handleClick(timePunch)}>Back</button>
-          <Link to="/"><button className="clock-home-btn">Home</button></Link>
+        <button className='home-btn' onClick={() => handleClick(timePunch)}>Back</button>
         </div>
         <form className="form" onSubmit={handleSubmit}>
             <label className='punch-form-input'>
@@ -73,7 +72,7 @@ const ClockIn = () => {
                 Time:{" "}
                 <input className='punch-form-input-boxes' type="text" name="clockIn" value={theDate} readOnly={theDate}/>
             </label>
-            <button className='punch-btn'>Clock In</button>
+            <button className='time-punch-btns'>Clock In</button>
         </form>
     </div>
      )

@@ -49,18 +49,18 @@ const EmployeeHomePage = (props) => {
   return (
     <div className="home-container">
       <h2 className="home-welcome">Welcome, {employee.firstName}</h2>
-          <ul key={employee.id} className="employee-home-info">
-            <li className="employee-home-info-name">{employee.firstName} {employee.lastName}</li>
-            <li className="employee-home-info-data">{employee.jobTitle}</li>
-            <li className="employee-home-info-data">{props.companyName}</li>
+      {/* <p className="employee-home-sub-header">{employee.jobTitle} {props.companyName}</p> */}
+          <ul key={employee.id} className="employee-home-sub-header">
+            <li className="employee-home-info">{employee.firstName} {employee.lastName}</li>
+            <li className="employee-home-info">{employee.jobTitle}</li>
+            <li className="employee-home-info">{props.companyName}</li>
           </ul>
       <div className="home-page-btn-div">
-      <Link to="/profile"><button className='home-page-btns'>Profile</button></Link>
-      <button className='home-page-btns' onClick={() => handleClickone(employee)}>Clock</button>
-      <button className='home-page-btns' onClick={() => handleClicktwo(employee)}>Schedule</button>
-      {/* <Link to="/view-schedule"><button className='home-page-btns'>Schedule</button></Link> */}
-      <Link to="/time-off"><button className='home-page-btns'>Time Off</button></Link>
-      <Link to="/paycheck"><button className='home-page-btns'>Pay</button></Link>
+      <Link to="/profile"><button className='employer-home-page-btns'>Profile</button></Link>
+      <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Clock</button>
+      <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Schedule</button>
+      <Link to="/time-off"><button className='employer-home-page-btns'>Time Off</button></Link>
+      <Link to="/paycheck"><button className='employer-home-page-btns'>Pay</button></Link>
       </div>
       <div class="area">
         <ul class="circles">
