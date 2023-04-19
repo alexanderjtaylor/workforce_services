@@ -88,7 +88,7 @@ const EmployerViewSchedulePage = () => {
     };
 
   return (
-      <div className="container-schedule">
+      <div className="container">
       <Link to="/schedule"><button className="home-btn">Back</button></Link>
       <Link to={`/employer-view-last-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="toggle-schedule-btns">Last Week</button></Link>
       <Link to={`/employer-view-next-week-schedule/${state.employee_id}`} key={state.employee_id}><button className="toggle-schedule-btns">Next Week</button></Link>
