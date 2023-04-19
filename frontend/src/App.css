@@ -54,6 +54,163 @@ button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
+.container {
+  margin: 0 auto;
+  max-width: 1200px;
+  overflow: auto;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.login-container {
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  max-width: 1200px;
+  overflow: auto;
+  text-align: center;
+  position: relative;
+}
+
+.login-page-btns {
+  width:255px;
+  height:55px;
+  text-align:center;
+  line-height:1.1em;
+  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
+  font-size: 1em;
+  border-radius: 8px;
+  min-width:150px;
+  color: midnightblue;
+  border: 2px solid midnightblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+}
+
+.home-container {
+  margin: 0 auto;
+  padding: 1.5%;
+  max-width: 1200px;
+  overflow: auto;
+  text-align: center;
+}
+
+.employer-home-page-btn-div {
+  /* margin-bottom: 6%; */
+  padding: 2.3%;
+}
+
+.home-page-btn-div {
+  /* margin-bottom: 6%; */
+  padding: 2.3%;
+}
+
+.home-page-btns {
+  width:255px;
+  height:55px;
+  text-align:center;
+  line-height:1.1em;
+  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
+  font-size: 1em;
+  border-radius: 8px;
+  min-width:150px;
+  color: midnightblue;
+  border: 2px solid midnightblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+}
+
+.profile-table {
+  --bs-gutter-x: .5rem;
+  
+}
+
+.profile-wrapper {
+  margin-top: 3%;
+  margin-bottom: 16%;
+}
+
+.clock-in-wrapper {
+  margin-top: -2%;
+}
+
+.clock-out-wrapper {
+  margin-top: -1%;
+}
+
+.time-punch-container {
+  margin: 0 auto;
+  max-width: 1200px;
+  overflow: auto;
+  text-align: center;
+  position: relative;
+  width: 100%;
+}
+
+.time-punch-btns-div {
+  width: 100%;
+  text-align: center;
+  padding: 4%;
+  margin-bottom: .2%;
+}
+
+.time-punch-btns {
+  width:255px;
+  height:45px;
+  text-align:center;
+  line-height:1.1em;
+  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
+  font-size: 1em;
+  border-radius: 8px;
+  min-width:150px;
+  color: midnightblue;
+  border: 2px solid midnightblue;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+  background-color: transparent;
+}
+
+.punch-form-input {
+  font-size: small;
+}
+
+.punch-form-input-boxes {
+  font-size: small;
+}
+
+.punch-btn {
+  background-color: transparent;
+  display: inline-block;
+  border: 2px solid midnightblue;
+  color: midnightblue;
+  text-align: center;
+  font-size: clamp(25px, 2vw, 150px);
+  font-family: inherit;
+  max-width: 500px;
+  padding: 2rem 2rem;
+  margin-bottom: 10%;
+  margin: 2.5%;
+  width: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+
+.form input {
+  display: block;
+  width: 100%;
+  height: 25px;
+  margin: 5px;
+  padding: 3px 7px;
+  font-size: 17px;
+}
+
 .active-clock {
   font-size: x-large;
   text-align: center;
@@ -68,13 +225,9 @@ button {
 
 .table-col, .table-row {
   padding: 12px;
-  /* width: 10%; */
-  /* border-left: 1px solid midnightblue; */
   margin: 10px 10px;
-  /* line-height: 20px; */
   color: midnightblue;
   font-size: clamp(15px, 1.1vw, 40px);
-  /* color: midnightblue */
 }
 
 .delete-btn-search-employee {
@@ -284,32 +437,6 @@ button {
   margin-bottom: 3em;
 }
 
-
-.employer-home-page-btn-div {
-  margin-bottom: 6%;
-  padding: 2.3%;
-}
-
-.home-page-btn-div {
-  margin-bottom: 6%;
-  padding: 2.3%;
-}
-
-.employer-home-page-btns {
-  width:255px;
-  height:55px;
-  text-align:center;
-  line-height:1.1em;
-  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
-  font-size: 1em;
-  border-radius: 8px;
-  min-width:150px;
-  color: midnightblue;
-  border: 2px solid midnightblue;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-  background-color: transparent;
-}
-
 .employer-schedule-btns {
   width:255px;
   height:30px;
@@ -358,23 +485,6 @@ button {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
   background-color: transparent;
   /* margin: 3%; */
-}
-
-.home-page-btns {
-  background-color: transparent;
-  display: inline-block;
-  border: 2px solid midnightblue;
-  color: midnightblue;
-  text-align: center;
-  font-size: clamp(15px, 1.3vw, 60px);
-  font-family: inherit;
-  max-width: 100px;
-  padding: 0.55rem 0.55rem;
-  margin-bottom: 10%;
-  margin: 2.5%;
-  width: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-  /* table-layout: fixed; */
 }
 
 .entire-search-bar {
@@ -441,49 +551,6 @@ button:hover {
   background-color: midnightblue;
 }
 
-.login-container {
-  margin: auto;
-  margin-bottom: 15%;
-  margin-bottom: 15%;
-  max-width: 1200px;
-  overflow: auto;
-  text-align: center;
-  position: relative;
-}
-
-.login-page-btns {
-  width:255px;
-  height:55px;
-  text-align:center;
-  line-height:1.1em;
-  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
-  font-size: 1em;
-  border-radius: 8px;
-  min-width:150px;
-  color: midnightblue;
-  border: 2px solid midnightblue;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-  background-color: transparent;
-}
-
-.container {
-  margin: 0 auto;
-  max-width: 1200px;
-  overflow: auto;
-  text-align: center;
-  position: relative;
-  width: 100%;
-}
-
-.home-container {
-  margin: 0 auto;
-  padding: 5%;
-  max-width: 1200px;
-  overflow: auto;
-  text-align: center;
-}
-
-
 .week-of {
   color: midnightblue;
   text-align: center;
@@ -534,78 +601,11 @@ button:hover {
   font-size: clamp(15px, 1.2vw, 80px);
 }
 
-.form {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  gap: 1rem;
-}
-
-.form input {
-  display: block;
-  width: 100%;
-  height: 25px;
-  margin: 5px;
-  padding: 3px 7px;
-  font-size: 17px;
-}
-
-.profile-table {
-  --bs-gutter-x: .5rem;
-}
-
 .prop-tabel {
   --bs-gutter-x: .5rem;
     width: 100%;
     min-width: 100%;
     table-layout: fixed;
-}
-
-.time-punch-btns-div {
-  width: 100%;
-  text-align: center;
-  padding: 2%;
-  margin-bottom: 13%;
-}
-
-.time-punch-btns {
-  width:255px;
-  height:55px;
-  text-align:center;
-  line-height:1.1em;
-  font-family: 'TitilliumText22LRegular', Arial, sans-serif;
-  font-size: 1em;
-  border-radius: 8px;
-  min-width:150px;
-  color: midnightblue;
-  border: 2px solid midnightblue;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
-  background-color: transparent;
-}
-
-.punch-form-input {
-  font-size: x-small;
-}
-
-.punch-form-input-boxes {
-  font-size: x-small;
-}
-
-.punch-btn {
-  background-color: transparent;
-  display: inline-block;
-  border: 2px solid midnightblue;
-  color: midnightblue;
-  text-align: center;
-  font-size: clamp(25px, 2vw, 150px);
-  font-family: inherit;
-  max-width: 500px;
-  padding: 2rem 2rem;
-  margin-bottom: 10%;
-  margin: 2.5%;
-  width: auto;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
 }
 
 .note {

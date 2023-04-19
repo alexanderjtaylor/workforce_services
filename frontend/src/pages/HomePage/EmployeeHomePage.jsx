@@ -68,11 +68,11 @@ const EmployeeHomePage = (props) => {
             <li className="employee-home-info">{props.companyName}</li>
           </ul>
       <div className="home-page-btn-div">
-      <Link to="/profile"><button className='employer-home-page-btns'>Profile</button></Link>
-      <button className='employer-home-page-btns' onClick={() => handleClickone(employee)}>Clock</button>
-      <button className='employer-home-page-btns' onClick={() => handleClicktwo(employee)}>Schedule</button>
-      <Link to="/time-off"><button className='employer-home-page-btns'>Time Off</button></Link>
-      <button className='employer-home-page-btns' onClick={() => handleClickthree(employee)}>Pay</button>
+      <Link to="/profile"><button className='home-page-btns'>Profile</button></Link>
+      <button className='home-page-btns' onClick={() => handleClickone(employee)}>Clock</button>
+      <button className='home-page-btns' onClick={() => handleClicktwo(employee)}>Schedule</button>
+      <Link to="/time-off"><button className='home-page-btns'>Time Off</button></Link>
+      <button className='home-page-btns' onClick={() => handleClickthree(employee)}>Pay</button>
       </div>
       <div class="area">
         <ul class="circles">

@@ -49,9 +49,8 @@ const ClockOut = () => {
 
     return ( 
       <div className="container">
-        <div className='page-btn-header'>
-        <button className='home-btn' onClick={() => handleClick(timePunch)}>Back</button>
-        </div>
+        <button className='back-btn' onClick={() => handleClick(timePunch)}>Back</button>
+        <div className='clock-out-wrapper'>
         <form className="form" onSubmit={handleSubmit}>
         <label className='punch-form-input'>
                 Employee ID:{" "}
@@ -62,15 +61,16 @@ const ClockOut = () => {
                 <input className='punch-form-input-boxes' type="text" name="shift_id" value={formData.shift_id} readOnly={formData.shift_id}/>
             </label>
             <label className='punch-form-input'>
-                Clock In Time:{" "}
-                <input className='punch-form-input-boxes' type="text" name="clockIn" value={formData.clockIn} readOnly={formData.clockIn}/>
+                Clocked In:{" "}
+                <input className='punch-form-input-boxes' type="datetime-local" name="clockIn" value={formData.clockIn} readOnly={formData.clockIn}/>
             </label>
             <label className='punch-form-input'>
                 Time:{" "}
-                <input className='punch-form-input-boxes' type="text" name="clockOut" value={theDate} readOnly={theDate}/>
+                <input className='punch-form-input-boxes' type="datetime-local" name="clockOut" value={theDate} readOnly={theDate}/>
             </label>
             <button className='time-punch-btns'>Clock Out</button>
         </form>
+        </div>
     </div>
      )
 }

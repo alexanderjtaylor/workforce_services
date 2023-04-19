@@ -27,6 +27,7 @@ const EmployeeProfilePage = () => {
 return (
     <div className="container">
         <Link to="/"><button className="back-btn">Back</button></Link>
+        <div className="profile-wrapper">
         <table className='profile-tabel'>
           <thead>
             <tr className='table-col-center'>
@@ -57,6 +58,7 @@ return (
                 </tr>
           </tbody>
         </table>
+        </div>
       </div>
     );
 };

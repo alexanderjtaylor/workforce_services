@@ -49,9 +49,7 @@ const ReturnLunch = () => {
 
     return ( 
       <div className="container">
-        <div className='page-btn-header'>
-        <button className='home-btn' onClick={() => handleClick(timePunch)}>Back</button>
-        </div>
+        <button className='back-btn' onClick={() => handleClick(timePunch)}>Back</button>
         <form className="form" onSubmit={handleSubmit}>
         <label className='punch-form-input'>
                 Employee ID:{" "}
@@ -63,11 +61,11 @@ const ReturnLunch = () => {
             </label>
             <label className='punch-form-input'>
                 Clock In Time:{" "}
-                <input className='punch-form-input-boxes' type="text" name="clockIn" value={formData.clockIn} readOnly={formData.clockIn}/>
+                <input className='punch-form-input-boxes' type="datetime-local" name="clockIn" value={formData.clockIn} readOnly={formData.clockIn}/>
             </label>
             <label className='punch-form-input'>
                 Time:{" "}
-                <input className='punch-form-input-boxes' type="text" name="returnLunch" value={theDate}  readOnly={theDate}/>
+                <input className='punch-form-input-boxes' type="datetime-local" name="returnLunch" value={theDate}  readOnly={theDate}/>
             </label>
             <button className='time-punch-btns'>Return Lunch</button>
         </form>
