@@ -12,9 +12,24 @@ const AddEmployeePage = (props) => {
     const [formData, handleInputChange, handleSubmit] = useCustomForm(state, postNewEmployee);
     const {employeeID} = useParams();
     const [thisEmployee, setThisEmployee] = useState({});
+    const [employer, setEmployer] = useState({});
     console.log(state)
 
+    useEffect(() => {
+        fetchEmployer();
+      }, [token]);
+
+    async function fetchEmployer(){
+        const response = await axios.get(`http://127.0.0.1:8000/employers/${user.id}`, {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        });
+        console.log(response.data)
+        setEmployer(response.data.employer.id)}
+
     async function postNewEmployee(){
+        formData["employer_id"] = employer
         try {
             let response = await axios.post("http://127.0.0.1:8000/employees/create/", formData, {
                 headers: {
@@ -32,7 +47,7 @@ const AddEmployeePage = (props) => {
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 Employer ID:{" "}
-                <input type="text" name="employer_id" value={formData.employer_id} onChange={handleInputChange}/>
+                <input type="text" name="employer_id" value={employer} onChange={handleInputChange}/>
             </label>
             <label>
                 Employee User ID:{" "}

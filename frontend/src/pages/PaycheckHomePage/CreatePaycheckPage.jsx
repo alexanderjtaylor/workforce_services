@@ -16,26 +16,6 @@ const CreatePayCheckPage = (props) => {
     const [punchValues, setPunchValues] = useState([]);
     console.log(state)
 
-    // const moment = require('moment');
-    // let dayOfWeek = moment().day();
-    // let numDay = moment().date(); 
-    // let start = new Date();
-    // let startWeekTitle = new Date();
-    // start.setDate((numDay - dayOfWeek) - 1);
-    // startWeekTitle.setDate((numDay - dayOfWeek));
-    // start.setHours(0, 0, 0, 0);
-    // let startOfWeek = moment(start).format("MM/DD/YYYY");
-    // let startOfWeekTitle = moment(startWeekTitle).format("MM/DD/YYYY");
-    // let end = new Date();
-    // let endWeekTitle = new Date();
-    // end.setDate(numDay + (7 - dayOfWeek));
-    // endWeekTitle.setDate(numDay + (6 - dayOfWeek));
-    // end.setHours(0, 0, 0, 0);
-    // let endOfWeek = moment(end).format("MM/DD/YYYY");
-    // let endOfWeekTitle = moment(endWeekTitle).format("MM/DD/YYYY");
-    // const startDate = moment(startOfWeek, "MM/DD/YYYY");  
-    // const endDate = moment(endOfWeek, "MM/DD/YYYY");
-
     const moment = require('moment');
     let dayOfWeek = moment().day();
     let numDay = moment().date(); 
