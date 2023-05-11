@@ -47,19 +47,19 @@ const AddEmployeePage = (props) => {
         <form className="form" onSubmit={handleSubmit}>
             <label>
                 Employer ID:{" "}
-                <input type="text" name="employer_id" value={employer} onChange={handleInputChange}/>
+                <input type="text" name="employer_id" value={employer} onChange={handleInputChange} readOnly={employer}/>
             </label>
             <label>
                 Employee User ID:{" "}
-                <input type="text" name="user_id" value={formData.user_id} onChange={handleInputChange}/>
+                <input type="text" name="user_id" value={formData.user_id} onChange={handleInputChange} readOnly={formData.user_id}/>
             </label>
             <label>
                 First Name:{" "}
-                <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange}/>
+                <input type="text" name="firstName" value={formData.firstName} onChange={handleInputChange} readOnly={formData.firstName}/>
             </label>
             <label>
                 Last Name:{" "}
-                <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange}/>
+                <input type="text" name="lastName" value={formData.lastName} onChange={handleInputChange} readOnly={formData.lastName}/>
             </label>
             <label>
                 Job Title:{" "}
@@ -85,7 +85,7 @@ const AddEmployeePage = (props) => {
                 Vacation Time:{" "}
                 <input type="text" name="vacationTime" value={formData.vacationTime} onChange={handleInputChange}/>
             </label>
-            <button className='add-employee-btn'>Add Employee</button>
+            <button className='edit-delete-shift-btns'>Add Employee</button>
         </form>
     </div>
     );
